@@ -1,0 +1,19 @@
+current directory: /Users/216q013/Work_lab/Intern/p1_tech/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20171119-67490-1fh6k9p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/216q013/Work_lab/Intern/p1_tech/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/216q013/Work_lab/Intern/p1_tech/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/216q013/Work_lab/Intern/p1_tech/vendor/bundle/gems/byebug-9.1.0/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20171119-67490-io6kcl/byebug
