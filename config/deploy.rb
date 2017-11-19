@@ -1,11 +1,11 @@
 server '150.95.129.179', port: 22, roles: [:app, :web, :db], primary: true
 set :repo_url,        'git@github.com:kawayuta/P1_Tech_app.git'
 set :application,     'P1_Tech_app'
-set :user,            'kawayuta'
+set :user,            'deploy'
 set :ssh_options,     {
     forward_agent: true,
     user: fetch(:user),
-    keys: %w(~/.ssh/p1)
+    keys: %w(~/.ssh/p1-deploy)
 }
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
