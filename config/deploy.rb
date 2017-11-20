@@ -1,4 +1,4 @@
-server '150.95.129.179', port: 22, roles: [:app, :web, :db], primary: true
+server '133.130.113.77', port: 22, roles: [:app, :web, :db], primary: true
 set :repo_url,        'git@github.com:kawayuta/P1_Tech_app.git'
 set :application,     'P1_Tech_app'
 set :user,            'deploy'
