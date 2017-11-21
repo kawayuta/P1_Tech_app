@@ -45,6 +45,7 @@ class PostsController < ApplicationController
         # format.json { render :show, status: :created, location: @post }
       else
         @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
+        render :new
         # format.html { render :new }
         # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
