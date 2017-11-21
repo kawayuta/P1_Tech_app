@@ -11,5 +11,6 @@ class Post < ApplicationRecord
   validates :num_of_graphicer, presence: true
 
   belongs_to :template
+  belongs_to :user
 
 end
