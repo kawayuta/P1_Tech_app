@@ -1,0 +1,8 @@
+$(function() {
+  $('#post-preview-modal').css('display', 'none');
+  <% if @save_type == 'private' %>
+    $('#post-private-modal').css('display', 'block');
+  <% else %>
+    $('#post-public-modal').css('display', 'block');
+  <% end %>
+});
