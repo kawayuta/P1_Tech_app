@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development do
   gem 'capistrano',         require: false
