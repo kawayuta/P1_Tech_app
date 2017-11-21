@@ -33,17 +33,22 @@ class PostsController < ApplicationController
       @post.private_flag = false
     end
 
-    respond_to do |format|
+    # respond_to do |format|
       if @post.valid? && num_of_members_valid?
         @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
+        if @post.private_flag
+          @save_type = 'private'
+        else
+          @save_type = 'public'
+        end
+        # format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        # format.json { render :show, status: :created, location: @post }
       else
         @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        # format.html { render :new }
+        # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+    # end
   end
 
   # PATCH/PUT /posts/1

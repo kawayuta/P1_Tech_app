@@ -1,4 +1,4 @@
-<%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post, multipart: true, remote: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -71,7 +71,7 @@
   </div>
 
   <div class="post-modal-wrapper" id='post-modal-wrapper'>
-    <div class="post-modal">
+    <div class="post-preview-modal" id="post-preview-modal">
       <div class="close-btn-wrapper">
         <span class="close-preview-btn" id="close-modal">×</span>
       </div>
@@ -86,6 +86,23 @@
       <div class="actions">
         <%= form.submit '下書きに保存' %>
         <%= form.submit '投稿する' %>
+      </div>
+    </div>
+
+    <div class="post-after-modal" id="post-private-modal">
+      <p>下書きを保存しました</p>
+      <div>
+        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+      </div>
+    </div>
+
+    <div class="post-after-modal" id="post-public-modal">
+      <p>投稿が完了しました</p>
+      <p>SNSで拡散する</p>
+      <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
+      <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
+      <div>
+        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
       </div>
     </div>
   </div>
