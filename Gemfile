@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development do
   gem 'capistrano',         require: false
   gem 'capistrano-rails',   require: false
