@@ -1,0 +1,77 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :outline %>
+    <%= form.text_area :outline, id: :post_outline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail %>
+    <%= form.text_area :detail, id: :post_detail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :post_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :template_id %>
+    <%= form.number_field :template_id, id: :post_template_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :post_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :private_flag %>
+    <%= form.check_box :private_flag, id: :post_private_flag %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status, id: :post_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_planner %>
+    <%= form.number_field :num_of_planner, id: :post_num_of_planner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_engineer %>
+    <%= form.number_field :num_of_engineer, id: :post_num_of_engineer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_designer %>
+    <%= form.number_field :num_of_designer, id: :post_num_of_designer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_graphicer %>
+    <%= form.number_field :num_of_graphicer, id: :post_num_of_graphicer %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
