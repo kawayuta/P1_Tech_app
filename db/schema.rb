@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121033844) do
+ActiveRecord::Schema.define(version: 20171121034520) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(version: 20171121033844) do
     t.integer "num_of_engineer"
     t.integer "num_of_designer"
     t.integer "num_of_graphicer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
