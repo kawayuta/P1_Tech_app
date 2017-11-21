@@ -1,0 +1,114 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :template_id, 'テンプレートを選択' %>
+  <div class="field template-list-wrapper">
+    <div class="template-list">
+      <% @templates.each_with_index do |template, index| %>
+        <% if index == 0 %>
+          <div class="template-item template-item-selected" id="<%= template.id %>">
+            テンプレート<%= template.id %>
+          </div>
+        <% else %>
+          <div class="template-item" id="<%= template.id %>">
+            テンプレート<%= template.id %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :outline, id: :post_outline, placeholder: '概要' %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :detail, id: :post_detail, placeholder: '詳細' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, '画像を挿入' %>
+    <%= form.file_field :image, id: :post_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_planner %>
+    <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_engineer %>
+    <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_designer %>
+    <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_of_graphicer %>
+    <%= form.number_field :num_of_graphicer, id: :post_num_of_graphicer, min: 0 %>
+  </div>
+
+  <div class="field">
+    <span class="show-preview-btn" id="show-modal">プレビュー</span>
+  </div>
+
+  <div class="post-modal-wrapper" id='post-modal-wrapper'>
+    <div class="post-modal">
+      <div class="close-btn-wrapper">
+        <span class="close-preview-btn" id="close-modal">×</span>
+      </div>
+      <div class="post-preview">
+        <!-- ↓テンプレートを確認するため一時的に明示 -->
+        <p>テンプレート<span id='post-preview-template'></span></p>
+        <h3 id="post-preview-title"></h3>
+        <p id="post-preview-outline"></p>
+        <p id="post-preview-detail"></p>
+        <div id="post-preview-image"></div>
+      </div>
+      <div class="actions">
+        <%= form.submit '下書きに保存' %>
+        <%= form.submit '投稿する' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    $('.template-item').click(function() {
+      $('.template-item').removeClass('template-item-selected')
+      $(this).addClass('template-item-selected')
+      $('#post_template_id').val($(this).attr('id'));
+    });
+
+    $('#show-modal').click(function() {
+      $('#post-modal-wrapper').css('display', 'block');
+      $('#post-preview-title').text($('#post_title').val());
+      $('#post-preview-outline').text($('#post_outline').val());
+      $('#post-preview-detail').text($('#post_detail').val());
+      $('#post-preview-template').text($('#post_template_id').val());
+    });
+
+    $('#close-modal').click(function() {
+      $('#post-modal-wrapper').css('display', 'none');
+    });
+  });
+</script>

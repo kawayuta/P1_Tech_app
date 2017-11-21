@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Outline:</strong>
+  <%= @post.outline %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @post.detail %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <strong>Template:</strong>
+  <%= @post.template_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <strong>Private flag:</strong>
+  <%= @post.private_flag %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @post.status %>
+</p>
+
+<p>
+  <strong>Num of planner:</strong>
+  <%= @post.num_of_planner %>
+</p>
+
+<p>
+  <strong>Num of engineer:</strong>
+  <%= @post.num_of_engineer %>
+</p>
+
+<p>
+  <strong>Num of designer:</strong>
+  <%= @post.num_of_designer %>
+</p>
+
+<p>
+  <strong>Num of graphicer:</strong>
+  <%= @post.num_of_graphicer %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', posts_path %>
