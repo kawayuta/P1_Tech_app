@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_templates, only: [:new, :create, :edit, :update]
 
   # GET /posts
   # GET /posts.json
@@ -14,7 +15,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0, num_of_graphicer: 0)
   end
 
   # GET /posts/1/edit
@@ -25,12 +26,20 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.status = 0
+    if params[:commit] == '下書きに保存'
+      @post.private_flag = true
+    else
+      @post.private_flag = false
+    end
 
     respond_to do |format|
-      if @post.save
+      if @post.valid? && num_of_members_valid?
+        @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
+        @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -65,6 +74,17 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_templates
+      @templates = Template.all
+    end
+
+    def num_of_members_valid?
+      if @post.num_of_planner == 0 && @post.num_of_engineer == 0 && @post.num_of_designer == 0 && @post.num_of_graphicer == 0
+        return false
+      end
+      return true
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

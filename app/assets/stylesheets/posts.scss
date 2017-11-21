@@ -1,3 +1,57 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.template-list-wrapper {
+  overflow-x: scroll;
+}
+
+.template-list {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.template-item {
+  display: inline-block;
+  height: 90px;
+  width: 120px;
+  background-color: #ccc;
+}
+
+.template-item-selected {
+  background-color: #aaa;
+}
+
+.show-preview-btn {
+  display: inline-block;
+  border: 1px solid #aaa;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.close-preview-btn {
+  cursor: pointer;
+}
+
+.post-modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+}
+
+.post-modal {
+  color: #fff;
+}
+
+.post-preview {
+  background-color: #fff;
+  color: #000;
+  height: 210px;
+  width: 280px;
+}
