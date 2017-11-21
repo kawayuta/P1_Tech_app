@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171121091310) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -30,6 +31,31 @@ ActiveRecord::Schema.define(version: 20171121091310) do
     t.string "education"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+ActiveRecord::Schema.define(version: 20171121034520) do
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "outline"
+    t.text "detail"
+    t.string "image"
+    t.integer "template_id"
+    t.integer "user_id"
+    t.boolean "private_flag"
+    t.integer "status"
+    t.integer "num_of_planner"
+    t.integer "num_of_engineer"
+    t.integer "num_of_designer"
+    t.integer "num_of_graphicer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> bf4a99263b579d7087fe4322b16fc8ab5a4f320a
   end
 
 end
