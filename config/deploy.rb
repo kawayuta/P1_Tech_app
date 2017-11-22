@@ -89,27 +89,17 @@ namespace :deploy do
 
 
 
-  desc 'db_drop'
-  task :db_drop do
+  desc 'db_reset'
+  task :db_reset do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :bundle, :exec, :rake, 'db:drop'
+          execute :bundle, :exec, :rake, 'db:migrate:reset'
         end
       end
     end
   end
 
-  desc 'db_create'
-  task :db_create do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
-        end
-      end
-    end
-  end
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
