@@ -7,7 +7,7 @@ one:
   image: MyString
   template_id: 1
   user_id: 1
-  private_flag: false
+  published: false
   status: 1
   num_of_planner: 1
   num_of_engineer: 1
@@ -21,7 +21,7 @@ two:
   image: MyString
   template_id: 1
   user_id: 1
-  private_flag: false
+  published: false
   status: 1
   num_of_planner: 1
   num_of_engineer: 1

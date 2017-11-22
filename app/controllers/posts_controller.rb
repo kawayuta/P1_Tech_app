@@ -27,19 +27,19 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.status = 0
-    if params[:commit] == '下書きに保存'
-      @post.private_flag = true
+    if params[:commit] == '投稿する'
+      @post.published = true
     else
-      @post.private_flag = false
+      @post.published = false
     end
 
     # respond_to do |format|
       if @post.valid? && num_of_members_valid?
         @post.save
-        if @post.private_flag
-          @save_type = 'private'
-        else
+        if @post.published
           @save_type = 'public'
+        else
+          @save_type = 'private'
         end
         # format.html { redirect_to @post, notice: 'Post was successfully created.' }
         # format.json { render :show, status: :created, location: @post }
@@ -95,6 +95,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :outline, :detail, :image, :template_id, :user_id, :private_flag, :status, :num_of_planner, :num_of_engineer, :num_of_designer, :num_of_graphicer).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :outline, :detail, :image, :template_id, :user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer, :num_of_graphicer).merge(user_id: current_user.id)
     end
 end

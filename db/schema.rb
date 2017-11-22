@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121091310) do
+ActiveRecord::Schema.define(version: 20171122082650) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171121091310) do
     t.string "image"
     t.integer "template_id"
     t.integer "user_id"
-    t.boolean "private_flag"
+    t.boolean "published"
     t.integer "status"
     t.integer "num_of_planner"
     t.integer "num_of_engineer"

@@ -17,7 +17,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     assert_difference('Post.count') do
-      post posts_url, params: { post: { detail: @post.detail, image: @post.image, num_of_designer: @post.num_of_designer, num_of_engineer: @post.num_of_engineer, num_of_graphicer: @post.num_of_graphicer, num_of_planner: @post.num_of_planner, outline: @post.outline, private_flag: @post.private_flag, status: @post.status, template_id: @post.template_id, title: @post.title, user_id: @post.user_id } }
+      post posts_url, params: { post: { detail: @post.detail, image: @post.image, num_of_designer: @post.num_of_designer, num_of_engineer: @post.num_of_engineer, num_of_graphicer: @post.num_of_graphicer, num_of_planner: @post.num_of_planner, outline: @post.outline, published: @post.published, status: @post.status, template_id: @post.template_id, title: @post.title, user_id: @post.user_id } }
     end
 
     assert_redirected_to post_url(Post.last)
@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    patch post_url(@post), params: { post: { detail: @post.detail, image: @post.image, num_of_designer: @post.num_of_designer, num_of_engineer: @post.num_of_engineer, num_of_graphicer: @post.num_of_graphicer, num_of_planner: @post.num_of_planner, outline: @post.outline, private_flag: @post.private_flag, status: @post.status, template_id: @post.template_id, title: @post.title, user_id: @post.user_id } }
+    patch post_url(@post), params: { post: { detail: @post.detail, image: @post.image, num_of_designer: @post.num_of_designer, num_of_engineer: @post.num_of_engineer, num_of_graphicer: @post.num_of_graphicer, num_of_planner: @post.num_of_planner, outline: @post.outline, published: @post.published, status: @post.status, template_id: @post.template_id, title: @post.title, user_id: @post.user_id } }
     assert_redirected_to post_url(@post)
   end
 

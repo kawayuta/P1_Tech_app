@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :outline, presence: true, length: { maximum: 50 }
   validates :detail, presence: true, length: { maximum: 200 }
-  validates :private_flag, inclusion: {in: [true, false]}
+  validates :published, inclusion: {in: [true, false]}
   validates :status, presence: true
   validates :num_of_planner, presence: true
   validates :num_of_engineer, presence: true
@@ -11,6 +11,5 @@ class Post < ApplicationRecord
   validates :num_of_graphicer, presence: true
 
   belongs_to :template
-  belongs_to :user
 
 end
