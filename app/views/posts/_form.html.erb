@@ -16,12 +16,14 @@
     <div class="template-list">
       <% @templates.each_with_index do |template, index| %>
         <% if index == 0 %>
-          <div class="template-item template-item-selected" id="<%= template.id %>">
-            テンプレート<%= template.id %>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+            <span class="template-name template-item-selected"></span>
+            テンプレート no.<%= template.id %>
           </div>
         <% else %>
-          <div class="template-item" id="<%= template.id %>">
-            テンプレート<%= template.id %>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+            <span class="template-name"></span>
+            テンプレート no.<%= template.id %>
           </div>
         <% end %>
       <% end %>
@@ -62,8 +64,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :num_of_graphicer %>
-    <%= form.number_field :num_of_graphicer, id: :post_num_of_graphicer, min: 0 %>
+    <%= form.label :num_of_marketer %>
+    <%= form.number_field :num_of_marketer, id: :post_num_of_marketer, min: 0 %>
   </div>
 
   <div class="field">
@@ -110,9 +112,10 @@
 
 <script>
   $(function() {
+
     $('.template-item').click(function() {
-      $('.template-item').removeClass('template-item-selected')
-      $(this).addClass('template-item-selected')
+      $('.template-name').removeClass('template-item-selected');
+      $(this).find('.template-name').addClass('template-item-selected')
       $('#post_template_id').val($(this).attr('id'));
     });
 

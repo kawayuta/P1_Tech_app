@@ -3,9 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-
   has_many :posts
   has_many :team_members
+
 
   def self.find_for_oauth(auth)
 

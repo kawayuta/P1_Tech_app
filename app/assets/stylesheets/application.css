@@ -14,3 +14,33 @@
  *= require_self
  *= require font-awesome
  */
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width:100%;
+    height:60px;
+    background-color: #FED430;
+}
+
+a.header-new_post {
+    font-size:30px;
+    text-decoration: none;
+    color:#FFF;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+a.header-new_post:hover{
+    color: #F3722C;
+}
