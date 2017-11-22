@@ -13,4 +13,8 @@ class Post < ApplicationRecord
   belongs_to :template
   has_many :team_members
 
+  mount_uploader :image, ImageUploader
+
+  enum status: { planning: 0, development: 1, release: 2 }
+
 end

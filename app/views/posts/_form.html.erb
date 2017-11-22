@@ -16,14 +16,14 @@
     <div class="template-list">
       <% @templates.each_with_index do |template, index| %>
         <% if index == 0 %>
-          <div class="template-item" id="<%= template.id %>", style='background-image: url(<%= template.image %>);'>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
             <span class="template-name template-item-selected"></span>
-            テンプレート<%= template.id %>
+            テンプレート no.<%= template.id %>
           </div>
         <% else %>
-          <div class="template-item" id="<%= template.id %>", style='background-image: url(<%= template.image %>);'>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
             <span class="template-name"></span>
-            テンプレート<%= template.id %>
+            テンプレート no.<%= template.id %>
           </div>
         <% end %>
       <% end %>

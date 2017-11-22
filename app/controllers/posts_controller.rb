@@ -76,7 +76,7 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  engineer
   def join
     return redirect_to post_path(params[:id]) if TeamMember.find_by(post_id: params[:id], user_id: current_user.id)
     TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
