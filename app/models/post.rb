@@ -16,5 +16,4 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   enum status: { planning: 0, development: 1, release: 2 }
-
 end

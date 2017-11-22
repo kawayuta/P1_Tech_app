@@ -9,15 +9,18 @@
   </head>
 
   <body>
-  <div>
+  <header>
     <% if user_signed_in? %>
+        <%= link_to 'ペライチ', root_path %>
+
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 
-        <%= link_to 'ペライチを投稿', new_post_path %>
-  <% else %>
+        <%= link_to 'マイペライチ', posts_path %>
+        <%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %>
+    <% else %>
         <%= link_to 'Facebookでサインイン', user_facebook_omniauth_authorize_path %>
     <% end %>
-  </div>
+  </header>
 
     <%= yield %>
   </body>
