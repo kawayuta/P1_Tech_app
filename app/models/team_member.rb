@@ -7,7 +7,6 @@ class TeamMember < ApplicationRecord
   belongs_to :user
 
 
-  enum job_types: { engineer: 0, designer: 1, planner: 2, marketer:3 }
 
   # request:申請中, permission:許可, rejection:却下
   enum invite_flag: { request:0, permission:1, rejection: 2 }

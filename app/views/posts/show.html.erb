@@ -70,12 +70,12 @@
   </p>
 <% end %>
 
-<% if @post.num_of_graphicer != 0 %>
+<% if @post.num_of_marketer != 0 %>
   <p>
-    <strong>Num of graphicer:</strong>
-    <%= @post.num_of_graphicer %>
+    <strong>Num of marketer:</strong>
+    <%= @post.num_of_marketer %>
     <% if TeamMember.find_by(post_id: @post.id, user_id: current_user.id).nil? %>
-      <%= link_to 'Join', join_post_path(job_type: 3), method: :post, data: { confirm: 'グラフィッカーとしての参加を申請しますか？' } %>
+      <%= link_to 'Join', join_post_path(job_type: 3), method: :post, data: { confirm: 'マーケターとしての参加を申請しますか？' } %>
     <% end %>
   </p>
 <% end %>
@@ -83,11 +83,34 @@
 <p>
   <% if @post.user_id == current_user.id %>
     あなたは企画者です！
-  <% elsif TeamMember.find_by(post_id: @post.id, user_id: current_user.id) %>
-    参加申請中です！
+      <% if TeamMember.find_by(post_id: @post.id, accepted: false) %>
+          参加申請者は以下
+          <% @requests.each do |request| %>
+            <%= link_to request.user, approve_post_path(from_user: request.user.id) %>
+          <% end %>
+        <% elsif TeamMember.find_by(post_id: @post.id, accepted: true) %>
+          参加申込はありません
+       <% end %>
+<% elsif TeamMember.find_by(post_id: @post.id, user_id: current_user.id, accepted: true) %>
+    参加中
+  <% elsif TeamMember.find_by(post_id: @post.id, user_id: current_user.id, accepted: false) %>
+    参加申請中
+    <%= TeamMember.find_by(post_id: @post.id, user_id: current_user.id).job_type %>
     <%= link_to 'Leave', leave_post_path, method: :delete, data: { confirm: 'この企画のチームを抜けますか？' } %>
+
   <% end %>
 </p>
+
+
+<p>このプロジェクトに参加しているメンバー</p>
+<% if @members %>
+    <% @members.each do |member| %>
+        <%= member.user %>
+    <% end %>
+<% else %>
+
+<% end %>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |

@@ -11,11 +11,13 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @requests = @post.team_members.where(post_id: @post.id, accepted:false)
+    @members = @post.team_members.where(post_id: @post.id, accepted:true)
   end
 
   # GET /posts/new
   def new
-    @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0, num_of_graphicer: 0)
+    @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0, num_of_marketer: 0)
   end
 
   # GET /posts/1/edit
@@ -88,6 +90,11 @@ class PostsController < ApplicationController
     redirect_to post_path(params[:id])
   end
 
+  def approve
+    TeamMember.find_by(post_id: params[:id], user_id: params[:from_user]).update(accepted: true)
+    redirect_to post_path(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -99,7 +106,7 @@ class PostsController < ApplicationController
     end
 
     def num_of_members_valid?
-      if @post.num_of_planner == 0 && @post.num_of_engineer == 0 && @post.num_of_designer == 0 && @post.num_of_graphicer == 0
+      if @post.num_of_planner == 0 && @post.num_of_engineer == 0 && @post.num_of_designer == 0 && @post.num_of_marketer == 0
         return false
       end
       return true
@@ -107,6 +114,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :outline, :detail, :image, :template_id, :user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer, :num_of_graphicer).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :outline, :detail, :image, :template_id, :user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer, :num_of_marketer).merge(user_id: current_user.id)
     end
 end

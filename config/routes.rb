@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       post 'join' => 'posts#join'
+      get 'approve' => 'posts#approve'
       delete 'leave' => 'posts#leave'
     end
   end

@@ -12,7 +12,7 @@ one:
   num_of_planner: 1
   num_of_engineer: 1
   num_of_designer: 1
-  num_of_graphicer: 1
+  num_of_marketer: 1
 
 two:
   title: MyString
@@ -26,4 +26,4 @@ two:
   num_of_planner: 1
   num_of_engineer: 1
   num_of_designer: 1
-  num_of_graphicer: 1
+  num_of_marketer: 1

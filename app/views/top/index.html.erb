@@ -1,8 +1,8 @@
 <h2>TOP 5</h2>
 <section class="clearfix">
   <ul class="posts">
-    <li class="posts-post">
-    </li>
+    <li class="posts-post"></li>
+    <li class="posts-post"></li>
   </ul>
 </section>
 
@@ -12,7 +12,7 @@
       <ul class="posts">
         <% @posts.each do |post| %>
             <li class="posts-post">
-              <div class="posts-post_image"><%= image_tag(post.image) %></div>
+              <div class="posts-post_image"><%= link_to image_tag(post.image), post %></div>
               <div class="posts-post_title"><%= link_to post.title, post %></div>
               <div class="posts-post_outline"><%= post.outline %></div>
               <div class="posts-post_detail"><%= post.detail %></div>
@@ -27,7 +27,7 @@
       <ul>
         <% @posts.each do |post| %>
             <li class="posts-post">
-              <div class="posts-post_image"><%= image_tag(post.image) %></div>
+              <div class="posts-post_image"><%= link_to image_tag(post.image), post %></div>
               <div class="posts-post_title"><%= link_to post.title, post %></div>
               <div class="posts-post_status"><%= post.status %></div>
               <div class="posts-post_more"><%= link_to '続きを見る', user_facebook_omniauth_authorize_path %></div>
