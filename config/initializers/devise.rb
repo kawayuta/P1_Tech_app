@@ -276,6 +276,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'],
-                  :scope => 'education, email'
+                  :scope => 'email'
 
 end
