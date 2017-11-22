@@ -16,11 +16,13 @@
     <div class="template-list">
       <% @templates.each_with_index do |template, index| %>
         <% if index == 0 %>
-          <div class="template-item template-item-selected" id="<%= template.id %>">
+          <div class="template-item" id="<%= template.id %>", style='background-image: url(<%= template.image %>);'>
+            <span class="template-name template-item-selected"></span>
             テンプレート<%= template.id %>
           </div>
         <% else %>
-          <div class="template-item" id="<%= template.id %>">
+          <div class="template-item" id="<%= template.id %>", style='background-image: url(<%= template.image %>);'>
+            <span class="template-name"></span>
             テンプレート<%= template.id %>
           </div>
         <% end %>
@@ -111,8 +113,8 @@
 <script>
   $(function() {
     $('.template-item').click(function() {
-      $('.template-item').removeClass('template-item-selected')
-      $(this).addClass('template-item-selected')
+      $('.template-name').removeClass('template-item-selected');
+      $(this).find('.template-name').addClass('template-item-selected')
       $('#post_template_id').val($(this).attr('id'));
     });
 
