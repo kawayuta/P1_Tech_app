@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @post.status = 0
     if params[:commit] == '投稿する'
       @post.published = true
+      @post.team_members.build(user_id: current_user.id, job_type: 0, accepted: true)
     else
       @post.published = false
     end
@@ -74,6 +75,17 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def join
+    return redirect_to post_path(params[:id]) if TeamMember.find_by(post_id: params[:id], user_id: current_user.id)
+    TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
+    redirect_to post_path(params[:id])
+  end
+
+  def leave
+    TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
+    redirect_to post_path(params[:id])
   end
 
   private
