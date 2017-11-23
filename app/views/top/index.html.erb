@@ -1,13 +1,13 @@
-<h2>TOP 5</h2>
-<section class="clearfix">
+<section class="top-top5s clearfix">
+  <h2>TOP5</h2>
   <ul class="posts">
     <li class="posts-post"></li>
     <li class="posts-post"></li>
   </ul>
 </section>
 
-<section class="clearfix">
-<h2>企画一覧</h2>
+<section class="top-posts clearfix">
+<h2>最新のペライチ</h2>
 <% if user_signed_in? %>
       <ul class="posts">
         <% @posts.each do |post| %>
@@ -24,13 +24,13 @@
       </ul>
 
 <% else %>
-      <ul>
+      <ul class="posts">
         <% @posts.each do |post| %>
             <li class="posts-post">
               <div class="posts-post_image"><%= link_to image_tag(post.image), post %></div>
               <div class="posts-post_title"><%= link_to post.title, post %></div>
               <div class="posts-post_status"><%= post.status %></div>
-              <div class="posts-post_more"><%= link_to '続きを見る', user_facebook_omniauth_authorize_path %></div>
+              <div class="posts-post_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>
             </li>
         <% end %>
       </ul>
