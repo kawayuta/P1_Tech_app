@@ -42,6 +42,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'listen'
 
 group :development do
   gem 'capistrano',         require: false
