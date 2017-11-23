@@ -25,8 +25,23 @@
       -moz-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
     }
+    &:before{
+      position: absolute;
+      top: 1.3em;
+      left: 0;
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 3px;
+      background: #FDD344;
+      transition: 5s;
+    }
+    &:hover:before{
+      width: 100%;
+    }
   }
 }
+
 
 .template-list-wrapper {
   overflow-x: scroll;
