@@ -87,8 +87,6 @@ namespace :deploy do
     end
   end
 
-
-
   desc 'db_reset'
   task :db_reset do
     on roles(:db) do |host|
