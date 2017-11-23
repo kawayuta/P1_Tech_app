@@ -1,0 +1,69 @@
+@media screen and (max-width: 414px) {
+
+  .posts {
+    &-post {
+      width:100%;
+      max-width: 186px;
+      border:1px solid #EEE;
+      border-radius:5px;
+      list-style: none;
+      margin: 9px;
+      &_image {
+        width: 100%;
+        overflow:hidden;
+      }
+      &_image img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+
+  .posts {
+    &-post {
+      width:100%;
+      max-width: 169px;
+      border:1px solid #EEE;
+      border-radius:5px;
+      list-style: none;
+      margin: 8px;
+      &_image {
+        width: 100%;
+        overflow:hidden;
+      }
+      &_image img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 320px) {
+
+.posts {
+  &-post {
+       width:100%;
+       max-width: 143px;
+       border:1px solid #EEE;
+       border-radius:5px;
+       list-style: none;
+       margin: 7px;
+    &_image {
+       width: 100%;
+       overflow:hidden;
+    }
+    &_image img {
+       width: 100%;
+       height: auto;
+    }
+  }
+}
+
+}

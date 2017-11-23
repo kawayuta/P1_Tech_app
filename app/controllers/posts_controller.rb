@@ -30,19 +30,19 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.status = 0
     if params[:commit] == '投稿する'
-      @post.published = true
+      @post.published = false
       @post.team_members.build(user_id: current_user.id, job_type: 0, accepted: true)
     else
-      @post.published = false
+      @post.published = true
     end
 
     # respond_to do |format|
       if @post.valid? && num_of_members_valid?
         @post.save
         if @post.published
-          @save_type = 'public'
-        else
           @save_type = 'private'
+        else
+          @save_type = 'public'
         end
         # format.html { redirect_to @post, notice: 'Post was successfully created.' }
         # format.json { render :show, status: :created, location: @post }

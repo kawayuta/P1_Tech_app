@@ -13,4 +13,5 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require vender/masonry.pkgd.min.js
 //= require_tree .
