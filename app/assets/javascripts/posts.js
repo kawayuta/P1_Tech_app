@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
     $(function() {
+
         $('.posts-post').hover(function() {
             var link = this.children[1].children[0].getAttribute('href');
             var t = setTimeout(function() {
@@ -9,5 +10,6 @@ $(document).on('turbolinks:load', function() {
         }, function() {
             clearTimeout($(this).data('timeout'));
         });
+
     });
 });

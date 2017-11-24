@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+    <div id="template-format" class="template-format">w</div>
+
   <%= form.label :template_id, 'テンプレートを選択' %>
   <div class="field template-list-wrapper">
     <div class="template-list">
@@ -117,6 +119,10 @@
       $('.template-name').removeClass('template-item-selected');
       $(this).find('.template-name').addClass('template-item-selected')
       $('#post_template_id').val($(this).attr('id'));
+        console.log(this.getAttribute('style').split(' ')[1].replace(';',''));
+      $('.template-format').css({
+          'background-image': this.getAttribute('style').split(' ')[1].replace(';','')
+      })
     });
 
     $('#show-modal').click(function() {
