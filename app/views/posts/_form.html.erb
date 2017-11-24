@@ -11,106 +11,110 @@
     </div>
   <% end %>
 
-    <div id="template-format" class="template-format">w</div>
 
-  <%= form.label :template_id, 'テンプレートを選択' %>
-  <div class="field template-list-wrapper">
-    <div class="template-list">
-      <% @templates.each_with_index do |template, index| %>
-        <% if index == 0 %>
-          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-            <span class="template-name template-item-selected"></span>
-            テンプレート no.<%= template.id %>
+    <div id="template-format" class="template-format">
+
+      <div class="field">
+        <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
+      </div>
+
+      <div class="field">
+        <%= form.text_area :outline, id: :post_outline, placeholder: '概要' %>
+      </div>
+
+      <div class="field">
+        <%= form.text_area :detail, id: :post_detail, placeholder: '詳細' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :image, '画像を挿入' %>
+        <%= form.file_field :image, id: :post_image %>
+      </div>
+
+      <div class="field">
+        <%= form.label :num_of_planner %>
+        <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %>
+      </div>
+
+      <div class="field">
+        <%= form.label :num_of_engineer %>
+        <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %>
+      </div>
+
+      <div class="field">
+        <%= form.label :num_of_designer %>
+        <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %>
+      </div>
+
+      <div class="field">
+        <%= form.label :num_of_marketer %>
+        <%= form.number_field :num_of_marketer, id: :post_num_of_marketer, min: 0 %>
+      </div>
+
+      <div class="field">
+        <span class="show-preview-btn" id="show-modal">プレビュー</span>
+      </div>
+
+      <div class="post-modal-wrapper" id='post-modal-wrapper'>
+        <div class="post-preview-modal" id="post-preview-modal">
+          <div class="close-btn-wrapper">
+            <span class="close-preview-btn" id="close-modal">×</span>
           </div>
-        <% else %>
-          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-            <span class="template-name"></span>
-            テンプレート no.<%= template.id %>
+          <div class="post-preview">
+            <!-- ↓テンプレートを確認するため一時的に明示 -->
+            <p>テンプレート<span id='post-preview-template'></span></p>
+            <h3 id="post-preview-title"></h3>
+            <p id="post-preview-outline"></p>
+            <p id="post-preview-detail"></p>
+            <div id="post-preview-image"></div>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-    <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
-  </div>
+          <div class="actions">
+            <%= form.submit '下書きに保存', name:'' %>
+            <%= form.submit '投稿する'%>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
-  </div>
+        <div class="post-after-modal" id="post-private-modal">
+          <p>下書きを保存しました</p>
+          <div>
+            <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= form.text_area :outline, id: :post_outline, placeholder: '概要' %>
-  </div>
-
-  <div class="field">
-    <%= form.text_area :detail, id: :post_detail, placeholder: '詳細' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image, '画像を挿入' %>
-    <%= form.file_field :image, id: :post_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :num_of_planner %>
-    <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :num_of_engineer %>
-    <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :num_of_designer %>
-    <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :num_of_marketer %>
-    <%= form.number_field :num_of_marketer, id: :post_num_of_marketer, min: 0 %>
-  </div>
-
-  <div class="field">
-    <span class="show-preview-btn" id="show-modal">プレビュー</span>
-  </div>
-
-  <div class="post-modal-wrapper" id='post-modal-wrapper'>
-    <div class="post-preview-modal" id="post-preview-modal">
-      <div class="close-btn-wrapper">
-        <span class="close-preview-btn" id="close-modal">×</span>
-      </div>
-      <div class="post-preview">
-        <!-- ↓テンプレートを確認するため一時的に明示 -->
-        <p>テンプレート<span id='post-preview-template'></span></p>
-        <h3 id="post-preview-title"></h3>
-        <p id="post-preview-outline"></p>
-        <p id="post-preview-detail"></p>
-        <div id="post-preview-image"></div>
-      </div>
-      <div class="actions">
-        <%= form.submit '下書きに保存', name:'' %>
-        <%= form.submit '投稿する'%>
+        <div class="post-after-modal" id="post-public-modal">
+          <p>投稿が完了しました</p>
+          <p>SNSで拡散する</p>
+          <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
+          <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
+          <div>
+            <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="post-after-modal" id="post-private-modal">
-      <p>下書きを保存しました</p>
-      <div>
-        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+    <%= form.label :template_id, 'テンプレートを選択' %>
+      <div class="field template-list-wrapper">
+        <div class="template-list">
+          <% @templates.each_with_index do |template, index| %>
+              <% if index == 0 %>
+                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+                    <span class="template-name template-item-selected"></span>
+                    テンプレート no.<%= template.id %>
+                  </div>
+              <% else %>
+                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+                    <span class="template-name"></span>
+                    テンプレート no.<%= template.id %>
+                  </div>
+              <% end %>
+          <% end %>
+        </div>
+        <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
       </div>
-    </div>
 
-    <div class="post-after-modal" id="post-public-modal">
-      <p>投稿が完了しました</p>
-      <p>SNSで拡散する</p>
-      <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
-      <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
-      <div>
-        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-      </div>
-    </div>
-  </div>
 <% end %>
+
 
 <script>
   $(function() {
@@ -119,9 +123,9 @@
       $('.template-name').removeClass('template-item-selected');
       $(this).find('.template-name').addClass('template-item-selected')
       $('#post_template_id').val($(this).attr('id'));
-        console.log(this.getAttribute('style').split(' ')[1].replace(';',''));
       $('.template-format').css({
-          'background-image': this.getAttribute('style').split(' ')[1].replace(';','')
+          'background-image': this.getAttribute('style').split(' ')[1].replace(';',''),
+          'background-size' : 'cover'
       })
     });
 

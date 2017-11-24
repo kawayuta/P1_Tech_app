@@ -48,7 +48,27 @@
   border:1px solid #EEE;
   boredr-radius:5px;
   margin:0 auto;
+  overflow: hidden;
 }
+.template-format {
+  & input
+  {
+    width:300px;
+    background: transparent;
+    border:none;
+    color:#FFF;
+    font-size:20px;
+  }
+  & textarea
+  {
+    width:300px;
+    background: transparent;
+    border:none;
+    color:#FFF;
+    font-size:20px;
+  }
+}
+
 
 
 .template-list-wrapper {
