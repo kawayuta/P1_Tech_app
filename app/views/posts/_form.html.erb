@@ -12,6 +12,47 @@
   <% end %>
 
 
+    <div class="field">
+      <span class="show-preview-btn" id="show-modal">プレビュー</span>
+    </div>
+
+    <div class="post-modal-wrapper" id='post-modal-wrapper'>
+      <div class="post-preview-modal" id="post-preview-modal">
+        <div class="close-btn-wrapper">
+          <span class="close-preview-btn" id="close-modal">×</span>
+        </div>
+        <div class="post-preview">
+          <!-- ↓テンプレートを確認するため一時的に明示 -->
+          <p>テンプレート<span id='post-preview-template'></span></p>
+          <h3 id="post-preview-title"></h3>
+          <p id="post-preview-outline"></p>
+          <p id="post-preview-detail"></p>
+          <div id="post-preview-image"></div>
+        </div>
+        <div class="actions">
+          <%= form.submit '下書きに保存', name:'' %>
+          <%= form.submit '投稿する'%>
+        </div>
+      </div>
+
+      <div class="post-after-modal" id="post-private-modal">
+        <p>下書きを保存しました</p>
+        <div>
+          <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+        </div>
+      </div>
+
+      <div class="post-after-modal" id="post-public-modal">
+        <p>投稿が完了しました</p>
+        <p>SNSで拡散する</p>
+        <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
+        <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
+        <div>
+          <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+        </div>
+      </div>
+    </div>
+
     <div id="template-format" class="template-format">
 
       <div class="field">
@@ -49,47 +90,6 @@
       <div class="field">
         <%= form.label :num_of_marketer %>
         <%= form.number_field :num_of_marketer, id: :post_num_of_marketer, min: 0 %>
-      </div>
-
-      <div class="field">
-        <span class="show-preview-btn" id="show-modal">プレビュー</span>
-      </div>
-
-      <div class="post-modal-wrapper" id='post-modal-wrapper'>
-        <div class="post-preview-modal" id="post-preview-modal">
-          <div class="close-btn-wrapper">
-            <span class="close-preview-btn" id="close-modal">×</span>
-          </div>
-          <div class="post-preview">
-            <!-- ↓テンプレートを確認するため一時的に明示 -->
-            <p>テンプレート<span id='post-preview-template'></span></p>
-            <h3 id="post-preview-title"></h3>
-            <p id="post-preview-outline"></p>
-            <p id="post-preview-detail"></p>
-            <div id="post-preview-image"></div>
-          </div>
-          <div class="actions">
-            <%= form.submit '下書きに保存', name:'' %>
-            <%= form.submit '投稿する'%>
-          </div>
-        </div>
-
-        <div class="post-after-modal" id="post-private-modal">
-          <p>下書きを保存しました</p>
-          <div>
-            <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-          </div>
-        </div>
-
-        <div class="post-after-modal" id="post-public-modal">
-          <p>投稿が完了しました</p>
-          <p>SNSで拡散する</p>
-          <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
-          <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
-          <div>
-            <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-          </div>
-        </div>
       </div>
     </div>
 
