@@ -78,11 +78,36 @@ body {
 
 header {
     width:100%;
-    height:50px;
+    height:55px;
     background-color: #FED430;
     position: fixed;
     top:0;
     z-index: 10;
+}
+
+header nav ul li {
+    float:left;
+
+}
+
+
+header nav ul li.header-profile_image {
+    width:40px;
+    height:40px;
+    margin:5px;
+    border-radius:50%;
+    overflow: hidden;
+    float:right;
+
+}
+
+header nav ul li.header-profile_image img {
+    width: 100%;
+    height:auto;
+}
+
+header nav ul li.header-posts-new {
+    float:right;
 }
 
 body {
@@ -93,7 +118,7 @@ a.header-new_post {
     text-decoration: none;
     color:#FFF;
     float: right;
-    margin-top: 10px;
+    margin-top: 13px;
     margin-right: 10px;
 }
 

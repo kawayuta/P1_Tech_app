@@ -15,6 +15,8 @@ class User < ApplicationRecord
           uid:      auth.uid,
           provider: auth.provider,
           email:    auth.info.email,
+          username: auth.extra.raw_info.name,
+          image:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
           password: Devise.friendly_token[0, 20],
           education: auth.info.user_education_history.to_s
       )
@@ -22,12 +24,6 @@ class User < ApplicationRecord
     end
 
     user
-  end
-
-  private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}-#{auth.provider}@example.com"
   end
 
 end

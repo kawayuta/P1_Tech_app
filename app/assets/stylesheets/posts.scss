@@ -47,6 +47,7 @@
   width:1100px;
   height:600px;
   margin:0 auto;
+  box-shadow: 0 1px 5px rgba(0,0,0,.55);
 
   overflow: hidden;
 }
@@ -68,9 +69,8 @@
   margin:0 auto;
   overflow: hidden;
   background-size: cover;
-  box-shadow: 0 1px 5px rgba(0,0,0,.55);
   position: relative;
-  top:-600px;
+  top:-601px;
 
 }
 .template-format {

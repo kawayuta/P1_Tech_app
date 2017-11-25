@@ -10,18 +10,20 @@
 
   <body>
   <header>
+    <nav class="clearfix">
     <% if user_signed_in? %>
-        <%= link_to 'ペライチ', root_path %>
+          <ul>
 
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-
-        <%= link_to 'マイペライチ', posts_path %>
-        <%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %>
+            <li class="header-top"><%= link_to 'ペライチ', root_path %></li>
+            <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li class="header-profile_image"><%= image_tag current_user.try(:image) %></li>
+            <li class="header-posts-new"><%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %></li>
     <% else %>
-        <%= link_to 'Facebookでサインイン', user_facebook_omniauth_authorize_path %>
+            <li><%= link_to 'Facebookでサインイン', user_facebook_omniauth_authorize_path %></li>
     <% end %>
+    </nav>
   </header>
-
+    <div id="sidebar-left-jjjjjjjjj1z">
     <%= yield %>
   </body>
 </html>
