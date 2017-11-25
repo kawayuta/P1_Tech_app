@@ -11,9 +11,8 @@
   <body>
   <header>
     <nav class="clearfix">
-    <% if user_signed_in? %>
-          <ul>
-
+      <ul>
+      <% if user_signed_in? %>
             <li class="header-top"><%= link_to 'ペライチ', root_path %></li>
             <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li class="header-profile_image"><%= image_tag current_user.try(:image) %></li>
@@ -21,6 +20,7 @@
     <% else %>
             <li><%= link_to 'Facebookでサインイン', user_facebook_omniauth_authorize_path %></li>
     <% end %>
+      </ul>
     </nav>
   </header>
     <%= yield %>
