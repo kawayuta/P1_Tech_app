@@ -55,8 +55,7 @@
 
     <div id="template-format-wrap" class="template-format-wrap">
       <div id="template-format-filter" class="template-format-filter"></div>
-      <div id="template-format" class="template-format">
-
+      <div id="template-format" class="template-format" style="background-image:url('<%= @templates.first.image %>')">
       <div class="field">
         <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
       </div>
@@ -127,7 +126,6 @@
       $('#post_template_id').val($(this).attr('id'));
       $('.template-format').css({
           'background-image': this.getAttribute('style').split(' ')[1].replace(';',''),
-          'background-size' : 'cover'
       })
     });
 
