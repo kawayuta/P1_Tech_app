@@ -12,11 +12,13 @@
       <ul class="posts">
         <% @posts.each do |post| %>
             <li class="posts-post">
-              <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+              <div class="posts-post_template">
+                <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+                <div class="posts-post_image_filter"></div>
+              </div>
               <div class="posts-post_title"><%= link_to post.title, post %></div>
               <div class="posts-post_outline"><%= post.outline %></div>
               <div class="posts-post_detail"><%= post.detail %></div>
-              <div class="posts-post_template_id"><%= post.template_id %></div>
               <div class="posts-post_status"><%= post.status %></div>
             </li>
         <% end %>
@@ -26,7 +28,10 @@
       <ul class="posts">
         <% @posts.each do |post| %>
             <li class="posts-post">
-              <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+              <div class="posts-post_template">
+                <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+                <div class="posts-post_image_filter"></div>
+              </div>
               <div class="posts-post_title"><%= link_to post.title, post %></div>
               <div class="posts-post_status"><%= post.status %></div>
               <div class="posts-post_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>

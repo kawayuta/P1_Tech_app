@@ -5,7 +5,10 @@
 <ul class="posts">
   <% @posts.each do |post| %>
       <li id="post" class="posts-post">
-        <div class="posts-post_image"><%= link_to image_tag(post.image), post %></div>
+        <div class="posts-post_template">
+          <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+          <div class="posts-post_image_filter"></div>
+        </div>
         <div class="posts-post_title"><%= link_to post.title, post %></div>
         <div class="posts-post_outline"><%= post.outline %></div>
         <div class="posts-post_detail"><%= post.detail %></div>

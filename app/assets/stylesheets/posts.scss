@@ -2,11 +2,19 @@
   &-post {
     width:100%;
     max-width: 200px;
+    height:200px;
+    overflow: hidden;
     border:1px solid #EEE;
     border-radius:5px;
     list-style: none;
     margin: 10px;
 
+    &_template {
+      width:100%;
+      max-width: 200px;
+      height:202px;
+      overflow:hidden;
+    }
     &_image {
       width: 100%;
       overflow:hidden;
@@ -14,6 +22,35 @@
     &_image img {
       width: auto;
       height:200px;
+    }
+    &_image_filter {
+      width:100%;
+      max-width: 200px;
+      height:202px;
+      position: relative;
+      top:-203px;
+      z-index: 2;
+      background-color: rgba(255,255,255,0.4);
+    }
+    &_title {
+      position: relative;
+      top:-200px;
+      z-index: 3;
+    }
+    &_outline {
+      position: relative;
+      top:-200px;
+      z-index: 3;
+    }
+    &_detail {
+      position: relative;
+      top:-200px;
+      z-index: 3;
+    }
+    &_status {
+      position: relative;
+      top:-200px;
+      z-index: 3;
     }
     &:hover {
       box-shadow: 0 1px 5px rgba(0,0,0,.35);
