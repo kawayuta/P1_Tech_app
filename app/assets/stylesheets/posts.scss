@@ -42,13 +42,36 @@
   }
 }
 
+.template-format-wrap {
+
+  width:1100px;
+  height:600px;
+  margin:0 auto;
+
+  overflow: hidden;
+}
+
+.template-format-filter {
+  width:1100px;
+  height:600px;
+  margin:0 auto;
+  background-color: #FFF;
+  position: relative;
+  z-index: 2;
+  opacity: .6;
+}
 .template-format {
+
   width:1100px;
   height:600px;
   border:1px solid #EEE;
   boredr-radius:5px;
   margin:0 auto;
   overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0,0,0,.55);
+  position: relative;
+  top:-600px;
+
 }
 .template-format {
   & input
@@ -56,16 +79,18 @@
     width:300px;
     background: transparent;
     border:none;
-    color:#FFF;
     font-size:20px;
+    position: relative;
+    z-index: 3;
   }
   & textarea
   {
     width:300px;
     background: transparent;
     border:none;
-    color:#FFF;
     font-size:20px;
+    position: relative;
+    z-index: 3;
   }
 }
 
@@ -73,6 +98,7 @@
 
 .template-list-wrapper {
   overflow-x: scroll;
+  margin-top:30px;
 }
 
 .template-list {
@@ -82,9 +108,11 @@
 
 .template-item {
   display: inline-block;
-  height: 90px;
-  width: 120px;
+  height: 130px;
+  width: 210px;
   background-color: #ccc;
+
+
 }
 
 .template-item-selected {
@@ -93,11 +121,12 @@
 
 .template-item-selected:before {
   content: "\f058";
-  font-size: 16px;
+  font-size: 20px;
   color: #F3722C;
   font-family: FontAwesome;
   position: relative;
   z-index: 2;
+
 }
 .show-preview-btn {
   display: inline-block;

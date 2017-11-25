@@ -53,7 +53,9 @@
       </div>
     </div>
 
-    <div id="template-format" class="template-format">
+    <div id="template-format-wrap" class="template-format-wrap">
+      <div id="template-format-filter" class="template-format-filter"></div>
+      <div id="template-format" class="template-format">
 
       <div class="field">
         <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
@@ -92,8 +94,8 @@
         <%= form.number_field :num_of_marketer, id: :post_num_of_marketer, min: 0 %>
       </div>
     </div>
+    </div>
 
-    <%= form.label :template_id, 'テンプレートを選択' %>
       <div class="field template-list-wrapper">
         <div class="template-list">
           <% @templates.each_with_index do |template, index| %>
