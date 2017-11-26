@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       get 'approve' => 'posts#approve'
       delete 'leave' => 'posts#leave'
     end
+    collection do
+      get 'search' => 'posts#search'
+    end
   end
   get '/top', to: 'top#index'
 
