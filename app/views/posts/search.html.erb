@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<section class="top-top5s clearfix">
+  <h2>TOP5</h2>
+  <ul class="posts">
+  </ul>
+</section>
+
+
+<section class="top-posts clearfix">
+  <%= link_to 'planner', search_posts_path(sort:'planner') %>
+  <%= link_to 'engineer', search_posts_path(sort:'engineer') %>
+  <%= link_to 'designer', search_posts_path(sort:'designer') %>
+  
+<ul class="posts">
+  <%= render partial: 'post', collection: @posts %>
+</ul>

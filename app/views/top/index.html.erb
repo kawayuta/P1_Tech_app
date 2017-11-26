@@ -1,14 +1,17 @@
 <section class="top-top5s clearfix">
   <h2>TOP5</h2>
   <ul class="posts">
-    <li class="posts-post"></li>
-    <li class="posts-post"></li>
   </ul>
 </section>
 
+
 <section class="top-posts clearfix">
 <h2>最新のペライチ</h2>
-<% if user_signed_in? %>
+  <%= link_to 'planner', search_posts_path(sort:'planner') %>
+  <%= link_to 'engineer', search_posts_path(sort:'engineer') %>
+  <%= link_to 'designer', search_posts_path(sort:'designer') %>
+
+  <% if user_signed_in? %>
       <ul class="posts">
         <% @posts.each do |post| %>
             <li class="posts-post">
