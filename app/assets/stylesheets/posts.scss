@@ -208,3 +208,107 @@
     background: none;
   }
 }
+
+// =====posts/show======
+
+.post-show-container {
+  padding: 0 30px;
+  margin: 0 auto;
+  max-width: 500px;
+  word-break: break-all;
+
+  h1 {
+    font-size: 24px;
+    margin: 30px 0;
+    padding-top: 30px;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  .post-show-outline {
+    font-size: 18px;
+  }
+
+  img {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  h2 {
+    padding-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .post-jobtype-wrapper {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-box;
+    box-pack: justify;
+    -moz-box-pack: justify;
+    -webkit-box-pack: justify;
+    -o-box-pack: justify;
+    -ms-box-pack: justify;
+
+    span {
+      display: block;
+    }
+
+    .post-join-btn {
+      background-color: #FED430;
+      padding: 5px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+
+      &:hover, &:focus, &:visited {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+
+  .post-founder-wrapper {
+    margin-bottom: 30px;
+  }
+
+  .post-member-list {
+    margin-bottom: 30px;
+  }
+
+  .post-founder-img {
+    float: left;
+    margin-top: 5px;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .post-founder-info {
+    float: left;
+    margin-left: 10px;
+    width: calc(100% - 60px);
+
+    .post-founder-name {
+      margin: 10px 0;
+    }
+
+    .post-founder-university {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 0;
+    }
+  }
+
+
+}

@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @founder = @post.user
     @requests = @post.team_members.where(post_id: @post.id, accepted:false)
     @members = @post.team_members.where(post_id: @post.id, accepted:true)
   end

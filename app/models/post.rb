@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   validates :num_of_marketer, presence: true
 
   belongs_to :template
+  belongs_to :user
   has_many :team_members
 
   mount_uploader :image, ImageUploader
