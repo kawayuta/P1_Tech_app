@@ -1,0 +1,10 @@
+<h1><%= @post.title %>のトークルーム</h1>
+
+<div id="group-message-list">
+  <%= render 'messages' %>
+</div>
+
+<%= form_tag create_group_message_path(post_id: @post.id), remote: true do %>
+  <%= text_area_tag :content, '', id: 'group-message-form' %>
+  <%= submit_tag '送信' %>
+<% end %>

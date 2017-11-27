@@ -19,6 +19,11 @@ Rails.application.routes.draw do
       get 'search' => 'posts#search'
     end
   end
+
+  get 'talk_room/:post_id' => 'group_messages#talk_room', as: 'talk_room'
+  post 'group_messages/:post_id' => 'group_messages#create', as: 'create_group_message'
+  delete 'group_messages/:id/:post_id' => 'group_messages#destroy', as: 'destroy_group_message'
+
   get '/top', to: 'top#index'
 
 end
