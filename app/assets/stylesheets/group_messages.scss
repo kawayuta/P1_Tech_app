@@ -4,7 +4,7 @@
 
 .talk-room-wrapper {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 80px;
   padding: 0 20px;
 
   h1 {
@@ -60,6 +60,41 @@
 
   }
 
+}
 
+.group-message-form {
+  background-color: #eee;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+
+  .message-form-wrapper {
+    max-width: 500px;
+    padding: 8px 10px 3px;
+    margin: 0 auto;
+
+    img {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+    }
+
+    textarea {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      height: 30px;
+      width: calc(100% - 100px);
+    }
+
+    input[type="submit"] {
+      background-color: #ccc;
+      border: 1px solid #000;
+      position: relative;
+      top: -10px;
+    }
+  }
 
 }
