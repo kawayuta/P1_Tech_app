@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   belongs_to :template
   belongs_to :user
   has_many :team_members
+  has_many :votes
 
   mount_uploader :image, ImageUploader
 
@@ -23,15 +24,16 @@ class Post < ApplicationRecord
   end
 
 
-   def self.num_of_search(type)
-    if type == 'planner'
-      @posts = Post.search('(num_of_planner > 0)')
-    elsif type == 'engineer'
-      @posts = Post.search('(num_of_engineer > 0)')
-    elsif type == 'designer'
-      @posts = Post.search('(num_of_designer > 0)')
-    end
-    return @posts
+  def self.num_of_search(type)
+   if type == 'planner'
+     @posts = Post.search('(num_of_planner > 0)')
+   elsif type == 'engineer'
+     @posts = Post.search('(num_of_engineer > 0)')
+   elsif type == 'designer'
+     @posts = Post.search('(num_of_designer > 0)')
+   end
+   return @posts
   end
+
 
 end

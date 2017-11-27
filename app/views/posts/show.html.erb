@@ -106,6 +106,9 @@
 
   <% end %>
 
+  <%= link_to '応援', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' } %>
+
+
   <% if @founder == current_user %>
     <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

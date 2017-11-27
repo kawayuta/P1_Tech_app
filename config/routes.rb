@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'top#index'
+
   resources :posts do
+
     member do
+      post 'support' => 'posts#support'
       post 'join' => 'posts#join'
       get 'approve' => 'posts#approve'
       delete 'leave' => 'posts#leave'

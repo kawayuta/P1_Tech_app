@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :support]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
 
@@ -102,9 +102,14 @@ class PostsController < ApplicationController
     @posts = Post.num_of_search(params[:sort])
   end
 
-
-
-
+  def support
+  if @post.votes.vote_support(current_user,@post)
+    flash[:notice] = "このペライチを応援をしました！"
+  else
+    flash[:notice] = "このペライチの応援をキャンセルしました"
+  end
+    redirect_to post_path(params[:id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
