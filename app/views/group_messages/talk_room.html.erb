@@ -1,0 +1,29 @@
+<div class="talk-room-wrapper" id="talk-room-wrapper">
+  <h1><%= @post.title %>のトークルーム</h1>
+
+  <div id="group-message-list">
+    <%= render 'messages' %>
+  </div>
+
+</div>
+
+<%= form_tag create_group_message_path(post_id: @post.id), remote: true, class: "group-message-form" do %>
+  <div class="message-form-wrapper">
+    <%= image_tag current_user.image %>
+    <%= text_area_tag :content, '', id: 'group-message-textarea' %>
+    <%= submit_tag '送信' %>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    $('#group-message-textarea').focus(function() {
+      $(this).css('height', '60px');
+      $('#talk-room-wrapper').css('margin-bottom', '110px');
+    });
+    $('#group-message-textarea').blur(function() {
+      $(this).css('height', '30px');
+      $('#talk-room-wrapper').css('margin-bottom', '80px');
+    });
+  });
+</script>
