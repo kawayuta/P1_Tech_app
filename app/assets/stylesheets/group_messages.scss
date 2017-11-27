@@ -1,3 +1,65 @@
 // Place all the styles related to the group_messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.talk-room-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  h1 {
+    font-size: 20px;
+    margin: 20px 0;
+    padding-top: 20px;
+  }
+
+  .group-message {
+    margin: 40px 0;
+
+    .message-userimage-box {
+      float: left;
+
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    .message-container {
+      float: left;
+      margin-left: 10px;
+      width: calc(100% - 50px);
+      // position: relative;
+
+      .message-username {
+        font-weight: bold;
+      }
+
+      .message-time {
+        font-size: 14px;
+        color: #888;
+      }
+
+      .message-content {
+        margin-top: 10px;
+      }
+
+      // .message-detele-btn {
+      //   display: inline-block;
+      //   position: absolute;
+      //   right: 5px;
+      //   background-color: #aaa;
+      //   color: #fff;
+      //   padding: 4px 8px;
+      //   border-radius: 8px;
+      //   font-size: 14px;
+      //   text-decoration: none;
+      // }
+    }
+
+  }
+
+
+
+}
