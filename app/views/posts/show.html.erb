@@ -51,18 +51,6 @@
     </p>
   <% end %>
 
-  <% if @post.num_of_marketer != 0 %>
-    <p class="post-jobtype-wrapper">
-      <span class="post-jobtype-name">マーケター</span>
-      <span class="post-jobtype-number"><%= @post.num_of_marketer %>名</span>
-      <% if TeamMember.find_by(post_id: @post.id, user_id: current_user.id).nil? %>
-        <%= link_to 'Join', join_post_path(job_type: 3), method: :post, data: { confirm: 'マーケターとしての参加を申請しますか？' }, class: 'post-join-btn' %>
-      <% else %>
-        <span></span>
-      <% end %>
-    </p>
-  <% end %>
-
   <p>
     <% if @post.user_id == current_user.id %>
       あなたは企画者です！
