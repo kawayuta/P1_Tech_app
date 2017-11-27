@@ -14,7 +14,7 @@ class User < ApplicationRecord
       user = User.create(
           uid:      auth.uid,
           provider: auth.provider,
-          email:    auth.info.email,
+          email:    "",
           username: auth.extra.raw_info.name,
           image:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
           password: Devise.friendly_token[0, 20],
