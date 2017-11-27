@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :team_members
+  has_many :group_messages
 
 
   def self.find_for_oauth(auth)
