@@ -11,6 +11,25 @@
     </div>
   <% end %>
 
+  <div class="field template-list-wrapper">
+    <div class="template-list">
+      <% @templates.each_with_index do |template, index| %>
+          <% if index == 0 %>
+              <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+                <span class="template-name template-item-selected"></span>
+                テンプレート no.<%= template.id %>
+              </div>
+          <% else %>
+              <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+                <span class="template-name"></span>
+                テンプレート no.<%= template.id %>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
+    <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
+  </div>
+
 
     <div class="field">
       <span class="show-preview-btn" id="show-modal">プレビュー</span>
@@ -89,25 +108,6 @@
       </div>
     </div>
     </div>
-
-      <div class="field template-list-wrapper">
-        <div class="template-list">
-          <% @templates.each_with_index do |template, index| %>
-              <% if index == 0 %>
-                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-                    <span class="template-name template-item-selected"></span>
-                    テンプレート no.<%= template.id %>
-                  </div>
-              <% else %>
-                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-                    <span class="template-name"></span>
-                    テンプレート no.<%= template.id %>
-                  </div>
-              <% end %>
-          <% end %>
-        </div>
-        <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
-      </div>
 
 <% end %>
 
