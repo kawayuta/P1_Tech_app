@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>P1Tech</title>
+    <title><%= (@post) ? "#{@post.title} | ペラクト": "ペラクト | ペライチ企画を提案・実現しよう"%></title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
     <nav class="clearfix">
       <ul>
       <% if user_signed_in? %>
-            <li class="header-top"><%= link_to 'ペライチ', root_path %></li>
+            <li class="header-top"><%= link_to 'ペラクト', root_path %></li>
             <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li class="header-profile_image"><%= link_to (image_tag current_user.try(:image)), current_user %></li>
             <li class="header-posts-new"><%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %></li>
