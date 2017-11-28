@@ -14,6 +14,8 @@
  *= require_self
  *= require font-awesome
  *= require vender/normalize
+ *= require vender/remodal-default-theme
+ *= require vender/remodal
  */
 
 /* http://meyerweb.com/eric/tools/css/reset/

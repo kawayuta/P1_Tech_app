@@ -14,4 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require vender/masonry.pkgd.min.js
+//= rewuire vender/remodal.min
 //= require_tree .

@@ -43,6 +43,7 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'search_cop'
+gem 'koala'
 
 group :development do
   gem 'capistrano',         require: false

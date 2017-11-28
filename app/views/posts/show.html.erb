@@ -1,3 +1,11 @@
+<head>
+  <meta property="og:title" content="<%= @post.title %>">
+  <meta property="og:description" content="<%= @post.outline %>">
+  <meta property="og:image" content="<%= @post.image %>">
+  <meta property="og:url" content="<%= post_url %>/">
+  <meta property="og:type" content="article">
+</head>
+
 <div class="post-show-container">
 
   <h1><%= @post.title %></h1>
@@ -106,11 +114,20 @@
 
   <% end %>
 
-  <%= link_to '応援', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' } %>
+  <div class="remodal" data-remodal-id="modal">
+    <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' } %>
+    <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
+  </div>
+
+
+  <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
+      <%= link_to '応援やめる', support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？？' } %>
+  <% else %>
+      <a data-remodal-target="modal">応援する</a>
+  <% end %>
 
 
   <% if @founder == current_user %>
     <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
-</div>
