@@ -161,7 +161,7 @@
 }
 .template-format-wrap {
 
-  width:1100px;
+  width: 100%;
   height:600px;
   margin:0 auto;
   box-shadow: 0 1px 5px rgba(0,0,0,.55);
@@ -170,7 +170,7 @@
 }
 
 .template-format-filter {
-  width:1100px;
+  width:100%;
   height:600px;
   margin:0 auto;
   background-color: #FFF;
@@ -179,7 +179,7 @@
   opacity: .6;
 }
 .template-format {
-  width:1100px;
+  width:100%;
   height:600px;
   border:1px solid #EEE;
   boredr-radius:5px;
@@ -211,6 +211,74 @@
   }
 }
 
+.post-form-container {
+  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.post-image-field {
+  margin: 20px 0;
+
+  label {
+    display: inline-block;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.post-jobtype-form {
+  margin: 10px 0;
+
+  .post-jobtype-field {
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+
+    .jobtype-name {
+      margin-left: 20px;
+      line-height: 24px;
+    }
+
+    .jobtype-num-box {
+      display: inline-block;
+      float: right;
+      margin-right: 20px;
+
+      .jobtype-num {
+        display: inline-block;
+        text-align: center;
+        font-size: 22px;
+        width: 50px;
+      }
+
+      .jobtype-minus-btn {
+        color: #3496e3;
+        font-size: 24px;
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+
+        &.disabled {
+          color: #ccc;
+        }
+      }
+
+      .jobtype-plus-btn i {
+        color: #ea5550;
+        font-size: 24px;
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    }
+  }
+}
 
 .template-list-wrapper {
   overflow-x: scroll;
@@ -245,10 +313,20 @@
   z-index: 2;
 
 }
+
+.preview-btn-box {
+  margin: 30px 0;
+}
+
 .show-preview-btn {
   display: inline-block;
-  border: 1px solid #aaa;
-  padding: 5px;
+  background-color: #FED430;
+  height: 50px;
+  width: 100%;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
   cursor: pointer;
 }
 

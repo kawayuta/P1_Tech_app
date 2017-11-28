@@ -11,43 +11,91 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <div class="actions">
+      <%= form.submit '下書きに保存', name:'' %>
+      <%= form.submit '投稿する'%>
+    </div>
+  </div>
 
-    <div class="field">
-      <div class="actions">
-        <%= form.submit '下書きに保存', name:'' %>
-        <%= form.submit '投稿する'%>
+  <div class="field template-list-wrapper">
+    <div class="template-list">
+      <% @templates.each_with_index do |template, index| %>
+        <% if index == 0 %>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+            <span class="template-name template-item-selected"></span>
+            テンプレート no.<%= template.id %>
+          </div>
+        <% else %>
+          <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
+            <span class="template-name"></span>
+            テンプレート no.<%= template.id %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal">
+    <div class="post-preview-modal" id="post-preview-modal">
+
+      <h3>ペライチが完成しました！<br />
+        みんなに応援してもらいましょう！</h3>
+      <div id='post-preview-template'>
+        <h4 id="post-preview-title"></h4>
+        <p id="post-preview-outline"></p>
+        <p id="post-preview-detail"></p>
       </div>
+
+      <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+      <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
     </div>
 
-    <div class="remodal" data-remodal-id="modal">
+    <div class="post-modal-wrapper" id='post-modal-wrapper'>
       <div class="post-preview-modal" id="post-preview-modal">
-
-        <h3>ペライチが完成しました！<br />
-          みんなに応援してもらいましょう！</h3>
-        <div id='post-preview-template'>
-          <h4 id="post-preview-title"></h4>
+        <div class="close-btn-wrapper">
+          <span class="close-preview-btn" id="close-modal">×</span>
+        </div>
+        
+        <div class="post-preview">
+          <!-- ↓テンプレートを確認するため一時的に明示 -->
+          <p>テンプレート<span id='post-preview-template'></span></p>
+          <h3 id="post-preview-title"></h3>
           <p id="post-preview-outline"></p>
           <p id="post-preview-detail"></p>
-        </div>
-
-          <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
-          <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+          <div id="post-preview-image"></div>
         </div>
       </div>
-
-      <div class="post-after-modal" id="post-private-modal">
-        <p>下書きを保存しました</p>
-        <div>
-          <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-        </div>
-      </div>
-
-
     </div>
+  </div>
+  <div class="field">
+    <div class="actions">
+      <%= form.submit '下書きに保存', name:'' %>
+      <%= form.submit '投稿する'%>
+    </div>
+  </div>
 
-    <div id="template-format-wrap" class="template-format-wrap">
-      <div id="template-format-filter" class="template-format-filter"></div>
-      <div id="template-format" class="template-format" style="background-image:url('<%= @templates.first.image %>')">
+  <div class="post-after-modal" id="post-private-modal">
+    <p>下書きを保存しました</p>
+    <div>
+      <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+    </div>
+  </div>
+
+  <div class="post-after-modal" id="post-public-modal">
+    <p>投稿が完了しました</p>
+    <p>SNSで拡散する</p>
+    <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
+    <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
+    <div>
+      <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+    </div>
+  </div>
+
+  <div id="template-format-wrap" class="template-format-wrap">
+    <div id="template-format-filter" class="template-format-filter"></div>
+    <div id="template-format" class="template-format" style="background-image:url('<%= @templates.first.image %>')">
       <div class="field">
         <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
       </div>
@@ -59,47 +107,54 @@
       <div class="field">
         <%= form.text_area :detail, id: :post_detail, placeholder: '詳細' %>
       </div>
-
-      <div class="field">
-        <%= form.label :image, '画像を挿入' %>
-        <%= form.file_field :image, id: :post_image %>
-      </div>
-
-      <div class="field">
-        <%= form.label :num_of_planner %>
-        <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :num_of_engineer %>
-        <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :num_of_designer %>
-        <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %>
-      </div>
     </div>
+  </div>
+
+  <div class="post-form-container">
+    <div class="post-image-field">
+      <%= form.label :image, '画像を挿入' %>
+      <%= form.file_field :image, id: :post_image %>
     </div>
 
-      <div class="field template-list-wrapper">
-        <div class="template-list">
-          <% @templates.each_with_index do |template, index| %>
-              <% if index == 0 %>
-                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-                    <span class="template-name template-item-selected"></span>
-                    テンプレート no.<%= template.id %>
-                  </div>
-              <% else %>
-                  <div class="template-item" id="<%= template.id %>", style="background-image: url(<%= template.image %>);">
-                    <span class="template-name"></span>
-                    テンプレート no.<%= template.id %>
-                  </div>
-              <% end %>
-          <% end %>
+    <p>募集職種</p>
+
+    <div class="post-jobtype-form">
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">プランナー</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
         </div>
-        <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
       </div>
+
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">エンジニア</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
+        </div>
+      </div>
+
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">デザイナー</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-btn-box">
+      <span class="show-preview-btn" id="show-modal">プレビュー</span>
+    </div>
+
+  </div>
 
 <% end %>
 
@@ -134,5 +189,29 @@
       $('#post-preview-detail').text($('#post_detail').val());
     });
 
+    $('#close-modal').click(function() {
+      $('#post-modal-wrapper').css('display', 'none');
+    });
+
+    $('.jobtype-minus-btn').click(function() {
+      var $hidden = $(this).siblings('.jobtype-hidden')
+      if ($hidden.val() > 0) {
+        $hidden.val(Number($hidden.val()) - 1);
+        $(this).siblings('.jobtype-num').text($hidden.val());
+      }
+      if ($hidden.val() == 0 && !$(this).hasClass('disabled')) {
+        $(this).addClass('disabled');
+      }
+    })
+
+    $('.jobtype-plus-btn').click(function() {
+      var $hidden = $(this).siblings('.jobtype-hidden');
+      var $minusBtn = $(this).siblings('.jobtype-minus-btn');
+      $hidden.val(Number($hidden.val()) + 1);
+      $(this).siblings('.jobtype-num').text($hidden.val());
+      if ($minusBtn.hasClass('disabled')) {
+        $minusBtn.removeClass('disabled');
+      }
+    })
   });
 </script>
