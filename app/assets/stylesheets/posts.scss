@@ -330,6 +330,36 @@
   cursor: pointer;
 }
 
+.submit-btn-box {
+  width:350px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.show-private-btn {
+  display: inline-block;
+  background-color: #FED430;
+  height: 50px;
+  width: 48%;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.show-public-btn {
+  display: inline-block;
+  background-color: #FED430;
+  height: 50px;
+  width: 48%;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  cursor: pointer;
+
+}
+
+
 .close-preview-btn {
   cursor: pointer;
 }
