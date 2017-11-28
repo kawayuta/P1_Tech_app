@@ -1,9 +1,20 @@
+.success-wrap h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height:1.4em;
+  font-size:25px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
 .posts {
   &-post {
     &_highlight {
-      animation: inout 2.5s;
-      -webkit-animation: inout 2.5s;
+      animation: inout 2.8s;
+      -webkit-animation: inout 2.8s;
       box-shadow: 0 1px 15px rgba(253,211,68,.0);
+      z-index:5;
+      position: relative;
     }
     width:100%;
     max-width: 200px;
@@ -84,22 +95,20 @@
 
 @-webkit-keyframes inout {
   0% {
-    -webkit-transform: scale(.2);
-    -moz-transform: scale(.2);
-    -o-transform: scale(.2);
-    -ms-transform: scale(.2);
-    transform: scale(.2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
     box-shadow: 0 1px 15px rgba(253,211,68,.85);
+    position: relative;
+    top:-700px;
+    left:40%;
 
   }
 
-  50% {
-    -ms-transform: rotateX(170deg);
-    -webkit-transform: rotateX(170deg);
-    transform: rotateX(170deg);
-
-  }
   90%{
+
     box-shadow: 0 1px 15px rgba(253,211,68,.85);
 
   }
@@ -107,7 +116,6 @@
     box-shadow: 0 1px 15px rgba(253,211,68,.0);
 
   }
-
 }
 
 .post-preview-modal h3 {
