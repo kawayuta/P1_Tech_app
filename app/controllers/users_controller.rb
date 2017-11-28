@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
 
   def set_user
+    return redirect_to root_path flash[:notice] = "お探しのペライチユーザーは見つかりませんでした。" unless User.find_by(id: params[:id])
     @user = User.find(params[:id])
   end
 
