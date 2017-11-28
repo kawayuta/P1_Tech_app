@@ -127,7 +127,66 @@
   }
 }
 
+.post-form-container {
+  padding: 0 30px;
+}
 
+.post-image-field {
+  margin: 20px 0;
+
+  label {
+    display: inline-block;
+  }
+}
+
+.post-jobtype-form {
+  margin: 10px 0;
+
+  .post-jobtype-field {
+    padding: 15px 0;
+    border-top: 1px solid #ccc;
+
+    .jobtype-name {
+      margin-left: 20px;
+      line-height: 24px;
+    }
+
+    .jobtype-num-box {
+      display: inline-block;
+      float: right;
+      margin-right: 20px;
+
+      .jobtype-num {
+        display: inline-block;
+        text-align: center;
+        font-size: 22px;
+        width: 50px;
+      }
+
+      .jobtype-minus-btn {
+        color: #3496e3;
+        font-size: 24px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+
+        &.disabled {
+          color: #ccc;
+        }
+      }
+
+      .jobtype-plus-btn i {
+        color: #ea5550;
+        font-size: 24px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+    }
+  }
+}
 
 .template-list-wrapper {
   overflow-x: scroll;

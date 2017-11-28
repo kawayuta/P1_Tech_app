@@ -31,50 +31,50 @@
   </div>
 
 
-    <div class="field">
-      <span class="show-preview-btn" id="show-modal">プレビュー</span>
-    </div>
+  <div class="field">
+    <span class="show-preview-btn" id="show-modal">プレビュー</span>
+  </div>
 
-    <div class="post-modal-wrapper" id='post-modal-wrapper'>
-      <div class="post-preview-modal" id="post-preview-modal">
-        <div class="close-btn-wrapper">
-          <span class="close-preview-btn" id="close-modal">×</span>
-        </div>
-        <div class="post-preview">
-          <!-- ↓テンプレートを確認するため一時的に明示 -->
-          <p>テンプレート<span id='post-preview-template'></span></p>
-          <h3 id="post-preview-title"></h3>
-          <p id="post-preview-outline"></p>
-          <p id="post-preview-detail"></p>
-          <div id="post-preview-image"></div>
-        </div>
-        <div class="actions">
-          <%= form.submit '下書きに保存', name:'' %>
-          <%= form.submit '投稿する'%>
-        </div>
+  <div class="post-modal-wrapper" id='post-modal-wrapper'>
+    <div class="post-preview-modal" id="post-preview-modal">
+      <div class="close-btn-wrapper">
+        <span class="close-preview-btn" id="close-modal">×</span>
       </div>
-
-      <div class="post-after-modal" id="post-private-modal">
-        <p>下書きを保存しました</p>
-        <div>
-          <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-        </div>
+      <div class="post-preview">
+        <!-- ↓テンプレートを確認するため一時的に明示 -->
+        <p>テンプレート<span id='post-preview-template'></span></p>
+        <h3 id="post-preview-title"></h3>
+        <p id="post-preview-outline"></p>
+        <p id="post-preview-detail"></p>
+        <div id="post-preview-image"></div>
       </div>
-
-      <div class="post-after-modal" id="post-public-modal">
-        <p>投稿が完了しました</p>
-        <p>SNSで拡散する</p>
-        <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
-        <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
-        <div>
-          <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
-        </div>
+      <div class="actions">
+        <%= form.submit '下書きに保存', name:'' %>
+        <%= form.submit '投稿する'%>
       </div>
     </div>
 
-    <div id="template-format-wrap" class="template-format-wrap">
-      <div id="template-format-filter" class="template-format-filter"></div>
-      <div id="template-format" class="template-format" style="background-image:url('<%= @templates.first.image %>')">
+    <div class="post-after-modal" id="post-private-modal">
+      <p>下書きを保存しました</p>
+      <div>
+        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+      </div>
+    </div>
+
+    <div class="post-after-modal" id="post-public-modal">
+      <p>投稿が完了しました</p>
+      <p>SNSで拡散する</p>
+      <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
+      <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
+      <div>
+        <%= link_to 'OK', posts_path, class: "post-modal-ok-btn" %>
+      </div>
+    </div>
+  </div>
+
+  <div id="template-format-wrap" class="template-format-wrap">
+    <div id="template-format-filter" class="template-format-filter"></div>
+    <div id="template-format" class="template-format" style="background-image:url('<%= @templates.first.image %>')">
       <div class="field">
         <%= form.text_field :title, id: :post_title, placeholder: 'タイトル' %>
       </div>
@@ -86,28 +86,53 @@
       <div class="field">
         <%= form.text_area :detail, id: :post_detail, placeholder: '詳細' %>
       </div>
+    </div>
+  </div>
 
-      <div class="field">
-        <%= form.label :image, '画像を挿入' %>
-        <%= form.file_field :image, id: :post_image %>
+  <div class="post-form-container">
+    <div class="post-image-field">
+      <%= form.label :image, '画像を挿入' %>
+      <%= form.file_field :image, id: :post_image %>
+    </div>
+
+    <p>募集職種</p>
+
+    <div class="post-jobtype-form">
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">プランナー</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
+        </div>
+        <!-- <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %> -->
       </div>
 
-      <div class="field">
-        <%= form.label :num_of_planner %>
-        <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %>
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">エンジニア</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
+        </div>
+        <!-- <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %> -->
       </div>
 
-      <div class="field">
-        <%= form.label :num_of_engineer %>
-        <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :num_of_designer %>
-        <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %>
+      <div class="post-jobtype-field">
+        <span class="jobtype-name">デザイナー</span>
+        <div class="jobtype-num-box">
+          <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+          <span class="jobtype-num">0</span>
+          <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
+        </div>
+        <!-- <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %> -->
       </div>
     </div>
-    </div>
+  </div>
+
 
 <% end %>
 
@@ -135,5 +160,26 @@
     $('#close-modal').click(function() {
       $('#post-modal-wrapper').css('display', 'none');
     });
+
+    $('.jobtype-minus-btn').click(function() {
+      var $hidden = $(this).siblings('.jobtype-hidden')
+      if ($hidden.val() > 0) {
+        $hidden.val(Number($hidden.val()) - 1);
+        $(this).siblings('.jobtype-num').text($hidden.val());
+      }
+      if ($hidden.val() == 0 && !$(this).hasClass('disabled')) {
+        $(this).addClass('disabled');
+      }
+    })
+
+    $('.jobtype-plus-btn').click(function() {
+      var $hidden = $(this).siblings('.jobtype-hidden');
+      var $minusBtn = $(this).siblings('.jobtype-minus-btn');
+      $hidden.val(Number($hidden.val()) + 1);
+      $(this).siblings('.jobtype-num').text($hidden.val());
+      if ($minusBtn.hasClass('disabled')) {
+        $minusBtn.removeClass('disabled');
+      }
+    })
   });
 </script>
