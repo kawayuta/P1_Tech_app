@@ -21,18 +21,18 @@
 
     <div class="remodal" data-remodal-id="modal">
       <div class="post-preview-modal" id="post-preview-modal">
-          <h3>あなたのペライチが完成しました！<br />
-              みんなに応援してもらいましょう！</h3>
-          <p><span id='post-preview-template'></span></p>
+         <div id='post-preview-template'>
           <h3 id="post-preview-title"></h3>
           <p id="post-preview-outline"></p>
           <p id="post-preview-detail"></p>
-          <div id="post-preview-image"></div>
+        </div>
+
+          <h3>あなたのペライチが完成しました！<br />
+              みんなに応援してもらいましょう！</h3>
           <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
           <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
           <%= link_to 'OK', posts_path %>
         </div>
-
       </div>
 
       <div class="post-after-modal" id="post-private-modal">
