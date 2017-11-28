@@ -121,7 +121,7 @@ class PostsController < ApplicationController
 
 
   def success
-    if session[:post_created] # == true
+    if session[:post_created]
       session[:post_created] = nil
     else
       redirect_to root_path
