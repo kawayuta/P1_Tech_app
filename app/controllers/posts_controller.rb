@@ -15,6 +15,13 @@ class PostsController < ApplicationController
     @founder = @post.user
     @requests = @post.team_members.where(post_id: @post.id, accepted:false)
     @members = @post.team_members.where(post_id: @post.id, accepted:true)
+    # graph = Koala::Facebook::API.new(current_user.token)
+    # graph.put_wall_post("本文", {
+    #       "name" => "リンク先の名前（タイトル）",
+    #       "link" => "http://www.campaign-site_url.xxx/",
+    #       "description" => "リンクの説明",
+    #       "picture" => "http://www.campaign-site_url.xxx/image.jpg"
+    # })
   end
 
   # GET /posts/new

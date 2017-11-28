@@ -22,6 +22,7 @@ class User < ApplicationRecord
       )
       user.update(email:'')
     end
+    user.update( token: auth.credentials.token )
     user
   end
 
