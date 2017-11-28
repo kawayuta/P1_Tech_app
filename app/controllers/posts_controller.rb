@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(published: false).order('created_at DESC')
+    @posts = Post.where(published: true).order('created_at DESC')
   end
 
   # GET /posts/1
@@ -107,7 +107,7 @@ class PostsController < ApplicationController
 
 
   def search
-    @posts = Post.num_of_search(params[:sort]).where(published: false).order('created_at DESC')
+    @posts = Post.num_of_search(params[:sort]).where(published: true).order('created_at DESC')
   end
 
   def support
@@ -121,12 +121,12 @@ class PostsController < ApplicationController
 
 
   def success
-    if session[:post_created] # == true
+    if session[:post_created]
       session[:post_created] = nil
     else
       redirect_to root_path
     end
-    @posts = Post.where(published: false).where.not(id: current_user.posts.last.id).order('created_at DESC')
+    @posts = Post.where(published: true).where.not(id: current_user.posts.last.id).order('created_at DESC')
     @my_posts_id = current_user.posts.last
   end
 
