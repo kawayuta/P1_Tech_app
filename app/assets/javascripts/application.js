@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require turbolinks
 //= require vender/masonry.pkgd.min.js
 //= require vender/remodal.min
+//= require turbolinks
 //= require_tree .

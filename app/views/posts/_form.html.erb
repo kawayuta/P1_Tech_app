@@ -21,8 +21,7 @@
 
     <div class="remodal" data-remodal-id="modal">
       <div class="post-preview-modal" id="post-preview-modal">
-
-         <div id='post-preview-template'>
+        <div id='post-preview-template'>
           <h3 id="post-preview-title"></h3>
           <p id="post-preview-outline"></p>
           <p id="post-preview-detail"></p>
@@ -32,8 +31,9 @@
               みんなに応援してもらいましょう！</h3>
           <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
           <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
-       </div>
-     </div>
+          <%= link_to 'OK', posts_path %>
+        </div>
+      </div>
 
       <div class="post-after-modal" id="post-private-modal">
         <p>下書きを保存しました</p>
@@ -106,13 +106,32 @@
 
 <script>
   $(function() {
+
     $('.template-item').click(function() {
       $('.template-name').removeClass('template-item-selected');
       $(this).find('.template-name').addClass('template-item-selected')
       $('#post_template_id').val($(this).attr('id'));
       $('.template-format').css({
           'background-image': this.getAttribute('style').split(' ')[1].replace(';',''),
-      })
+      });
+      $('#post-preview-template').css({
+        'background-image': this.getAttribute('style').split(' ')[1].replace(';',''),
+        'width': '350px',
+        'height': '200px',
+        'margin': '0 auto',
+        'background-size': 'cover',
+        'border-radius': '5px',
+      });
+    });
+
+    $('#post_title').change(function() {
+      $('#post-preview-title').text($('#post_title').val());
+    });
+    $('#post_outline').change(function() {
+      $('#post-preview-outline').text($('#post_outline').val());
+    });
+    $('#post_detail').change(function() {
+      $('#post-preview-detail').text($('#post_detail').val());
     });
 
   });
