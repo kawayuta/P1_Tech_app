@@ -131,24 +131,33 @@
   width:250px;
   height:50px;
   background-color: #315A98;
-  padding-top: 10px;
+  padding-top: 13px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
   border-radius:3px;
   color:#FFF;
+  letter-spacing: 2px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 20px;
+  margin-right: 5px;
+  box-shadow: 0 1px 10px rgba(253,211,68,.3);
 }
 
 .sns-label-tw {
   width:250px;
   height:50px;
   background-color: #31ADF0;
-  padding-top: 10px;
+  padding-top: 13px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
   border-radius:3px;
   color:#FFF;
+  letter-spacing: 2px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-left: 5px;
+  box-shadow: 0 1px 10px rgba(253,211,68,.3);
 }
 .template-format-wrap {
 
@@ -205,6 +214,7 @@
 
 .template-list-wrapper {
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   margin-top:30px;
 }
 
