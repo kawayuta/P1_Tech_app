@@ -21,8 +21,9 @@ class User < ApplicationRecord
           password: Devise.friendly_token[0, 20],
           education: auth.info.user_education_history.to_s
       )
+      user.update(email:'')
     end
-    user.update( token: auth.credentials.token, email:'')
+    user.update( token: auth.credentials.token)
     user
   end
 
