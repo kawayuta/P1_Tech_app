@@ -16,18 +16,34 @@
   <%= link_to 'designer', search_posts_path(sort:'designer') %>
 
 <ul class="posts">
-  <li id="post" class="posts-post posts-post_highlight">
-    <div class="posts-post_template">
-      <div class="posts-post_image"><%= link_to image_tag(@my_posts_id.template.image), @my_posts_id %></div>
-      <div class="posts-post_image_filter"></div>
-    </div>
-    <div class="posts-post_title"><%= link_to @my_posts_id.title, @my_posts_id %></div>
-    <div class="posts-post_outline"><%= @my_posts_id.outline %></div>
-    <div class="posts-post_detail"><%= @my_posts_id.detail %></div>
-    <div class="posts-post_template_id"><%= @my_posts_id.template_id %></div>
-    <div class="posts-post_published"><%= (@my_posts_id.published) ? "下書き" : "公開" %></div>
-    <div class="posts-post_status"><%= @my_posts_id.status %></div>
-  </li>
 
-  <%= render partial: 'post', collection: @posts %>
+  <% rand = (rand(5)+1).to_i%>
+  <% @posts.each.with_index(1) do |post,index| %>
+  <% if index == rand %>
+    <li id="post" class="posts-post posts-post_highlight">
+      <div class="posts-post_template">
+        <div class="posts-post_image"><%= link_to image_tag(@my_posts_id.template.image), @my_posts_id %></div>
+        <div class="posts-post_image_filter"></div>
+      </div>
+      <div class="posts-post_title"><%= link_to @my_posts_id.title, @my_posts_id %></div>
+      <div class="posts-post_outline"><%= @my_posts_id.outline %></div>
+      <div class="posts-post_detail"><%= @my_posts_id.detail %></div>
+      <div class="posts-post_template_id"><%= @my_posts_id.template_id %></div>
+      <div class="posts-post_published"><%= (@my_posts_id.published) ? "下書き" : "公開" %></div>
+      <div class="posts-post_status"><%= @my_posts_id.status %></div>
+    </li>
+  <% end %>
+      <li id="post" class="posts-post">
+        <div class="posts-post_template">
+          <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
+          <div class="posts-post_image_filter"></div>
+        </div>
+        <div class="posts-post_title"><%= link_to post.title, post %></div>
+        <div class="posts-post_outline"><%= post.outline %></div>
+        <div class="posts-post_detail"><%= post.detail %></div>
+        <div class="posts-post_template_id"><%= post.template_id %></div>
+        <div class="posts-post_published"><%= (post.published) ? "下書き" : "公開" %></div>
+        <div class="posts-post_status"><%= post.status %></div>
+      </li>
+  <% end %>
 </ul>
