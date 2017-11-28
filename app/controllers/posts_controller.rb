@@ -55,6 +55,7 @@ class PostsController < ApplicationController
         end
         # format.html { redirect_to @post, notice: 'Post was successfully created.' }
         # format.json { render :show, status: :created, location: @post }
+        session[:post_created] = true
       else
         @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
         render :new
@@ -120,6 +121,11 @@ class PostsController < ApplicationController
 
 
   def success
+    if session[:post_created] # == true
+      session[:post_created] = nil
+    else
+      redirect_to root_path
+    end
     @posts = Post.where(published: false).where.not(id: current_user.posts.last.id).order('created_at DESC')
     @my_posts_id = current_user.posts.last
   end
