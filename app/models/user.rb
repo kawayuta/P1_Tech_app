@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
 
   def self.find_for_oauth(auth)
-
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
       user = User.create(
@@ -22,9 +21,7 @@ class User < ApplicationRecord
           education: auth.info.user_education_history.to_s
       )
       user.update(email:'')
-
     end
-
     user
   end
 
