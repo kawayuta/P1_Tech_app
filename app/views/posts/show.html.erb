@@ -118,7 +118,7 @@
 
   <div class="remodal" data-remodal-id="modal">
     <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' } %>
-    <a href="http://www.facebook.com/sharer.php?text="<%= @post.title %>を応援しました！"&u=<%=  post_url %>/" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
+    <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
   </div>
 
 
