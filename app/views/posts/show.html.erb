@@ -8,6 +8,8 @@
 
 <div class="post-show-container">
 
+  <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
+
   <h1><%= @post.title %></h1>
 
   <p class="post-show-outline">
