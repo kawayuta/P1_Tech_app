@@ -21,6 +21,7 @@
 
     <div class="remodal" data-remodal-id="modal">
       <div class="post-preview-modal" id="post-preview-modal">
+
          <div id='post-preview-template'>
           <h3 id="post-preview-title"></h3>
           <p id="post-preview-outline"></p>
@@ -31,9 +32,8 @@
               みんなに応援してもらいましょう！</h3>
           <label class="sns-label"><%= fa_icon 'facebook-official' %><%= check_box_tag :facebook, 'facebook', checked: true %></label>
           <label class="sns-label"><%= fa_icon 'twitter' %><%= check_box_tag :twitter, 'twitter', checked: true %></label>
-          <%= link_to 'OK', posts_path %>
-        </div>
-      </div>
+       </div>
+     </div>
 
       <div class="post-after-modal" id="post-private-modal">
         <p>下書きを保存しました</p>
