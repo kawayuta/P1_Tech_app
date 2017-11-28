@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :team_members
   has_many :group_messages
 
+  validates :email, presence: true, uniqueness: true
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first

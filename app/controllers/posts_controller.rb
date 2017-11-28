@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(published: false).order('created_at DESC')
   end
 
   # GET /posts/1
@@ -106,7 +106,7 @@ class PostsController < ApplicationController
 
 
   def search
-    @posts = Post.num_of_search(params[:sort])
+    @posts = Post.num_of_search(params[:sort]).where(published: false).order('created_at DESC')
   end
 
   def support
@@ -116,6 +116,12 @@ class PostsController < ApplicationController
     flash[:notice] = "このペライチの応援をキャンセルしました"
   end
     redirect_to post_path(params[:id])
+  end
+
+
+  def success
+    @posts = Post.where(published: false).where.not(id: current_user.posts.last.id).order('created_at DESC')
+    @my_posts_id = current_user.posts.last
   end
 
   private

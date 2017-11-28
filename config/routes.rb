@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post 'join' => 'posts#join'
       get 'approve' => 'posts#approve'
       delete 'leave' => 'posts#leave'
+      get 'success' => 'posts#success'
     end
     collection do
       get 'search' => 'posts#search'
