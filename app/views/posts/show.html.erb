@@ -117,15 +117,15 @@
   <% end %>
 
   <div class="remodal" data-remodal-id="modal">
-    <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' } %>
-    <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
+    <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %>
+    <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
   </div>
 
 
   <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
       <%= link_to '応援やめる', support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？？' } %>
   <% else %>
-      <a data-remodal-target="modal">応援する</a>
+      <a id="modal-support-btn">応援する</a>
   <% end %>
 
 
