@@ -30,11 +30,6 @@
     <%= form.hidden_field :template_id, id: :post_template_id, value: 1 %>
   </div>
 
-
-  <div class="field">
-    <span class="show-preview-btn" id="show-modal">プレビュー</span>
-  </div>
-
   <div class="post-modal-wrapper" id='post-modal-wrapper'>
     <div class="post-preview-modal" id="post-preview-modal">
       <div class="close-btn-wrapper">
@@ -106,7 +101,6 @@
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
           <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
         </div>
-        <!-- <%= form.number_field :num_of_planner, id: :post_num_of_planner, min: 0 %> -->
       </div>
 
       <div class="post-jobtype-field">
@@ -117,7 +111,6 @@
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
           <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
         </div>
-        <!-- <%= form.number_field :num_of_engineer, id: :post_num_of_engineer, min: 0 %> -->
       </div>
 
       <div class="post-jobtype-field">
@@ -128,9 +121,13 @@
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
           <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
         </div>
-        <!-- <%= form.number_field :num_of_designer, id: :post_num_of_designer, min: 0 %> -->
       </div>
     </div>
+
+    <div class="preview-btn-box">
+      <span class="show-preview-btn" id="show-modal">プレビュー</span>
+    </div>
+
   </div>
 
 
