@@ -11,18 +11,23 @@
   <div class="message-form-wrapper">
     <%= image_tag current_user.image %>
     <%= text_area_tag :content, '', id: 'group-message-textarea' %>
-    <%= submit_tag '送信' %>
+    <%= button_tag do %>
+      <%= fa_icon 'comment' %>
+    <% end %>
   </div>
 <% end %>
 
 <script>
   $(function() {
+    window.scrollTo(0, document.body.scrollHeight);
     $('#group-message-textarea').focus(function() {
       $(this).css('height', '60px');
       $('#talk-room-wrapper').css('margin-bottom', '110px');
+      window.scrollBy(0, 30);
     });
     $('#group-message-textarea').blur(function() {
       $(this).css('height', '30px');
+      window.scrollBy(0, -30);
       $('#talk-room-wrapper').css('margin-bottom', '80px');
     });
   });

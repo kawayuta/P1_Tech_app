@@ -1,4 +1,5 @@
 $(function() {
   $('#group-message-list').html('<%= j(render "messages") %>');
   $('#group-message-textarea').val('');
+  window.scrollTo(0,document.body.scrollHeight);
 });
