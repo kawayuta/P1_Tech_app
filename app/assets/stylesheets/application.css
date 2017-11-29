@@ -80,7 +80,7 @@ body {
 
 header {
     width:100%;
-    height:55px;
+    height:50px;
     background-color: #FED430;
     position: fixed;
     top:0;
@@ -113,7 +113,7 @@ header nav ul li.header-posts-new {
 }
 
 body {
-    margin-top: 55px;
+    margin-top: 50px;
 }
 a.header-new_post {
     font-size:30px;
