@@ -134,4 +134,13 @@
     <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 
+  <h2>質問・コメント</h2>
+  <div class="comment-list-wrapper" id="comment-list">
+    <%= render 'comments' %>
+  </div>
+  <%= form_tag create_comment_post_path(@post), remote: true do %>
+    <%= text_area_tag :content, '', id: 'comment-texrarea' %>
+    <%= submit_tag '送信' %>
+  <% end %>
+
 </div>
