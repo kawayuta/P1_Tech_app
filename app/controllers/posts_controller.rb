@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :support]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
 
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @founder = @post.user
     @requests = @post.team_members.where(post_id: @post.id, accepted:false)
     @members = @post.team_members.where(post_id: @post.id, accepted:true)
+    set_comments
     # graph = Koala::Facebook::API.new(current_user.token)
     # graph.put_wall_post("本文", {
     #       "name" => "リンク先の名前（タイトル）",
@@ -131,11 +132,13 @@ class PostsController < ApplicationController
   end
 
   def create_comment
-
+    Comment.create(content: params[:content], post_id: params[:id], user_id: current_user.id)
+    set_comments
   end
 
   def destroy_comment
-
+    Comment.find(params[:comment_id]).destroy
+    set_comments
   end
 
   private
@@ -144,6 +147,10 @@ class PostsController < ApplicationController
       return redirect_to root_path flash[:notice] = "お探しのペライチは見つかりませんでした。" unless Post.find_by(id: params[:id])
 
       @post = Post.find(params[:id])
+    end
+
+    def set_comments
+      @comments = Comment.where(post_id: params[:id]).includes(:user)
     end
 
     def set_templates
