@@ -130,6 +130,14 @@ class PostsController < ApplicationController
     @my_posts_id = current_user.posts.last
   end
 
+  def create_comment
+
+  end
+
+  def destroy_comment
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
