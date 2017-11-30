@@ -15,6 +15,7 @@ class Post < ApplicationRecord
   has_many :team_members
   has_many :votes
   has_many :group_messages
+  has_many :comments
 
   mount_uploader :image, ImageUploader
 

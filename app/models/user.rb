@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :team_members
   has_many :group_messages
+  has_many :comments
 
   validates :email, presence: true, uniqueness: true
 
