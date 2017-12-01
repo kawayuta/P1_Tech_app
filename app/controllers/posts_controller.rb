@@ -13,8 +13,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @founder = @post.user
-    @requests = @post.team_members.where(post_id: @post.id, accepted:false)
-    @members = @post.team_members.where(post_id: @post.id, accepted:true)
+    @requests = @post.team_members.where(accepted:false)
+    @members = @post.team_members.where(accepted:true)
+    @self_member_info = @post.team_members.find_by(user_id: current_user.id)
     set_comments
     # graph = Koala::Facebook::API.new(current_user.token)
     # graph.put_wall_post("本文", {
