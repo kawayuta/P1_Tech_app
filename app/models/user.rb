@@ -20,7 +20,6 @@ class User < ApplicationRecord
           username: auth.extra.raw_info.name,
           image:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
           password: Devise.friendly_token[0, 20],
-          education: auth.info.user_education_history.to_s
       )
     end
     user.update( token: auth.credentials.token)
