@@ -47,24 +47,18 @@ class PostsController < ApplicationController
       @post.published = false
     end
 
-    # respond_to do |format|
-      if @post.valid? && num_of_members_valid?
-        @post.save
-        if @post.published
-          @save_type = 'public'
-        else
-          @save_type = 'private'
-        end
-        # format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        # format.json { render :show, status: :created, location: @post }
-        session[:post_created] = true
+    if @post.valid? && num_of_members_valid?
+      @post.save
+      if @post.published
+        @save_type = 'public'
       else
-        @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
-        render :new
-        # format.html { render :new }
-        # format.json { render json: @post.errors, status: :unprocessable_entity }
+        @save_type = 'private'
       end
-    # end
+      session[:post_created] = true
+    else
+      @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
+      render :new
+    end
   end
 
   # PATCH/PUT /posts/1
