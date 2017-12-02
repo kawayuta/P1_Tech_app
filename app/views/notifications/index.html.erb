@@ -1,0 +1,12 @@
+<% @notifications.reverse.each do |notice|%>
+    <% if notice.content == '申請' %>
+        <%= link_to (image_tag notice.user.image), notice.user %>
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
+    <% elsif notice.content == '取消' %>
+        <%= link_to (image_tag notice.user.image), notice.user %>
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
+    <% elsif notice.content == '許可' %>
+        <%= link_to (image_tag notice.user.image), notice.user %>
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
+    <% end %>
+<% end %>

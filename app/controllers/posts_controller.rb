@@ -87,17 +87,21 @@ class PostsController < ApplicationController
 
   def join
     return redirect_to post_path(params[:id]) if TeamMember.find_by(post_id: params[:id], user_id: current_user.id)
-    TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
+    @join = TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
+    current_user.notifications.join_notice_create(@join, @join.post.user, 'join')
     redirect_to post_path(params[:id])
   end
 
   def leave
-    TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
+    @leave = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
+    current_user.notifications.join_notice_create(@leave, @leave.post.user, 'leave')
     redirect_to post_path(params[:id])
   end
 
   def approve
-    TeamMember.find_by(post_id: params[:id], user_id: params[:from_user]).update(accepted: true)
+    @approve = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
+    @approve.update(accepted: true)
+    current_user.notifications.join_notice_create(@approve, @approve.user, 'approve')
     redirect_to post_path(params[:id])
   end
 

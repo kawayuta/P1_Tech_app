@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   resources :posts do
-
     member do
       post 'support' => 'posts#support'
       post 'join' => 'posts#join'
@@ -33,4 +32,5 @@ Rails.application.routes.draw do
 
   get '/top', to: 'top#index'
 
+  resources :notifications, only: :index
 end
