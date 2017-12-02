@@ -112,6 +112,10 @@ header nav ul li.header-posts-new {
     float:right;
 }
 
+header nav ul li.header-notices {
+    float:right;
+}
+
 body {
     margin-top: 50px;
 }
@@ -125,5 +129,18 @@ a.header-new_post {
 }
 
 a.header-new_post:hover{
+    color: #F3722C;
+}
+
+a.header-notices {
+    font-size:28px;
+    text-decoration: none;
+    color:#FFF;
+    float: right;
+    margin-top: 11px;
+    margin-right: 10px;
+}
+
+a.header-notices:hover{
     color: #F3722C;
 }
