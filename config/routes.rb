@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   post 'group_messages/:post_id' => 'group_messages#create', as: 'create_group_message'
   delete 'group_messages/:id/:post_id' => 'group_messages#destroy', as: 'destroy_group_message'
 
+  get 'evaluations/new/:post_id/:user_id' => 'evaluations#new', as: 'new_evaluation'
+  post 'evaluations/:post_id/:user_id' => 'evaluations#create', as: 'create_evaluation'
+
   get '/top', to: 'top#index'
 
 end
