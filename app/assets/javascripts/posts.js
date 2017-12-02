@@ -33,6 +33,14 @@ $(function () {
     });
   })
 
+  $('.posts-post').click(function(){
+    $(this).addClass('posts-post_open');
+    if ($('#posts-post_single').css('display') == 'none') {
+      $('#posts-post_single').slideDown('slow');
+    } else {
+      $('#posts-post_single').slideUp('fast');
+    }
+  })
 
 });
 

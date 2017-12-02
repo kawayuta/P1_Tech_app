@@ -88,6 +88,27 @@
     //&:hover:before{
     //  width: 100%;
     //}
+
+    &_open {
+      position: fixed !important;
+      top:50px !important;
+
+    }
+
+    &_single {
+      width: 93%;
+      height: 60vh;
+      margin: 0 auto;
+      display: none;
+      position: fixed;
+      left:0;
+      right:0;
+      bottom: 10px;
+      z-index:3;
+      background-color: #FFF;
+      border:1px solid #EEE;
+      border-radius:5px;
+    }
   }
 }
 
