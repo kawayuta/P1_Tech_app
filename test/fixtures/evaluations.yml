@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post_id: 1
+  user_id: 1
+  first_evaluated_user: 1
+  second_evaluated_user: 1
+  third_evaluated_user: 1
+  fourth_evaluated_user: 1
+  fifth_evaluated_user: 1
+
+two:
+  post_id: 1
+  user_id: 1
+  first_evaluated_user: 1
+  second_evaluated_user: 1
+  third_evaluated_user: 1
+  fourth_evaluated_user: 1
+  fifth_evaluated_user: 1
