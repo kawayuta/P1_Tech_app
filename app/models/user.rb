@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :group_messages
   has_many :comments
   has_many :notifications
+  has_many :evaluations
 
   validates :email, presence: true, uniqueness: true
 

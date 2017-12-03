@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "evaluations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "post_id"
+    t.integer "user_id"
+    t.integer "first_evaluated_user"
+    t.integer "second_evaluated_user"
+    t.integer "third_evaluated_user"
+    t.integer "fourth_evaluated_user"
+    t.integer "fifth_evaluated_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "group_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
     t.integer "post_id"
@@ -91,7 +103,6 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.string "education"
     t.string "username"
     t.string "image"
-    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
