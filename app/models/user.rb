@@ -24,7 +24,7 @@ class User < ApplicationRecord
           token:    "",
       )
     end
-    user.update( token: auth.credentials.token)
+    # user.update( token: auth.credentials.token)
     user
   end
 
