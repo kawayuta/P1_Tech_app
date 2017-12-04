@@ -1,49 +1,72 @@
-<div>
-  <h2>評価項目1</h2>
-  <span class="evaluation-select-btn">選択する</span>
+<%= form_tag create_evaluation_path do %>
   <div>
-    <p>選択されたユーザー：○○さん</p>
+    <h2>評価項目1</h2>
+    <span class="evaluation-select-btn" data-evaluation-item="1">選択する</span>
+    <div>
+      <p>選択されたユーザー：<span class="evaluated-user" data-evaluation-item="1"></span></p>
+    </div>
+    <%= hidden_field_tag :first_evaluated_user, '', class: 'evaluation-field', data: {evaluation_item: 1} %>
   </div>
-</div>
-<div>
-  <h2>評価項目2</h2>
-  <span class="evaluation-select-btn">選択する</span>
   <div>
-    <p>選択されたユーザー：○○さん</p>
+    <h2>評価項目2</h2>
+    <span class="evaluation-select-btn" data-evaluation-item="2">選択する</span>
+    <div>
+      <p>選択されたユーザー：<span class="evaluated-user" data-evaluation-item="2"></span></p>
+    </div>
+    <%= hidden_field_tag :second_evaluated_user, '', class: 'evaluation-field', data: {evaluation_item: 2} %>
   </div>
-</div>
-<div>
-  <h2>評価項目3</h2>
-  <span class="evaluation-select-btn">選択する</span>
   <div>
-    <p>選択されたユーザー：○○さん</p>
+    <h2>評価項目3</h2>
+    <span class="evaluation-select-btn" data-evaluation-item="3">選択する</span>
+    <div>
+      <p>選択されたユーザー：<span class="evaluated-user" data-evaluation-item="3"></span></p>
+    </div>
+    <%= hidden_field_tag :third_evaluated_user, '', class: 'evaluation-field', data: {evaluation_item: 3} %>
   </div>
-</div>
-<div>
-  <h2>評価項目4</h2>
-  <span class="evaluation-select-btn">選択する</span>
   <div>
-    <p>選択されたユーザー：○○さん</p>
+    <h2>評価項目4</h2>
+    <span class="evaluation-select-btn" data-evaluation-item="4">選択する</span>
+    <div>
+      <p>選択されたユーザー：<span class="evaluated-user" data-evaluation-item="4"></span></p>
+    </div>
+    <%= hidden_field_tag :fourth_evaluated_user, '', class: 'evaluation-field', data: {evaluation_item: 4} %>
   </div>
-</div>
-<div>
-  <h2>評価項目5</h2>
-  <span class="evaluation-select-btn">選択する</span>
   <div>
-    <p>選択されたユーザー：○○さん</p>
+    <h2>評価項目5</h2>
+    <span class="evaluation-select-btn" data-evaluation-item="5">選択する</span>
+    <div>
+      <p>選択されたユーザー：<span class="evaluated-user" data-evaluation-item="5"></span></p>
+    </div>
+    <%= hidden_field_tag :fifth_evaluated_user, '', class: 'evaluation-field', data: {evaluation_item: 5} %>
   </div>
-</div>
+
+  <%= submit_tag '確定' %>
+<% end %>
 
 <div class="evaluation-modal-wrapper" id="evaluation-modal-wrapper">
   <div class="evaluation-modal">
     <% @members.each do |member| %>
-      <div class="evaluation-member-list">
-        
+      <div class="evaluation-member-list" data-user-id="<%= member.id %>">
+        <%= member.username %>
       </div>
     <% end %>
   </div>
 </div>
 
 <script>
+  $(function() {
+    var members = <%= raw @members_hash %>;
 
+    var evaluationItem;
+    $('.evaluation-select-btn').click(function() {
+      $('#evaluation-modal-wrapper').css('display', 'block');
+      evaluationItem = $(this).attr('data-evaluation-item');
+    });
+
+    $('.evaluation-member-list').click(function() {
+      $('.evaluation-field[data-evaluation-item=' + evaluationItem + ']').val($(this).attr('data-user-id'));
+      $('.evaluated-user[data-evaluation-item=' + evaluationItem + ']').text(members[$(this).attr('data-user-id')]);
+      $('#evaluation-modal-wrapper').css('display', 'none');
+    });
+  });
 </script>
