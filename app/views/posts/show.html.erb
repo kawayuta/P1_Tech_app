@@ -115,12 +115,12 @@
   <div class="post-founder-wrapper clearfix">
     <div class="post-founder-img">
       <%= link_to user_path(@founder) do %>
-        <%= image_tag @founder.image %>
+        <%= image_tag @founder.try(:image) %>
       <% end %>
     </div>
     <div class="post-founder-info">
-      <p class="post-founder-name"><%= @founder.username %></p>
-      <p class="post-founder-university"><%= @founder.education %></p>
+      <p class="post-founder-name"><%= @founder.try(:username) %></p>
+      <p class="post-founder-university"><%= @founder.try(:education) %></p>
     </div>
   </div>
 
@@ -131,12 +131,12 @@
         <div class="clearfix">
           <div class="post-founder-img">
             <%= link_to user_path(member.user) do %>
-              <%= image_tag member.user.image %>
+              <%= image_tag member.user.try(:image) %>
             <% end %>
           </div>
           <div class="post-founder-info">
-            <p class="post-founder-name"><%= member.user.username %></p>
-            <p class="post-founder-university"><%= member.user.education %></p>
+            <p class="post-founder-name"><%= member.user.try(:username) %></p>
+            <p class="post-founder-university"><%= member.user.try(:education) %></p>
           </div>
         </div>
       <% end %>

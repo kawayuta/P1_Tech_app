@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :evaluations
 
+  mount_uploader :image, ImageUploader
+
   validates :email, presence: true, uniqueness: true
 
   def self.find_for_oauth(auth)
@@ -20,7 +22,7 @@ class User < ApplicationRecord
           provider: auth.provider,
           email:    auth.info.email,
           username: auth.extra.raw_info.name,
-          image:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
+          remote_image_url:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
           password: Devise.friendly_token[0, 20],
           token:    "",
       )

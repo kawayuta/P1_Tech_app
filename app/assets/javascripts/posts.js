@@ -36,10 +36,8 @@ $(function () {
   $('.posts-post').click(function(){
     if ($('#posts-post_single').css('display') == 'none') {
       $(this).addClass('posts-post_open');
-      $('#posts-post_single').slideDown('slow');
     } else {
       $(this).removeClass('posts-post_open');
-      $('#posts-post_single').slideUp('fast');
     }
   })
 
