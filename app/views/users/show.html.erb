@@ -1,3 +1,12 @@
 <%= image_tag @user.try(:image) %>
 
 <%= @user.try(:username) %>
+
+<div>
+  <h2>評価</h2>
+  <p>項目1: <%= @evaluations['first_evaluated_user'] %>回</p>
+  <p>項目2: <%= @evaluations['second_evaluated_user'] %>回</p>
+  <p>項目3: <%= @evaluations['third_evaluated_user'] %>回</p>
+  <p>項目4: <%= @evaluations['fourth_evaluated_user'] %>回</p>
+  <p>項目5: <%= @evaluations['fifth_evaluated_user'] %>回</p>
+</div>
