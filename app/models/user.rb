@@ -22,7 +22,7 @@ class User < ApplicationRecord
           provider: auth.provider,
           email:    auth.info.email,
           username: auth.extra.raw_info.name,
-          image:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
+          remote_image_url:    "http://graph.facebook.com/#{auth.uid}/picture?type=large",
           password: Devise.friendly_token[0, 20],
           token:    "",
       )
