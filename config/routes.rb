@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'approve' => 'posts#approve'
       delete 'leave' => 'posts#leave'
       get 'success' => 'posts#success'
+      post 'complete' => 'posts#complete'
 
       post 'create_comment' => 'posts#create_comment'
       delete 'destroy_comment/:comment_id' => 'posts#destroy_comment'

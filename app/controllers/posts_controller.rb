@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment, :complete]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
 
@@ -12,10 +12,15 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @self_member_info = @post.team_members.find_by(user_id: current_user.id)
+    if unevaluated_after_release?
+      return redirect_to new_evaluation_path(@post)
+    end
+
     @founder = @post.user
     @requests = @post.team_members.where(accepted:false)
     @members = @post.team_members.where(accepted:true)
-    @self_member_info = @post.team_members.find_by(user_id: current_user.id)
+
     set_comments
     # graph = Koala::Facebook::API.new(current_user.token)
     # graph.put_wall_post("本文", {
@@ -140,6 +145,11 @@ class PostsController < ApplicationController
     set_comments
   end
 
+  def complete
+    @post.update(status: 2)
+    redirect_to new_evaluation_path(post_id: @post.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -161,6 +171,10 @@ class PostsController < ApplicationController
         return false
       end
       return true
+    end
+
+    def unevaluated_after_release?
+      @self_member_info && @self_member_info.accepted == true && @post.status == 'release' && !Evaluation.find_by(post_id: @post.id, user_id: current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
