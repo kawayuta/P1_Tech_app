@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
             <li class="header-top"><%= link_to 'ペラクト', root_path %></li>
             <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-            <li class="header-profile_image"><%=  %></li>
+            <li class="header-profile_image"><%= link_to (image_tag current_user.try(:image)), current_user %></li>
             <li class="header-posts-new"><%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %></li>
             <li class="header-notices">
               <%= link_to '', notifications_path, class:'header-notices fa fa-bell-o' %>
