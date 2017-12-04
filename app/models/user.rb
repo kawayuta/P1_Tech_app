@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :notifications
   has_many :evaluations
 
+  mount_uploader :image, ImageUploader
+
   validates :email, presence: true, uniqueness: true
 
   def self.find_for_oauth(auth)
