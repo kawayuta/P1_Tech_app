@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.evaluation-form-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.evaluation-item-box {
+  margin-bottom: 20px;
+}
+
 .evaluation-select-btn {
   display: inline-block;
   padding: 5px;
@@ -18,8 +28,30 @@
   background-color: rgba(0, 0, 0, .6);
   z-index: 100;
   display: none;
+  padding: 0 30px;
 }
 
 .evaluation-modal {
   background-color: #fff;
+  max-width: 500px;
+  max-height: 350px;
+  margin: 0 auto;
+  padding: 20px 0;
+  position: relative;
+  top: 100px;
+
+  .evaluation-member-list {
+    padding: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e5e5e5;
+    }
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+  }
 }
