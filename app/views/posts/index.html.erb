@@ -14,16 +14,13 @@
 <ul class="posts">
   <% @posts.each do |post| %>
       <li id="post" class="posts-post">
-        <div class="posts-post_template">
-          <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
-          <div class="posts-post_image_filter"></div>
+        <div class="posts-post-text">
+          <div class="posts-post-text_title"><%= link_to post.title, post %></div>
+          <div class="posts-post-text_outline"><%= post.outline %></div>
+          <!--<div class="posts-post-text_detail"><%= post.detail %></div>-->
+          <div class="posts-post-text_published"><%= (post.published) ? "下書き" : "公開" %></div>
+          <div class="posts-post-text_status"><%= post.status %></div>
         </div>
-        <div class="posts-post_title"><%= link_to post.title, post %></div>
-        <div class="posts-post_outline"><%= post.outline %></div>
-        <div class="posts-post_detail"><%= post.detail %></div>
-        <div class="posts-post_template_id"><%= post.template_id %></div>
-        <div class="posts-post_published"><%= (post.published) ? "下書き" : "公開" %></div>
-        <div class="posts-post_status"><%= post.status %></div>
       </li>
   <% end %>
 </ul>
