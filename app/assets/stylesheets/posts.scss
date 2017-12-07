@@ -107,6 +107,36 @@
   }
 }
 
+.ranked-post {
+  background-color: #ccc;
+  box-shadow: 0 8px 15px rgba(0,0,0,.15);
+}
+
+.ranking-slide {
+  cursor: pointer;
+}
+
+.swiper-button-prev.ranking-prev-btn {
+  background-image: image-url("slide_prev_btn.png");
+  width: 14px;
+  height: 22px;
+  background-size: 14px 22px;
+  margin-top: -11px;
+  left: 15px;
+}
+
+.swiper-button-next.ranking-next-btn {
+  background-image: image-url("slide_next_btn.png");
+  width: 14px;
+  height: 22px;
+  background-size: 14px 22px;
+  margin-top: -11px;
+  right: 15px;
+}
+
+.ranking-pagenation .swiper-pagination-bullet-active {
+  background-color: #FED430;
+}
 
 
 @-webkit-keyframes inout {

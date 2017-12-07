@@ -1,6 +1,25 @@
 <section class="top-top5s clearfix">
   <h2>TOP5</h2>
   <ul class="posts">
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @ranked_posts.each do |post| %>
+        <div class="swiper-slide ranking-slide">
+          <div class="ranked-post">
+            <div class="posts-post-text">
+              <div class="posts-post-text_title"><%= link_to post.title, post %></div>
+              <div class="posts-post-text_outline"><%= post.outline %></div>
+              <div class="posts-post-text_status"><%= post.status %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="swiper-pagination ranking-pagenation"></div>
+
+    <div class="swiper-button-prev ranking-prev-btn"></div>
+    <div class="swiper-button-next ranking-next-btn"></div>
+</div>
   </ul>
 </section>
 
@@ -39,3 +58,25 @@
 <% end %>
 
 </section>
+
+<script>
+  $(function() {
+    var mySwiper = new Swiper ('.swiper-container', {
+      loop: true,
+      pagination: '.swiper-pagination',
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+      spaceBetween: 10,
+      centeredSlides : true,
+      slidesPerView: 2,
+      simulateTouch: true,
+      breakpoints: {
+        767: {
+          slidesPerView: 1.2
+        }
+      }
+    })
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
