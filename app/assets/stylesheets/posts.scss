@@ -107,14 +107,51 @@
   }
 }
 
-.ranked-post {
-  background-color: #ccc;
-  box-shadow: 0 8px 15px rgba(0,0,0,.15);
-}
-
 .ranking-slide {
   cursor: pointer;
 }
+
+.ranked-post {
+  background-color: #fff;
+  box-shadow: 0 8px 15px rgba(0,0,0,.15);
+  border-radius:8px;
+  background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
+  background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
+  background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
+
+  &-header {
+    color: #fff;
+
+    &-icon {
+      text-align: center;
+      padding: 15px;
+    }
+
+    &-title {
+
+
+      a {
+        font-size:20px;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-content {
+    background-color: #fff;
+  }
+
+  &-footer {
+    img {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+}
+
+
 
 .swiper-button-prev.ranking-prev-btn {
   background-image: image-url("slide_prev_btn.png");
