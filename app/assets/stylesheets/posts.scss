@@ -121,6 +121,7 @@
 
   &-header {
     color: #fff;
+    padding: 0 15px;
 
     &-icon {
       text-align: center;
@@ -128,13 +129,17 @@
     }
 
     &-title {
-
+      margin-bottom: 10px;
 
       a {
         font-size:20px;
         color: #fff;
         text-decoration: none;
       }
+    }
+
+    &-outline {
+      margin-bottom: 10px
     }
   }
 
@@ -143,6 +148,8 @@
   }
 
   &-footer {
+    color: #fff;
+
     img {
       height: 30px;
       width: 30px;
