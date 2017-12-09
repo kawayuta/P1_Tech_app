@@ -7,7 +7,7 @@
 </head>
 
 <div class="post-show-container">
-  <div class="post-show-header">
+  <div class="post-header">
     icon
     <%= link_to fa_icon('times-circle-o'), root_path, class: 'post-show-back-btn' %>
   </div>
@@ -18,14 +18,14 @@
     <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
   <% end %> -->
 
-  <div class="post-show-content">
+  <div class="post-content">
     <h1><%= @post.title %></h1>
 
-    <p class="post-show-outline">
+    <p class="post-outline">
       <%= @post.outline %>
     </p>
 
-    <div class="post-show-status">
+    <div class="post-status">
       <div class="status-line">
         <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
           <span>募集中</span>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <p class="post-show-detail">
+    <p class="post-detail">
       <%= @post.detail %>
     </p>
 
@@ -147,7 +147,7 @@
     <% end %>
   </div>
 
-  <div class="post-show-footer">
+  <div class="post-footer">
     <div class="post-founder-wrapper clearfix">
       <div class="post-founder-img">
         <%= link_to user_path(@founder) do %>

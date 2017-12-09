@@ -479,7 +479,7 @@
   background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
 }
 
-.post-show-header {
+.post-header {
   position: relative;
   text-align: center;
   padding: 15px;
@@ -497,7 +497,7 @@
   }
 }
 
-.post-show-content {
+.post-content {
   background-color: #fff;
   padding: 0 30px;
 
@@ -513,15 +513,15 @@
     margin-bottom: 30px;
   }
 
-  .post-show-outline {
+  .post-outline {
     font-size: 16px;
   }
 
-  .post-show-detail {
+  .post-detail {
     font-size: 14px;
   }
 
-  .post-show-status {
+  .post-status {
     height: 46px;
     margin-bottom: 20px;
 
@@ -577,8 +577,6 @@
         }
       }
     }
-
-
   }
 
   // img {
@@ -627,7 +625,7 @@
   }
 }
 
-.post-show-footer {
+.post-footer {
   color: #fff;
   padding: 5px 10px;
 
