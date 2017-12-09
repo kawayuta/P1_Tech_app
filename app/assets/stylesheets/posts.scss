@@ -601,6 +601,58 @@
       margin-bottom: 0;
     }
   }
+}
 
+.comment-list-container {
+  max-width: 500px;
+  margin: 0 auto;
+
+  .comment-list-wrapper {
+    padding: 0 10px;
+  }
+}
+
+
+.post-comment {
+  margin: 20px 0;
+  font-size: 14px;
+
+  // .comment-userimage-box {
+  //   float: left;
+  //
+  //   img {
+  //     height: 40px;
+  //     width: 40px;
+  //     border-radius: 50%;
+  //   }
+  // }
+
+  .comment-box {
+    float: left;
+    margin-left: 10px;
+    width: calc(100% - 50px);
+    // position: relative;
+
+    .comment-content {
+      margin-top: 10px;
+      padding: 10px;
+      word-break: break-all;
+      border: 1px solid #FED430;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+    }
+
+    // .comment-detele-btn {
+    //   display: inline-block;
+    //   position: absolute;
+    //   right: 5px;
+    //   background-color: #aaa;
+    //   color: #fff;
+    //   padding: 4px 8px;
+    //   border-radius: 8px;
+    //   font-size: 14px;
+    //   text-decoration: none;
+    // }
+  }
 
 }

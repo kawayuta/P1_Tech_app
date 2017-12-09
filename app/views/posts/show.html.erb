@@ -19,7 +19,6 @@
   <% end %> -->
 
   <div class="post-show-content">
-
     <h1><%= @post.title %></h1>
 
     <p class="post-show-outline">
@@ -145,11 +144,12 @@
   </div>
 </div>
 
-<h2>質問・コメント</h2>
-<div class="comment-list-wrapper" id="comment-list">
-  <%= render 'comments' %>
+<div class="comment-list-container">
+  <div class="comment-list-wrapper" id="comment-list">
+    <%= render 'comments' %>
+  </div>
+  <%= form_tag create_comment_post_path(@post), remote: true do %>
+    <%= text_area_tag :content, '', id: 'comment-texrarea' %>
+    <%= submit_tag '送信' %>
+  <% end %>
 </div>
-<%= form_tag create_comment_post_path(@post), remote: true do %>
-  <%= text_area_tag :content, '', id: 'comment-texrarea' %>
-  <%= submit_tag '送信' %>
-<% end %>
