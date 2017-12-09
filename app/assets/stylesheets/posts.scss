@@ -45,7 +45,6 @@
 
       &_title {
         font-size:20px;
-        font-wait: bold;
         padding-top: 25px;
         margin-left:20px;
       }
@@ -472,14 +471,41 @@
 // =====posts/show======
 
 .post-show-container {
-  padding: 0 30px;
-  margin: 0 auto;
   max-width: 500px;
+  margin: 0 auto;
   word-break: break-all;
+  background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
+  background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
+  background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
+}
+
+.post-show-header {
+  position: relative;
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  color: #fff;
+
+  .post-show-back-btn {
+    display: inline-block;
+    font-size: 30px;
+    color: #fff;
+    opacity: .9;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.post-show-content {
+  background-color: #fff;
+  padding: 0 30px;
 
   h1 {
-    font-size: 24px;
-    margin: 30px 0;
+    font-size: 18px;
+    color: #ed1178;
+    font-weight: bold;
+    margin: 0 0 30px;
     padding-top: 30px;
   }
 
@@ -488,14 +514,18 @@
   }
 
   .post-show-outline {
-    font-size: 18px;
+    font-size: 16px;
   }
 
-  img {
-    width: 70%;
-    display: block;
-    margin: 0 auto;
+  .post-show-detail {
+    font-size: 14px;
   }
+
+  // img {
+  //   width: 70%;
+  //   display: block;
+  //   margin: 0 auto;
+  // }
 
   h2 {
     padding-top: 10px;
@@ -504,8 +534,9 @@
 
   .post-jobtype-wrapper {
     padding: 12px;
+    font-size: 14px;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
+    margin: 0 10px 10px;
     display: box;
     display: -webkit-box;
     display: -moz-box;
@@ -526,10 +557,11 @@
       padding: 5px 20px;
       border-radius: 10px;
       text-decoration: none;
+      color: #fff;
 
       &:hover, &:focus, &:visited {
         text-decoration: none;
-        color: #000;
+        color: #fff;
       }
     }
   }
@@ -538,9 +570,9 @@
     margin-bottom: 30px;
   }
 
-  .post-member-list {
-    margin-bottom: 30px;
-  }
+  // .post-member-list {
+  //   margin-bottom: 30px;
+  // }
 
   .post-founder-img {
     float: left;

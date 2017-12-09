@@ -7,169 +7,149 @@
 </head>
 
 <div class="post-show-container">
+  <div class="post-show-header">
+    icon
+    <%= link_to fa_icon('times-circle-o'), root_path, class: 'post-show-back-btn' %>
+  </div>
 
-  <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
+  <!-- <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
 
   <% if @post.user_id == current_user.id %>
     <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
-  <% end %>
+  <% end %> -->
 
-  <h1><%= @post.title %></h1>
+  <div class="post-show-content">
 
-  <p class="post-show-outline">
-    <%= @post.outline %>
-  </p>
+    <h1><%= @post.title %></h1>
 
-  <p>
-    <%= @post.detail %>
-  </p>
-
-  <p>
-    <%= image_tag @post.image %>
-  </p>
-
-  <h2>募集職種</h2>
-  <% if @post.num_of_planner != 0 %>
-    <p class="post-jobtype-wrapper">
-      <span class="post-jobtype-name">プランナー</span>
-      <span class="post-jobtype-number"><%= @post.num_of_planner %>名</span>
-      <% if @self_member_info %>
-        <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
-          <span>参加中</span>
-        <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
-          <span>参加申請中</span>
-        <% else %>
-          <span></span>
-        <% end %>
-      <% else %>
-        <% if TeamMember.where(post_id: @post.id, job_type: 0, accepted: true).count >= @post.num_of_planner %>
-          <span>満員</span>
-        <% else %>
-          <%= link_to 'Join', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
-        <% end %>
-      <% end %>
+    <p class="post-show-outline">
+      <%= @post.outline %>
     </p>
-  <% end %>
 
-  <% if @post.num_of_engineer != 0 %>
-    <p class="post-jobtype-wrapper">
-      <span class="post-jobtype-name">エンジニア</span>
-      <span class="post-jobtype-number"><%= @post.num_of_engineer %>名</span>
-      <% if @self_member_info %>
-        <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
-          <span>参加中</span>
-        <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
-          <span>参加申請中</span>
-        <% else %>
-          <span></span>
-        <% end %>
-      <% else %>
-        <% if TeamMember.where(post_id: @post.id, job_type: 1, accepted: true).count >= @post.num_of_planner %>
-          <span>満員</span>
-        <% else %>
-          <%= link_to 'Join', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn' %>
-        <% end %>
-      <% end %>
+    <p class="post-show-detail">
+      <%= @post.detail %>
     </p>
-  <% end %>
 
-  <% if @post.num_of_designer != 0 %>
-    <p class="post-jobtype-wrapper">
-      <span class="post-jobtype-name">デザイナー</span>
-      <span class="post-jobtype-number"><%= @post.num_of_designer %>名</span>
-      <% if @self_member_info %>
-        <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
-          <span>参加中</span>
-        <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
-          <span>参加申請中</span>
+    <% if @post.num_of_planner != 0 %>
+      <p class="post-jobtype-wrapper">
+        <span class="post-jobtype-name">プランナー</span>
+        <span class="post-jobtype-number"><%= @post.num_of_planner %>名</span>
+        <% if @self_member_info %>
+          <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
+            <span>参加中</span>
+          <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
+            <span>申請中</span>
+          <% else %>
+            <span></span>
+          <% end %>
         <% else %>
-          <span></span>
+          <% if TeamMember.where(post_id: @post.id, job_type: 0, accepted: true).count >= @post.num_of_planner %>
+            <span>満員</span>
+          <% else %>
+            <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+          <% end %>
         <% end %>
-      <% else %>
-        <% if TeamMember.where(post_id: @post.id, job_type: 2, accepted: true).count >= @post.num_of_planner %>
-          <span>満員</span>
-        <% else %>
-          <%= link_to 'Join', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
-        <% end %>
-      <% end %>
-    </p>
-  <% end %>
-
-  <p>
-    <% if @post.user_id == current_user.id %>
-      あなたは企画者です！
-      <% if TeamMember.find_by(post_id: @post.id, accepted: false) %>
-        参加申請者は以下
-        <% @requests.each do |request| %>
-          <%= link_to request.user, approve_post_path(from_user: request.user.id) %>
-        <% end %>
-      <% elsif TeamMember.find_by(post_id: @post.id, accepted: true) %>
-        参加申込はありません
-      <% end %>
-    <% elsif TeamMember.find_by(post_id: @post.id, user_id: current_user.id, accepted: false) %>
-      <%= link_to '参加申請を取り消す', leave_post_path, method: :delete, data: { confirm: 'この企画のチームを抜けますか？' } %>
+      </p>
     <% end %>
-  </p>
 
-  <h2>投稿者</h2>
-  <div class="post-founder-wrapper clearfix">
-    <div class="post-founder-img">
-      <%= link_to user_path(@founder) do %>
-        <%= image_tag @founder.try(:image) %>
+    <% if @post.num_of_engineer != 0 %>
+      <p class="post-jobtype-wrapper">
+        <span class="post-jobtype-name">エンジニア</span>
+        <span class="post-jobtype-number"><%= @post.num_of_engineer %>名</span>
+        <% if @self_member_info %>
+          <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
+            <span>参加中</span>
+          <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
+            <span>申請中</span>
+          <% else %>
+            <span></span>
+          <% end %>
+        <% else %>
+          <% if TeamMember.where(post_id: @post.id, job_type: 1, accepted: true).count >= @post.num_of_planner %>
+            <span>満員</span>
+          <% else %>
+            <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+          <% end %>
+        <% end %>
+      </p>
+    <% end %>
+
+    <% if @post.num_of_designer != 0 %>
+      <p class="post-jobtype-wrapper">
+        <span class="post-jobtype-name">デザイナー</span>
+        <span class="post-jobtype-number"><%= @post.num_of_designer %>名</span>
+        <% if @self_member_info %>
+          <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
+            <span>参加中</span>
+          <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
+            <span>申請中</span>
+          <% else %>
+            <span></span>
+          <% end %>
+        <% else %>
+          <% if TeamMember.where(post_id: @post.id, job_type: 2, accepted: true).count >= @post.num_of_planner %>
+            <span>満員</span>
+          <% else %>
+            <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+          <% end %>
+        <% end %>
+      </p>
+    <% end %>
+
+    <p>
+      <% if @post.user_id == current_user.id %>
+        あなたは企画者です！
+        <% if TeamMember.find_by(post_id: @post.id, accepted: false) %>
+          参加申請者は以下
+          <% @requests.each do |request| %>
+            <%= link_to request.user, approve_post_path(from_user: request.user.id) %>
+          <% end %>
+        <% elsif TeamMember.find_by(post_id: @post.id, accepted: true) %>
+          参加申込はありません
+        <% end %>
+      <% elsif TeamMember.find_by(post_id: @post.id, user_id: current_user.id, accepted: false) %>
+        <%= link_to '参加申請を取り消す', leave_post_path, method: :delete, data: { confirm: 'この企画のチームを抜けますか？' } %>
       <% end %>
+    </p>
+
+    <div class="remodal" data-remodal-id="modal">
+      <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %>
+      <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
     </div>
-    <div class="post-founder-info">
-      <p class="post-founder-name"><%= @founder.try(:username) %></p>
-      <p class="post-founder-university"><%= @founder.try(:education) %></p>
-    </div>
+
+
+    <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
+        <%= link_to '応援やめる', support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？？' } %>
+    <% else %>
+        <a id="modal-support-btn">応援する</a>
+    <% end %>
+
+
+    <% if @founder == current_user %>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </div>
 
-  <h2>参加しているメンバー</h2>
-  <% if @members %>
-    <div class="post-member-list">
-      <% @members.each do |member| %>
-        <div class="clearfix">
-          <div class="post-founder-img">
-            <%= link_to user_path(member.user) do %>
-              <%= image_tag member.user.try(:image) %>
-            <% end %>
-          </div>
-          <div class="post-founder-info">
-            <p class="post-founder-name"><%= member.user.try(:username) %></p>
-            <p class="post-founder-university"><%= member.user.try(:education) %></p>
-          </div>
-        </div>
-      <% end %>
+  <div class="post-show-footer">
+    <div class="post-founder-wrapper clearfix">
+      <div class="post-founder-img">
+        <%= link_to user_path(@founder) do %>
+          <%= image_tag @founder.try(:image) %>
+        <% end %>
+      </div>
+      <div class="post-founder-info">
+        <p class="post-founder-name"><%= @founder.try(:username) %></p>
+      </div>
     </div>
-  <% else %>
-
-  <% end %>
-
-  <div class="remodal" data-remodal-id="modal">
-    <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %>
-    <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
   </div>
-
-
-  <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
-      <%= link_to '応援やめる', support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？？' } %>
-  <% else %>
-      <a id="modal-support-btn">応援する</a>
-  <% end %>
-
-
-  <% if @founder == current_user %>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-
-  <h2>質問・コメント</h2>
-  <div class="comment-list-wrapper" id="comment-list">
-    <%= render 'comments' %>
-  </div>
-  <%= form_tag create_comment_post_path(@post), remote: true do %>
-    <%= text_area_tag :content, '', id: 'comment-texrarea' %>
-    <%= submit_tag '送信' %>
-  <% end %>
-
 </div>
+
+<h2>質問・コメント</h2>
+<div class="comment-list-wrapper" id="comment-list">
+  <%= render 'comments' %>
+</div>
+<%= form_tag create_comment_post_path(@post), remote: true do %>
+  <%= text_area_tag :content, '', id: 'comment-texrarea' %>
+  <%= submit_tag '送信' %>
+<% end %>
