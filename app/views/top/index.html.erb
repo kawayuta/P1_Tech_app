@@ -28,47 +28,30 @@
   <%= link_to 'designer', search_posts_path(sort:'designer') %>
 
   <% if user_signed_in? %>
-      <ul class="posts">
-        <% @posts.each do |post| %>
-            <li class="posts-post">
-              <div class="posts-post-text">
-                <div class="posts-post-text_title"><%= link_to post.title, post %></div>
-                <div class="posts-post-text_outline"><%= post.outline %></div>
-                <!--<div class="posts-post-text_detail"><%= post.detail %></div>-->
-                <div class="posts-post-text_status"><%= post.status %></div>
-              </div>
-            </li>
-        <% end %>
-      </ul>
-<% else %>
-      <ul class="posts">
-        <% @posts.each do |post| %>
-            <li class="posts-post">
-              <div class="posts-post-text">
-                <div class="posts-post-text_title"><%= link_to post.title, post %></div>
-                <div class="posts-post-text_status"><%= post.status %></div>
-                <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>
-              </div>
-            </li>
-        <% end %>
-      </ul>
-<% end %>
+    <ul class="posts">
+      <% @posts.each do |post| %>
+          <li class="posts-post">
+            <div class="posts-post-text">
+              <div class="posts-post-text_title"><%= link_to post.title, post %></div>
+              <div class="posts-post-text_outline"><%= post.outline %></div>
+              <!--<div class="posts-post-text_detail"><%= post.detail %></div>-->
+              <div class="posts-post-text_status"><%= post.status %></div>
+            </div>
+          </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <ul class="posts">
+      <% @posts.each do |post| %>
+          <li class="posts-post">
+            <div class="posts-post-text">
+              <div class="posts-post-text_title"><%= link_to post.title, post %></div>
+              <div class="posts-post-text_status"><%= post.status %></div>
+              <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>
+            </div>
+          </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 </section>
-
-<script>
-  $(function() {
-    $('.ranking-slider').slick({
-      dots: true,
-      dotsClass: 'slick-dots ranking-slide-dots',
-      slidesToShow: 1,
-      centerMode: true,
-      centerPadding: '20px',
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 10000,
-    });
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
