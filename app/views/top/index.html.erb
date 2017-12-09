@@ -1,33 +1,23 @@
-<section class="top-top5s clearfix">
+<section class="top-top5s">
   <h2>TOP5</h2>
-  <ul>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <% @ranked_posts.each do |post| %>
-          <li class="swiper-slide ranking-slide">
-            <div class="ranked-post">
-              <div class="ranked-post-header">
-                <div class="ranked-post-header-icon">icon</div>
-                <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
-                <div class="ranked-post-header-outline"><%= post.outline %></div>
-              </div>
-              <div class="ranked-post-content">
-                <div class="ranked-post-text_status"><%= post.status %></div>
-              </div>
-              <div class="ranked-post-footer">
-                <%= image_tag post.user.image %>
-                <%= post.user.username %>
-              </div>
-            </div>
-          </li>
-        <% end %>
+  <div class="ranking-slider">
+    <% @ranked_posts.each do |post| %>
+      <div class="ranked-post">
+        <div class="ranked-post-header">
+          <div class="ranked-post-header-icon">icon</div>
+          <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
+          <div class="ranked-post-header-outline"><%= post.outline %></div>
+        </div>
+        <div class="ranked-post-content">
+          <div class="ranked-post-text_status"><%= post.status %></div>
+        </div>
+        <div class="ranked-post-footer">
+          <%= image_tag post.user.image %>
+          <%= post.user.username %>
+        </div>
       </div>
-      <div class="swiper-pagination ranking-pagenation"></div>
-
-      <div class="swiper-button-prev ranking-prev-btn"></div>
-      <div class="swiper-button-next ranking-next-btn"></div>
-    </div>
-  </ul>
+    <% end %>
+  </div>
 </section>
 
 
@@ -68,22 +58,17 @@
 
 <script>
   $(function() {
-    var mySwiper = new Swiper ('.swiper-container', {
-      loop: true,
-      pagination: '.swiper-pagination',
-      nextButton: '.swiper-button-next',
-      prevButton: '.swiper-button-prev',
-      spaceBetween: 10,
-      centeredSlides : true,
-      slidesPerView: 2,
-      simulateTouch: true,
-      breakpoints: {
-        767: {
-          slidesPerView: 1.2
-        }
-      }
-    })
+    $('.ranking-slider').slick({
+      dots: true,
+      dotsClass: 'slick-dots ranking-slide-dots',
+      slidesToShow: 1,
+      centerMode: true,
+      centerPadding: '20px',
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 10000,
+    });
   });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
