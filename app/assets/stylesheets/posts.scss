@@ -565,6 +565,17 @@
         top: -31px;
         right: -25px;
       }
+
+      .status-active {
+        span {
+          color: #ed1178;
+          font-weight: bold;
+        }
+
+        i {
+          color: #ed1178;
+        }
+      }
     }
 
 

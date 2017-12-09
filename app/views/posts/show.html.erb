@@ -27,15 +27,15 @@
 
     <div class="post-show-status">
       <div class="status-line">
-        <div class="status-planning">
+        <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
           <span>募集中</span>
           <%= fa_icon 'play-circle-o' %>
         </div>
-        <div class="status-development">
+        <div class="status-development<%= post_status_active_class(@post, 'development') %>">
           <span>開発中</span>
           <%= fa_icon 'play-circle-o' %>
         </div>
-        <div class="status-release">
+        <div class="status-release<%= post_status_active_class(@post, 'release') %>">
           <span>リリース</span>
           <%= fa_icon 'play-circle-o' %>
         </div>
