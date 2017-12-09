@@ -521,6 +521,55 @@
     font-size: 14px;
   }
 
+  .post-show-status {
+    height: 46px;
+    margin-bottom: 20px;
+
+    .status-line {
+      height: 0;
+      width: 80%;
+      margin: 0 auto;
+      border-bottom: 2px solid #888;
+      position: relative;
+      top: 31px;
+      text-align: center;
+
+      span {
+        font-size: 14px;
+      }
+
+      i {
+        color: #888;
+        font-size: 30px;
+        background-color: #fff;
+      }
+
+      .status-planning {
+        width: 60px;
+        position: absolute;
+        top: -31px;
+        left: -25px;
+      }
+
+      .status-development {
+        float: both;
+        width: 60px;
+        margin: 0 auto;
+        position: relative;
+        top: -31px;
+      }
+
+      .status-release {
+        width: 60px;
+        position: absolute;
+        top: -31px;
+        right: -25px;
+      }
+    }
+
+
+  }
+
   // img {
   //   width: 70%;
   //   display: block;
@@ -565,22 +614,21 @@
       }
     }
   }
+}
+
+.post-show-footer {
+  color: #fff;
+  padding: 5px 10px;
 
   .post-founder-wrapper {
-    margin-bottom: 30px;
   }
-
-  // .post-member-list {
-  //   margin-bottom: 30px;
-  // }
 
   .post-founder-img {
     float: left;
-    margin-top: 5px;
 
     img {
-      height: 50px;
-      width: 50px;
+      height: 30px;
+      width: 30px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -589,10 +637,10 @@
   .post-founder-info {
     float: left;
     margin-left: 10px;
-    width: calc(100% - 60px);
 
     .post-founder-name {
       margin: 10px 0;
+      line-height: 30px;
     }
 
     .post-founder-university {
@@ -601,10 +649,6 @@
       margin-bottom: 0;
     }
   }
-}
-
-.post-show-footer {
-  color: #fff;
 }
 
 .comment-list-container {

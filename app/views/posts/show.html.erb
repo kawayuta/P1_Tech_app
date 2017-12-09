@@ -25,12 +25,29 @@
       <%= @post.outline %>
     </p>
 
+    <div class="post-show-status">
+      <div class="status-line">
+        <div class="status-planning">
+          <span>募集中</span>
+          <%= fa_icon 'play-circle-o' %>
+        </div>
+        <div class="status-development">
+          <span>開発中</span>
+          <%= fa_icon 'play-circle-o' %>
+        </div>
+        <div class="status-release">
+          <span>リリース</span>
+          <%= fa_icon 'play-circle-o' %>
+        </div>
+      </div>
+    </div>
+
     <p class="post-show-detail">
       <%= @post.detail %>
     </p>
 
     <% if @post.num_of_planner != 0 %>
-      <p class="post-jobtype-wrapper">
+      <div class="post-jobtype-wrapper">
         <span class="post-jobtype-name">プランナー</span>
         <span class="post-jobtype-number"><%= @post.num_of_planner %>名</span>
         <% if @self_member_info %>
@@ -48,11 +65,11 @@
             <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
           <% end %>
         <% end %>
-      </p>
+      </div>
     <% end %>
 
     <% if @post.num_of_engineer != 0 %>
-      <p class="post-jobtype-wrapper">
+      <div class="post-jobtype-wrapper">
         <span class="post-jobtype-name">エンジニア</span>
         <span class="post-jobtype-number"><%= @post.num_of_engineer %>名</span>
         <% if @self_member_info %>
@@ -70,11 +87,11 @@
             <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn' %>
           <% end %>
         <% end %>
-      </p>
+      </div>
     <% end %>
 
     <% if @post.num_of_designer != 0 %>
-      <p class="post-jobtype-wrapper">
+      <div class="post-jobtype-wrapper">
         <span class="post-jobtype-name">デザイナー</span>
         <span class="post-jobtype-number"><%= @post.num_of_designer %>名</span>
         <% if @self_member_info %>
@@ -92,7 +109,7 @@
             <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
           <% end %>
         <% end %>
-      </p>
+      </div>
     <% end %>
 
     <p>
@@ -138,7 +155,7 @@
         <% end %>
       </div>
       <div class="post-founder-info">
-        <p class="post-founder-name"><%= @founder.try(:username) %></p>
+        <span class="post-founder-name"><%= @founder.try(:username) %></span>
       </div>
     </div>
   </div>
