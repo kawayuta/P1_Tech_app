@@ -1,5 +1,5 @@
 <section class="top-top5s">
-  <h2>TOP5</h2>
+  <h2>TOP PROJECT</h2>
   <div class="ranking-slider">
     <% @ranked_posts.each do |post| %>
       <div class="ranked-post">
@@ -22,7 +22,7 @@
 
 
 <section class="top-posts clearfix">
-<h2>最新のペライチ</h2>
+<h2>NEW</h2>
   <%= link_to 'planner', search_posts_path(sort:'planner') %>
   <%= link_to 'engineer', search_posts_path(sort:'engineer') %>
   <%= link_to 'designer', search_posts_path(sort:'designer') %>
@@ -32,10 +32,30 @@
       <% @posts.each do |post| %>
           <li class="posts-post">
             <div class="posts-post-text">
-              <div class="posts-post-text_title"><%= link_to post.title, post %></div>
-              <div class="posts-post-text_outline"><%= post.outline %></div>
-              <!--<div class="posts-post-text_detail"><%= post.detail %></div>-->
-              <div class="posts-post-text_status"><%= post.status %></div>
+              <div class="post-content">
+                <h1><%= post.title %></h1>
+
+                <p class="post-outline">
+                  <%= post.outline %>
+                </p>
+
+                <div class="post-status">
+                  <div class="status-line">
+                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                      <span>募集中</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                      <span>開発中</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                      <span>リリース</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
       <% end %>
@@ -45,8 +65,30 @@
       <% @posts.each do |post| %>
           <li class="posts-post">
             <div class="posts-post-text">
-              <div class="posts-post-text_title"><%= link_to post.title, post %></div>
-              <div class="posts-post-text_status"><%= post.status %></div>
+              <div class="post-content">
+                <h1><%= post.title %></h1>
+
+                <p class="post-outline">
+                  <%= post.outline %>
+                </p>
+
+                <div class="post-status">
+                  <div class="status-line">
+                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                      <span>募集中</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                      <span>開発中</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                      <span>リリース</span>
+                      <%= fa_icon 'play-circle-o' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>
             </div>
           </li>
