@@ -9,4 +9,5 @@ $(document).on('turbolinks:load', function() {
     autoplay: true,
     autoplaySpeed: 10000,
   });
+
 });

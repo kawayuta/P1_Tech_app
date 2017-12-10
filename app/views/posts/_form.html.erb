@@ -21,7 +21,7 @@
         <span class="jobtype-name">プランナー</span>
         <div class="jobtype-num-box">
           <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-          <span class="jobtype-num">0</span>
+          <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled" />
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
         </div>
       </div>
@@ -30,7 +30,8 @@
         <span class="jobtype-name">エンジニア</span>
         <div class="jobtype-num-box">
           <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-          <span class="jobtype-num">0</span>
+          <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled" />
+
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
         </div>
       </div>
@@ -39,7 +40,7 @@
         <span class="jobtype-name">デザイナー</span>
         <div class="jobtype-num-box">
           <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-          <span class="jobtype-num">0</span>
+          <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled" />
           <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
         </div>
       </div>
@@ -61,7 +62,6 @@
         <% end %>
 
         <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
-        <%= form.hidden_field :outline, id: :post_outline, placeholder: '概要' %>
         <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
 
         <%= form.hidden_field :image, id: :post_image %>
@@ -121,6 +121,17 @@
           });
         });
 
+        $('#title-data').change(function () {
+          $('#post_title').val($('#title-data').val());
+        });
+
+        $('#detail-data').change(function () {
+          $('#post_detail').val($('#detail-data').val());
+        });
+
+
+
+
         $('#post_title').change(function () {
           $('#post-preview-title').text($('#post_title').val());
         });
@@ -136,27 +147,32 @@
         });
 
         $('.jobtype-minus-btn').click(function () {
-          var $hidden = $(this).siblings('.jobtype-hidden')
-          if (Number($(this).siblings('.jobtype-num').text()) > 0) {
-            $(this).siblings('.jobtype-num').text(Number($(this).siblings('.jobtype-num').text()) - 1);
+          if (Number($(this).siblings('.jobtype-num').val()) > 0) {
+            $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) - 1);
           } else {
 
           }
           if (Number($(this).siblings('.jobtype-num').text()) == 0) {
             $(this).addClass('disabled');
           }
+          $('#post_num_of_planner').val($('#jobtype-planner').val());
+          $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+          $('#post_num_of_designer').val($('#jobtype-designer').val());
         })
 
         $('.jobtype-plus-btn').click(function () {
           var $minusBtn = $(this).siblings('.jobtype-minus-btn');
-          if (Number($(this).siblings('.jobtype-num').text()) < 10) {
-            $(this).siblings('.jobtype-num').text(Number($(this).siblings('.jobtype-num').text()) + 1);
+          if (Number($(this).siblings('.jobtype-num').val()) < 10) {
+            $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) + 1);
           } else {
 
           }
           if ($minusBtn.hasClass('disabled')) {
             $minusBtn.removeClass('disabled');
           }
+          $('#post_num_of_planner').val($('#jobtype-planner').val());
+          $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+          $('#post_num_of_designer').val($('#jobtype-designer').val());
         })
       });
     </script>

@@ -138,4 +138,230 @@
   </section>
 
 </div>
-<%= link_to fa_icon('pencil-square-o'), new_post_path, class: "new-post-btn" %>
+
+
+<a class="new-post-btn"><span class="fa fa-pencil-square-o"></span></a>
+
+<div id="posts-post-new">
+  <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
+
+  <div class="new-posts-header">
+    <a class="new-post-btn-close"><span class="fa fa-times"></span></a>
+    <a class="new-post-btn-prev"><span>Back</span></a>
+    <a class="new-post-slick-next">Next</a>
+    <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
+    <div class="new-post-btn-private"><%= form.submit '下書きに保存', name: '', class: 'show-private-btn' %></div>
+
+  </div>
+
+  <ul class="new-post-slider">
+    <li>
+      <div class="title-field">
+        <input type="text" id="title-data" placeholder="タイトル"/>
+      </div>
+
+      <div class="detail-field">
+        <textarea type="text" id="detail-data" placeholder="詳細"></textarea>
+      </div>
+
+      <div class="post-image-field">
+        <input type="file"  id="image-data" />
+      </div>
+    </li>
+
+    <li>
+      <p>募集職種</p>
+
+      <div class="post-jobtype-form">
+        <div class="post-jobtype-field">
+          <span class="jobtype-name">プランナー</span>
+          <div class="jobtype-num-box">
+            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+            <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled" />
+            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          </div>
+        </div>
+
+        <div class="post-jobtype-field">
+          <span class="jobtype-name">エンジニア</span>
+          <div class="jobtype-num-box">
+            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+            <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled" />
+
+            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          </div>
+        </div>
+
+        <div class="post-jobtype-field">
+          <span class="jobtype-name">デザイナー</span>
+          <div class="jobtype-num-box">
+            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+            <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled" />
+            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="new-post-commitment">
+        <ul class="commitment-item-box">
+          <li><span>気軽に制作</span></li>
+          <li class="commitment-item commitment-level-1"><i class="fa fa-circle"></i></li>
+          <li class="commitment-item commitment-level-2"><i class="fa fa-circle"></i></li>
+          <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle"></i></li>
+          <li class="commitment-item commitment-level-4"><i class="fa fa-circle"></i></li>
+          <li class="commitment-item commitment-level-5"><i class="fa fa-circle"></i></li>
+          <li><span>ガチで制作</span></li>
+        </ul>
+      </div>
+
+      <div class="new-post-term">
+        <div class="post-term">
+          <div class="term-line"></div>
+          <div class="term-box">
+            <div class="term-item 1week-tern">
+              <i class="fa fa-circle"></i>
+              <span>1week</span>
+            </div>
+            <div class="term-item 1month-tern">
+              <i class="fa fa-circle"></i>
+              <span>1month</span>
+            </div>
+            <div class="term-item 3month-tern term-item-active">
+              <i class="fa fa-circle"></i>
+              <span>3months</span>
+            </div>
+            <div class="term-item 6month-tern">
+              <i class="fa fa-circle"></i>
+              <span>6months</span>
+            </div>
+            <div class="term-item 1year-tern">
+              <i class="fa fa-circle"></i>
+              <span>1year</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li>
+
+
+          <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
+          <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
+
+          <%= form.hidden_field :image, id: :post_image %>
+
+          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
+          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
+          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
+
+          </li>
+          </ul>
+
+
+  <% end %>
+
+
+      <div class="remodal" data-remodal-id="modal">
+        <div class="post-preview-modal" id="post-preview-modal">
+
+          <h3>ペライチが完成しました！<br/>
+            みんなに応援してもらいましょう！</h3>
+          <div id='post-preview-template'>
+            <h4 id="post-preview-title"></h4>
+            <p id="post-preview-outline"></p>
+            <p id="post-preview-detail"></p>
+          </div>
+
+          <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+          <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+        </div>
+      </div>
+
+
+      <script>
+        $(function () {
+
+          $('.template-item').click(function () {
+            $('.template-name').removeClass('template-item-selected');
+            $(this).find('.template-name').addClass('template-item-selected')
+            $('#post_template_id').val($(this).attr('id'));
+            $('.template-format').css({
+              'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
+            });
+            $('#post-preview-template').css({
+              'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
+              'width': '350px',
+              'height': '200px',
+              'margin': '0 auto',
+              'background-size': 'cover',
+              'border-radius': '5px',
+            });
+          });
+
+
+
+          $('#post_title').change(function () {
+            $('#post-preview-title').text($('#post_title').val());
+          });
+          $('#post_outline').change(function () {
+            $('#post-preview-outline').text($('#post_outline').val());
+          });
+          $('#post_detail').change(function () {
+            $('#post-preview-detail').text($('#post_detail').val());
+          });
+
+          $('#close-modal').click(function () {
+            $('#post-modal-wrapper').css('display', 'none');
+          });
+
+
+
+
+          $('#title-data').change(function () {
+            $('#post_title').val($('#title-data').val());
+          });
+
+          $('#detail-data').change(function () {
+            $('#post_detail').val($('#detail-data').val());
+          });
+
+
+
+
+          $('.jobtype-minus-btn').click(function () {
+            if (Number($(this).siblings('.jobtype-num').val()) > 0) {
+              $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) - 1);
+            } else {
+
+            }
+            if (Number($(this).siblings('.jobtype-num').text()) == 0) {
+              $(this).addClass('disabled');
+            }
+            $('#post_num_of_planner').val($('#jobtype-planner').val());
+            $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+            $('#post_num_of_designer').val($('#jobtype-designer').val());
+          })
+
+          $('.jobtype-plus-btn').click(function () {
+            var $minusBtn = $(this).siblings('.jobtype-minus-btn');
+            if (Number($(this).siblings('.jobtype-num').val()) < 10) {
+              $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) + 1);
+            } else {
+
+            }
+            if ($minusBtn.hasClass('disabled')) {
+              $minusBtn.removeClass('disabled');
+            }
+            $('#post_num_of_planner').val($('#jobtype-planner').val());
+            $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+            $('#post_num_of_designer').val($('#jobtype-designer').val());
+          })
+        });
+
+
+      </script>
+
+
+      </div>
