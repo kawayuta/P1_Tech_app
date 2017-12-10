@@ -13,7 +13,7 @@
     width:100%;
     max-width: 400px;
     overflow: hidden;
-    border-radius:8px;
+    border-radius: 8px;
     list-style: none;
     margin: 10px;
     background: #ed1178;
@@ -100,10 +100,10 @@
 }
 
 .ranked-post {
-  margin: 0 5px;
+  margin: 0 5px 10px;
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,.26);
-  border-radius:8px;
+  border-radius: 8px;
   background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
   background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
   background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
@@ -122,7 +122,7 @@
     }
 
     &-title {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       text-align: center;
 
       a {
@@ -144,6 +144,7 @@
 
   &-footer {
     color: #fff;
+    padding: 0 15px 10px;
 
     img {
       height: 30px;
@@ -504,7 +505,8 @@
   }
 
   h3 {
-    margin-top: 10px;
+    margin: 10px 0;
+
     a {
       font-size: 18px;
       color: #fff;
@@ -534,8 +536,13 @@
     font-size: 16px;
   }
 
+  .post-show-outline {
+    margin-bottom: 30px;
+  }
+
   .post-detail {
     font-size: 14px;
+    margin-bottom: 30px;
   }
 
   .post-status {
@@ -598,7 +605,7 @@
   }
 
   .post-term {
-    margin-bottom: 20px;
+    margin: 30px 0;
 
     .term-line {
       border-bottom: 2px solid #888;
@@ -650,7 +657,7 @@
     width: 90%;
     min-width: 260px;
     max-width: 360px;
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
 
     span {
       font-size: 12px;
