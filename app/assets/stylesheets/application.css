@@ -83,6 +83,7 @@ table {
 body {
     margin: 0;
     padding: 0;
+    color: #4a4a4a;
 }
 
 header {
@@ -93,8 +94,7 @@ header {
     position: fixed;
     top:0;
     z-index: 10;
-    border-bottom: 1px solid #FED430;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2)
 }
 
 header nav ul li {
