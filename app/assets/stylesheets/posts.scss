@@ -519,7 +519,7 @@
 
 .post-content {
   background-color: #fff;
-  padding: 0 30px;
+  padding: 0 30px 10px;
 
   h1 {
     font-size: 18px;
@@ -604,6 +604,10 @@
         }
       }
     }
+  }
+
+  .post-index-status {
+    margin-bottom: 0;
   }
 
   .post-term {
@@ -743,6 +747,7 @@
   padding: 5px 10px;
 
   .post-founder-wrapper {
+    float: left;
   }
 
   .post-founder-img {
@@ -771,12 +776,35 @@
       margin-bottom: 0;
     }
   }
+
+  .post-footer-vote {
+    float: right;
+
+    a {
+      color: #fff;
+    }
+
+    .post-vote-heart {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .post-vote-count {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
 }
 
 .post-index-footer {
   margin: 0 20px;
   padding: 8px 0;
   border-top: 1px solid #ccc;
+  color: #ed1178;
+
+  .post-founder-wrapper {
+    float: left;
+  }
 
   .post-founder-img {
     float: left;
@@ -797,6 +825,26 @@
       margin: 10px 0;
       line-height: 30px;
       font-size: 14px;
+    }
+  }
+
+  .post-footer-vote {
+    float: right;
+
+    a {
+      color: #ed1178;
+    }
+
+    .post-vote-heart {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .post-vote-count {
+      font-size: 18px;
+      line-height: 30px;
+      position: relative;
+      bottom: 1px;
     }
   }
 }

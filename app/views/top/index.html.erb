@@ -40,7 +40,7 @@
                 <%= post.outline %>
               </p>
 
-              <div class="post-status">
+              <div class="post-status post-index-status">
                 <div class="status-line">
                   <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
                     <span>募集中</span>
@@ -58,7 +58,7 @@
               </div>
             </div>
 
-            <div class="post-index-footer">
+            <div class="post-index-footer clearfix">
               <div class="post-founder-wrapper clearfix">
                 <div class="post-founder-img">
                   <%= link_to user_path(post.user) do %>
@@ -68,6 +68,15 @@
                 <div class="post-founder-info">
                   <span class="post-founder-name"><%= post.user.try(:username) %></span>
                 </div>
+              </div>
+
+              <div class="post-footer-vote">
+                <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
+                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
+                <% else %>
+                  <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
+                <% end %>
+                <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
               </div>
             </div>
           </div>
