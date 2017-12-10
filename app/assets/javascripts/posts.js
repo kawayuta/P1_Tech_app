@@ -33,13 +33,25 @@ $(function () {
     });
   })
 
-  $('.posts-post').click(function(){
-    if ($('#posts-post_single').css('display') == 'none') {
-      $(this).addClass('posts-post_open');
-    } else {
-      $(this).removeClass('posts-post_open');
-    }
+  $('.posts-post-new-open').click(function(){
+    $('#posts-post-new').slideDown('fast');
   })
+
+
+  $('.posts-post-new-close').click(function(){
+    $('#posts-post-new').slideUp('fast');
+  })
+
+
+  $('.new-post-slider').slick({
+    dots: true,
+    dotsClass: 'slick-dots new-post-slide-dots',
+    slidesToShow: 1,
+    arrows: false,
+    autoplay: false,
+    swipe: false,
+  });
+
 
 });
 

@@ -2,7 +2,6 @@ class Post < ApplicationRecord
   include SearchCop
 
   validates :title, presence: true, length: { maximum: 30 }
-  validates :outline, presence: true, length: { maximum: 50 }
   validates :detail, presence: true, length: { maximum: 200 }
   validates :published, inclusion: {in: [true, false]}
   validates :status, presence: true
@@ -10,7 +9,6 @@ class Post < ApplicationRecord
   validates :num_of_engineer, presence: true
   validates :num_of_designer, presence: true
 
-  belongs_to :template
   belongs_to :user
   has_many :team_members
   has_many :votes
