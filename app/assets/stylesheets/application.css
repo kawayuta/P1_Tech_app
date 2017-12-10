@@ -129,18 +129,6 @@ header nav ul li.header-notices {
 body {
     margin-top: 50px;
 }
-a.header-new_post {
-    font-size:30px;
-    text-decoration: none;
-    color: #FED430;
-    float: right;
-    margin-top: 11px;
-    margin-right: 10px;
-}
-
-a.header-new_post:hover{
-    color: #F3722C;
-}
 
 a.header-notices {
     font-size:28px;

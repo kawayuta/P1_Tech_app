@@ -19,7 +19,6 @@
   </div>
 </section>
 
-
 <section class="top-posts clearfix">
 <h2>NEW</h2>
   <%= link_to 'planner', search_posts_path(sort:'planner') %>
@@ -133,5 +132,6 @@
       <% end %>
     </ul>
   <% end %>
-
 </section>
+
+<%= link_to fa_icon('pencil-square-o'), new_post_path, class: "new-post-btn" %>
