@@ -4,13 +4,13 @@
     <% @ranked_posts.each do |post| %>
       <div class="ranked-post">
         <div class="ranked-post-header">
-          <div class="ranked-post-header-icon">icon</div>
+          <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
           <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
           <div class="ranked-post-header-outline"><%= post.outline %></div>
         </div>
-        <div class="ranked-post-content">
+        <!-- <div class="ranked-post-content">
           <div class="ranked-post-text_status"><%= post.status %></div>
-        </div>
+        </div> -->
         <div class="ranked-post-footer">
           <%= image_tag post.user.image %>
           <%= post.user.username %>
@@ -31,10 +31,12 @@
     <ul class="posts">
       <% @posts.each do |post| %>
           <li class="posts-post">
+            <div class="post-header">
+              <%= fa_icon 'handshake-o', class: 'post-icon' %>
+              <h3><%= link_to post.title, post %></h3>
+            </div>
             <div class="posts-post-text">
               <div class="post-content">
-                <h1><%= post.title %></h1>
-
                 <p class="post-outline">
                   <%= post.outline %>
                 </p>
@@ -56,6 +58,19 @@
                   </div>
                 </div>
               </div>
+
+              <div class="post-index-footer">
+                <div class="post-founder-wrapper clearfix">
+                  <div class="post-founder-img">
+                    <%= link_to user_path(post.user) do %>
+                      <%= image_tag post.user.try(:image) %>
+                    <% end %>
+                  </div>
+                  <div class="post-founder-info">
+                    <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
       <% end %>
@@ -64,10 +79,12 @@
     <ul class="posts">
       <% @posts.each do |post| %>
           <li class="posts-post">
+            <div class="post-header">
+              <span>icon</span>
+              <h3><%= post.title %></h3>
+            </div>
             <div class="posts-post-text">
               <div class="post-content">
-                <h1><%= post.title %></h1>
-
                 <p class="post-outline">
                   <%= post.outline %>
                 </p>
