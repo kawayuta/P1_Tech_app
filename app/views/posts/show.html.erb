@@ -25,6 +25,50 @@
       <%= @post.outline %>
     </p>
 
+    <div class="post-jobtype-count">
+      <div class="jobtype-icon-list-box">
+        <% if @post.num_of_planner != 0 %>
+            <div class="jobtype-icon-list">
+              <div class="jobtype-icon-box">
+                <% @post.num_of_planner.times do %>
+                  <%= fa_icon 'male', class: 'jobtype-icon planner-icon' %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+        <% if @post.num_of_engineer != 0 %>
+            <div class="jobtype-icon-list">
+              <div class="jobtype-icon-box">
+                <% @post.num_of_engineer.times do %>
+                  <%= fa_icon 'male', class: 'jobtype-icon engineer-icon' %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+        <% if @post.num_of_designer != 0 %>
+            <div class="jobtype-icon-list">
+              <div class="jobtype-icon-box">
+                <% @post.num_of_designer.times do %>
+                  <%= fa_icon 'male', class: 'jobtype-icon designer-icon' %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+
+      <div class="jobtype-label-box">
+        <% if @post.num_of_planner != 0 %>
+          <span>プランナー</span>
+        <% end %>
+        <% if @post.num_of_engineer != 0 %>
+          <span>エンジニア</span>
+        <% end %>
+        <% if @post.num_of_designer != 0 %>
+          <span>デザイナー</span>
+        <% end %>
+      </div>
+    </div>
+
     <div class="post-status">
       <div class="status-line">
         <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
