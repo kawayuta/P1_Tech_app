@@ -531,11 +531,12 @@
       margin: 0 auto;
       border-bottom: 2px solid #888;
       position: relative;
-      top: 31px;
+      top: 28px;
       text-align: center;
 
       span {
-        font-size: 14px;
+        font-size: 12px;
+        display: block;
       }
 
       i {
@@ -547,7 +548,7 @@
       .status-planning {
         width: 60px;
         position: absolute;
-        top: -31px;
+        top: -26px;
         left: -25px;
       }
 
@@ -556,13 +557,13 @@
         width: 60px;
         margin: 0 auto;
         position: relative;
-        top: -31px;
+        top: -26px;
       }
 
       .status-release {
         width: 60px;
         position: absolute;
-        top: -31px;
+        top: -26px;
         right: -25px;
       }
 
@@ -574,6 +575,55 @@
 
         i {
           color: #ed1178;
+        }
+      }
+    }
+  }
+
+  .post-term {
+    margin-bottom: 20px;
+
+    .term-line {
+      border-bottom: 2px solid #888;
+      position: relative;
+      top: 11px;
+      width: 77%;
+      margin: 0 auto;
+    }
+
+    .term-box {
+      width: 96%;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+      display: table;
+      table-layout: fixed;
+
+      .term-item {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      span {
+        font-size: 10px;
+        display: block;
+      }
+
+      i {
+        color: #888;
+        font-size: 10px;
+      }
+
+      .term-item-active {
+        span {
+          color: #ed1178;
+        }
+
+        i {
+          font-size: 14px;
+          color: #ed1178;
+          position: relative;
+          top: 1px;
         }
       }
     }
