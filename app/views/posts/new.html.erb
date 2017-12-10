@@ -1,3 +1,7 @@
-<div class="new-posts-header"><%= link_to '', posts_path, class:'posts-post-new-close fa fa-times' %></div>
+<div class="new-posts-header">
+  <%= link_to '', posts_path, class:'posts-post-new-close fa fa-times' %>
+  <a class="new-post-slick-next">次へ</a>
+
+</div>
 
 <%= render 'form', post: @post %>

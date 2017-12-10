@@ -43,13 +43,19 @@ $(function () {
   })
 
 
-  $('.new-post-slider').slick({
-    dots: true,
+ $('.new-post-slider').slick({
+    dots: false,
     dotsClass: 'slick-dots new-post-slide-dots',
     slidesToShow: 1,
     arrows: false,
     autoplay: false,
     swipe: false,
+    infinite: false,
+  });
+
+  $('.new-post-slick-next').on('click', function () {
+    console.log("ss");
+    $('.new-post-slider').slick('slickNext');
   });
 
 

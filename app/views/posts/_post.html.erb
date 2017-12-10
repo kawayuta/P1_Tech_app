@@ -1,12 +1,96 @@
-<li id="post" class="posts-post">
-  <div class="posts-post_template">
-    <div class="posts-post_image"><%= link_to image_tag(post.template.image), post %></div>
-    <div class="posts-post_image_filter"></div>
-  </div>
-  <div class="posts-post_title"><%= link_to post.title, post %></div>
-  <div class="posts-post_outline"><%= post.outline %></div>
-  <div class="posts-post_detail"><%= post.detail %></div>
-  <div class="posts-post_template_id"><%= post.template_id %></div>
-  <div class="posts-post_published"><%= (post.published) ? "下書き" : "公開" %></div>
-  <div class="posts-post_status"><%= post.status %></div>
-</li>
+<% if user_signed_in? %>
+
+    <li class="posts-post">
+      <div class="post-header">
+        <%= fa_icon 'handshake-o', class: 'post-icon' %>
+        <h3><%= link_to post.title, post %></h3>
+      </div>
+      <div class="posts-post-text">
+        <div class="post-content">
+          <p class="post-outline post-index-outline">
+            <%= post.outline %>
+          </p>
+
+          <div class="post-status">
+            <div class="status-line">
+              <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                <span>募集中</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+              <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                <span>開発中</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+              <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                <span>リリース</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div> -->
+        </div>
+
+        <div class="post-index-footer">
+          <div class="post-founder-wrapper clearfix">
+            <div class="post-founder-img">
+              <%= link_to user_path(post.user) do %>
+                  <%= image_tag post.user.try(:image) %>
+              <% end %>
+            </div>
+            <div class="post-founder-info">
+              <span class="post-founder-name"><%= post.user.try(:username) %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+<% else %>
+
+
+    <li class="posts-post">
+      <div class="post-header">
+        <%= fa_icon 'handshake-o', class: 'post-icon' %>
+        <h3><%= link_to post.title, post %></h3>
+      </div>
+      <div class="posts-post-text">
+        <div class="post-content">
+          <p class="post-outline post-index-outline">
+            <%= post.outline %>
+          </p>
+
+          <div class="post-status">
+            <div class="status-line">
+              <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                <span>募集中</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+              <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                <span>開発中</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+              <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                <span>リリース</span>
+                <%= fa_icon 'play-circle-o' %>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div> -->
+        </div>
+
+        <div class="post-index-footer">
+          <div class="post-founder-wrapper clearfix">
+            <div class="post-founder-img">
+              <%= link_to user_path(post.user) do %>
+                  <%= image_tag post.user.try(:image) %>
+              <% end %>
+            </div>
+            <div class="post-founder-info">
+              <span class="post-founder-name"><%= post.user.try(:username) %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+<% end %>
+
