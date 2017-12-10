@@ -848,13 +848,21 @@ a.posts-post-new-close:hover{
     }
 
     .post-vote-heart {
-      font-size: 20px;
+      font-size: 22px;
       line-height: 30px;
     }
 
     .post-vote-count {
       font-size: 18px;
       line-height: 30px;
+      position: relative;
+      bottom: 1px;
+    }
+
+    .post-share-btn {
+      font-size: 22px;
+      line-height: 30px;
+      margin-right: 15px;
     }
   }
 }
@@ -899,7 +907,7 @@ a.posts-post-new-close:hover{
     }
 
     .post-vote-heart {
-      font-size: 20px;
+      font-size: 22px;
       line-height: 30px;
     }
 
@@ -907,7 +915,13 @@ a.posts-post-new-close:hover{
       font-size: 18px;
       line-height: 30px;
       position: relative;
-      bottom: 1px;
+      bottom: 2px;
+    }
+
+    .post-share-btn {
+      font-size: 22px;
+      line-height: 30px;
+      margin-right: 15px;
     }
   }
 }
