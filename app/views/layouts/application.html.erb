@@ -18,7 +18,7 @@
             <li class="header-top"><%= link_to 'ペラクト', root_path %></li>
             <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li class="header-profile_image"><%= link_to (image_tag current_user.try(:image)), current_user %></li>
-            <li class="header-posts-new"><%= link_to '', new_post_path, class:'header-new_post fa fa-pencil-square-o' %></li>
+            <li class="header-posts-new"><%= link_to " ", new_post_path, class:"posts-post-new header-new_post fa fa-pencil-square-o" %></li>
             <li class="header-notices">
               <%= link_to '', notifications_path, class:'header-notices fa fa-bell-o' %>
               <%= (Notification.where(from_user_id: current_user, is_read:false).count > 0) ? Notification.where(from_user_id: current_user, is_read:false).count : ""%>
@@ -33,7 +33,7 @@
       <p><%= flash[:notice] %></p>
   <% end %>
     <%= yield %>
-
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
   </body>
 </html>

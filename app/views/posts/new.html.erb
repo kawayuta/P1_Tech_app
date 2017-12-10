@@ -1,5 +1,3 @@
-<h1>新しいペライチを投稿しよう</h1>
+<div class="new-posts-header"><%= link_to '', posts_path, class:'posts-post-new-close fa fa-times' %></div>
 
 <%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
