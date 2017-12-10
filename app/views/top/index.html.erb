@@ -29,85 +29,98 @@
   <% if user_signed_in? %>
     <ul class="posts">
       <% @posts.each do |post| %>
-          <li class="posts-post">
-            <div class="post-header">
-              <%= fa_icon 'handshake-o', class: 'post-icon' %>
-              <h3><%= link_to post.title, post %></h3>
-            </div>
-            <div class="posts-post-text">
-              <div class="post-content">
-                <p class="post-outline post-index-outline">
-                  <%= post.outline %>
-                </p>
+        <li class="posts-post">
+          <div class="post-header">
+            <%= fa_icon 'handshake-o', class: 'post-icon' %>
+            <h3><%= link_to post.title, post %></h3>
+          </div>
+          <div class="posts-post-text">
+            <div class="post-content">
+              <p class="post-outline post-index-outline">
+                <%= post.outline %>
+              </p>
 
-                <div class="post-status">
-                  <div class="status-line">
-                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                      <span>募集中</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
-                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                      <span>開発中</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
-                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                      <span>リリース</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
+              <div class="post-status">
+                <div class="status-line">
+                  <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                    <span>募集中</span>
+                    <%= fa_icon 'play-circle-o' %>
                   </div>
-                </div>
-              </div>
-
-              <div class="post-index-footer">
-                <div class="post-founder-wrapper clearfix">
-                  <div class="post-founder-img">
-                    <%= link_to user_path(post.user) do %>
-                      <%= image_tag post.user.try(:image) %>
-                    <% end %>
+                  <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                    <span>開発中</span>
+                    <%= fa_icon 'play-circle-o' %>
                   </div>
-                  <div class="post-founder-info">
-                    <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                  <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                    <span>リリース</span>
+                    <%= fa_icon 'play-circle-o' %>
                   </div>
                 </div>
               </div>
             </div>
-          </li>
+
+            <div class="post-index-footer">
+              <div class="post-founder-wrapper clearfix">
+                <div class="post-founder-img">
+                  <%= link_to user_path(post.user) do %>
+                    <%= image_tag post.user.try(:image) %>
+                  <% end %>
+                </div>
+                <div class="post-founder-info">
+                  <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% else %>
     <ul class="posts">
       <% @posts.each do |post| %>
-          <li class="posts-post">
-            <div class="post-header">
-              <span>icon</span>
-              <h3><%= post.title %></h3>
-            </div>
-            <div class="posts-post-text">
-              <div class="post-content">
-                <p class="post-outline">
-                  <%= post.outline %>
-                </p>
+        <li class="posts-post">
+          <div class="post-header">
+            <%= fa_icon 'handshake-o', class: 'post-icon' %>
+            <h3><%= link_to post.title, post %></h3>
+          </div>
+          <div class="posts-post-text">
+            <div class="post-content">
+              <p class="post-outline post-index-outline">
+                <%= post.outline %>
+              </p>
 
-                <div class="post-status">
-                  <div class="status-line">
-                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                      <span>募集中</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
-                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                      <span>開発中</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
-                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                      <span>リリース</span>
-                      <%= fa_icon 'play-circle-o' %>
-                    </div>
+              <div class="post-status">
+                <div class="status-line">
+                  <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                    <span>募集中</span>
+                    <%= fa_icon 'play-circle-o' %>
+                  </div>
+                  <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                    <span>開発中</span>
+                    <%= fa_icon 'play-circle-o' %>
+                  </div>
+                  <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                    <span>リリース</span>
+                    <%= fa_icon 'play-circle-o' %>
                   </div>
                 </div>
               </div>
-              <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div>
+              <!-- <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div> -->
             </div>
-          </li>
+
+            <div class="post-index-footer">
+              <div class="post-founder-wrapper clearfix">
+                <div class="post-founder-img">
+                  <%= link_to user_path(post.user) do %>
+                    <%= image_tag post.user.try(:image) %>
+                  <% end %>
+                </div>
+                <div class="post-founder-info">
+                  <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
       <% end %>
     </ul>
   <% end %>
