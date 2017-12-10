@@ -7,6 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.where(published: true).order('created_at DESC')
+    ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
+    @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
   end
 
   # GET /posts/1
@@ -113,6 +115,9 @@ class PostsController < ApplicationController
 
   def search
     @posts = Post.num_of_search(params[:sort]).where(published: true).order('created_at DESC')
+    @title = params[:sort].upcase
+    ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
+    @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
   end
 
   def support
