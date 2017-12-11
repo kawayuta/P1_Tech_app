@@ -162,6 +162,7 @@
   left:0;
   right:0;
   width:100px;
+  height:50px;
   margin: 0 auto;
   z-index: 999;
 }
@@ -322,7 +323,7 @@ div.new-post-btn-public {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 15px;
-
+  position: relative;
   span {
     font-size: 12px;
 

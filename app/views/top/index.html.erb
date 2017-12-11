@@ -192,10 +192,13 @@
             <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
             <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
 
-
             <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
             <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
             <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
+
+            <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
+            <%= form.hidden_field :period, id: :post_period, placeholder: '製作期間' %>
+
           </li>
         </ul>
       </div>
@@ -271,6 +274,7 @@
       });
 
 
+
       $('.jobtype-minus-btn').click(function () {
         if (Number($(this).siblings('.jobtype-num').val()) > 0) {
           $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) - 1);
@@ -299,6 +303,68 @@
         $('#post_num_of_engineer').val($('#jobtype-engineer').val());
         $('#post_num_of_designer').val($('#jobtype-designer').val());
       });
+
+      $('.new-post-commitment .commitment-level-1').click(function () {
+        $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
+        $(this).addClass('commitment-item-active');
+        $('#post_motivation').val('0');
+      });
+
+      $('.new-post-commitment .commitment-level-2').click(function () {
+        $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
+        $(this).addClass('commitment-item-active');
+        $('#post_motivation').val('1');
+      });
+
+      $('.new-post-commitment .commitment-level-3').click(function () {
+        $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
+        $(this).addClass('commitment-item-active');
+        $('#post_motivation').val('2');
+      });
+
+      $('.new-post-commitment .commitment-level-4').click(function () {
+        $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
+        $(this).addClass('commitment-item-active');
+        $('#post_motivation').val('3');
+      });
+
+      $('.new-post-commitment .commitment-level-5').click(function () {
+        $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
+        $(this).addClass('commitment-item-active');
+        $('#post_motivation').val('4');
+      });
+
+
+      $('.new-post-term .1week-tern').click(function () {
+        $(this).parent().find('.term-item-active').removeClass('term-item-active');
+        $(this).addClass('term-item-active');
+        $('#post_period').val('0');
+      });
+
+      $('.new-post-term .1month-tern').click(function () {
+        $(this).parent().find('.term-item-active').removeClass('term-item-active');
+        $(this).addClass('term-item-active');
+        $('#post_period').val('1');
+      });
+
+      $('.new-post-term .3month-tern').click(function () {
+        $(this).parent().find('.term-item-active').removeClass('term-item-active');
+        $(this).addClass('term-item-active');
+        $('#post_period').val('2');
+      });
+
+      $('.new-post-term .6month-tern').click(function () {
+        $(this).parent().find('.term-item-active').removeClass('term-item-active');
+        $(this).addClass('term-item-active');
+        $('#post_period').val('3');
+      });
+
+      $('.new-post-term .1year-tern').click(function () {
+        $(this).parent().find('.term-item-active').removeClass('term-item-active');
+        $(this).addClass('term-item-active');
+        $('#post_period').val('4');
+      });
+
 
       $(function () {
         $('.post-image-field input').change(function () {
