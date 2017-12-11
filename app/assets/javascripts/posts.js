@@ -39,7 +39,7 @@ $(function () {
 
 
   $('.new-post-slider').slick({
-    dots: false,
+    dots: true,
     dotsClass: 'slick-dots new-post-slide-dots',
     slidesToShow: 1,
     arrows: false,

@@ -160,19 +160,28 @@
 .slick-dots.new-post-slide-dots {
   opacity: 1;
   color: #FED430;
-  font-size: 12px;
+  font-size: 20px;
   position: fixed;
-  top: 65px;
+  top: 9px;
   left:0;
   right:0;
   width:100px;
   margin: 0 auto;
 }
 
-.slick-dots.new-post-slide-dots li.slick-active button:before {
+.slick-dots.new-post-slide-dots button:before {
+  font-family: "FontAwesome";
+  content: "\f10c";
   opacity: 1;
   color: #FED430;
-  font-size: 12px;
+  font-size: 20px;
+}
+.slick-dots.new-post-slide-dots li.slick-active button:before {
+  font-family: "FontAwesome";
+  content: "\f111";
+  opacity: 1;
+  color: #FED430;
+  font-size: 20px;
 }
 
 
