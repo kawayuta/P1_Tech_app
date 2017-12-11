@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
+    user.update( remote_image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large" )
     unless user
       user = User.create(
           uid:      auth.uid,
@@ -27,7 +28,6 @@ class User < ApplicationRecord
           token:    "",
       )
     end
-    user.update( remote_image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large" )
     # user.update( token: auth.credentials.token)
     user
   end
