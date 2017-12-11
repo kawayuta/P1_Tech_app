@@ -68,7 +68,7 @@
         <ul class="new-post-slider">
           <li>
             <h4>アイコンを選択</h4>
-            <ul class="categories">
+            <ul class="categories clearfix">
             <% @categories.each.with_index(1) do | category, index| %>
               <li class="category <%= (index == 5 || index == 9 ) ? 'category-border-left-hide' : ''%> <%= ([9,10,11,12].include?(index) ) ? 'category-border-bottom-hide' : ''%>">
                 <div class="category-icon <%= icon_of_category(category) %>"></div>
