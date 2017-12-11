@@ -230,10 +230,11 @@ div.new-post-btn-public {
   overflow-y:scroll;
   bottom:0;
   width: 100%;
-  height:-webkit-calc(100% - 50px);
+  height:100vh;
   background-color: #FFF;
   display: none;
   z-index: 999;
+  padding-top: 50px;
 }
 
 .new-posts-header {
