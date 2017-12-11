@@ -69,3 +69,36 @@ div {
 label {
   display: block;
 }
+
+input::-webkit-input-placeholder{
+  color: #DADADA;
+}
+
+input::-moz-placeholder{
+  color: #DADADA;
+}
+
+input:-moz-placeholder{
+  color: #DADADA;
+}
+
+input:-ms-input-placeholder{
+  color: #DADADA;
+}
+
+
+textarea::-webkit-input-placeholder{
+  color: #DADADA;
+}
+
+textarea::-moz-placeholder{
+  color: #DADADA;
+}
+
+textarea:-moz-placeholder{
+  color: #DADADA;
+}
+
+textarea:-ms-input-placeholder{
+  color: #DADADA;
+}

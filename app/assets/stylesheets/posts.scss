@@ -230,34 +230,45 @@ div.new-post-btn-public {
   width:100%;
   height:50px;
   border-bottom: 1px solid #EEE;
+  background-color: #FFF;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
+
 .title-field input{
-  width:90%;
+  width:93%;
   height:50px;
   border:1px solid #EEE;
   border-radius: 5px;
   margin:0 auto;
   position: relative;
-  left:5%;
+  left:15px;
   padding:30px;
   margin-top: 15px;
 }
 
 .detail-field textarea {
-  width:90%;
+  width:93%;
   height:250px;
   border:1px solid #EEE;
   border-radius: 5px;
   margin:0 auto;
   position: relative;
-  left:5%;
+  left:15px;
   padding:30px;
   margin-top: 15px;
 
 }
 
 .new-post-commitment {
+  background-color: #FFF;
+  border-radius: 5px;
+  padding:15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+
   span {
     font-size: 12px;
 
@@ -282,7 +293,7 @@ div.new-post-btn-public {
 
   .commitment-item-active {
     i {
-      font-size: 14px;
+      font-size: 20px;
       color: #FDD344;
       position: relative;
       top: 3px;
@@ -292,18 +303,24 @@ div.new-post-btn-public {
 }
 
 .new-post-term {
-  margin: 30px 0;
+
+  background-color: #FFF;
+  border-radius: 5px;
+  padding:15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
 
   .term-line {
-    border-bottom: 2px solid #888;
+    border-bottom: 2px solid #ddd;
     position: relative;
-    top: 11px;
-    width: 67%;
+    top: 12.5px;
+    width: 80%;
     margin: 0 auto;
   }
 
   .term-box {
-    width: 86%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     text-align: center;
@@ -332,7 +349,7 @@ div.new-post-btn-public {
       }
 
       i {
-        font-size: 14px;
+        font-size: 20px;
         color: #FDD344;
         position: relative;
         top: 3px;
@@ -459,10 +476,16 @@ div.new-post-btn-public {
   }
 }
 
-.post-form-container {
-  padding: 0 20px;
-  max-width: 500px;
-  margin: 0 auto;
+#posts-post-new {
+  background-color: #eee;
+}
+.post-form-container h4 {
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size:16px;
+  font-weight: bold;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 }
 
 
@@ -470,7 +493,7 @@ div.new-post-btn-public {
 .post-image-field-list-wrapper {
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  margin-top:30px;
+  margin-top:15px;
 }
 
 .post-image-field-list {
@@ -484,17 +507,19 @@ div.new-post-btn-public {
 
 .post-image-field {
   display: inline-block;
-  width: 210px;
-  height: 130px;
-  background-color: #eee;
+  width: 175px;
+  height: 115px;
+  background-color: #fff;
   border-radius: 5px;
   position: relative;
+  overflow: hidden;
+  border: 1px solid #fff;
+
 }
 
 
 .post-image-field span {
-  width: 210px;
-  height: 130px;
+  width: 175px;
   line-height: 3.5em;
   font-size:35px;
   color:#ddd;
@@ -504,8 +529,8 @@ div.new-post-btn-public {
 
 .post-image-field input {
   opacity:0;
-  width: 210px;
-  height: 130px;
+  width: 175px;
+  height: 115px;
   border:1px solid;
   position: absolute;
   top:0;
@@ -516,30 +541,36 @@ div.new-post-btn-public {
 }
 
 .post-image-field img {
-  width: 210px;
-  height: 130px;
+  width: 175px;
+  height: auto;
   position: relative;
-  top:-130px;
+  top:-125px;
   border-radius: 5px;
-
-  border: 1px solid #EEE;
 }
 
 .post-image-field + .post-image-field {
   margin-left:10px;
 }
 
+input.jobtype-num {
+  background-color: transparent;
+  border:none;
+}
 
 .post-jobtype-form {
-  margin: 10px 0;
+  margin-top:15px;
+  margin-left:15px;
+  margin-right:15px;
+  background-color: #FFF;
+  border-radius: 5px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   .post-jobtype-field {
-    padding: 15px 0;
-    border-top: 1px solid #ccc;
+    padding: 20px 15px 30px 15px;
 
     .jobtype-name {
       margin-left: 20px;
-      line-height: 24px;
+      line-height: 30px;
     }
 
     .jobtype-num-box {
@@ -550,13 +581,13 @@ div.new-post-btn-public {
       .jobtype-num {
         display: inline-block;
         text-align: center;
-        font-size: 22px;
+        font-size: 30px;
         width: 50px;
       }
 
       .jobtype-minus-btn {
         color: #FDD344;
-        font-size: 24px;
+        font-size: 28px;
         cursor: pointer;
         user-select: none;
         -moz-user-select: none;
@@ -570,12 +601,13 @@ div.new-post-btn-public {
 
       .jobtype-plus-btn i {
         color: #FDD344;
-        font-size: 24px;
+        font-size: 28px;
         cursor: pointer;
         user-select: none;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
+
       }
     }
   }
