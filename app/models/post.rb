@@ -17,6 +17,8 @@ class Post < ApplicationRecord
   has_many :evaluations
 
   mount_uploader :image, ImageUploader
+  mount_uploader :image_2, ImageUploader
+  mount_uploader :image_3, ImageUploader
 
   enum status: { planning: 0, development: 1, release: 2 }
 

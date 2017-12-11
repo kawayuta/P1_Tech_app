@@ -5,6 +5,8 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.text :outline
       t.text :detail
       t.string :image
+      t.string :image_2
+      t.string :image_3
       t.integer :template_id
       t.integer :user_id
       t.boolean :published

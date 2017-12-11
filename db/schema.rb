@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.text "outline"
     t.text "detail"
     t.string "image"
+    t.string "image_2"
+    t.string "image_3"
     t.integer "template_id"
     t.integer "user_id"
     t.boolean "published"
