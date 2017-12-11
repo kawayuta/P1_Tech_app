@@ -11,8 +11,6 @@ class User < ApplicationRecord
   has_many :evaluations
 
   mount_uploader :image, ImageUploader
-  mount_uploader :image_2, ImageUploader
-  mount_uploader :image_3, ImageUploader
 
   validates :email, presence: true, uniqueness: true
 
