@@ -139,10 +139,6 @@
     }
   }
 
-  &-content {
-    background-color: #fff;
-  }
-
   &-footer {
     color: #fff;
     padding: 0 15px 10px;
@@ -235,6 +231,7 @@ div.new-post-btn-public {
   height:50px;
   border-bottom: 1px solid #EEE;
   background-color: #FFF;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -779,7 +776,7 @@ input.jobtype-num {
     opacity: .9;
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
   }
 
   h3 {
