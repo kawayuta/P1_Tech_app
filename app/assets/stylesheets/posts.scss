@@ -16,11 +16,11 @@
     border-radius: 8px;
     list-style: none;
     margin: 10px;
-    background: #ed1178;
-    background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
-    background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
-    background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1178', endColorstr='#f0443c',GradientType=1 );
+    background: #FE6B6B;
+    // background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
+    // background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
+    // background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1178', endColorstr='#f0443c',GradientType=1 );
     box-shadow: 0 2px 10px rgba(0,0,0,.26);
     &_highlight {
       animation: inout 2.8s;
@@ -39,7 +39,7 @@
 
       & a {
         text-decoration: none;
-        color:#ed1178;
+        color:#FE6B6B;
       }
 
       &_title {
@@ -101,12 +101,9 @@
 
 .ranked-post {
   margin: 0 5px 10px;
-  background-color: #fff;
+  background-color: #FE6B6B;
   box-shadow: 0 2px 10px rgba(0,0,0,.26);
   border-radius: 8px;
-  background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
-  background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
-  background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
 
   &-header {
     color: #fff;
@@ -768,9 +765,7 @@ input.jobtype-num {
   max-width: 500px;
   margin: 0 auto;
   word-break: break-all;
-  background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
-  background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
-  background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
+  background-color: #FE6B6B;
 }
 
 .post-header {
@@ -806,7 +801,7 @@ input.jobtype-num {
 
   h1 {
     font-size: 18px;
-    color: #ed1178;
+    color: #FE6B6B;
     font-weight: bold;
     margin: 0 0 30px;
     padding-top: 30px;
@@ -869,18 +864,7 @@ input.jobtype-num {
             -webkit-transform: scale(1, 1.2);
             -o-transform: scale(1, 1.2);
             -ms-transform: scale(1, 1.2);
-          }
-
-          .planner-icon {
-            color: #884898;
-          }
-
-          .engineer-icon {
-            color: #0095d9;
-          }
-
-          .designer-icon {
-            color: #f09199;
+            color: #FE6B6B;
           }
         }
       }
@@ -911,7 +895,7 @@ input.jobtype-num {
       height: 0;
       width: 80%;
       margin: 0 auto;
-      border-bottom: 2px solid #888;
+      border-bottom: 2px solid #9B9B9B;
       position: relative;
       top: 16px;
     }
@@ -924,12 +908,12 @@ input.jobtype-num {
 
       .status-label {
         font-size: 12px;
-        color: #666;
+        color: #9B9B9B;
         display: block;
       }
 
       .status-icon {
-        color: #888;
+        color: #9B9B9B;
         font-size: 22px;
         line-height: 30px;
         background-color: #fff;
@@ -963,12 +947,12 @@ input.jobtype-num {
 
       .status-active {
         .status-label {
-          color: #ed1178;
+          color: #FE6B6B;
           font-weight: bold;
         }
 
         .status-icon {
-          color: #ed1178;
+          color: #FE6B6B;
           font-size: 30px;
           line-height: 30px;
 
@@ -1022,12 +1006,12 @@ input.jobtype-num {
 
       .term-item-active {
         span {
-          color: #ed1178;
+          color: #FE6B6B;
         }
 
         i {
           font-size: 14px;
-          color: #ed1178;
+          color: #FE6B6B;
           position: relative;
           top: 1px;
         }
@@ -1066,7 +1050,7 @@ input.jobtype-num {
     .commitment-item-active {
       i {
         font-size: 14px;
-        color: #ed1178;
+        color: #FE6B6B;
         position: relative;
         top: 1px;
       }
@@ -1185,7 +1169,7 @@ input.jobtype-num {
   margin: 0 20px;
   padding: 8px 0;
   border-top: 1px solid #ccc;
-  color: #9B9B9B;
+  color: #888;
 
   .post-founder-wrapper {
     float: left;
@@ -1217,7 +1201,7 @@ input.jobtype-num {
     float: right;
 
     a {
-      color: #9B9B9B;
+      color: #888;
     }
 
     .post-vote-heart {
