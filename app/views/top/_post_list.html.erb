@@ -8,7 +8,7 @@
       <div class="posts-post-text">
         <div class="post-content">
           <p class="post-outline post-index-outline">
-            <%= post.outline %>
+            <%= post.detail %>
           </p>
 
           <div class="post-status post-index-status">
@@ -47,9 +47,9 @@
 
             <% if user_signed_in? %>
               <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                  <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
+                  <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
               <% else %>
-                <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
+                <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
               <% end %>
               <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
             <% end %>

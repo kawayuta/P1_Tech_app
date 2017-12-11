@@ -8,7 +8,7 @@
           <div class="ranked-post-header">
             <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
             <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
-            <div class="ranked-post-header-outline"><%= post.outline %></div>
+            <div class="ranked-post-header-outline"><%= post.detail %></div>
           </div>
           <div class="ranked-post-footer">
             <%= image_tag post.user.image %>
@@ -67,7 +67,15 @@
       <div class="post-form-container">
         <ul class="new-post-slider">
           <li>
-            <h4>カテゴリーを選択</h4>
+            <h4>アイコンを選択</h4>
+            <ul class="categories">
+            <% @categories.each.with_index(1) do | category, index| %>
+              <li class="category <%= (index == 5 || index == 9 ) ? 'category-border-left-hide' : ''%> <%= ([9,10,11,12].include?(index) ) ? 'category-border-bottom-hide' : ''%>">
+                <div class="category-icon <%= icon_of_category(category) %>"></div>
+                <div class="category-name"><%= category %></div>
+              </li>
+            <% end %>
+            </ul>
 
             <h4>タイトルを記入</h4>
             <div class="title-field">
@@ -84,15 +92,16 @@
               <div class="post-image-field-list">
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <input type="file" id="image-data" class="image-data"/>
+                  <%= form.file_field :image, id: :post_image_data %>
                 </div>
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <input type="file" id="image-data" class="image-data-2"/>
+                  <%= form.file_field :image_2, id: :post_image_data_2 %>
+
                 </div>
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <input type="file" id="image-data" class="image-data-3"/>
+                  <%= form.file_field :image_3, id: :post_image_data_3 %>
                 </div>
               </div>
             </div>
@@ -177,10 +186,12 @@
           </li>
 
           <li>
+
+            <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
+
             <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
             <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
 
-            <%= form.hidden_field :image, id: :post_image %>
 
             <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
             <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
@@ -199,7 +210,6 @@
         みんなに応援してもらいましょう！</h3>
       <div id='post-preview-template'>
         <h4 id="post-preview-title"></h4>
-        <p id="post-preview-outline"></p>
         <p id="post-preview-detail"></p>
       </div>
 
@@ -231,7 +241,7 @@
 
 
       $('#post_title').change(function () {
-        $('#post-preview-title').text($('#post_title').val());
+        $('#post-preview-title').children('.category-name').text($('#post_title').val());
       });
       $('#post_outline').change(function () {
         $('#post-preview-outline').text($('#post_outline').val());
@@ -244,6 +254,13 @@
         $('#post-modal-wrapper').css('display', 'none');
       });
 
+
+
+      $('.category').click(function () {
+        $(this).parent().find('.category-checked').removeClass('category-checked');
+        $(this).addClass('category-checked');
+        $('#post_category_name').val($(this).text());
+      });
 
       $('#title-data').change(function () {
         $('#post_title').val($('#title-data').val());

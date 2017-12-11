@@ -17,8 +17,8 @@ class Post < ApplicationRecord
   has_many :evaluations
 
   mount_uploader :image, ImageUploader
-  mount_uploader :image_2, ImageUploader
-  mount_uploader :image_3, ImageUploader
+  mount_uploader :image_2, Image2Uploader
+  mount_uploader :image_3, Image3Uploader
 
   enum status: { planning: 0, development: 1, release: 2 }
 
@@ -37,6 +37,8 @@ class Post < ApplicationRecord
    end
    return @posts
   end
+
+
 
 
 end

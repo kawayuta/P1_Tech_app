@@ -1,6 +1,6 @@
 <head>
   <meta property="og:title" content="<%= @post.title %>">
-  <meta property="og:description" content="<%= @post.outline %>">
+  <meta property="og:description" content="<%= @post.detail %>">
   <meta property="og:image" content="<%= @post.image %>">
   <meta property="og:url" content="<%= post_url %>/">
   <meta property="og:type" content="article">
@@ -22,7 +22,7 @@
     <h1><%= @post.title %></h1>
 
     <p class="post-outline post-show-outline">
-      <%= @post.outline %>
+      <%= @post.detail %>
     </p>
 
     <div class="post-jobtype-count">
@@ -124,10 +124,6 @@
         <li><span>ガチで制作</span></li>
       </ul>
     </div>
-
-    <p class="post-detail">
-      <%= @post.detail %>
-    </p>
 
     <% if @post.num_of_planner != 0 %>
       <div class="post-jobtype-wrapper">

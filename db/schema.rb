@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20171202152906) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
-    t.text "outline"
     t.text "detail"
+    t.string "category_name"
     t.string "image"
     t.string "image_2"
     t.string "image_3"

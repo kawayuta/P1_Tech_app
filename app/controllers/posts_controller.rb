@@ -3,12 +3,15 @@ class PostsController < ApplicationController
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
 
+  require 'yaml'
+
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.where(published: true).order('created_at DESC')
     ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
     @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
+
   end
 
   # GET /posts/1
@@ -184,6 +187,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :detail, :image, :image_2, :image_3, :user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :detail, :image, :image_2, :image_3, :category_name, :user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer).merge(user_id: current_user.id)
     end
 end

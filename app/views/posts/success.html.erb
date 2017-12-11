@@ -11,47 +11,187 @@
 </div>
 
 <section class="top-posts clearfix">
-  <%= link_to 'planner', search_posts_path(sort:'planner') %>
-  <%= link_to 'engineer', search_posts_path(sort:'engineer') %>
-  <%= link_to 'designer', search_posts_path(sort:'designer') %>
 
 <ul class="posts">
   <% rand = (@posts.count >= 5) ? (rand(5)+1).to_i : ((rand(@posts.count) > 0) ?  + 1 : rand(@posts.count)).to_i%>
   <%= puts rand%>
   <% if @posts.count == 0 %>
-  <li id="post" class="posts-post posts-post_highlight">
-          <div class="posts-post-text">
-            <div class="posts-post-text_title"><%= link_to @my_posts_id.title, @my_posts_id %></div>
-            <div class="posts-post-text_outline"><%= @my_posts_id.outline %></div>
-            <div class="posts-post-text_detail"><%= @my_posts_id.detail %></div>
-            <div class="posts-post-text_template_id"><%= @my_posts_id.template_id %></div>
-            <div class="posts-post-text_published"><%= (@my_posts_id.published) ? "下書き" : "公開" %></div>
-            <div class="posts-post-text_status"><%= @my_posts_id.status %></div>
-          </div>
-      </li>
+      <li id="post" class="posts-post posts-post_highlight">
+                  <div class="post-header">
+                    <%= fa_icon 'handshake-o', class: 'post-icon' %>
+                    <h3><%= link_to @my_posts_id.title, @my_posts_id %></h3>
+                  </div>
+                  <div class="posts-post-text">
+                    <div class="post-content">
+                      <p class="post-outline post-index-outline">
+                        <%= @my_posts_id.detail %>
+                      </p>
+
+                      <div class="post-status post-index-status">
+                        <div class="status-line"></div>
+                        <div class="status-box">
+                          <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
+                            <i class="status-icon"></i>
+                            <span class="status-label">募集中</span>
+                          </div>
+                          <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
+                            <i class="status-icon"></i>
+                            <span class="status-label">開発中</span>
+                          </div>
+                          <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
+                            <i class="status-icon"></i>
+                            <span class="status-label">リリース</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="post-index-footer clearfix">
+                      <div class="post-founder-wrapper clearfix">
+                        <div class="post-founder-img">
+                          <%= link_to user_path(@my_posts_id.user) do %>
+                            <%= image_tag @my_posts_id.user.try(:image) %>
+                          <% end %>
+                        </div>
+                        <div class="post-founder-info">
+                          <span class="post-founder-name"><%= @my_posts_id.user.try(:username) %></span>
+                        </div>
+                      </div>
+
+                      <div class="post-footer-vote">
+                        <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+
+                        <% if user_signed_in? %>
+                          <% if Vote.find_by(user_id: current_user,post_id:@my_posts_id,support:true).present? %>
+                              <%= link_to fa_icon('heart'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart' %>
+                          <% else %>
+                            <%= link_to fa_icon('heart-o'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart' %>
+                          <% end %>
+                          <span class="post-vote-count"><%= Vote.where(post_id: @my_posts_id, support: true).count %></span>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
   <% end %>
   <% @posts.each.with_index(0) do |post,index| %>
   <% if index == rand %>
-    <li id="post" class="posts-post posts-post_highlight">
-          <div class="posts-post-text">
-            <div class="posts-post-text_title"><%= link_to @my_posts_id.title, @my_posts_id %></div>
-            <div class="posts-post-text_outline"><%= @my_posts_id.outline %></div>
-            <div class="posts-post-text_detail"><%= @my_posts_id.detail %></div>
-            <div class="posts-post-text_template_id"><%= @my_posts_id.template_id %></div>
-            <div class="posts-post-text_published"><%= (@my_posts_id.published) ? "下書き" : "公開" %></div>
-            <div class="posts-post-text_status"><%= @my_posts_id.status %></div>
-          </div>
-    </li>
+ <li id="post" class="posts-post posts-post_highlight">
+                   <div class="post-header">
+                     <%= fa_icon 'handshake-o', class: 'post-icon' %>
+                     <h3><%= link_to @my_posts_id.title, @my_posts_id %></h3>
+                   </div>
+                   <div class="posts-post-text">
+                     <div class="post-content">
+                       <p class="post-outline post-index-outline">
+                         <%= @my_posts_id.detail %>
+                       </p>
+
+                       <div class="post-status post-index-status">
+                         <div class="status-line"></div>
+                         <div class="status-box">
+                           <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
+                             <i class="status-icon"></i>
+                             <span class="status-label">募集中</span>
+                           </div>
+                           <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
+                             <i class="status-icon"></i>
+                             <span class="status-label">開発中</span>
+                           </div>
+                           <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
+                             <i class="status-icon"></i>
+                             <span class="status-label">リリース</span>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+
+                     <div class="post-index-footer clearfix">
+                       <div class="post-founder-wrapper clearfix">
+                         <div class="post-founder-img">
+                           <%= link_to user_path(@my_posts_id.user) do %>
+                             <%= image_tag @my_posts_id.user.try(:image) %>
+                           <% end %>
+                         </div>
+                         <div class="post-founder-info">
+                           <span class="post-founder-name"><%= @my_posts_id.user.try(:username) %></span>
+                         </div>
+                       </div>
+
+                       <div class="post-footer-vote">
+                         <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+
+                         <% if user_signed_in? %>
+                           <% if Vote.find_by(user_id: current_user,post_id:@my_posts_id,support:true).present? %>
+                               <%= link_to fa_icon('heart'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart' %>
+                           <% else %>
+                             <%= link_to fa_icon('heart-o'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart' %>
+                           <% end %>
+                           <span class="post-vote-count"><%= Vote.where(post_id: @my_posts_id, support: true).count %></span>
+                         <% end %>
+                       </div>
+                     </div>
+                   </div>
+                 </li>
   <% end %>
       <li id="post" class="posts-post">
-        <div class="posts-post-text">
-          <div class="posts-post-text_title"><%= link_to post.title, post %></div>
-          <div class="posts-post-text_outline"><%= post.outline %></div>
-          <div class="posts-post-text_detail"><%= post.detail %></div>
-          <div class="posts-post-text_template_id"><%= post.template_id %></div>
-          <div class="posts-post-text_published"><%= (post.published) ? "下書き" : "公開" %></div>
-          <div class="posts-post-text_status"><%= post.status %></div>
-        </div>
-      </li>
+            <div class="post-header">
+              <%= fa_icon 'handshake-o', class: 'post-icon' %>
+              <h3><%= link_to post.title, post %></h3>
+            </div>
+            <div class="posts-post-text">
+              <div class="post-content">
+                <p class="post-outline post-index-outline">
+                  <%= post.detail %>
+                </p>
+
+                <div class="post-status post-index-status">
+                  <div class="status-line"></div>
+                  <div class="status-box">
+                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                      <i class="status-icon"></i>
+                      <span class="status-label">募集中</span>
+                    </div>
+                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                      <i class="status-icon"></i>
+                      <span class="status-label">開発中</span>
+                    </div>
+                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                      <i class="status-icon"></i>
+                      <span class="status-label">リリース</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="post-index-footer clearfix">
+                <div class="post-founder-wrapper clearfix">
+                  <div class="post-founder-img">
+                    <%= link_to user_path(post.user) do %>
+                      <%= image_tag post.user.try(:image) %>
+                    <% end %>
+                  </div>
+                  <div class="post-founder-info">
+                    <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                  </div>
+                </div>
+
+                <div class="post-footer-vote">
+                  <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+
+                  <% if user_signed_in? %>
+                    <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
+                        <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <% else %>
+                      <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <% end %>
+                    <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+
   <% end %>
 </ul>

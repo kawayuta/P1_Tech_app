@@ -1,4 +1,4 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class Image3Uploader < CarrierWave::Uploader::Base
 
 # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick

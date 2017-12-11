@@ -7,4 +7,12 @@ module PostsHelper
     return ''
   end
 
+  def icon_of_category(name)
+    if name.downcase == 'game'
+      icon = 'fa fa-gamepad'
+    end
+
+    return icon
+  end
+
 end
