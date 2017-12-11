@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'kaminari'
+gem 'jquery-turbolinks'
 
 
 gem 'devise'

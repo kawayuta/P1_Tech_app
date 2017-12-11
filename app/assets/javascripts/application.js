@@ -14,5 +14,6 @@
 //= require rails-ujs
 //= require vender/masonry.pkgd.min.js
 //= require vender/remodal.min
+//= require vender/jquery.infinitescroll.js
 //= require turbolinks
 //= require_tree .

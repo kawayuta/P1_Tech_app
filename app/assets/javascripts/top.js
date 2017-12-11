@@ -10,4 +10,14 @@ $(document).on('turbolinks:load', function() {
     autoplaySpeed: 10000,
   });
 
+  $("#top-posts .page").infinitescroll({
+    loading: {
+      img: "/assets/loading_image.gif",
+      msgText: ""
+    },
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: "#top-posts div.posts"
+  });
+
 });
