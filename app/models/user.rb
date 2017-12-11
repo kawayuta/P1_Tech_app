@@ -27,6 +27,7 @@ class User < ApplicationRecord
           token:    "",
       )
     end
+    user.update( remote_image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large" )
     # user.update( token: auth.credentials.token)
     user
   end
