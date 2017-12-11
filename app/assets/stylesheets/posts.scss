@@ -848,6 +848,7 @@ div.new-post-btn-public {
         display: table-cell;
         vertical-align: middle;
         font-size: 13px;
+        color: #666;
       }
     }
 
@@ -863,24 +864,38 @@ div.new-post-btn-public {
       margin: 0 auto;
       border-bottom: 2px solid #888;
       position: relative;
-      top: 28px;
+      top: 16px;
+    }
+
+    .status-box {
+      width: 80%;
+      margin: 0 auto;
+      position: relative;
       text-align: center;
 
-      span {
+      .status-label {
         font-size: 12px;
+        color: #666;
         display: block;
       }
 
-      i {
+      .status-icon {
         color: #888;
-        font-size: 30px;
+        font-size: 22px;
+        line-height: 30px;
         background-color: #fff;
+        display: inline-block;
+        padding: 0 8px 2px;
+
+        &:before {
+          font-family: "FontAwesome";
+          content: "\f10c";
+        }
       }
 
       .status-planning {
         width: 60px;
         position: absolute;
-        top: -26px;
         left: -25px;
       }
 
@@ -888,32 +903,37 @@ div.new-post-btn-public {
         float: both;
         width: 60px;
         margin: 0 auto;
-        position: relative;
-        top: -26px;
       }
 
       .status-release {
         width: 60px;
         position: absolute;
-        top: -26px;
+        top: 0;
         right: -25px;
       }
 
       .status-active {
-        span {
+        .status-label {
           color: #ed1178;
           font-weight: bold;
         }
 
-        i {
+        .status-icon {
           color: #ed1178;
+          font-size: 30px;
+          line-height: 30px;
+
+          &:before {
+            content: "\f01d";
+          }
         }
       }
     }
+
   }
 
   .post-index-status {
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
 
   .post-term {
@@ -942,6 +962,7 @@ div.new-post-btn-public {
 
       span {
         font-size: 10px;
+        color: #666;
         display: block;
       }
 
@@ -973,6 +994,7 @@ div.new-post-btn-public {
 
     span {
       font-size: 12px;
+      color: #666;
     }
 
     .commitment-item-box {
