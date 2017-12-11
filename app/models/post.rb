@@ -21,6 +21,7 @@ class Post < ApplicationRecord
   mount_uploader :image_3, ImageUploader
 
   enum status: { planning: 0, development: 1, release: 2 }
+  enum period: { one_week: 0, one_month: 1, three_month: 2, six_month: 3, one_year:4 }
 
   search_scope :search do
     attributes :num_of_designer, :num_of_engineer, :num_of_planner

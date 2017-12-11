@@ -14,6 +14,8 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.integer :num_of_planner
       t.integer :num_of_engineer
       t.integer :num_of_designer
+      t.integer :motivation
+      t.integer :period
       t.timestamps
     end
   end

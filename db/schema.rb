@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.text "detail"
     t.string "category_name"
     t.string "image"
+    t.string "image_2"
+    t.string "image_3"
     t.integer "template_id"
     t.integer "user_id"
     t.boolean "published"
@@ -66,6 +68,8 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.integer "num_of_planner"
     t.integer "num_of_engineer"
     t.integer "num_of_designer"
+    t.integer "motivation"
+    t.integer "period"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
