@@ -233,7 +233,7 @@ div.new-post-btn-public {
   height:100vh;
   background-color: #FFF;
   display: none;
-  z-index: 999;
+  z-index: 900;
   padding-top: 50px;
 }
 
@@ -246,6 +246,7 @@ div.new-post-btn-public {
   background-color: #FFF;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 901;
 }
 
 
