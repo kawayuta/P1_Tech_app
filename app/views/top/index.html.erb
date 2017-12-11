@@ -259,7 +259,7 @@
       $('.category').click(function () {
         $(this).parent().find('.category-checked').removeClass('category-checked');
         $(this).addClass('category-checked');
-        $('#post_category_name').val($(this).text());
+        $('#post_category_name').val($(this).text().replace(/^\s+|\s+$/g,''));
       });
 
       $('#title-data').change(function () {
