@@ -70,18 +70,19 @@
     </div>
 
     <div class="post-status">
-      <div class="status-line">
+      <div class="status-line"></div>
+      <div class="status-box">
         <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
-          <span>募集中</span>
-          <%= fa_icon 'play-circle-o' %>
+          <i class="status-icon"></i>
+          <span class="status-label">募集中</span>
         </div>
         <div class="status-development<%= post_status_active_class(@post, 'development') %>">
-          <span>開発中</span>
-          <%= fa_icon 'play-circle-o' %>
+          <i class="status-icon"></i>
+          <span class="status-label">開発中</span>
         </div>
         <div class="status-release<%= post_status_active_class(@post, 'release') %>">
-          <span>リリース</span>
-          <%= fa_icon 'play-circle-o' %>
+          <i class="status-icon"></i>
+          <span class="status-label">リリース</span>
         </div>
       </div>
     </div>
