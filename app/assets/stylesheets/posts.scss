@@ -781,7 +781,7 @@ input.jobtype-num {
   color: #fff;
 
   .post-icon {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .post-show-icon {
@@ -798,16 +798,6 @@ input.jobtype-num {
     left: 10px;
   }
 
-  h3 {
-    margin: 10px 0;
-
-    a {
-      font-size: 16px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  }
 }
 
 .post-content {
@@ -820,6 +810,18 @@ input.jobtype-num {
     font-weight: bold;
     margin: 0 0 30px;
     padding-top: 30px;
+  }
+
+  h3 {
+    margin: 10px 0 20px;
+    text-align: center;
+
+    a {
+      font-size: 16px;
+      color: #4a4a4a;
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
 
   p {
@@ -1183,7 +1185,7 @@ input.jobtype-num {
   margin: 0 20px;
   padding: 8px 0;
   border-top: 1px solid #ccc;
-  color: #ed1178;
+  color: #9B9B9B;
 
   .post-founder-wrapper {
     float: left;
@@ -1215,7 +1217,7 @@ input.jobtype-num {
     float: right;
 
     a {
-      color: #ed1178;
+      color: #9B9B9B;
     }
 
     .post-vote-heart {

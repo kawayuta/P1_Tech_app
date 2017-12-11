@@ -8,7 +8,7 @@
           <div class="ranked-post-header">
             <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
             <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
-            <div class="ranked-post-header-outline"><%= post.outline %></div>
+            <div class="ranked-post-header-outline"><%= post.detail.truncate(50) %></div>
           </div>
           <div class="ranked-post-footer">
             <%= image_tag post.user.image %>

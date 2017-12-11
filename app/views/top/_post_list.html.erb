@@ -3,12 +3,12 @@
     <div class="posts-post">
       <div class="post-header">
         <%= fa_icon 'handshake-o', class: 'post-icon' %>
-        <h3><%= link_to post.title, post %></h3>
       </div>
       <div class="posts-post-text">
         <div class="post-content">
+          <h3><%= link_to post.title, post %></h3>
           <p class="post-outline post-index-outline">
-            <%= post.outline %>
+            <%= post.detail.truncate(50) %>
           </p>
 
           <div class="post-status post-index-status">
