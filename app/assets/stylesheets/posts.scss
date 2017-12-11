@@ -797,14 +797,14 @@ input.jobtype-num {
 
 .post-content {
   background-color: #fff;
-  padding: 0 30px 10px;
 
   h1 {
     font-size: 18px;
+    line-height: 1.2;
     color: #FE6B6B;
     font-weight: bold;
-    margin: 0 0 30px;
-    padding-top: 30px;
+    text-align: center;
+    padding: 30px 10%;
   }
 
   h3 {
@@ -819,26 +819,23 @@ input.jobtype-num {
     }
   }
 
-  p {
-    margin-bottom: 20px;
-  }
-
-  .post-index-outline {
-    font-size: 14px;
-  }
-
-  .post-show-outline {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
+  // .post-index-outline {
+  //   font-size: 14px;
+  // }
+  //
+  // .post-show-outline {
+  //   font-size: 16px;
+  //   margin-bottom: 30px;
+  // }
 
   .post-detail {
     font-size: 14px;
-    margin-bottom: 30px;
+    line-height: 1.5;
+    padding: 0 7% 30px;
   }
 
   .post-jobtype-count {
-    margin-bottom: 30px;
+    padding: 20px 7%;
 
     .jobtype-icon-list-box {
       display: table;
@@ -881,27 +878,27 @@ input.jobtype-num {
         display: table-cell;
         vertical-align: middle;
         font-size: 13px;
-        color: #666;
+        color: #888;
       }
     }
 
   }
 
   .post-status {
-    height: 46px;
-    margin-bottom: 20px;
+    padding: 20px 7%;
+    background-color: #FAFAFA;
 
     .status-line {
       height: 0;
-      width: 80%;
+      width: 70%;
       margin: 0 auto;
       border-bottom: 2px solid #9B9B9B;
       position: relative;
-      top: 16px;
+      top: 17px;
     }
 
     .status-box {
-      width: 80%;
+      width: 72%;
       margin: 0 auto;
       position: relative;
       text-align: center;
@@ -914,8 +911,8 @@ input.jobtype-num {
 
       .status-icon {
         color: #9B9B9B;
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 16px;
+        line-height: 32px;
         background-color: #fff;
         display: inline-block;
         padding: 0 8px 2px;
@@ -924,6 +921,10 @@ input.jobtype-num {
           font-family: "FontAwesome";
           content: "\f10c";
         }
+      }
+
+      .show-status-icon {
+        background-color: #FAFAFA;
       }
 
       .status-planning {
@@ -953,8 +954,8 @@ input.jobtype-num {
 
         .status-icon {
           color: #FE6B6B;
-          font-size: 30px;
-          line-height: 30px;
+          font-size: 32px;
+          line-height: 32px;
 
           &:before {
             content: "\f01d";
@@ -970,12 +971,13 @@ input.jobtype-num {
   }
 
   .post-term {
-    margin: 30px 0;
+    padding: 25px 7%;
+    background-color: #FAFAFA;
 
     .term-line {
-      border-bottom: 2px solid #888;
+      border-bottom: 2px solid #9B9B9B;
       position: relative;
-      top: 11px;
+      top: 9px;
       width: 77%;
       margin: 0 auto;
     }
@@ -991,29 +993,38 @@ input.jobtype-num {
       .term-item {
         display: table-cell;
         vertical-align: middle;
+
+        .term-label {
+          font-size: 10px;
+          color: #888;
+          display: block;
+        }
+
+        .term-icon {
+          color: #9B9B9B;
+          font-size: 16px;
+          background-color: #fff;
+          display: inline-block;
+          padding-bottom: 10px;
+
+          &:before {
+            font-family: "FontAwesome";
+            content: "\f10c";
+          }
+        }
       }
 
-      span {
-        font-size: 10px;
-        color: #666;
-        display: block;
-      }
-
-      i {
-        color: #888;
-        font-size: 10px;
-      }
-
-      .term-item-active {
-        span {
+      .term-active {
+        .term-label {
           color: #FE6B6B;
         }
 
-        i {
-          font-size: 14px;
+        .term-icon {
           color: #FE6B6B;
-          position: relative;
-          top: 1px;
+
+          &:before {
+            content: "\f111";
+          }
         }
       }
     }
@@ -1023,11 +1034,12 @@ input.jobtype-num {
     width: 90%;
     min-width: 260px;
     max-width: 360px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
+    padding: 24px 5% 32px;
 
     span {
       font-size: 12px;
-      color: #666;
+      color: #888;
     }
 
     .commitment-item-box {
@@ -1041,18 +1053,25 @@ input.jobtype-num {
       display: table-cell;
       vertical-align: middle;
 
-      i {
-        color: #888;
-        font-size: 10px;
+      .commitment-icon {
+        color: #9B9B9B;
+        font-size: 16px;
+
+        &:before {
+          font-family: "FontAwesome";
+          content: "\f10c";
+        }
       }
     }
 
     .commitment-item-active {
-      i {
-        font-size: 14px;
+      .commitment-icon {
+        font-size: 16px;
         color: #FE6B6B;
-        position: relative;
-        top: 1px;
+
+        &:before {
+          content: "\f111";
+        }
       }
     }
   }
@@ -1068,36 +1087,39 @@ input.jobtype-num {
     margin-bottom: 10px;
   }
 
-  .post-jobtype-wrapper {
-    padding: 12px;
-    font-size: 14px;
-    border-bottom: 1px solid #ccc;
-    margin: 0 10px 10px;
-    display: box;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -o-box;
-    display: -ms-box;
-    box-pack: justify;
-    -moz-box-pack: justify;
-    -webkit-box-pack: justify;
-    -o-box-pack: justify;
-    -ms-box-pack: justify;
+  .pott-jobtype-select {
+    padding: 0 10% 30px;
 
-    span {
-      display: block;
-    }
+    .post-jobtype-wrapper {
+      padding: 22px 12px 12px;
+      font-size: 14px;
+      border-bottom: 1px solid #ccc;
+      display: box;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -o-box;
+      display: -ms-box;
+      box-pack: justify;
+      -moz-box-pack: justify;
+      -webkit-box-pack: justify;
+      -o-box-pack: justify;
+      -ms-box-pack: justify;
 
-    .post-join-btn {
-      background-color: #FED430;
-      padding: 5px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #fff;
+      span {
+        display: block;
+      }
 
-      &:hover, &:focus, &:visited {
+      .post-join-btn {
+        background-color: #FED430;
+        padding: 5px 20px;
+        border-radius: 10px;
         text-decoration: none;
         color: #fff;
+
+        &:hover, &:focus, &:visited {
+          text-decoration: none;
+          color: #fff;
+        }
       }
     }
   }
