@@ -4,138 +4,138 @@
     <h2>TOP PROJECT</h2>
     <div class="ranking-slider">
       <% @ranked_posts.each do |post| %>
-        <div class="ranked-post">
-          <div class="ranked-post-header">
-            <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
-            <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
-            <div class="ranked-post-header-outline"><%= post.outline %></div>
-          </div>
-          <!-- <div class="ranked-post-content">
+          <div class="ranked-post">
+            <div class="ranked-post-header">
+              <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
+              <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
+              <div class="ranked-post-header-outline"><%= post.outline %></div>
+            </div>
+            <!-- <div class="ranked-post-content">
             <div class="ranked-post-text_status"><%= post.status %></div>
           </div> -->
-          <div class="ranked-post-footer">
-            <%= image_tag post.user.image %>
+            <div class="ranked-post-footer">
+              <%= image_tag post.user.image %>
+            </div>
           </div>
-        </div>
       <% end %>
     </div>
   </section>
 
   <section class="top-posts clearfix">
-  <h2>NEW</h2>
-    <%= link_to 'planner', search_posts_path(sort:'planner') %>
-    <%= link_to 'engineer', search_posts_path(sort:'engineer') %>
-    <%= link_to 'designer', search_posts_path(sort:'designer') %>
+    <h2>NEW</h2>
+    <%= link_to 'planner', search_posts_path(sort: 'planner') %>
+    <%= link_to 'engineer', search_posts_path(sort: 'engineer') %>
+    <%= link_to 'designer', search_posts_path(sort: 'designer') %>
 
     <% if user_signed_in? %>
-      <ul class="posts">
-        <% @posts.each do |post| %>
-          <li class="posts-post">
-            <div class="post-header">
-              <%= fa_icon 'handshake-o', class: 'post-icon' %>
-              <h3><%= link_to post.title, post %></h3>
-            </div>
-            <div class="posts-post-text">
-              <div class="post-content">
-                <p class="post-outline post-index-outline">
-                  <%= post.outline %>
-                </p>
+        <ul class="posts">
+          <% @posts.each do |post| %>
+              <li class="posts-post">
+                <div class="post-header">
+                  <%= fa_icon 'handshake-o', class: 'post-icon' %>
+                  <h3><%= link_to post.title, post %></h3>
+                </div>
+                <div class="posts-post-text">
+                  <div class="post-content">
+                    <p class="post-outline post-index-outline">
+                      <%= post.outline %>
+                    </p>
 
-                <div class="post-status post-index-status">
-                  <div class="status-line"></div>
-                  <div class="status-box">
-                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">募集中</span>
+                    <div class="post-status post-index-status">
+                      <div class="status-line"></div>
+                      <div class="status-box">
+                        <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">募集中</span>
+                        </div>
+                        <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">開発中</span>
+                        </div>
+                        <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">リリース</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">開発中</span>
+                  </div>
+
+                  <div class="post-index-footer clearfix">
+                    <div class="post-founder-wrapper clearfix">
+                      <div class="post-founder-img">
+                        <%= link_to user_path(post.user) do %>
+                            <%= image_tag post.user.try(:image) %>
+                        <% end %>
+                      </div>
+                      <div class="post-founder-info">
+                        <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                      </div>
                     </div>
-                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">リリース</span>
+
+                    <div class="post-footer-vote">
+                      <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+                      <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                          <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: {confirm: 'この企画の応援をやめますか？'}, class: 'post-vote-heart' %>
+                      <% else %>
+                          <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: {confirm: 'この企画を応援しますか？'}, class: 'post-vote-heart' %>
+                      <% end %>
+                      <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="post-index-footer clearfix">
-                <div class="post-founder-wrapper clearfix">
-                  <div class="post-founder-img">
-                    <%= link_to user_path(post.user) do %>
-                      <%= image_tag post.user.try(:image) %>
-                    <% end %>
-                  </div>
-                  <div class="post-founder-info">
-                    <span class="post-founder-name"><%= post.user.try(:username) %></span>
-                  </div>
-                </div>
-
-                <div class="post-footer-vote">
-                  <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
-                  <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                      <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
-                  <% else %>
-                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
-                  <% end %>
-                  <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+              </li>
+          <% end %>
+        </ul>
     <% else %>
-      <ul class="posts">
-        <% @posts.each do |post| %>
-          <li class="posts-post">
-            <div class="post-header">
-              <%= fa_icon 'handshake-o', class: 'post-icon' %>
-              <h3><%= link_to post.title, post %></h3>
-            </div>
-            <div class="posts-post-text">
-              <div class="post-content">
-                <p class="post-outline post-index-outline">
-                  <%= post.outline %>
-                </p>
+        <ul class="posts">
+          <% @posts.each do |post| %>
+              <li class="posts-post">
+                <div class="post-header">
+                  <%= fa_icon 'handshake-o', class: 'post-icon' %>
+                  <h3><%= link_to post.title, post %></h3>
+                </div>
+                <div class="posts-post-text">
+                  <div class="post-content">
+                    <p class="post-outline post-index-outline">
+                      <%= post.outline %>
+                    </p>
 
-                <div class="post-status">
-                  <div class="status-line"></div>
-                  <div class="status-box">
-                    <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">募集中</span>
+                    <div class="post-status">
+                      <div class="status-line"></div>
+                      <div class="status-box">
+                        <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">募集中</span>
+                        </div>
+                        <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">開発中</span>
+                        </div>
+                        <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                          <i class="status-icon"></i>
+                          <span class="status-label">リリース</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">開発中</span>
-                    </div>
-                    <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                      <i class="status-icon"></i>
-                      <span class="status-label">リリース</span>
+                    <!-- <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div> -->
+                  </div>
+
+                  <div class="post-index-footer">
+                    <div class="post-founder-wrapper clearfix">
+                      <div class="post-founder-img">
+                        <%= link_to user_path(post.user) do %>
+                            <%= image_tag post.user.try(:image) %>
+                        <% end %>
+                      </div>
+                      <div class="post-founder-info">
+                        <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <!-- <div class="posts-post-text_more"><%= link_to 'この企画に参加！', user_facebook_omniauth_authorize_path %></div> -->
-              </div>
-
-              <div class="post-index-footer">
-                <div class="post-founder-wrapper clearfix">
-                  <div class="post-founder-img">
-                    <%= link_to user_path(post.user) do %>
-                      <%= image_tag post.user.try(:image) %>
-                    <% end %>
-                  </div>
-                  <div class="post-founder-info">
-                    <span class="post-founder-name"><%= post.user.try(:username) %></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
+              </li>
+          <% end %>
+        </ul>
     <% end %>
   </section>
 
@@ -147,254 +147,253 @@
 <div id="posts-post-new">
   <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
 
-  <div class="new-posts-header">
-    <a class="new-post-btn-close"><span class="fa fa-times"></span></a>
-    <a class="new-post-btn-prev"><span>Back</span></a>
-    <a class="new-post-slick-next">Next</a>
-    <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
-    <div class="new-post-btn-private"><%= form.submit '下書きに保存', name: '', class: 'show-private-btn' %></div>
+      <div class="new-posts-header">
+        <a class="new-post-btn-close"><span class="fa fa-times"></span></a>
+        <a class="new-post-btn-prev"><span>Back</span></a>
+        <a class="new-post-slick-next">Next</a>
+        <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
+        <div class="new-post-btn-private"><%= form.submit '下書きに保存', name: '', class: 'show-private-btn' %></div>
 
-  </div>
-
-  <ul class="new-post-slider">
-    <li>
-      <div class="title-field">
-        <input type="text" id="title-data" placeholder="タイトル"/>
       </div>
 
-      <div class="detail-field">
-        <textarea type="text" id="detail-data" placeholder="詳細"></textarea>
-      </div>
+      <div class="post-form-container">
+        <ul class="new-post-slider">
+          <li>
+            <h4>カテゴリーを選択</h4>
 
-      <div class="post-image-field-list-wrapper">
-        <div class="post-image-field-list">
-          <div class="post-image-field">
-            <span class="fa fa-plus"></span>
-            <input type="file"  id="image-data" class="image-data"/>
-          </div>
-          <div class="post-image-field">
-            <span class="fa fa-plus"></span>
-            <input type="file"  id="image-data" class="image-data-2"/>
-          </div>
-          <div class="post-image-field">
-            <span class="fa fa-plus"></span>
-            <input type="file"  id="image-data" class="image-data-3"/>
-          </div>
-        </div>
-      </div>
-
-    </li>
-
-    <li>
-      <p>募集職種</p>
-
-      <div class="post-jobtype-form">
-        <div class="post-jobtype-field">
-          <span class="jobtype-name">プランナー</span>
-          <div class="jobtype-num-box">
-            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-            <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled" />
-            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
-          </div>
-        </div>
-
-        <div class="post-jobtype-field">
-          <span class="jobtype-name">エンジニア</span>
-          <div class="jobtype-num-box">
-            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-            <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled" />
-
-            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
-          </div>
-        </div>
-
-        <div class="post-jobtype-field">
-          <span class="jobtype-name">デザイナー</span>
-          <div class="jobtype-num-box">
-            <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-            <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled" />
-            <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="new-post-commitment">
-        <ul class="commitment-item-box">
-          <li><span>気軽に制作</span></li>
-          <li class="commitment-item commitment-level-1"><i class="fa fa-circle"></i></li>
-          <li class="commitment-item commitment-level-2"><i class="fa fa-circle"></i></li>
-          <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle"></i></li>
-          <li class="commitment-item commitment-level-4"><i class="fa fa-circle"></i></li>
-          <li class="commitment-item commitment-level-5"><i class="fa fa-circle"></i></li>
-          <li><span>ガチで制作</span></li>
-        </ul>
-      </div>
-
-      <div class="new-post-term">
-        <div class="post-term">
-          <div class="term-line"></div>
-          <div class="term-box">
-            <div class="term-item 1week-tern">
-              <i class="fa fa-circle"></i>
-              <span>1week</span>
+            <h4>タイトルを記入</h4>
+            <div class="title-field">
+              <input type="text" id="title-data" placeholder="学生クリエイターのためのマッチングサイト"/>
             </div>
-            <div class="term-item 1month-tern">
-              <i class="fa fa-circle"></i>
-              <span>1month</span>
+
+            <h4>詳細を記入</h4>
+            <div class="detail-field">
+              <textarea type="text" id="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
             </div>
-            <div class="term-item 3month-tern term-item-active">
-              <i class="fa fa-circle"></i>
-              <span>3months</span>
+
+            <h4>画像を挿入 (任意)</h4>
+            <div class="post-image-field-list-wrapper">
+              <div class="post-image-field-list">
+                <div class="post-image-field">
+                  <span class="fa fa-plus"></span>
+                  <input type="file" id="image-data" class="image-data"/>
+                </div>
+                <div class="post-image-field">
+                  <span class="fa fa-plus"></span>
+                  <input type="file" id="image-data" class="image-data-2"/>
+                </div>
+                <div class="post-image-field">
+                  <span class="fa fa-plus"></span>
+                  <input type="file" id="image-data" class="image-data-3"/>
+                </div>
+              </div>
             </div>
-            <div class="term-item 6month-tern">
-              <i class="fa fa-circle"></i>
-              <span>6months</span>
-            </div>
-            <div class="term-item 1year-tern">
-              <i class="fa fa-circle"></i>
-              <span>1year</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-
-    <li>
-
-
-          <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
-          <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
-
-          <%= form.hidden_field :image, id: :post_image %>
-
-          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
-          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
-          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
 
           </li>
-          </ul>
 
+          <li>
+            <h4>募集役割</h4>
+            <div class="post-jobtype-form">
+              <div class="post-jobtype-field">
+                <span class="jobtype-name">プランナー</span>
+                <div class="jobtype-num-box">
+                  <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+                  <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled"/>
+                  <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+                </div>
+              </div>
+
+              <div class="post-jobtype-field">
+                <span class="jobtype-name">エンジニア</span>
+                <div class="jobtype-num-box">
+                  <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+                  <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled"/>
+
+                  <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+                </div>
+              </div>
+
+              <div class="post-jobtype-field">
+                <span class="jobtype-name">デザイナー</span>
+                <div class="jobtype-num-box">
+                  <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+                  <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled"/>
+                  <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+                </div>
+              </div>
+            </div>
+
+
+            <h4>ガチ度</h4>
+            <div class="new-post-commitment">
+              <ul class="commitment-item-box">
+                <li><span>気軽に制作</span></li>
+                <li class="commitment-item commitment-level-1"><i class="fa fa-circle"></i></li>
+                <li class="commitment-item commitment-level-2"><i class="fa fa-circle"></i></li>
+                <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle"></i></li>
+                <li class="commitment-item commitment-level-4"><i class="fa fa-circle"></i></li>
+                <li class="commitment-item commitment-level-5"><i class="fa fa-circle"></i></li>
+                <li><span>ガチで制作</span></li>
+              </ul>
+            </div>
+
+            <h4>目標製作期間</h4>
+            <div class="new-post-term">
+              <div class="post-term">
+                <div class="term-line"></div>
+                <div class="term-box">
+                  <div class="term-item 1week-tern">
+                    <i class="fa fa-circle"></i>
+                    <span>1week</span>
+                  </div>
+                  <div class="term-item 1month-tern">
+                    <i class="fa fa-circle"></i>
+                    <span>1month</span>
+                  </div>
+                  <div class="term-item 3month-tern term-item-active">
+                    <i class="fa fa-circle"></i>
+                    <span>3months</span>
+                  </div>
+                  <div class="term-item 6month-tern">
+                    <i class="fa fa-circle"></i>
+                    <span>6months</span>
+                  </div>
+                  <div class="term-item 1year-tern">
+                    <i class="fa fa-circle"></i>
+                    <span>1year</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
+            <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
+
+            <%= form.hidden_field :image, id: :post_image %>
+
+            <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden', value: 0 %>
+            <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden', value: 0 %>
+            <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
+          </li>
+        </ul>
+      </div>
 
   <% end %>
 
 
-      <div class="remodal" data-remodal-id="modal">
-        <div class="post-preview-modal" id="post-preview-modal">
+  <div class="remodal" data-remodal-id="modal">
+    <div class="post-preview-modal" id="post-preview-modal">
 
-          <h3>ペライチが完成しました！<br/>
-            みんなに応援してもらいましょう！</h3>
-          <div id='post-preview-template'>
-            <h4 id="post-preview-title"></h4>
-            <p id="post-preview-outline"></p>
-            <p id="post-preview-detail"></p>
-          </div>
-
-          <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
-          <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
-        </div>
+      <h3>ペライチが完成しました！<br/>
+        みんなに応援してもらいましょう！</h3>
+      <div id='post-preview-template'>
+        <h4 id="post-preview-title"></h4>
+        <p id="post-preview-outline"></p>
+        <p id="post-preview-detail"></p>
       </div>
 
-
-      <script>
-        $(function () {
-
-          $('.template-item').click(function () {
-            $('.template-name').removeClass('template-item-selected');
-            $(this).find('.template-name').addClass('template-item-selected')
-            $('#post_template_id').val($(this).attr('id'));
-            $('.template-format').css({
-              'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
-            });
-            $('#post-preview-template').css({
-              'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
-              'width': '350px',
-              'height': '200px',
-              'margin': '0 auto',
-              'background-size': 'cover',
-              'border-radius': '5px',
-            });
-          });
+      <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+      <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+    </div>
+  </div>
 
 
+  <script>
+    $(function () {
 
-          $('#post_title').change(function () {
-            $('#post-preview-title').text($('#post_title').val());
-          });
-          $('#post_outline').change(function () {
-            $('#post-preview-outline').text($('#post_outline').val());
-          });
-          $('#post_detail').change(function () {
-            $('#post-preview-detail').text($('#post_detail').val());
-          });
-
-          $('#close-modal').click(function () {
-            $('#post-modal-wrapper').css('display', 'none');
-          });
-
-
-
-
-          $('#title-data').change(function () {
-            $('#post_title').val($('#title-data').val());
-          });
-
-          $('#detail-data').change(function () {
-            $('#post_detail').val($('#detail-data').val());
-          });
-
-
-
-
-          $('.jobtype-minus-btn').click(function () {
-            if (Number($(this).siblings('.jobtype-num').val()) > 0) {
-              $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) - 1);
-            } else {
-
-            }
-            if (Number($(this).siblings('.jobtype-num').text()) == 0) {
-              $(this).addClass('disabled');
-            }
-            $('#post_num_of_planner').val($('#jobtype-planner').val());
-            $('#post_num_of_engineer').val($('#jobtype-engineer').val());
-            $('#post_num_of_designer').val($('#jobtype-designer').val());
-          });
-
-          $('.jobtype-plus-btn').click(function () {
-            var $minusBtn = $(this).siblings('.jobtype-minus-btn');
-            if (Number($(this).siblings('.jobtype-num').val()) < 10) {
-              $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) + 1);
-            } else {
-
-            }
-            if ($minusBtn.hasClass('disabled')) {
-              $minusBtn.removeClass('disabled');
-            }
-            $('#post_num_of_planner').val($('#jobtype-planner').val());
-            $('#post_num_of_engineer').val($('#jobtype-engineer').val());
-            $('#post_num_of_designer').val($('#jobtype-designer').val());
-          });
-
-          $(function(){
-            $('.post-image-field input').change(function(){
-              var input = this;
-              var file = $(this).prop('files')[0];
-              if(!file.type.match('image.*')){
-                return;
-              }
-              var fileReader = new FileReader();
-              fileReader.onloadend = function() {
-                $(input).parent().find('img').remove();
-                $(input).parent().append('<img src="' + fileReader.result + '"/>');
-              }
-              fileReader.readAsDataURL(file);
-            });
-          });
-
+      $('.template-item').click(function () {
+        $('.template-name').removeClass('template-item-selected');
+        $(this).find('.template-name').addClass('template-item-selected')
+        $('#post_template_id').val($(this).attr('id'));
+        $('.template-format').css({
+          'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
         });
+        $('#post-preview-template').css({
+          'background-image': this.getAttribute('style').split(' ')[1].replace(';', ''),
+          'width': '350px',
+          'height': '200px',
+          'margin': '0 auto',
+          'background-size': 'cover',
+          'border-radius': '5px',
+        });
+      });
 
 
-      </script>
+      $('#post_title').change(function () {
+        $('#post-preview-title').text($('#post_title').val());
+      });
+      $('#post_outline').change(function () {
+        $('#post-preview-outline').text($('#post_outline').val());
+      });
+      $('#post_detail').change(function () {
+        $('#post-preview-detail').text($('#post_detail').val());
+      });
+
+      $('#close-modal').click(function () {
+        $('#post-modal-wrapper').css('display', 'none');
+      });
 
 
-      </div>
+      $('#title-data').change(function () {
+        $('#post_title').val($('#title-data').val());
+      });
+
+      $('#detail-data').change(function () {
+        $('#post_detail').val($('#detail-data').val());
+      });
+
+
+      $('.jobtype-minus-btn').click(function () {
+        if (Number($(this).siblings('.jobtype-num').val()) > 0) {
+          $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) - 1);
+        } else {
+
+        }
+        if (Number($(this).siblings('.jobtype-num').text()) == 0) {
+          $(this).addClass('disabled');
+        }
+        $('#post_num_of_planner').val($('#jobtype-planner').val());
+        $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+        $('#post_num_of_designer').val($('#jobtype-designer').val());
+      });
+
+      $('.jobtype-plus-btn').click(function () {
+        var $minusBtn = $(this).siblings('.jobtype-minus-btn');
+        if (Number($(this).siblings('.jobtype-num').val()) < 10) {
+          $(this).siblings('.jobtype-num').val(Number($(this).siblings('.jobtype-num').val()) + 1);
+        } else {
+
+        }
+        if ($minusBtn.hasClass('disabled')) {
+          $minusBtn.removeClass('disabled');
+        }
+        $('#post_num_of_planner').val($('#jobtype-planner').val());
+        $('#post_num_of_engineer').val($('#jobtype-engineer').val());
+        $('#post_num_of_designer').val($('#jobtype-designer').val());
+      });
+
+      $(function () {
+        $('.post-image-field input').change(function () {
+          var input = this;
+          var file = $(this).prop('files')[0];
+          if (!file.type.match('image.*')) {
+            return;
+          }
+          var fileReader = new FileReader();
+          fileReader.onloadend = function () {
+            $(input).parent().find('img').remove();
+            $(input).parent().append('<img src="' + fileReader.result + '"/>');
+          }
+          fileReader.readAsDataURL(file);
+        });
+      });
+
+    });
+
+
+  </script>
+
+
+</div>
