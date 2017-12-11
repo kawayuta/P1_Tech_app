@@ -31,6 +31,22 @@
     <%= paginate @posts, class: 'post-pagenation' %>
   </section>
 
+  <script>
+    $(document).on('turbolinks:load', function() {
+      $("#top-posts .page").infinitescroll({
+        loading: {
+          img: "/assets/loading_image.gif",
+          msgText: "",
+          finishedMsg: ""
+        },
+        navSelector: "nav.pagination",
+        nextSelector: "nav.pagination a[rel=next]",
+        itemSelector: "#top-posts div.posts",
+        maxPage: <%= Post.count / 10 + 1 %>
+      });
+    });
+  </script>
+
 </div>
 
 
