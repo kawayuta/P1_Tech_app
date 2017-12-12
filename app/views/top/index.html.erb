@@ -236,6 +236,130 @@
 
           <li>
 
+
+            <div class="post-show-container">
+              <div class="post-header">
+                <%= fa_icon 'handshake-o', class: 'post-show-icon' %>
+              </div>
+
+              <div class="post-content">
+                <h1><%= @post.title %></h1>
+
+                <p class="post-detail">
+                  <%= @post.detail %>
+                </p>
+
+                <!--<div class="post-images">-->
+                  <!--<div class="post-image-box">-->
+                    <!--<div class="post-image-item post-image-item-1">-->
+                    <!--</div>-->
+                    <!--<div class="post-image-item post-image-item-2">-->
+                    <!--</div>-->
+                    <!--<div class="post-image-item post-image-item-3">-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+
+                <div class="post-status">
+                  <div class="status-line"></div>
+                  <div class="status-box">
+                    <div class="status-planning status-active">
+                      <i class="status-icon show-status-icon"></i>
+                      <span class="status-label">募集中</span>
+                    </div>
+                    <div class="status-development ">
+                      <i class="status-icon show-status-icon"></i>
+                      <span class="status-label">開発中</span>
+                    </div>
+                    <div class="status-release ">
+                      <i class="status-icon show-status-icon"></i>
+                      <span class="status-label">リリース</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="post-jobtype-count">
+                  <div class="jobtype-icon-list-box">
+                        <div class="jobtype-icon-list">
+                          <div class="jobtype-icon-box jobtype-icon-box_planner">
+                          </div>
+                        </div>
+                        <div class="jobtype-icon-list">
+                          <div class="jobtype-icon-box jobtype-icon-box_engineer">
+                          </div>
+                        </div>
+                        <div class="jobtype-icon-list">
+                          <div class="jobtype-icon-box jobtype-icon-box_designer">
+                          </div>
+                        </div>
+                  </div>
+
+                  <div class="jobtype-label-box">
+                    <% if @post.num_of_planner != 0 %>
+                        <span>プランナー</span>
+                    <% end %>
+                    <% if @post.num_of_engineer != 0 %>
+                        <span>エンジニア</span>
+                    <% end %>
+                    <% if @post.num_of_designer != 0 %>
+                        <span>デザイナー</span>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="preview-post-term post-term">
+                  <div class="term-line"></div>
+                  <div class="term-box">
+                    <div class="term-item term-item-1">
+                      <i class="term-icon"></i>
+                      <span class="term-label">1week</span>
+                    </div>
+                    <div class="term-item term-item-2">
+                      <i class="term-icon"></i>
+                      <span class="term-label">1month</span>
+                    </div>
+                    <div class="term-item term-item-3">
+                      <i class="term-icon"></i>
+                      <span class="term-label">3months</span>
+                    </div>
+                    <div class="term-item term-item-4">
+                      <i class="term-icon"></i>
+                      <span class="term-label">6months</span>
+                    </div>
+                    <div class="term-item term-item-5">
+                      <i class="term-icon"></i>
+                      <span class="term-label">1year</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="preview-post-commitment post-commitment">
+                  <ul class="commitment-item-box">
+                    <li><span>気軽に制作</span></li>
+                    <li class="commitment-item commitment-item-1"><i class="commitment-icon"></i></li>
+                    <li class="commitment-item commitment-item-2"><i class="commitment-icon"></i></li>
+                    <li class="commitment-item commitment-item-3"><i class="commitment-icon"></i></li>
+                    <li class="commitment-item commitment-item-4"><i class="commitment-icon"></i></li>
+                    <li class="commitment-item commitment-item-5"><i class="commitment-icon"></i></li>
+                    <li><span>ガチで制作</span></li>
+                  </ul>
+                </div>
+
+
+              <div class="post-footer">
+                <div class="post-footer-box clearfix">
+                  <div class="post-founder-wrapper clearfix">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
             <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
 
             <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
@@ -248,8 +372,25 @@
             <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
             <%= form.hidden_field :period, id: :post_period, placeholder: '製作期間' %>
 
+            <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー' %>
+
           </li>
         </ul>
+        <div class="post-color-field-list-wrapper">
+          <div class="post-color-field-list">
+            <div class="post-color-field post-color-field-red">
+            </div>
+            <div class="post-color-field post-color-field-yellow">
+            </div>
+            <div class="post-color-field post-color-field-green">
+            </div>
+            <div class="post-color-field post-color-field-blue">
+            </div>
+            <div class="post-color-field post-color-field-purple">
+            </div>
+          </div>
+        </div>
+
       </div>
 
   <% end %>
@@ -316,10 +457,14 @@
 
       $('#title-data').change(function () {
         $('#post_title').val($('#title-data').val());
+        $('.post-content h1').append($('#title-data').val());
+
       });
 
       $('#detail-data').change(function () {
         $('#post_detail').val($('#detail-data').val());
+        $('.post-detail').append($('#detail-data').val());
+
       });
 
 
@@ -336,6 +481,21 @@
         $('#post_num_of_planner').val($('#jobtype-planner').val());
         $('#post_num_of_engineer').val($('#jobtype-engineer').val());
         $('#post_num_of_designer').val($('#jobtype-designer').val());
+
+        $('.planner-icon').remove();
+        $('.engineer-icon').remove();
+        $('.designer-icon').remove();
+
+        for (var i = 0; i < $('#post_num_of_planner').val(); i++){
+          $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
+        }
+        for (var i = 0; i < $('#post_num_of_engineer').val(); i++){
+          $('.jobtype-icon-box_engineer').append('<i class="fa fa-male jobtype-icon engineer-icon"></i>');
+        }
+        for (var i = 0; i < $('#post_num_of_designer').val(); i++){
+          $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
+        }
+
       });
 
       $('.jobtype-plus-btn').click(function () {
@@ -351,36 +511,61 @@
         $('#post_num_of_planner').val($('#jobtype-planner').val());
         $('#post_num_of_engineer').val($('#jobtype-engineer').val());
         $('#post_num_of_designer').val($('#jobtype-designer').val());
+
+        $('.planner-icon').remove();
+        $('.engineer-icon').remove();
+        $('.designer-icon').remove();
+
+        for (var i = 0; i < $('#post_num_of_planner').val(); i++){
+          $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
+        }
+        for (var i = 0; i < $('#post_num_of_engineer').val(); i++){
+          $('.jobtype-icon-box_engineer').append('<i class="fa fa-male jobtype-icon engineer-icon"></i>');
+        }
+        for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
+          $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
+        }
       });
 
       $('.new-post-commitment .commitment-level-1').click(function () {
         $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
         $(this).addClass('commitment-item-active');
         $('#post_motivation').val('0');
+        $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
+        $('.preview-post-commitment .commitment-item-1').addClass('commitment-item-active');
+
       });
 
       $('.new-post-commitment .commitment-level-2').click(function () {
         $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
         $(this).addClass('commitment-item-active');
         $('#post_motivation').val('1');
+        $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
+        $('.preview-post-commitment .commitment-item-2').addClass('commitment-item-active');
       });
 
       $('.new-post-commitment .commitment-level-3').click(function () {
         $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
         $(this).addClass('commitment-item-active');
         $('#post_motivation').val('2');
+        $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
+        $('.preview-post-commitment .commitment-item-3').addClass('commitment-item-active');
       });
 
       $('.new-post-commitment .commitment-level-4').click(function () {
         $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
         $(this).addClass('commitment-item-active');
         $('#post_motivation').val('3');
+        $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
+        $('.preview-post-commitment .commitment-item-4').addClass('commitment-item-active');
       });
 
       $('.new-post-commitment .commitment-level-5').click(function () {
         $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
         $(this).addClass('commitment-item-active');
         $('#post_motivation').val('4');
+        $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
+        $('.preview-post-commitment .commitment-item-5').addClass('commitment-item-active');
       });
 
 
@@ -388,30 +573,65 @@
         $(this).parent().find('.term-item-active').removeClass('term-item-active');
         $(this).addClass('term-item-active');
         $('#post_period').val('0');
+        $('.preview-post-term').find('.term-item').removeClass('term-active');
+        $('.preview-post-term .term-item-1').addClass('term-active');
       });
 
       $('.new-post-term .1month-tern').click(function () {
         $(this).parent().find('.term-item-active').removeClass('term-item-active');
         $(this).addClass('term-item-active');
         $('#post_period').val('1');
+        $('.preview-post-term').find('.term-item').removeClass('term-active');
+        $('.preview-post-term .term-item-2').addClass('term-active');
       });
 
       $('.new-post-term .3month-tern').click(function () {
         $(this).parent().find('.term-item-active').removeClass('term-item-active');
         $(this).addClass('term-item-active');
         $('#post_period').val('2');
+        $('.preview-post-term').find('.term-item').removeClass('term-active');
+        $('.preview-post-term .term-item-3').addClass('term-active');
       });
 
       $('.new-post-term .6month-tern').click(function () {
         $(this).parent().find('.term-item-active').removeClass('term-item-active');
         $(this).addClass('term-item-active');
         $('#post_period').val('3');
+        $('.preview-post-term').find('.term-item').removeClass('term-active');
+        $('.preview-post-term .term-item-4').addClass('term-active');
       });
 
       $('.new-post-term .1year-tern').click(function () {
         $(this).parent().find('.term-item-active').removeClass('term-item-active');
         $(this).addClass('term-item-active');
         $('#post_period').val('4');
+        $('.preview-post-term').find('.term-item').removeClass('term-active');
+        $('.preview-post-term .term-item-5').addClass('term-active');
+      });
+
+      $('.post-color-field').click(function () {
+        $('#main_color').val($(this).css("background-color"));
+        $('.post-header').css({
+          "background-color" : $(this).css("background-color")
+        });
+        $('.status-icon').css({
+          "color" : $(this).css("background-color")
+        });
+        $('.status-label').css({
+          "color" : $(this).css("background-color")
+        });
+
+        $('.term-icon').css({
+          "color" : $(this).css("background-color")
+        });
+        $('.commitment-icon').css({
+          "color" : $(this).css("background-color")
+        });
+        $('.jobtype-icon').css({
+          "color" : $(this).css("background-color")
+        });
+
+
       });
 
 

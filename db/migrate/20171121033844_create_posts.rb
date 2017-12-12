@@ -16,6 +16,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.integer :num_of_designer
       t.integer :motivation, default: 2
       t.integer :period, default: 2
+      t.string  :main_color
       t.timestamps
     end
   end

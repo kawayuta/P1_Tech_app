@@ -84,14 +84,14 @@ $(function () {
       $('.new-post-slick-next').css({'display': 'block'});
       $('.new-post-btn-private').css({'display': 'none'});
       $('.new-post-btn-public').css({'display': 'none'});
-
-
+      $('.post-color-field-list-wrapper').css({'display': 'none'});
     } else if (currentPage == 2) {
       $('.new-post-btn-close').css({'display': 'none'});
       $('.new-post-btn-prev').css({'display': 'block'});
       $('.new-post-slick-next').css({'display': 'block'});
       $('.new-post-btn-private').css({'display': 'none'});
       $('.new-post-btn-public').css({'display': 'none'});
+      $('.post-color-field-list-wrapper').css({'display': 'none'});
 
     } else if (currentPage == 3) {
       $('.new-post-btn-close').css({'display': 'none'});
@@ -99,6 +99,7 @@ $(function () {
       $('.new-post-slick-next').css({'display': 'none'});
       $('.new-post-btn-private').css({'display': 'block'});
       $('.new-post-btn-public').css({'display': 'block'});
+      $('.post-color-field-list-wrapper').css({'display': 'block'});
     }
   }
 

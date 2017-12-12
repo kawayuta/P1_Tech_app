@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20171202152906) do
     t.integer "num_of_designer"
     t.integer "motivation", default: 2
     t.integer "period", default: 2
+    t.string "main_color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

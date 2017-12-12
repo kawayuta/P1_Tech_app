@@ -732,6 +732,62 @@ div.new-post-btn-public {
   margin-left:10px;
 }
 
+
+
+.post-color-field-list-wrapper {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top:15px;
+  position: fixed;
+  bottom:0px;
+  height:90px;
+  width: 100%;
+  background-color: #FFF;
+  display: none;
+}
+
+.post-color-field-list {
+  display: inline-block;
+  white-space: nowrap;
+  margin-left:15px;
+  margin-right:15px;
+  overflow: hidden;
+  width:90%;
+  height:90px;
+  margin-left:5%;
+
+}
+
+.post-color-field {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top:18px;
+  & + .post-color-field {
+    margin-left: 20px;
+  }
+  &-red {
+    background-color: #FE6B6B;
+  }
+  &-yellow {
+    background-color: #F8BF4A;
+  }
+  &-green {
+    background-color: #45D480;
+  }
+  &-blue {
+    background-color: #6FC4FF;
+  }
+  &-purple {
+    background-color: #9674FF;
+  }
+
+
+
+}
+
 input.jobtype-num {
   background-color: transparent;
   border:none;
