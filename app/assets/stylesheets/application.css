@@ -101,6 +101,15 @@ header nav ul li {
     float:left;
 }
 
+.header-top a {
+  display: block;
+  padding: 15px 10px;
+  height: 50px;
+}
+
+.header-top img {
+  height: 20px;
+}
 
 header nav ul li.header-profile_image {
     width:40px;
