@@ -62,6 +62,8 @@ $(function () {
   $('.new-post-btn-prev').click(function(){
     $('.new-post-slider').slick('slickPrev');
     slickCurrent();
+    scrollTo( 0, 0);
+
 
   });
 
@@ -69,6 +71,8 @@ $(function () {
   $('.new-post-slick-next').on('click', function () {
     $('.new-post-slider').slick('slickNext');
     slickCurrent();
+    scrollTo( 0, 0);
+
   });
 
 
