@@ -1263,7 +1263,7 @@ input.jobtype-num {
     padding: 0 10% 20px;
 
     .post-jobtype-wrapper {
-      padding: 20px 12px;
+      padding: 15px 12px;
       font-size: 14px;
       border-bottom: 1px solid #ccc;
       display: box;
@@ -1279,20 +1279,36 @@ input.jobtype-num {
 
       span {
         display: block;
+        line-height: 24px;
       }
 
       .post-join-btn {
+        display: inline-block;
         background-color: #FED430;
-        padding: 5px 20px;
+        width: 90px;
+        padding: 5px 0;
         border-radius: 10px;
+        text-align: center;
         text-decoration: none;
         color: #fff;
+        box-shadow: 0 2px 2px rgba(0,0,0,.16);
 
         &:hover, &:focus, &:visited {
           text-decoration: none;
           color: #fff;
         }
       }
+
+      .join-btn-disabled {
+        line-height: 14px;
+        background-color: #aaa;
+        box-shadow: 0 1px 1px rgba(0,0,0,.16);
+      }
+
+      .post-join-btn-fake {
+        width: 90px;
+      }
+
     }
 
     .post-jobtype-wrapper:last-child {
