@@ -6,6 +6,7 @@
       <% @ranked_posts.each_with_index do |post, i| %>
         <div class="ranked-post">
           <div class="ranked-post-header">
+            <%= link_to '', post, class: 'link-to-show' %>
             <% if i == 0 %>
               <div class="crown-large-circle">
                 <%= image_tag 'ranking_images/crown1.png' %>
@@ -33,7 +34,7 @@
               </div>
             <% end %>
             <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
-            <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
+            <div class="ranked-post-header-title"><%= post.title %></div>
             <div class="ranked-post-header-detail"><%= post.detail.truncate(50) %></div>
           </div>
           <div class="ranked-post-footer clearfix">
