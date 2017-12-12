@@ -235,6 +235,11 @@
         margin: 10px 0;
         line-height: 30px;
         font-size: 14px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+        }
       }
     }
 
@@ -1325,6 +1330,11 @@ input.jobtype-num {
       .post-founder-name {
         margin: 10px 0;
         line-height: 30px;
+
+        a {
+          color: #888;
+          text-decoration: none;
+        }
       }
 
       .post-founder-university {
@@ -1392,6 +1402,11 @@ input.jobtype-num {
       margin: 10px 0;
       line-height: 30px;
       font-size: 14px;
+
+      a {
+        text-decoration: none;
+        color: #888;
+      }
     }
   }
 

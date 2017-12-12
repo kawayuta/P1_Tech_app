@@ -45,7 +45,7 @@
                 <% end %>
               </div>
               <div class="post-founder-info">
-                <span class="post-founder-name"><%= post.user.try(:username) %></span>
+                <span class="post-founder-name"><%= link_to post.user.try(:username), post.user %></span>
               </div>
             </div>
 
