@@ -4,7 +4,7 @@
     <h2>TOP PROJECT</h2>
     <div class="ranking-slider">
       <% @ranked_posts.each_with_index do |post, i| %>
-        <div class="ranked-post">
+        <div class="ranked-post" style="background-color: <%= post.main_color%>">>
           <div class="ranked-post-header">
             <%= link_to '', post, class: 'link-to-show' %>
             <% if i == 0 %>
