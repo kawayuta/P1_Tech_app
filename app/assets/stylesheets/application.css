@@ -84,6 +84,7 @@ body {
     margin: 0;
     padding: 0;
     color: #4a4a4a;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -109,6 +110,10 @@ header nav ul li {
 
 .header-top img {
   height: 20px;
+}
+
+header nav ul li.header-logout {
+  float: right;
 }
 
 header nav ul li.header-profile_image {

@@ -15,12 +15,12 @@
       <ul>
       <% if user_signed_in? %>
             <li class="header-top"><%= link_to root_path do %><%= image_tag 'logo.png' %><% end %></li>
-            <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li class="header-profile_image"><%= link_to (image_tag current_user.try(:image)), current_user %></li>
             <li class="header-notices">
               <%= link_to '', notifications_path, class:'header-notices fa fa-bell-o' %>
               <%= (Notification.where(from_user_id: current_user, is_read:false).count > 0) ? Notification.where(from_user_id: current_user, is_read:false).count : ""%>
             </li>
+            <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
       <% else %>
             <li><%= link_to 'Facebookで簡単ログイン', user_facebook_omniauth_authorize_path %></li>
       <% end %>
