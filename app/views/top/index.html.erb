@@ -3,15 +3,63 @@
   <section class="top-top5s">
     <h2>TOP PROJECT</h2>
     <div class="ranking-slider">
-      <% @ranked_posts.each do |post| %>
+      <% @ranked_posts.each_with_index do |post, i| %>
         <div class="ranked-post">
           <div class="ranked-post-header">
+            <% if i == 0 %>
+              <div class="crown-large-circle">
+                <%= image_tag 'ranking_images/crown1.png' %>
+                <span class="no1-label"><%= i + 1 %>位</span>
+              </div>
+            <% elsif i == 1 %>
+            <div class="crown-large-circle">
+                <%= image_tag 'ranking_images/crown2.png' %>
+                <span class="no2-label"><%= i + 1 %>位</span>
+              </div>
+            <% elsif i == 2 %>
+            <div class="crown-large-circle">
+                <%= image_tag 'ranking_images/crown3.png' %>
+                <span class="no3-label"><%= i + 1 %>位</span>
+              </div>
+            <% elsif i == 3 %>
+              <div class="crown-small-circle">
+                <%= image_tag 'ranking_images/crown4.png' %>
+                <span><%= i + 1 %>位</span>
+              </div>
+            <% else %>
+              <div class="crown-small-circle">
+                <%= image_tag 'ranking_images/crown4.png' %>
+                <span><%= i + 1 %>位</span>
+              </div>
+            <% end %>
             <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
             <div class="ranked-post-header-title"><%= link_to post.title, post %></div>
-            <div class="ranked-post-header-outline"><%= post.detail.truncate(50) %></div>
+            <div class="ranked-post-header-detail"><%= post.detail.truncate(50) %></div>
           </div>
-          <div class="ranked-post-footer">
-            <%= image_tag post.user.image %>
+          <div class="ranked-post-footer clearfix">
+            <div class="post-founder-wrapper clearfix">
+              <div class="post-founder-img">
+                <%= link_to user_path(post.user) do %>
+                    <%= image_tag post.user.try(:image) %>
+                <% end %>
+              </div>
+              <div class="post-founder-info">
+                <span class="post-founder-name"><%= post.user.try(:username) %></span>
+              </div>
+            </div>
+
+            <div class="post-footer-vote">
+              <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+
+              <% if user_signed_in? %>
+                  <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
+                      <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                  <% else %>
+                      <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                  <% end %>
+                  <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>

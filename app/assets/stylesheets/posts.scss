@@ -107,6 +107,7 @@
   &-header {
     color: #fff;
     padding: 0 15px;
+    position: relative;
 
     &-icon {
       text-align: center;
@@ -122,27 +123,137 @@
       text-align: center;
 
       a {
-        font-size: 18px;
+        font-size: 20px;
+        line-height: 1.2;
         color: #fff;
         text-decoration: none;
         font-weight: bold;
       }
     }
 
-    &-outline {
+    &-detail {
       font-size: 14px;
-      margin-bottom: 10px
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .crown-large-circle {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,.2);
+
+      img {
+        height: 30px;
+        width: 30px;
+        margin: 6px auto 0;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .no1-label {
+        color: #ffd700;
+      }
+
+      .no2-label {
+        color: #c0c0c0;
+      }
+
+      .no3-label {
+        color: #cd853f;
+      }
+    }
+
+    .crown-small-circle {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,.2);
+
+      img {
+        height: 25px;
+        width: 25px;
+        margin: 5px auto 0;
+      }
+
+      span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #1e90ff;
+        position: relative;
+        bottom: 2px;
+      }
     }
   }
 
   &-footer {
+    margin: 0 20px;
+    padding: 8px 0;
     color: #fff;
-    padding: 0 15px 10px;
 
-    img {
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
+    .post-founder-wrapper {
+      float: left;
+    }
+
+    .post-founder-img {
+      float: left;
+
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .post-founder-info {
+      float: left;
+      margin-left: 10px;
+
+      .post-founder-name {
+        margin: 10px 0;
+        line-height: 30px;
+        font-size: 14px;
+      }
+    }
+
+    .post-footer-vote {
+      float: right;
+
+      a {
+        color: #fff;
+      }
+
+      .post-vote-heart {
+        font-size: 22px;
+        line-height: 30px;
+      }
+
+      .post-vote-count {
+        font-size: 18px;
+        line-height: 30px;
+        position: relative;
+        bottom: 2px;
+      }
+
+      .post-share-btn {
+        font-size: 22px;
+        line-height: 30px;
+        margin-right: 15px;
+      }
     }
   }
 }
