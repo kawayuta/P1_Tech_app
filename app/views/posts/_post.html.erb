@@ -1,12 +1,13 @@
 <% if user_signed_in? %>
 
     <li class="posts-post">
-      <div class="post-header">
+      <div class="post-header" style="background-color: <%= post.main_color%>">
         <%= fa_icon 'handshake-o', class: 'post-icon' %>
       </div>
       <div class="posts-post-text">
         <div class="post-content">
-          <h3><%= link_to post.title, post %></h3>
+          <%= link_to '', post, class: 'link_to_show' %>
+          <h3><%= post.title %></h3>
           <p class="post-index-detail">
             <%= post.detail.truncate(50) %>
           </p>
@@ -38,7 +39,7 @@
               <% end %>
             </div>
             <div class="post-founder-info">
-              <span class="post-founder-name"><%= post.user.try(:username) %></span>
+              <span class="post-founder-name"><%= link_to post.user.try(:username), post.user %></span>
             </div>
           </div>
 
@@ -47,9 +48,9 @@
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active' %>
                 <% else %>
-                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
                 <% end %>
                 <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
             <% end %>
@@ -60,14 +61,14 @@
 
 <% else %>
 
-
     <li class="posts-post">
-      <div class="post-header">
+      <div class="post-header" style="background-color: <%= post.main_color%>">
         <%= fa_icon 'handshake-o', class: 'post-icon' %>
       </div>
       <div class="posts-post-text">
         <div class="post-content">
-          <h3><%= link_to post.title, post %></h3>
+          <%= link_to '', post, class: 'link_to_show' %>
+          <h3><%= post.title %></h3>
           <p class="post-index-detail">
             <%= post.detail.truncate(50) %>
           </p>
@@ -99,7 +100,7 @@
               <% end %>
             </div>
             <div class="post-founder-info">
-              <span class="post-founder-name"><%= post.user.try(:username) %></span>
+              <span class="post-founder-name"><%= link_to post.user.try(:username), post.user %></span>
             </div>
           </div>
 
@@ -108,9 +109,9 @@
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active' %>
                 <% else %>
-                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
                 <% end %>
                 <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
             <% end %>

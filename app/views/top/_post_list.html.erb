@@ -1,7 +1,7 @@
 <div class="posts">
   <% @posts.each do |post| %>
     <div class="posts-post">
-      <div class="post-header">
+      <div class="post-header" style="background-color: <%= post.main_color%>">
         <%= fa_icon 'handshake-o', class: 'post-icon' %>
       </div>
       <div class="posts-post-text">
