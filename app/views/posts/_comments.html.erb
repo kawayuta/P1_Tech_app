@@ -1,17 +1,22 @@
-<% @comments.each do |comment| %>
-  <div class="post-comment clearfix">
-    <!-- <div class="comment-userimage-box">
-      <%= link_to user_path(comment.user) do %>
-        <%= image_tag comment.user.image %>
-      <% end %>
-    </div> -->
-    <div class="comment-box">
-      <div class="comment-info">
-        <span class="comment-username"><%= comment.user.username %></span>
+<div class="comment-count">
+  <span>コメント(<%= @comments.count %>)</span>
+</div>
+<div class="comment-list-wrapper" >
+  <% @comments.each do |comment| %>
+    <div class="post-comment clearfix">
+      <div class="comment-userimage-box">
+        <%= link_to user_path(comment.user) do %>
+          <%= image_tag comment.user.image %>
+        <% end %>
       </div>
-      <div class="comment-content">
-        <%= comment.content %>
+      <div class="comment-box">
+        <div class="comment-info">
+          <span class="comment-username"><%= comment.user.username %></span>
+        </div>
+        <div class="comment-content">
+          <%= comment.content %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

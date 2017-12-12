@@ -246,12 +246,11 @@
 </div>
 
 <div class="comment-list-container">
-  <div class="comment-count">
-    <span>コメント(<%= @comments.count %>)</span>
-  </div>
-  <div class="comment-list-wrapper" id="comment-list">
+
+  <div id="comment-list">
     <%= render 'comments' %>
   </div>
+
   <%= form_tag create_comment_post_path(@post), remote: true, class: 'comment-form' do %>
     <%= text_area_tag :content, '', placeholder: 'コメントを入力', id: 'comment-texrarea' %>
     <%= button_tag do %>
