@@ -52,7 +52,7 @@ $(function () {
 
     $('#posts-post-new').slideDown('fast');
     $('.new-post-slider').slick('setPosition');
-
+    scrollTo( 0, 0);
   });
 
   $('.new-post-btn-close').click(function(){
