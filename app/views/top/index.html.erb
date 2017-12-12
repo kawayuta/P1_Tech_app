@@ -83,7 +83,7 @@
     $(document).on('turbolinks:load', function() {
       $("#top-posts .page").infinitescroll({
         loading: {
-          img: "/assets/loading_image.gif",
+          img: "<%= image_path 'loading_image.gif' %>",
           msgText: "",
           finishedMsg: ""
         },
