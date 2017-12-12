@@ -1358,6 +1358,10 @@ input.jobtype-num {
         line-height: 30px;
       }
 
+      .heart-active {
+        color: #ff6347;
+      }
+
       .post-vote-count {
         font-size: 18px;
         line-height: 30px;
@@ -1422,6 +1426,10 @@ input.jobtype-num {
     .post-vote-heart {
       font-size: 22px;
       line-height: 30px;
+    }
+
+    .heart-active {
+      color: #ff6347;
     }
 
     .post-vote-count {

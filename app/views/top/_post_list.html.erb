@@ -48,7 +48,7 @@
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
+                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active' %>
                 <% else %>
                     <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
                 <% end %>
