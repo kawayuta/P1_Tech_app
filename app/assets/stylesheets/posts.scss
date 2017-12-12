@@ -804,10 +804,10 @@ input.jobtype-num {
   max-width: 500px;
   margin: 0 auto;
   word-break: break-all;
-  background-color: #FE6B6B;
 }
 
 .post-header {
+  background-color: #FE6B6B;
   position: relative;
   text-align: center;
   padding: 10px;
@@ -1126,10 +1126,10 @@ input.jobtype-num {
   }
 
   .pott-jobtype-select {
-    padding: 0 10% 30px;
+    padding: 0 10% 20px;
 
     .post-jobtype-wrapper {
-      padding: 22px 12px 12px;
+      padding: 20px 12px;
       font-size: 14px;
       border-bottom: 1px solid #ccc;
       display: box;
@@ -1160,68 +1160,79 @@ input.jobtype-num {
         }
       }
     }
+
+    .post-jobtype-wrapper:last-child {
+      border-bottom: none;
+    }
   }
 }
 
 .post-footer {
-  color: #fff;
-  padding: 5px 10px;
+  padding: 0 40px;
 
-  .post-founder-wrapper {
-    float: left;
-  }
+  .post-footer-box {
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
 
-  .post-founder-img {
-    float: left;
-
-    img {
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  }
-
-  .post-founder-info {
-    float: left;
-    margin-left: 10px;
-
-    .post-founder-name {
-      margin: 10px 0;
-      line-height: 30px;
+    .post-founder-wrapper {
+      float: left;
+      margin-left: -20px;
     }
 
-    .post-founder-university {
-      font-size: 13px;
-      color: #888;
-      margin-bottom: 0;
-    }
-  }
+    .post-founder-img {
+      float: left;
 
-  .post-footer-vote {
-    float: right;
-
-    a {
-      color: #fff;
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
     }
 
-    .post-vote-heart {
-      font-size: 22px;
-      line-height: 30px;
+    .post-founder-info {
+      float: left;
+      margin-left: 10px;
+
+      .post-founder-name {
+        margin: 10px 0;
+        line-height: 30px;
+      }
+
+      .post-founder-university {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 0;
+      }
     }
 
-    .post-vote-count {
-      font-size: 18px;
-      line-height: 30px;
-      position: relative;
-      bottom: 1px;
+    .post-footer-vote {
+      float: right;
+      margin-right: -20px;
+
+      a {
+        color: #888;
+      }
+
+      .post-vote-heart {
+        font-size: 22px;
+        line-height: 30px;
+      }
+
+      .post-vote-count {
+        font-size: 18px;
+        line-height: 30px;
+        position: relative;
+        bottom: 1px;
+      }
+
+      .post-share-btn {
+        font-size: 22px;
+        line-height: 30px;
+        margin-right: 15px;
+      }
     }
 
-    .post-share-btn {
-      font-size: 22px;
-      line-height: 30px;
-      margin-right: 15px;
-    }
   }
 }
 
@@ -1288,8 +1299,45 @@ input.jobtype-num {
   max-width: 500px;
   margin: 0 auto;
 
+  .comment-count {
+    color: #9B9B9B;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
   .comment-list-wrapper {
     padding: 0 10px;
+  }
+
+  .comment-form {
+    padding: 10px 15px 20px;
+    position: relative;
+
+    textarea {
+      width: 100%;
+      padding: 5px 40px 5px 5px;
+      height: 50px;
+      line-height: 1.2;
+      border: none;
+      background-color: #eee;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #FED430;
+      color: #fff;
+      height: 32px;
+      width: 32px;
+      border: none;
+      border-radius: 50%;
+      position: absolute;
+      top: 19px;
+      right: 20px;
+
+      i {
+        font-size: 20px;
+      }
+    }
   }
 }
 

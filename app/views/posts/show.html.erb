@@ -220,35 +220,42 @@
     <% end %>
   </div>
 
-  <div class="post-footer clearfix">
-    <div class="post-founder-wrapper clearfix">
-      <div class="post-founder-img">
-        <%= link_to user_path(@founder) do %>
-          <%= image_tag @founder.try(:image) %>
+  <div class="post-footer">
+    <div class="post-footer-box clearfix">
+      <div class="post-founder-wrapper clearfix">
+        <div class="post-founder-img">
+          <%= link_to user_path(@founder) do %>
+            <%= image_tag @founder.try(:image) %>
+          <% end %>
+        </div>
+        <div class="post-founder-info">
+          <span class="post-founder-name"><%= @founder.try(:username) %></span>
+        </div>
+      </div>
+      <div class="post-footer-vote">
+        <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+        <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
+            <%= link_to fa_icon('heart'), support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
+        <% else %>
+            <a id="modal-support-btn"><%= fa_icon 'heart-o', class: 'post-vote-heart' %></a>
         <% end %>
+        <span class="post-vote-count"><%= Vote.where(post_id: @post, support: true).count %></span>
       </div>
-      <div class="post-founder-info">
-        <span class="post-founder-name"><%= @founder.try(:username) %></span>
-      </div>
-    </div>
-    <div class="post-footer-vote">
-      <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
-      <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
-          <%= link_to fa_icon('heart'), support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart' %>
-      <% else %>
-          <a id="modal-support-btn"><%= fa_icon 'heart-o', class: 'post-vote-heart' %></a>
-      <% end %>
-      <span class="post-vote-count"><%= Vote.where(post_id: @post, support: true).count %></span>
     </div>
   </div>
 </div>
 
 <div class="comment-list-container">
+  <div class="comment-count">
+    <span>コメント(<%= @comments.count %>)</span>
+  </div>
   <div class="comment-list-wrapper" id="comment-list">
     <%= render 'comments' %>
   </div>
-  <%= form_tag create_comment_post_path(@post), remote: true do %>
-    <%= text_area_tag :content, '', id: 'comment-texrarea' %>
-    <%= submit_tag '送信' %>
+  <%= form_tag create_comment_post_path(@post), remote: true, class: 'comment-form' do %>
+    <%= text_area_tag :content, '', placeholder: 'コメントを入力', id: 'comment-texrarea' %>
+    <%= button_tag do %>
+      <%= fa_icon 'arrow-up' %>
+    <% end %>
   <% end %>
 </div>
