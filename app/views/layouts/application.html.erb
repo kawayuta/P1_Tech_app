@@ -32,15 +32,23 @@
 
     <%= yield %>
 
-    <div class="side-menu" id="side-menu">
-      <span class="close-menu-btn" id="close-menu-btn"><%= fa_icon 'times' %></span>
-      <ul>
-        <li><%= link_to 'プロフィール', current_user %></li>
-        <li><%= link_to 'トークルーム', room_list_path %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      </ul>
-    </div>
-    <div class="side-menu-wrapper" id="side-menu-wrapper"></div>
+    <% if user_signed_in? %>
+      <div class="side-menu" id="side-menu">
+        <span class="close-menu-btn" id="close-menu-btn"><%= fa_icon 'times' %></span>
+        <div class="side-menu-header">
+          <%= link_to current_user do %><%= image_tag current_user.try(:image) %><% end %>
+          <span><%= current_user.try(:username) %></span>
+        </div>
+        <div class="side-menu-list">
+          <ul>
+            <li><%= link_to 'プロフィール', current_user %></li>
+            <li><%= link_to 'トークルーム', room_list_path %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div>
+      <div class="side-menu-wrapper" id="side-menu-wrapper"></div>
+    <% end %>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
   </body>
@@ -63,7 +71,7 @@
 
     function closeSideMenu() {
       $('#side-menu-wrapper').css('display', 'none');
-      $('#side-menu').animate({'right': '-200px'},
+      $('#side-menu').animate({'right': '-240px'},
                               {'duration': 200,
                                'complete': function() {
                                  $('#side-menu').css('display', 'none');
