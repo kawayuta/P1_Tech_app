@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'room_list' => 'group_messages#room_list', as: 'room_list'
   get 'talk_room/:post_id' => 'group_messages#talk_room', as: 'talk_room'
   post 'group_messages/:post_id' => 'group_messages#create', as: 'create_group_message'
   delete 'group_messages/:id/:post_id' => 'group_messages#destroy', as: 'destroy_group_message'

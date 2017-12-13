@@ -1,5 +1,9 @@
 class GroupMessagesController < ApplicationController
-  before_action :set_post
+  before_action :set_post, except: :room_list
+
+  def room_list
+    
+  end
 
   def talk_room
     set_messages
