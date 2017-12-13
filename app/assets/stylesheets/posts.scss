@@ -1502,7 +1502,7 @@ input.jobtype-num {
   margin: 0 20px;
   padding: 8px 0;
   border-top: 1px solid #ccc;
-  color: #888;
+  color: #FE6B6B;
 
   .post-founder-wrapper {
     float: left;
@@ -1539,7 +1539,7 @@ input.jobtype-num {
     float: right;
 
     a {
-      color: #888;
+      color: #FE6B6B;
     }
 
     .post-vote-heart {
@@ -1547,9 +1547,9 @@ input.jobtype-num {
       line-height: 30px;
     }
 
-    .heart-active {
-      color: #ff6347;
-    }
+    // .heart-active {
+    //   color: #ff6347;
+    // }
 
     .post-vote-count {
       font-size: 18px;
