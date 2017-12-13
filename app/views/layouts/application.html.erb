@@ -33,7 +33,7 @@
     <%= yield %>
 
     <div class="side-menu" id="side-menu">
-      <span class="close-menu-btn" id="close-menu-btn">×</span>
+      <span class="close-menu-btn" id="close-menu-btn"><%= fa_icon 'times' %></span>
       <ul>
         <li><%= link_to 'プロフィール', current_user %></li>
         <li><%= link_to 'トークルーム', room_list_path %></li>
