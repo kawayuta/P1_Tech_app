@@ -21,7 +21,8 @@
     // background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
     // background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1178', endColorstr='#f0443c',GradientType=1 );
-    box-shadow: 0 2px 10px rgba(0,0,0,.26);
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+
     &_highlight {
       animation: inout 2.8s;
       -webkit-animation: inout 2.8s;
@@ -101,7 +102,7 @@
 .ranked-post {
   margin: 0 5px 10px;
   background-color: #FE6B6B;
-  box-shadow: 0 2px 10px rgba(0,0,0,.26);
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
   border-radius: 8px;
 
   &-header {
