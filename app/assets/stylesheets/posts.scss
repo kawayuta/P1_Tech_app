@@ -1084,6 +1084,29 @@ input.jobtype-num {
     }
   }
 
+  .post-index-images {
+    text-align: center;
+    padding: 0 5% 20px;
+
+    .post-image-box {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+
+      .post-image-cell {
+        display: table-cell;
+        padding: 5px;
+
+        .post-image-item {
+          border-radius: 10px;
+          height: 72px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
   .post-jobtype-count {
     padding: 20px 7%;
 

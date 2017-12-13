@@ -29,6 +29,26 @@
               </div>
             </div>
           </div>
+
+          <div class="post-index-images">
+            <div class="post-image-box">
+              <% if post.image.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image, class: 'post-image-item' %>
+                </div>
+              <% end %>
+              <% if post.image_2.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image_2, class: 'post-image-item' %>
+                </div>
+              <% end %>
+              <% if post.image_3.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image_3, class: 'post-image-item' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
 
         <div class="post-index-footer clearfix">
