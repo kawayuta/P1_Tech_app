@@ -12,11 +12,13 @@
     <%= fa_icon 'handshake-o', class: 'post-show-icon' %>
   </div>
 
-  <!-- <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
+  <% if @members.include?(@self_member_info) %>
+    <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
+  <% end %>
 
-  <% if @post.user_id == current_user.id %>
+  <% if @founder == current_user %>
     <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
-  <% end %> -->
+  <% end %>
 
   <div class="post-content">
     <h1><%= @post.title %></h1>

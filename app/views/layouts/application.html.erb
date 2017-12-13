@@ -10,28 +10,65 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
   </head>
   <body>
-  <header>
-    <nav class="clearfix">
-      <ul>
-      <% if user_signed_in? %>
-            <li class="header-top"><%= link_to root_path do %><%= image_tag 'logo.png' %><% end %></li>
-            <li class="header-profile_image"><%= link_to (image_tag current_user.try(:image)), current_user %></li>
-            <li class="header-notices">
-              <%= link_to '', notifications_path, class:'header-notices fa fa-bell-o' %>
-              <%= (Notification.where(from_user_id: current_user, is_read:false).count > 0) ? Notification.where(from_user_id: current_user, is_read:false).count : ""%>
-            </li>
-            <li class="header-logout"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-            <li><%= link_to 'Facebookで簡単ログイン', user_facebook_omniauth_authorize_path %></li>
-      <% end %>
-      </ul>
-    </nav>
-  </header>
-  <% if flash[:notice] %>
-      <p><%= flash[:notice] %></p>
-  <% end %>
+    <header>
+      <nav class="clearfix">
+        <ul>
+        <% if user_signed_in? %>
+              <li class="header-top"><%= link_to root_path do %><%= image_tag 'logo.png' %><% end %></li>
+              <li class="header-profile_image" id="open-menu-btn"><%= image_tag current_user.try(:image) %></li>
+              <li class="header-notices">
+                <%= link_to '', notifications_path, class:'header-notices fa fa-bell-o' %>
+                <%= (Notification.where(from_user_id: current_user, is_read:false).count > 0) ? Notification.where(from_user_id: current_user, is_read:false).count : ""%>
+              </li>
+        <% else %>
+              <li><%= link_to 'Facebookで簡単ログイン', user_facebook_omniauth_authorize_path %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </header>
+    <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+    <% end %>
+
     <%= yield %>
+
+    <div class="side-menu" id="side-menu">
+      <span class="close-menu-btn" id="close-menu-btn">×</span>
+      <ul>
+        <li><%= link_to 'プロフィール', current_user %></li>
+        <li><%= link_to 'グループメッセージ', room_list_path %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+    <div class="side-menu-wrapper" id="side-menu-wrapper"></div>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
   </body>
 </html>
+
+<script>
+  $(function() {
+    $('#open-menu-btn').click(function() {
+      $('#side-menu-wrapper').css('display', 'block');
+      $('#side-menu').css('display', 'block').animate({'right':'0'}, 200);
+    });
+
+    $('#close-menu-btn').click(function() {
+      closeSideMenu();
+    });
+
+    $('#side-menu-wrapper').click(function() {
+      closeSideMenu();
+    });
+
+    function closeSideMenu() {
+      $('#side-menu-wrapper').css('display', 'none');
+      $('#side-menu').animate({'right': '-200px'},
+                              {'duration': 200,
+                               'complete': function() {
+                                 $('#side-menu').css('display', 'none');
+                               }
+                              });
+    }
+  });
+</script>
