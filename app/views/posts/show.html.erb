@@ -27,15 +27,21 @@
 
     <div class="post-images">
       <div class="post-image-box">
-        <div class="post-image-item">
-          image1
-        </div>
-        <div class="post-image-item">
-          image2
-        </div>
-        <div class="post-image-item">
-          image3
-        </div>
+        <% if @post.image.present? %>
+          <div class="post-image-item">
+            <%= image_tag @post.image %>
+          </div>
+        <% end %>
+        <% if @post.image_2.present? %>
+          <div class="post-image-item">
+            <%= image_tag @post.image_2 %>
+          </div>
+        <% end %>
+        <% if @post.image_3.present? %>
+          <div class="post-image-item">
+            <%= image_tag @post.image_3 %>
+          </div>
+        <% end %>
       </div>
     </div>
 
