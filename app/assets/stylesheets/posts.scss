@@ -1102,7 +1102,7 @@ input.jobtype-num {
         vertical-align: middle;
 
         .jobtype-icon-box {
-          width: 80px;
+          width: 72px;
           margin: 0 auto;
 
           .jobtype-icon {
@@ -1592,6 +1592,7 @@ input.jobtype-num {
       right: 20px;
       box-shadow: 0 2px 4px rgba(0,0,0,.2);
       cursor: pointer;
+      text-align: center;
 
       &:focus {
         outline: none;
