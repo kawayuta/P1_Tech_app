@@ -24,6 +24,7 @@
 /config/secrets.yml
 /config/database.yml
 
+/public/assets/
 /public/uploads/
 
 .byebug_history
