@@ -1,7 +1,17 @@
-<div class="talk-room-wrapper" id="talk-room-wrapper">
-  <h1><%= @post.title %>のトークルーム</h1>
+<div class="talk-room-background"></div>
 
-  <div id="group-message-list">
+<div class="talk-room-header">
+  <%= link_to fa_icon('caret-left'), room_list_path, class: 'room-back-btn' %>
+  <h1><%= @post.title %></h1>
+  <div class="room-header-right-icon">
+    <%= fa_icon 'circle' %>
+    <%= fa_icon 'circle' %>
+    <%= fa_icon 'circle' %>
+  </div>
+</div>
+<div class="talk-room-wrapper" id="talk-room-wrapper">
+
+  <div class="message-list-container" id="group-message-list">
     <%= render 'messages' %>
   </div>
 
@@ -9,11 +19,13 @@
 
 <%= form_tag create_group_message_path(post_id: @post.id), remote: true, class: "group-message-form" do %>
   <div class="message-form-wrapper">
-    <%= image_tag current_user.image %>
-    <%= text_area_tag :content, '', id: 'group-message-textarea' %>
-    <%= button_tag do %>
-      <%= fa_icon 'comment' %>
-    <% end %>
+    <div class="message-form-box">
+      <%= image_tag current_user.image %>
+      <%= text_area_tag :content, '', id: 'group-message-textarea', placeholder: 'Type message...' %>
+      <%= button_tag do %>
+        <%= fa_icon 'paper-plane' %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 
@@ -23,12 +35,12 @@
     $('#group-message-textarea').focus(function() {
       $(this).css('height', '60px');
       $('#talk-room-wrapper').css('margin-bottom', '110px');
-      window.scrollBy(0, 30);
+      window.scrollBy(0, 24);
     });
     $('#group-message-textarea').blur(function() {
-      $(this).css('height', '30px');
-      window.scrollBy(0, -30);
-      $('#talk-room-wrapper').css('margin-bottom', '80px');
+      $(this).css('height', '24px');
+      window.scrollBy(0, -24);
+      $('#talk-room-wrapper').css('margin-bottom', '74px');
     });
   });
 </script>
