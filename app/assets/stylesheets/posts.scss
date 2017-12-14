@@ -294,6 +294,10 @@
   z-index: 999;
 }
 
+.slick-dots.new-post-slide-dots li {
+  pointer-events: none;
+}
+
 .slick-dots.new-post-slide-dots button:before {
   font-family: "FontAwesome";
   content: "\f10c";
@@ -356,11 +360,11 @@ div.new-post-btn-public {
   -webkit-overflow-scrolling: touch;
   bottom:0;
   width: 100%;
-  height:100vh;
+  height:100%;
   background-color: #FFF;
   display: none;
   z-index: 1000;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .new-posts-header {
