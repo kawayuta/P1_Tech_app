@@ -74,6 +74,23 @@ $(function () {
       $('.planner-icon').remove();
       $('.engineer-icon').remove();
       $('.designer-icon').remove();
+      $('.jobtype-icon-list').remove();
+      $('.jobtype-label-box span').remove();
+
+      if($('#post_num_of_planner').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-label-box').append('<span>プランナー</span>');
+      }
+      if($('#post_num_of_engineer').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_engineer"></div></div>');
+        $('.jobtype-label-box').append('<span>エンジニア</span>');
+
+      }
+      if($('#post_num_of_designer').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-label-box').append('<span>デザイナー</span>');
+      }
+
 
       for (var i = 0; i < $('#post_num_of_planner').val(); i++){
         $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
@@ -104,6 +121,23 @@ $(function () {
       $('.planner-icon').remove();
       $('.engineer-icon').remove();
       $('.designer-icon').remove();
+      $('.jobtype-icon-list').remove();
+      $('.jobtype-label-box span').remove();
+
+      if($('#post_num_of_planner').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-label-box').append('<span>プランナー</span>');
+      }
+      if($('#post_num_of_engineer').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_engineer"></div></div>');
+        $('.jobtype-label-box').append('<span>エンジニア</span>');
+
+      }
+      if($('#post_num_of_designer').val() > 0) {
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-label-box').append('<span>デザイナー</span>');
+      }
+
 
       for (var i = 0; i < $('#post_num_of_planner').val(); i++){
         $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
