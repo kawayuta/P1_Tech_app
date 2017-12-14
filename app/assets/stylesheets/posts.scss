@@ -1187,7 +1187,7 @@ input.jobtype-num {
       }
 
       .status-icon {
-        color: #9B9B9B;
+        color: #FE6B6B;
         font-size: 16px;
         line-height: 32px;
         background-color: #fff;
@@ -1283,7 +1283,7 @@ input.jobtype-num {
           font-size: 16px;
           background-color: #fff;
           display: inline-block;
-          padding-bottom: 10px;
+          margin-bottom: 10px;
 
           &:before {
             font-family: "FontAwesome";
@@ -1298,7 +1298,7 @@ input.jobtype-num {
         }
 
         .term-icon {
-          color: #FE6B6B;
+          color: #FAFAFA;
 
           &:before {
             content: "\f111";

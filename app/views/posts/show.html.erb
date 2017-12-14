@@ -7,7 +7,7 @@
 </head>
 
 <div class="post-show-container">
-  <div class="post-header">
+  <div class="post-header" style="background-color:<%= @post.main_color%>">
     <%= link_to fa_icon('times-circle-o'), root_path, class: 'post-show-back-btn' %>
     <%= fa_icon 'handshake-o', class: 'post-show-icon' %>
   </div>
@@ -51,15 +51,15 @@
       <div class="status-line"></div>
       <div class="status-box">
         <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
-          <i class="status-icon show-status-icon"></i>
-          <span class="status-label">募集中</span>
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
+          <span class="status-label" style="color:<%= @post.main_color%>">募集中</span>
         </div>
         <div class="status-development<%= post_status_active_class(@post, 'development') %>">
-          <i class="status-icon show-status-icon"></i>
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
           <span class="status-label">開発中</span>
         </div>
         <div class="status-release<%= post_status_active_class(@post, 'release') %>">
-          <i class="status-icon show-status-icon"></i>
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
           <span class="status-label">リリース</span>
         </div>
       </div>
@@ -71,7 +71,7 @@
             <div class="jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_planner.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon planner-icon' %>
+                  <%= fa_icon 'male', class: 'jobtype-icon planner-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_engineer.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon engineer-icon' %>
+                  <%= fa_icon 'male', class: 'jobtype-icon engineer-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
@@ -89,7 +89,7 @@
             <div class="jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_designer.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon designer-icon' %>
+                  <%= fa_icon 'male', class: 'jobtype-icon designer-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
@@ -110,26 +110,26 @@
     </div>
 
     <div class="post-term">
-      <div class="term-line"></div>
+      <div class="term-line"</div>
       <div class="term-box">
         <div class="term-item">
-          <i class="term-icon"></i>
+          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
           <span class="term-label">1week</span>
         </div>
         <div class="term-item">
-          <i class="term-icon"></i>
+          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
           <span class="term-label">1month</span>
         </div>
         <div class="term-item term-active">
-          <i class="term-icon"></i>
+          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
           <span class="term-label">3months</span>
         </div>
         <div class="term-item">
-          <i class="term-icon"></i>
+          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
           <span class="term-label">6months</span>
         </div>
         <div class="term-item">
-          <i class="term-icon"></i>
+          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
           <span class="term-label">1year</span>
         </div>
       </div>
@@ -138,11 +138,11 @@
     <div class="post-commitment">
       <ul class="commitment-item-box">
         <li><span>気軽に制作</span></li>
-        <li class="commitment-item"><i class="commitment-icon"></i></li>
-        <li class="commitment-item"><i class="commitment-icon"></i></li>
-        <li class="commitment-item"><i class="commitment-icon"></i></li>
-        <li class="commitment-item commitment-item-active"><i class="commitment-icon"></i></li>
-        <li class="commitment-item"><i class="commitment-icon"></i></li>
+        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
+        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
+        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
+        <li class="commitment-item commitment-item-active"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
+        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
         <li><span>ガチで制作</span></li>
       </ul>
     </div>
