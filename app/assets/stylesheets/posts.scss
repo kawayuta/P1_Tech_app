@@ -1055,10 +1055,23 @@ input.jobtype-num {
     padding: 30px 10%;
   }
 
+  h2 {
+    padding: 0 7%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #9B9B9B;
+
+    i {
+      color: #FE6B6B;
+      font-size: 24px;
+      margin-right: 6px;
+    }
+  }
+
   .post-detail {
     font-size: 14px;
     line-height: 1.5;
-    padding: 0 7% 30px;
+    padding: 0 7%;
   }
 
   .post-index-detail {
@@ -1069,7 +1082,7 @@ input.jobtype-num {
   }
 
   .post-images {
-    padding-bottom: 20px;
+    padding: 15px 0;
     text-align: center;
 
     .post-image-box {
@@ -1090,7 +1103,7 @@ input.jobtype-num {
 
   .post-index-images {
     text-align: center;
-    padding: 5px 5% 20px;
+    padding: 20px 5% 20px;
 
     .post-image-box {
       display: table;
@@ -1112,7 +1125,7 @@ input.jobtype-num {
   }
 
   .post-jobtype {
-    padding: 20px 7%;
+    padding: 30px 7% 50px;
 
     .jobtype-icon-list-box {
       display: table;
@@ -1224,7 +1237,6 @@ input.jobtype-num {
 
   .post-status {
     padding: 20px 7%;
-    background-color: #FAFAFA;
 
     .status-line {
       height: 0;
@@ -1262,7 +1274,7 @@ input.jobtype-num {
       }
 
       .show-status-icon {
-        background-color: #FAFAFA;
+        background-color: #fff;
       }
 
       .status-planning {
@@ -1310,8 +1322,8 @@ input.jobtype-num {
   }
 
   .post-term {
-    padding: 25px 7%;
-    background-color: #FAFAFA;
+    padding: 30px 7% 50px;
+    background-color: #fff;
 
     .term-line {
       border-bottom: 2px solid #9B9B9B;
@@ -1374,7 +1386,7 @@ input.jobtype-num {
     min-width: 260px;
     max-width: 360px;
     margin: 0 auto;
-    padding: 24px 5% 32px;
+    padding: 30px 5% 50px;
 
     span {
       font-size: 12px;
@@ -1420,11 +1432,6 @@ input.jobtype-num {
   //   display: block;
   //   margin: 0 auto;
   // }
-
-  h2 {
-    padding-top: 10px;
-    margin-bottom: 10px;
-  }
 
 }
 
