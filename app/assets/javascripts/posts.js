@@ -64,7 +64,7 @@ $(function () {
       } else {
 
       }
-      if (Number($(this).siblings('.jobtype-num').text()) == 0) {
+      if (Number($(this).siblings('.jobtype-num').val()) == 0) {
         $(this).addClass('disabled');
       }
       $('#post_num_of_planner').val($('#jobtype-planner').val());
@@ -114,6 +114,7 @@ $(function () {
       if ($minusBtn.hasClass('disabled')) {
         $minusBtn.removeClass('disabled');
       }
+
       $('#post_num_of_planner').val($('#jobtype-planner').val());
       $('#post_num_of_engineer').val($('#jobtype-engineer').val());
       $('#post_num_of_designer').val($('#jobtype-designer').val());
@@ -198,7 +199,6 @@ $(function () {
       $('#post_period').val('0');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
       $('.preview-post-term .term-item-1').addClass('term-active');
-
     });
 
     $('.new-post-term .1month-tern').click(function () {
