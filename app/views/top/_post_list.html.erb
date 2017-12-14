@@ -3,11 +3,11 @@
     <div class="posts-post">
       <div class="post-header" style="background-color: <%= post.main_color%>">
         <%= fa_icon 'handshake-o', class: 'post-icon' %>
+        <h3><%= post.title %></h3>
       </div>
       <div class="posts-post-text">
         <div class="post-content">
           <%= link_to '', post, class: 'link_to_show' %>
-          <h3><%= post.title %></h3>
           <p class="post-index-detail">
             <%= post.detail.truncate(50) %>
           </p>
@@ -27,6 +27,26 @@
                 <i class="status-icon"></i>
                 <span class="status-label">リリース</span>
               </div>
+            </div>
+          </div>
+
+          <div class="post-index-images">
+            <div class="post-image-box">
+              <% if post.image.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image, class: 'post-image-item' %>
+                </div>
+              <% end %>
+              <% if post.image_2.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image_2, class: 'post-image-item' %>
+                </div>
+              <% end %>
+              <% if post.image_3.present? %>
+                <div class="post-image-cell">
+                  <%= image_tag post.image_3, class: 'post-image-item' %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
