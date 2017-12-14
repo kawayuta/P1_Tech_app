@@ -1005,7 +1005,7 @@ input.jobtype-num {
   }
 
   .post-show-icon {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .post-show-back-btn {
@@ -1016,6 +1016,15 @@ input.jobtype-num {
     position: absolute;
     top: 10px;
     left: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
+    line-height: 1.4;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 5% 5px;
   }
 
   h3 {
@@ -1046,15 +1055,6 @@ input.jobtype-num {
     }
   }
 
-  h1 {
-    font-size: 18px;
-    font-family: "ヒラギノ丸ゴ Pro W4","ヒラギノ丸ゴ Pro","Hiragino Maru Gothic Pro","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","HG丸ｺﾞｼｯｸM-PRO","HGMaruGothicMPRO";
-    line-height: 1.2;
-    font-weight: bold;
-    text-align: center;
-    padding: 30px 10%;
-  }
-
   h2 {
     padding: 0 7%;
     font-size: 20px;
@@ -1070,8 +1070,8 @@ input.jobtype-num {
 
   .post-detail {
     font-size: 14px;
-    line-height: 1.5;
-    padding: 0 7%;
+    line-height: 1.7;
+    padding: 30px 7% 0;
   }
 
   .post-index-detail {
