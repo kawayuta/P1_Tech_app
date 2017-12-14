@@ -1111,7 +1111,7 @@ input.jobtype-num {
     }
   }
 
-  .post-jobtype-count {
+  .post-jobtype {
     padding: 20px 7%;
 
     .jobtype-icon-list-box {
@@ -1156,6 +1156,67 @@ input.jobtype-num {
         vertical-align: middle;
         font-size: 13px;
         color: #888;
+      }
+    }
+
+    .jobtype-select {
+
+      .jobtype-select-table {
+        display: table;
+        table-layout: fixed;
+        width: 94%;
+        margin: 0 auto;
+
+        .jobtype-select-cell {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          padding-top: 15px;
+
+          .post-join-btn {
+            display: inline-block;
+            background-color: #FE6B6B;
+            width: 80px;
+            padding: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 2px 2px rgba(0,0,0,.2);
+            position: relative;
+
+            &:before {
+              display: inline-block;
+              content: '';
+              border: 9px solid transparent;
+              border-bottom: 9px solid #FE6B6B;
+              position: absolute;
+              top: -17px;
+              left: 31px;
+            }
+
+            &:hover, &:focus, &:visited {
+              text-decoration: none;
+              color: #fff;
+            }
+          }
+
+          .join-btn-disabled {
+            line-height: 14px;
+            background-color: #aaa;
+            box-shadow: none;
+
+            &:before {
+              border-bottom: 9px solid #aaa;
+              position: absolute;
+            }
+          }
+
+          .post-join-btn-fake {
+            width: 90px;
+          }
+        }
       }
     }
 
@@ -1365,62 +1426,6 @@ input.jobtype-num {
     margin-bottom: 10px;
   }
 
-  .pott-jobtype-select {
-    padding: 0 10% 20px;
-
-    .post-jobtype-wrapper {
-      padding: 15px 12px;
-      font-size: 14px;
-      border-bottom: 1px solid #ccc;
-      display: box;
-      display: -webkit-box;
-      display: -moz-box;
-      display: -o-box;
-      display: -ms-box;
-      box-pack: justify;
-      -moz-box-pack: justify;
-      -webkit-box-pack: justify;
-      -o-box-pack: justify;
-      -ms-box-pack: justify;
-
-      span {
-        display: block;
-        line-height: 24px;
-      }
-
-      .post-join-btn {
-        display: inline-block;
-        background-color: #FED430;
-        width: 90px;
-        padding: 5px 0;
-        border-radius: 10px;
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        box-shadow: 0 2px 2px rgba(0,0,0,.16);
-
-        &:hover, &:focus, &:visited {
-          text-decoration: none;
-          color: #fff;
-        }
-      }
-
-      .join-btn-disabled {
-        line-height: 14px;
-        background-color: #aaa;
-        box-shadow: 0 1px 1px rgba(0,0,0,.16);
-      }
-
-      .post-join-btn-fake {
-        width: 90px;
-      }
-
-    }
-
-    .post-jobtype-wrapper:last-child {
-      border-bottom: none;
-    }
-  }
 }
 
 .post-footer {
