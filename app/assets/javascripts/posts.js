@@ -257,6 +257,9 @@ $(function () {
       $('.jobtype-icon').css({
         "color" : $(this).css("background-color")
       });
+      $('h2 i').css({
+        "color" : $(this).css("background-color")
+      });
 
 
     });

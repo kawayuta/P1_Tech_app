@@ -33,7 +33,7 @@
                 <span><%= i + 1 %>位</span>
               </div>
             <% end %>
-            <div class="ranked-post-header-icon"><%= fa_icon 'handshake-o', class: 'ranked-post-icon' %></div>
+            <div class="ranked-post-header-icon"><%= fa_icon (post_icon_of_category(post.category_name)), class: 'ranked-post-icon' %></div>
             <div class="ranked-post-header-title"><%= post.title %></div>
             <div class="ranked-post-header-detail"><%= post.detail.truncate(50) %></div>
           </div>
@@ -278,15 +278,16 @@
                   </div>
                 </div>
 
+                <h2><i class="fa fa-pencil"></i>募集役割</h2>
+
                 <div class="post-jobtype post-jobtype-count">
                   <div class="jobtype-icon-list-box">
-
                   </div>
-
                   <div class="jobtype-label-box">
-
                   </div>
                 </div>
+
+                <h2><i class="fa fa-clock-o"></i>目標制作期間</h2>
 
                 <div class="preview-post-term post-term">
                   <div class="term-line"></div>
@@ -313,6 +314,8 @@
                     </div>
                   </div>
                 </div>
+
+                <h2><i class="fa fa-fire"></i>ガチ度</h2>
 
                 <div class="preview-post-commitment post-commitment">
                   <ul class="commitment-item-box">
