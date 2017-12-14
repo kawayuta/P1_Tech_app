@@ -67,7 +67,7 @@
 
     <hr>
 
-    <h2><%= fa_icon 'fire' %>ガチ度</h2>
+    <h2><%= fa_icon 'fire', style: "color: #{@post.main_color}" %>ガチ度</h2>
     <div class="post-commitment">
       <ul class="commitment-item-box">
         <li><span>気軽に制作</span></li>
@@ -80,7 +80,7 @@
       </ul>
     </div>
 
-    <h2><%= fa_icon 'clock-o' %>目標制作期間</h2>
+    <h2><%= fa_icon 'clock-o', style: "color: #{@post.main_color}" %>目標制作期間</h2>
     <div class="post-term">
       <div class="term-line"></div>
       <div class="term-box">
@@ -107,7 +107,7 @@
       </div>
     </div>
 
-    <h2><%= fa_icon 'pencil' %>募集役割</h2>
+    <h2><%= fa_icon 'pencil', style: "color: #{@post.main_color}" %>募集役割</h2>
     <div class="post-jobtype">
       <div class="jobtype-icon-list-box">
         <% if @post.num_of_planner != 0 %>
