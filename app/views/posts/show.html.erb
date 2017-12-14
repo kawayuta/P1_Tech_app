@@ -13,13 +13,13 @@
     <h1><%= @post.title %></h1>
   </div>
 
-  <% if @members.include?(@self_member_info) %>
+  <!-- <% if @members.include?(@self_member_info) %>
     <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
   <% end %>
 
   <% if @founder == current_user %>
     <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
-  <% end %>
+  <% end %> -->
 
   <div class="post-content">
 
@@ -64,6 +64,8 @@
         <% end %>
       </div>
     </div>
+
+    <hr>
 
     <h2><i>icon</i>ガチ度</h2>
     <div class="post-commitment">

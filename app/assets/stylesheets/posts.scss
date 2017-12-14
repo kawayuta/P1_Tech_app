@@ -1068,6 +1068,13 @@ input.jobtype-num {
     }
   }
 
+  hr {
+    width: 70%;
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+    margin: 10px auto 30px;
+  }
+
   .post-detail {
     font-size: 14px;
     line-height: 1.7;
@@ -1082,7 +1089,6 @@ input.jobtype-num {
   }
 
   .post-images {
-    padding: 15px 0;
     text-align: center;
 
     .post-image-box {
@@ -1236,7 +1242,7 @@ input.jobtype-num {
   }
 
   .post-status {
-    padding: 30px 7%;
+    padding: 30px 7% 30px;
 
     .status-line {
       height: 0;
