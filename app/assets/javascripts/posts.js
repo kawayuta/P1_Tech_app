@@ -374,13 +374,13 @@ $(function () {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
 
       if(ValidityCategory == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">アイコンが選択されていません。</span>');
+        $('.post-form-alerts').append('<span class="post-form-alert">アイコンを選択してください。</span>');
       }
       if(ValidityTitle == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">タイトルが入力してください。</span>');
+        $('.post-form-alerts').append('<span class="post-form-alert">タイトルを入力してください。</span>');
       }
       if(ValidityDetail == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">詳細が入力してください。</span>');
+        $('.post-form-alerts').append('<span class="post-form-alert">詳細を入力してください。</span>');
       }
     }
 
