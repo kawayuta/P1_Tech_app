@@ -9,7 +9,7 @@ module ApplicationHelper
     elsif distance >= 3600
       return "#{distance / 3600}時間前"
     else
-      return "#{distance / 3600}分前"
+      return "#{distance / 60}分前"
     end
   end
 
