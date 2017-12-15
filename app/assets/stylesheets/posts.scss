@@ -1666,7 +1666,6 @@ input.jobtype-num {
     float: left;
     margin-left: 10px;
     width: calc(100% - 50px);
-    // position: relative;
 
     .comment-content {
       display: inline-block;
@@ -1685,19 +1684,8 @@ input.jobtype-num {
 
       span {
         font-size: 12px;
-        // font-weight: bold;
       }
 
-      // &:before {
-      //   display: block;
-      //   content: '';
-      //   border: 10px solid transparent;
-      //   border-top: 2px solid transparent;
-      //   border-right: 11px solid #fff;
-      //   position: absolute;
-      //   top: 5px;
-      //   left: -20px;
-      // }
     }
 
     // .comment-detele-btn {
