@@ -15,8 +15,8 @@
           <span class="comment-username"><%= comment.user.username %></span>
         </div>
         <div class="comment-content" style="<%= comment_color_style(comment) %>">
-          <%= comment.content %>
-          <div class=""></div>
+          <p><%= comment.content %></p>
+          <span><%= created_time_distance(comment) %></span>
         </div>
       </div>
     </div>
