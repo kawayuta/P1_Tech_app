@@ -18,27 +18,31 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-  $('#open-menu-btn').click(function() {
-    $('#side-menu-wrapper').css('display', 'block');
-    $('#side-menu').css('display', 'block').animate({'right':'0'}, 200);
-  });
+$(document).on('turbolinks:load', function () {
 
-  $('#close-menu-btn').click(function() {
-    closeSideMenu();
-  });
+  $(function () {
+    $('#open-menu-btn').click(function () {
+      $('#side-menu-wrapper').css('display', 'block');
+      $('#side-menu').css('display', 'block').animate({'right': '0'}, 200);
+    });
 
-  $('#side-menu-wrapper').click(function() {
-    closeSideMenu();
-  });
+    $('#close-menu-btn').click(function () {
+      closeSideMenu();
+    });
 
-  function closeSideMenu() {
-    $('#side-menu-wrapper').css('display', 'none');
-    $('#side-menu').animate({'right': '-240px'},
-                            {'duration': 200,
-                             'complete': function() {
-                               $('#side-menu').css('display', 'none');
-                             }
-                            });
-  }
+    $('#side-menu-wrapper').click(function () {
+      closeSideMenu();
+    });
+
+    function closeSideMenu() {
+      $('#side-menu-wrapper').css('display', 'none');
+      $('#side-menu').animate({'right': '-240px'},
+        {
+          'duration': 200,
+          'complete': function () {
+            $('#side-menu').css('display', 'none');
+          }
+        });
+    }
+  });
 });
