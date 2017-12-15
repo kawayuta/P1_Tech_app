@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
     set_evaluations
+    @planning_posts = @user.posts
+    @developing_posts = @user.team_members.where(accepted: true).map {|m| Post.find_by(id: m.post_id, status: 1)}.compact
+    @released_posts = @user.team_members.where(accepted: true).map {|m| Post.find_by(id: m.post_id, status: 2)}.compact
   end
 
   def edit

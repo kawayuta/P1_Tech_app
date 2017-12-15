@@ -1,12 +1,70 @@
-<%= image_tag @user.try(:image) %>
+<div class="profile-container">
+  <div class="profile-header">
+    <span>JOB TYPE</span>
+    <%= image_tag @user.try(:image) %>
+  </div>
+  <div class="profile-content">
+    <div class="profile-basic">
+      <span class="profile-username"><%= @user.try(:username) %></span>
+      <span class="profile-university"><%= @user.try(:university) %></span>
+    </div>
 
-<%= @user.try(:username) %>
+    <div class="profile-introduction">
+      <p></p>
+    </div>
 
-<div>
+    <div class="profile-link">
+      <ul>
+        <li>
+          <span class="link-label">link1</span>
+          <span class="link-url">http://133.130.113.77</span>
+        </li>
+        <li>
+          <span class="link-label">link2</span>
+          <span class="link-url">http://133.130.113.77</span>
+        </li>
+        <li>
+          <span class="link-label">link3</span>
+          <span class="link-url">http://133.130.113.77</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-posts">
+      <div class="posts-status-type">
+        <h3>現在進行中の企画</h3>
+        <% @developing_posts.each do |post| %>
+          <div>
+            <%= post.title %>
+          </div>
+        <% end %>
+      </div>
+      <div class="posts-status-type">
+        <h3>現在募集中の企画</h3>
+        <% @planning_posts.each do |post| %>
+          <div>
+            <%= post.title %>
+          </div>
+        <% end %>
+      </div>
+      <div class="posts-status-type">
+        <h3>過去に参加した企画</h3>
+        <% @released_posts.each do |post| %>
+          <div>
+            <%= post.title %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <div>
   <h2>評価</h2>
   <p>項目1: <%= @evaluations['first_evaluated_user'] %>回</p>
   <p>項目2: <%= @evaluations['second_evaluated_user'] %>回</p>
   <p>項目3: <%= @evaluations['third_evaluated_user'] %>回</p>
   <p>項目4: <%= @evaluations['fourth_evaluated_user'] %>回</p>
   <p>項目5: <%= @evaluations['fifth_evaluated_user'] %>回</p>
-</div>
+</div> -->
