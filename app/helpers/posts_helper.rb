@@ -14,6 +14,13 @@ module PostsHelper
     return ''
   end
 
+  def comment_time_color_style(comment)
+    if comment.user_id == current_user.id
+      return "color: #fff;"
+    end
+    return "color: #{comment.post.main_color};"
+  end
+
   def icon_of_category(name)
     if name.downcase == 'game'
       icon = 'fa fa-gamepad'

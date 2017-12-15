@@ -16,7 +16,7 @@
         </div>
         <div class="comment-content" style="<%= comment_color_style(comment) %>">
           <p><%= comment.content %></p>
-          <span><%= created_time_distance(comment) %></span>
+          <span style="<%= comment_time_color_style(comment) %>"><%= created_time_distance(comment) %></span>
         </div>
       </div>
     </div>
