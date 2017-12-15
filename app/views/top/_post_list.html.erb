@@ -2,7 +2,6 @@
   <% @posts.each do |post| %>
     <div class="posts-post">
       <div class="post-header" style="background-color: <%= post.main_color%>">
-        <%=   %>
         <%= fa_icon (post_icon_of_category(post.category_name)), class: "post-icon" %>
         <h3><%= post.title %></h3>
       </div>
