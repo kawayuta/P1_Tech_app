@@ -6,8 +6,10 @@
   <div class="profile-content">
     <div class="profile-basic">
       <span class="profile-username"><%= @user.try(:username) %></span>
-      <span class="profile-university"><%= @user.try(:education) %></span>
-      <span class="profile-department">ほげほげ学科</span>
+      <div class="profile-university">
+        <span>ほげほげ大学</span>
+        <span>ふがふが学部</span>
+      </div>
     </div>
 
     <div class="profile-introduction">
@@ -20,41 +22,56 @@
       <ul>
         <li>
           <span class="link-label">link1</span>
-          <span class="link-url">http://133.130.113.77</span>
+          <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
         </li>
         <li>
           <span class="link-label">link2</span>
-          <span class="link-url">http://133.130.113.77</span>
+          <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
         </li>
         <li>
           <span class="link-label">link3</span>
-          <span class="link-url">http://133.130.113.77</span>
+          <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
         </li>
       </ul>
     </div>
 
     <div class="profile-posts">
-      <div class="posts-status-type">
+      <div class="profile-post-type">
         <h3>現在進行中の企画</h3>
         <% @developing_posts.each do |post| %>
-          <div>
-            <%= post.title %>
+          <div class="profile-post-item">
+            <div class="profile-post-iconbox">
+              <%= fa_icon (post_icon_of_category(post.category_name)) %>
+            </div>
+            <div class="profile-post-title">
+              <%= post.title %>
+            </div>
           </div>
         <% end %>
       </div>
-      <div class="posts-status-type">
+      <div class="profile-post-type">
         <h3>現在募集中の企画</h3>
         <% @planning_posts.each do |post| %>
-          <div>
-            <%= post.title %>
+          <div class="profile-post-item">
+            <div class="profile-post-iconbox">
+              <%= fa_icon (post_icon_of_category(post.category_name)) %>
+            </div>
+            <div class="profile-post-title">
+              <%= post.title %>
+            </div>
           </div>
         <% end %>
       </div>
-      <div class="posts-status-type">
+      <div class="profile-post-type">
         <h3>過去に参加した企画</h3>
         <% @released_posts.each do |post| %>
-          <div>
-            <%= post.title %>
+          <div class="profile-post-item">
+            <div class="profile-post-iconbox">
+              <%= fa_icon (post_icon_of_category(post.category_name)) %>
+            </div>
+            <div class="profile-post-title">
+              <%= post.title %>
+            </div>
           </div>
         <% end %>
       </div>
