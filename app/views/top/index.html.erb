@@ -238,14 +238,14 @@
 
             <div class="post-show-container">
               <div class="post-header">
-                <%= fa_icon 'handshake-o', class: 'post-show-icon' %>
+                <div class="post-icon-data"></div>
+                <h1></h1>
               </div>
 
               <div class="post-content">
-                <h1><%= @post.title %></h1>
+
 
                 <p class="post-detail">
-                  <%= @post.detail %>
                 </p>
 
                 <!--<div class="post-images">-->
@@ -299,7 +299,7 @@
                       <i class="term-icon"></i>
                       <span class="term-label">1month</span>
                     </div>
-                    <div class="term-item term-item-3">
+                    <div class="term-item term-item-3 term-active">
                       <i class="term-icon"></i>
                       <span class="term-label">3months</span>
                     </div>
@@ -321,7 +321,7 @@
                     <li><span>気軽に制作</span></li>
                     <li class="commitment-item commitment-item-1"><i class="commitment-icon"></i></li>
                     <li class="commitment-item commitment-item-2"><i class="commitment-icon"></i></li>
-                    <li class="commitment-item commitment-item-3"><i class="commitment-icon"></i></li>
+                    <li class="commitment-item commitment-item-3 commitment-item-active"><i class="commitment-icon"></i></li>
                     <li class="commitment-item commitment-item-4"><i class="commitment-icon"></i></li>
                     <li class="commitment-item commitment-item-5"><i class="commitment-icon"></i></li>
                     <li><span>ガチで制作</span></li>
@@ -384,10 +384,6 @@
 
       <h3>ペライチが完成しました！<br/>
         みんなに応援してもらいましょう！</h3>
-      <div id='post-preview-template'>
-        <h4 id="post-preview-title"></h4>
-        <p id="post-preview-detail"></p>
-      </div>
 
       <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
       <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
