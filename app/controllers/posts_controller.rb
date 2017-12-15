@@ -37,6 +37,8 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    redirect_to root_path
+    # ↑ 一旦
     @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0)
   end
 
