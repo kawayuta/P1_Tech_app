@@ -1590,17 +1590,17 @@ input.jobtype-num {
 .comment-list-container {
   max-width: 500px;
   margin: 0 auto;
+  background-color: #f3f3f3;
 
   .comment-count {
     color: #9B9B9B;
     font-size: 14px;
-    padding: 10px 20px 0;
+    padding: 20px 20px 0;
     margin-bottom: 10px;
   }
 
   .comment-list-wrapper {
     padding: 0 10px;
-    background-color: #f3f3f3;
   }
 
   .comment-form {
@@ -1611,11 +1611,10 @@ input.jobtype-num {
     textarea {
       width: 100%;
       padding: 5px 40px 5px 5px;
-      height: 50px;
+      height: 46px;
       line-height: 1.2;
       border: none;
-      background-color: #eee;
-      border-radius: 8px;
+      border-radius: 10px;
 
       &:focus {
         outline: none;
@@ -1623,25 +1622,18 @@ input.jobtype-num {
     }
 
     button {
-      background-color: #FED430;
-      color: #fff;
-      height: 32px;
-      width: 32px;
+      background-color: transparent;
       border: none;
-      border-radius: 50%;
+      font-size: 24px;
+      padding: 0;
       position: absolute;
-      top: 19px;
-      right: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,.2);
-      cursor: pointer;
-      text-align: center;
-
-      &:focus {
-        outline: none;
-      }
+      top: 20px;
+      right: 25px;
+      outline: none;
+      color: #FE6B6B;
 
       i {
-        font-size: 20px;
+        cursor: pointer;
       }
     }
   }

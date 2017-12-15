@@ -277,7 +277,7 @@
   <%= form_tag create_comment_post_path(@post), remote: true, class: 'comment-form' do %>
     <%= text_area_tag :content, '', placeholder: 'コメントを入力', id: 'comment-texrarea' %>
     <%= button_tag do %>
-      <%= fa_icon 'arrow-up' %>
+      <%= fa_icon 'paper-plane', style: "color: #{@post.main_color}" %>
     <% end %>
   <% end %>
 </div>
