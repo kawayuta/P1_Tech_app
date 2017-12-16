@@ -37,8 +37,12 @@
                   </div>
               <% end %>
               <!-- <div class="ranked-post-header-icon"><%= fa_icon (post_icon_of_category(post.category_name)), class: 'ranked-post-icon' %></div> -->
-              <div class="ranked-post-header-title"><%= post.title %></div>
-              <div class="ranked-post-header-detail"><%= post.detail.truncate(50) %></div>
+              <div class="ranked-post-header-title">
+                <h3><%= post.title %></h3>
+              </div>
+              <div class="ranked-post-header-detail">
+                <p><%= post.detail.truncate(50) %></p>
+              </div>
             </div>
             <div class="ranked-post-footer clearfix">
               <div class="post-founder-wrapper clearfix">
