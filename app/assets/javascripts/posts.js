@@ -308,16 +308,25 @@ $(function () {
 
   $('.modal-support-btn').click(function(){
     var postId = $(this).attr('data-post-id');
-    console.log(postId);
-    $('[data-post-id=' + postId + '][data-remodal-id=modal]' ).remodal().open();
+    var url = $(this).attr('data-url');
+    $('#modal-support-btn-fb').attr('href', 'http://www.facebook.com/sharer.php?u=' + url);
+    $('#modal-support-btn-tw').attr('href', 'http://twitter.com/share?url=' + url);
+    $('#share-modal-overlay').css('display', 'block');
+    // $('[data-post-id=' + postId + '][data-remodal-id=modal]' ).remodal().open();
   });
 
-  $('.modal-support-btn-tw').click(function() {
-    $('[data-remodal-id=modal]').remodal().close();
+  $('#share-modal-overlay').click(function() {
+    $(this).css('display', 'none');
+  });
+
+  $('#modal-support-btn-tw').click(function() {
+    $('#share-modal-overlay').css('display', 'none');
+    // $('[data-remodal-id=modal]').remodal().close();
   })
 
-  $('.modal-support-btn-fb').click(function(){
-    $('[data-remodal-id=modal]').remodal().close();
+  $('#modal-support-btn-fb').click(function(){
+    $('#share-modal-overlay').css('display', 'none');
+    // $('[data-remodal-id=modal]').remodal().close();
     // $.ajax({
     //   url: $('#modal-support-btn-default').attr("href"),
     //   type: "POST",
@@ -330,7 +339,6 @@ $(function () {
     //   }
     // });
   });
-
 
   $('.new-post-slider').slick({
     dots: true,

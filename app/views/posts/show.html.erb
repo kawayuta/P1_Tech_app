@@ -232,12 +232,6 @@
       <% end %>
     </p> -->
 
-    <div class="remodal post-share-modal" data-remodal-id="<% @post.id %>">
-      <!-- <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %> -->
-      <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>" class="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
-      <a href="http://twitter.com/share?url=<%=  post_url %>" class="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
-    </div>
-
     <% if @founder == current_user %>
       <%= link_to 'Edit', edit_post_path(@post) %> |
       <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -257,7 +251,7 @@
         </div>
       </div>
       <div class="post-footer-vote">
-        <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id} %></span>
+        <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id, url: post_url(@post)} %></span>
           <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
             <%= link_to fa_icon('heart'), support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active', style: "color: #{@post.main_color}" %>
           <% else %>
@@ -268,6 +262,19 @@
     </div>
   </div>
 </div>
+
+<div class="share-modal-overlay" id="share-modal-overlay">
+  <div class="share-modal" id="share-modal">
+    <a href="" class="modal-support-btn-fb" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
+    <a href="" class="modal-support-btn-tw" id="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
+  </div>
+</div>
+
+<!-- <div class="remodal post-share-modal" data-remodal-id="<% @post.id %>">
+  <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %>
+  <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>" class="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
+  <a href="http://twitter.com/share?url=<%=  post_url %>" class="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
+</div> -->
 
 <div class="comment-list-container">
 

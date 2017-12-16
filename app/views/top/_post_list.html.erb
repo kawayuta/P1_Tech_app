@@ -64,7 +64,7 @@
           </div>
 
           <div class="post-footer-vote" style="color:<%= post.main_color%>">
-            <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id} %></span>
+            <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>

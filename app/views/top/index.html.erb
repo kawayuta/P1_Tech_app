@@ -50,7 +50,7 @@
               </div>
 
               <div class="post-footer-vote">
-                <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id} %></span>
+                <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
                 <% if user_signed_in? %>
                     <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
                         <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: {confirm: 'この企画の応援をやめますか？'}, class: 'post-vote-heart' %>
@@ -60,17 +60,18 @@
                     <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
                 <% end %>
               </div>
-              <%= post_url(post) %>
             </div>
-          </div>
-
-          <div class="remodal post-share-modal" data-remodal-id="modal" data-post-id="<%= post.id %>">
-            <a href="http://www.facebook.com/sharer.php?u=<%=  post_url(post) %>" class="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
-            <a href="http://twitter.com/share?url=<%=  post_url(post) %>" class="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
           </div>
       <% end %>
     </div>
   </section>
+
+  <div class="share-modal-overlay" id="share-modal-overlay">
+    <div class="share-modal" id="share-modal">
+      <a href="" class="modal-support-btn-fb" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
+      <a href="" class="modal-support-btn-tw" id="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
+    </div>
+  </div>
 
   <section class="top-posts clearfix" id="top-posts">
     <h2>NEW</h2>
