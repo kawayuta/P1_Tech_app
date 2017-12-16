@@ -310,6 +310,10 @@ $(function () {
     $('[data-remodal-id=modal]').remodal().open();
   });
 
+  $('.modal-support-btn-tw').click(function() {
+    $('[data-remodal-id=modal]').remodal().close();
+  })
+
   $('.modal-support-btn-fb').click(function(){
     $('[data-remodal-id=modal]').remodal().close();
     // $.ajax({
