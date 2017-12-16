@@ -307,7 +307,9 @@ $(function () {
   // });
 
   $('.modal-support-btn').click(function(){
-    $('[data-remodal-id=modal]').remodal().open();
+    var postId = $(this).attr('data-post-id');
+    console.log(postId);
+    $('[data-remodal-id=' + postId + ']' ).remodal().open();
   });
 
   $('.modal-support-btn-tw').click(function() {
