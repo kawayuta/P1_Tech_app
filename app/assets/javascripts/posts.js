@@ -306,23 +306,23 @@ $(function () {
   //   clearTimeout($(this).data('timeout'));
   // });
 
-  $('#modal-support-btn').click(function(){
+  $('.modal-support-btn').click(function(){
     $('[data-remodal-id=modal]').remodal().open();
   });
 
-  $('#modal-support-btn-fb').click(function(){
+  $('.modal-support-btn-fb').click(function(){
     $('[data-remodal-id=modal]').remodal().close();
-    $.ajax({
-      url: $('#modal-support-btn-default').attr("href"),
-      type: "POST",
-      dataType: "html",
-      success: function(data) {
-        location.reload();
-      },
-      error: function(data) {
-        location.reload()
-      }
-    });
+    // $.ajax({
+    //   url: $('#modal-support-btn-default').attr("href"),
+    //   type: "POST",
+    //   dataType: "html",
+    //   success: function(data) {
+    //     location.reload();
+    //   },
+    //   error: function(data) {
+    //     location.reload()
+    //   }
+    // });
   });
 
 

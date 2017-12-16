@@ -235,7 +235,7 @@
     <div class="remodal" data-remodal-id="modal">
       <!-- <%= link_to '応援する', support_post_path(@post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %> -->
       twitterもつける
-      <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
+      <a href="http://www.facebook.com/sharer.php?u=<%=  post_url %>/" class="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
     </div>
 
     <% if @founder == current_user %>
@@ -257,7 +257,7 @@
         </div>
       </div>
       <div class="post-footer-vote">
-        <span class="post-share-btn"><%= fa_icon 'share-alt', id: 'modal-support-btn', style: "color: #{@post.main_color}" %></span>
+        <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}" %></span>
           <% if Vote.find_by(user_id: current_user,post_id:@post,support:true).present? %>
             <%= link_to fa_icon('heart'), support_post_path(@post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active', style: "color: #{@post.main_color}" %>
           <% else %>

@@ -64,7 +64,7 @@
           </div>
 
           <div class="post-footer-vote" style="color:<%= post.main_color%>">
-            <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+            <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn' %></span>
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
@@ -77,6 +77,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="remodal" data-remodal-id="modal">
+      <!-- <%= link_to '応援する', support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, id:"modal-support-btn-default" %> -->
+      twitterもつける
+      <a href="http://www.facebook.com/sharer.php?u=<%= post_url(post) %>/" class="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">Facebookで応援する</a>
     </div>
   <% end %>
 </div>
