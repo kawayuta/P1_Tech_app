@@ -309,7 +309,7 @@ $(function () {
   $('.modal-support-btn').click(function(){
     var postId = $(this).attr('data-post-id');
     console.log(postId);
-    $('[data-remodal-id=' + postId + ']' ).remodal().open();
+    $('[data-post-id=' + postId + '][data-remodal-id=modal]' ).remodal().open();
   });
 
   $('.modal-support-btn-tw').click(function() {
