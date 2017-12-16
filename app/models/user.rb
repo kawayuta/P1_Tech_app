@@ -18,7 +18,7 @@ class User < ApplicationRecord
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
     unless user
-      user = User.create(
+      user = User.new(
           uid:      auth.uid,
           provider: auth.provider,
           email:    auth.info.email,
@@ -27,8 +27,9 @@ class User < ApplicationRecord
           password: Devise.friendly_token[0, 20],
           token:    "",
       )
+    else
+      user.update( remote_image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large" )
     end
-    user.update( remote_image_url: "http://graph.facebook.com/#{auth.uid}/picture?type=large" )
 
     # user.update( token: auth.credentials.token)
     user

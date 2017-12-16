@@ -1,39 +1,82 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'sign-up-form'}) do |f| %>
+    <ul class="sign-up-slider">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+      <li class="first-sign-up-page">
+        <div class="profile-image-field-wrapper">
+          <p>プロフィール画像を追加 (任意)</p>
+          <div class="profile-image-field">
+            <span class="fa fa-plus"></span>
+            <%= f.file_field :image, id: :profile_image %>
+          </div>
+        </div>
+        <div class="user-name-field-wrapper">
+          <p>性</p>
+          <div class="input-wrapper">
+            <input type="text" id="first-name-data"/>
+          </div>
+        </div>
+        <div class="user-name-field-wrapper">
+          <p>名</p>
+          <div class="input-wrapper">
+            <input type="text" id="last-name-data"/>
+          </div>
+        </div>
+        <div class="email-field-wrapper">
+          <p>メールアドレス</p>
+          <div class="input-wrapper">
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+        </div>
+        <div class="password-field-wrapper">
+          <p>パスワード</p>
+          <div class="input-wrapper">
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="password-field-wrapper">
+          <p>パスワード(確認)</p>
+          <div class="input-wrapper">
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+        </div>
+        <div class="btn-wrapper">
+          <a class="sign-up-slick-next">次へ</a>
+        </div>
+      </li>
 
-    <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username, autofocus: true %>
-    </div>
+      <li class="second-sign-up-page">
+        <p>担当役割</p>
+        <div class="radio-box-wrapper">
+          <label class="radio-box">
+            <%= f.radio_button :role, 1, {:checked => true} %><span>プランナー</span>
+          </label>
+          <label class="radio-box">
+            <%= f.radio_button :role, 2 %><span>エンジニア</span>
+          </label>
+          <label class="radio-box">
+            <%= f.radio_button :role, 3 %><span>デザイナー</span>
+          </label>
+        </div>
+        <p>学校名</p>
+        <div class="input-wrapper">
+          <%= f.text_field :college %>
+        </div>
+        <p>学科/専攻</p>
+        <div class="input-wrapper">
+          <%= f.text_field :major %>
+        </div>
+        <p>卒業年度（半角数字4桁）</p>
+        <div class="input-wrapper">
+          <%= f.number_field :graduation_year %>
+        </div>
+        <div class="btn-wrapper">
+          <%= f.submit '登録完了', class: 'sign-up' %>
+        </div>
+      </li>
+    </ul>
 
-    <div class="field">
-      <%= f.label :image %><br />
-      <%= f.file_field :image, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-
-
+    <%= f.hidden_field :username, id: :username %>
+    <% unless session[:user].nil? %>
+        <input type="hidden" id="fb-auth-user", value=<%= session[:user] %> />
+    <% end %>
 <% end %>
-    <%= render "devise/shared/links" %>
