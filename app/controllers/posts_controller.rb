@@ -11,6 +11,8 @@ class PostsController < ApplicationController
     @posts = Post.where(published: true).order('created_at DESC')
     ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
     @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
+    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
+
   end
 
   # GET /posts/1
@@ -37,11 +39,13 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
     @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0)
   end
 
   # GET /posts/1/edit
   def edit
+    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
   end
 
   # POST /posts

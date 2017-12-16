@@ -42,11 +42,16 @@ $(function () {
       $(this).parent().find('.category-checked').removeClass('category-checked');
       $(this).addClass('category-checked');
       $('#post_category_name').val($(this).text().replace(/^\s+|\s+$/g,''));
+      if ($('#post_category_name').val() == 'Game') {
+        $('.post-header .post-icon-data').find('.post-show-icon').remove();
+        $('.post-header .post-icon-data').append('<i class="fa fa-gamepad post-show-icon"></i>');
+      }
     });
+
 
     $('#title-data').change(function () {
       $('#post_title').val($('#title-data').val());
-      $('.post-content h1').append($('#title-data').val());
+      $('.post-header h1').text($('#title-data').val());
 
     });
 
@@ -195,6 +200,7 @@ $(function () {
 
     $('.new-post-term .1week-tern').click(function () {
       $(this).parent().find('.term-item-active').removeClass('term-item-active');
+      $('.term-label').removeAttr('style');
       $(this).addClass('term-item-active');
       $('#post_period').val('0');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
@@ -203,6 +209,7 @@ $(function () {
 
     $('.new-post-term .1month-tern').click(function () {
       $(this).parent().find('.term-item-active').removeClass('term-item-active');
+      $('.term-label').removeAttr('style');
       $(this).addClass('term-item-active');
       $('#post_period').val('1');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
@@ -211,6 +218,7 @@ $(function () {
 
     $('.new-post-term .3month-tern').click(function () {
       $(this).parent().find('.term-item-active').removeClass('term-item-active');
+      $('.term-label').removeAttr('style');
       $(this).addClass('term-item-active');
       $('#post_period').val('2');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
@@ -219,6 +227,7 @@ $(function () {
 
     $('.new-post-term .6month-tern').click(function () {
       $(this).parent().find('.term-item-active').removeClass('term-item-active');
+      $('.term-label').removeAttr('style');
       $(this).addClass('term-item-active');
       $('#post_period').val('3');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
@@ -227,6 +236,7 @@ $(function () {
 
     $('.new-post-term .1year-tern').click(function () {
       $(this).parent().find('.term-item-active').removeClass('term-item-active');
+      $('.term-label').removeAttr('style');
       $(this).addClass('term-item-active');
       $('#post_period').val('4');
       $('.preview-post-term').find('.term-item').removeClass('term-active');
@@ -234,6 +244,8 @@ $(function () {
     });
 
     $('.post-color-field').click(function () {
+      $(this).parent().find('.post-color-field').removeAttr('style');
+      $(this).css('box-shadow', '0px 0px 5px 3px rgba(0, 0, 0, .15)');
       $('#main_color').val($(this).css("background-color"));
       $('.post-header').css({
         "background-color" : $(this).css("background-color")
@@ -247,7 +259,6 @@ $(function () {
       $('.status-label').css({
         "color" : $(this).css("background-color")
       });
-
       $('.term-icon').css({
         "color" : $(this).css("background-color")
       });
@@ -260,8 +271,6 @@ $(function () {
       $('h2 i').css({
         "color" : $(this).css("background-color")
       });
-
-
     });
 
 
@@ -348,8 +357,46 @@ $(function () {
 
 
   $('.new-post-slick-next').on('click', function () {
-    $('.new-post-slider').slick('slickNext');
-    slickCurrent();
+    var currentPage = $('.new-post-slider').slick('slickCurrentSlide') + 1;
+
+    var ValidityTitle = ($('#post_title').val().replace(/^\s+|\s+$/g,'') != '') ? true : false;
+    var ValidityDetail = ($('#post_detail').val().replace(/^\s+|\s+$/g,'') != '') ? true : false;
+    var ValidityCategory = ($('#post_category_name').val().replace(/^\s+|\s+$/g,'') != '') ? true : false;
+
+    var ValidityMember = ($('#post_num_of_planner').val() > 0 && $('#post_num_of_planner').val() < 11 || $('#post_num_of_engineer').val() > 0 && $('#post_num_of_engineer').val() < 11 || $('#post_num_of_designer').val() > 0 && $('#post_num_of_designer').val() < 11) ? true : false;
+
+    $('.new-post-slider').find('.post-form-alerts').remove();
+
+    if (currentPage == 1 && ValidityTitle && ValidityDetail && ValidityCategory) {
+      $('.new-post-slider').slick('slickNext');
+      slickCurrent();
+    } else if(currentPage == 1 && ValidityTitle == false || ValidityDetail == false || ValidityCategory == false) {
+      $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
+
+      if(ValidityCategory == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">アイコンを選択してください。</span>');
+      }
+      if(ValidityTitle == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">タイトルを入力してください。</span>');
+      }
+      if(ValidityDetail == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">詳細を入力してください。</span>');
+      }
+    }
+
+    if (currentPage == 2 && ValidityMember) {
+      $('.new-post-slider').slick('slickNext');
+      slickCurrent();
+    } else if (currentPage == 2 && ValidityMember == false) {
+      $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
+      if(ValidityMember  == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">募集する役割の人数を追加してください。</span>');
+      }
+    }
+
+    if (currentPage == 3) {
+      slickCurrent();
+    }
     scrollTo( 0, 0);
 
   });
