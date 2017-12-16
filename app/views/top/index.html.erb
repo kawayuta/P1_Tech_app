@@ -5,6 +5,9 @@
     <div class="ranking-slider">
       <% @ranked_posts.each_with_index do |post, i| %>
           <div class="ranked-post" style="background-color: <%= post.main_color %>">
+            <div class="ranked-post-icon">
+              <%= fa_icon (post_icon_of_category(post.category_name)) %>
+            </div>
             <div class="ranked-post-header">
               <%= link_to '', post, class: 'link-to-show' %>
               <% if i == 0 %>
@@ -33,7 +36,7 @@
                     <span><%= i + 1 %>位</span>
                   </div>
               <% end %>
-              <div class="ranked-post-header-icon"><%= fa_icon (post_icon_of_category(post.category_name)), class: 'ranked-post-icon' %></div>
+              <!-- <div class="ranked-post-header-icon"><%= fa_icon (post_icon_of_category(post.category_name)), class: 'ranked-post-icon' %></div> -->
               <div class="ranked-post-header-title"><%= post.title %></div>
               <div class="ranked-post-header-detail"><%= post.detail.truncate(50) %></div>
             </div>
