@@ -103,6 +103,7 @@
 
           .profile-post-title {
             float: left;
+            width: -webkit-calc(100% - 46px);
             width: calc(100% - 46px);
             height: 60px;
             padding: 0 10px;

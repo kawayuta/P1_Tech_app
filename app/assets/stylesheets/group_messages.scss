@@ -25,6 +25,7 @@
   h1 {
     display: block;
     float: left;
+    width: -webkit-calc(100% - 40px);
     width: calc(100% - 40px);
     padding: 0 10px;
     font-size: 14px;
@@ -107,6 +108,7 @@
     .message-container {
       float: left;
       margin-left: 10px;
+      width: -webkit-calc(100% - 50px);
       width: calc(100% - 50px);
       // position: relative;
 
@@ -191,6 +193,7 @@
         border-radius: 8px;
         margin: 0 2px;
         height: 24px;
+        width: -webkit-calc(100% - 70px);
         width: calc(100% - 70px);
         outline: none;
         color: #fff;

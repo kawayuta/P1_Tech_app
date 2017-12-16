@@ -1665,6 +1665,7 @@ input.jobtype-num {
   .comment-box {
     float: left;
     margin-left: 10px;
+    width: -webkit-calc(100% - 50px);
     width: calc(100% - 50px);
 
     .comment-content {
