@@ -381,14 +381,12 @@ a.new-post-btn-prev {
   margin-top: 17px;
   margin-left: 17px;
   float: left;
-  font-weight: bold;
 }
 a.new-post-slick-next {
   color:#72C5FD;
   margin-top: 17px;
   margin-right: 17px;
   float: right;
-  font-weight: bold;
 
 }
 
@@ -492,7 +490,7 @@ div.new-post-btn-public {
   left:15px;
   padding:15px;
   margin-top: 15px;
-  background-color: #FFF;
+  background-color: #FFF !important;
   line-height: 1.5em;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   resize: none;

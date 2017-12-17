@@ -413,6 +413,7 @@ $(function () {
     if (currentPage == 3) {
       slickCurrent();
     }
+
     scrollTo( 0, 0);
 
   });
