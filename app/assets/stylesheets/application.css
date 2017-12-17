@@ -212,6 +212,74 @@ a.header-notices:hover{
   font-size: 24px;
 }
 
+.side-menu .new-message-box {
+  padding: 0 10px;
+}
+
+.side-menu h3 {
+  font-size: 14px;
+  color: #888;
+  padding: 10px 0;
+}
+
+.side-menu .new-message {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.side-menu .message-icon {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-color: #FE6B6B;
+  text-align: center;
+}
+
+.side-menu .message-icon i {
+  color: #fff;
+  font-size: 26px;
+  line-height: 40px;
+}
+
+.side-menu .message-main {
+  float: left;
+}
+
+.side-menu .message-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 0 5px;
+}
+
+.side-menu .message-content {
+  font-size: 14px;
+  color: #888;
+}
+
+.side-menu .logout-link {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.side-menu .logout-link a {
+  display: block;
+  padding: 10px 0;
+  line-height: 24px;
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
+.side-menu .logout-link a i {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
 .close-menu-btn {
   font-size: 24px;
   color: #FED430;

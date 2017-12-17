@@ -43,8 +43,40 @@
           <ul>
             <li><%= link_to current_user do %><%= fa_icon 'user' %>プロフィール<% end %></li>
             <li><%= link_to room_list_path do %><%= fa_icon 'comments-o' %>トークルーム<% end %></li>
-            <li><%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon 'sign-out' %>ログアウト<% end %></li>
           </ul>
+        </div>
+        <div class="new-message-box">
+          <h3>新着メッセージ</h3>
+          <div class="new-message clearfix">
+            <div class="message-icon">
+              <%= fa_icon 'gamepad' %>
+            </div>
+            <div class="message-main">
+              <h4 class="message-title">タイトルタイトルタイト...</h4>
+              <p class="message-content">新しいメッセージ新しい...</p>
+            </div>
+          </div>
+          <div class="new-message clearfix">
+            <div class="message-icon">
+              <%= fa_icon 'gamepad' %>
+            </div>
+            <div class="message-main">
+              <h4 class="message-title">タイトル</h4>
+              <p class="message-content">新しいメッセージ</p>
+            </div>
+          </div>
+          <div class="new-message clearfix">
+            <div class="message-icon">
+              <%= fa_icon 'gamepad' %>
+            </div>
+            <div class="message-main">
+              <h4 class="message-title">タイトル</h4>
+              <p class="message-content">新しいメッセージ</p>
+            </div>
+          </div>
+          <div class="logout-link">
+            <%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon 'sign-out' %>ログアウト<% end %>
+          </div>
         </div>
       </div>
       <div class="side-menu-wrapper" id="side-menu-wrapper"></div>
