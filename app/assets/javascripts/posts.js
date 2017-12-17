@@ -354,9 +354,7 @@ $(function () {
     var ValidityPeriod = ($('.post_period_data').val() > 0 && $('.post_period_data').val() < 25 ) ? true : false;
 
     var MemberCount = (Number($('#post_num_of_planner').val()) + Number($('#post_num_of_engineer').val()) + Number($('#post_num_of_designer').val()));
-    console.log(ValidityPeriod);
     var ValidityScale = ($('.post_scale_data').val() >= MemberCount && $('.post_scale_data').val() > 0 && $('.post_scale_data').val() < 101) ? true : false;
-    console.log(ValidityScale);
 
     $('.new-post-slider').find('.post-form-alerts').remove();
 
@@ -366,13 +364,13 @@ $(function () {
     } else if(currentPage == 1 && ValidityTitle == false || ValidityDetail == false || ValidityCategory == false) {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
 
-      if(ValidityCategory == false) {
+      if(currentPage == 1 && ValidityCategory == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">アイコンを選択してください。</span>');
       }
-      if(ValidityTitle == false) {
+      if(currentPage == 1 && ValidityTitle == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">タイトルを入力してください。</span>');
       }
-      if(ValidityDetail == false) {
+      if(currentPage == 1 && ValidityDetail == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">詳細を入力してください。</span>');
       }
     }
@@ -382,15 +380,15 @@ $(function () {
       slickCurrent();
     } else if (currentPage == 2 && ValidityMember == false || ValidityPeriod == false || ValidityScale == false) {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
-      if(ValidityMember  == false) {
+      if(currentPage == 2 && ValidityMember  == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">募集する役割の人数を追加してください。</span>');
       }
 
-      if(ValidityPeriod  == false) {
+      if(currentPage == 2 && ValidityPeriod  == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">目標製作期間を入力してください。</span>');
       }
 
-      if(ValidityScale  == false) {
+      if(currentPage == 2 && ValidityScale  == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">開発規模を入力してください。(募集役割の人数以上)</span>');
       }
     }
