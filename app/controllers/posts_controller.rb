@@ -144,6 +144,8 @@ class PostsController < ApplicationController
     end
     @posts = Post.where(published: true).where.not(id: current_user.posts.last.id).order('created_at DESC')
     @my_posts_id = current_user.posts.last
+    ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
+    @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
   end
 
   def create_comment
