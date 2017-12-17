@@ -47,33 +47,17 @@
         </div>
         <div class="new-message-box">
           <h3>新着メッセージ</h3>
-          <div class="new-message clearfix">
-            <div class="message-icon">
-              <%= fa_icon 'gamepad' %>
+          <% @sorted_posts_and_messages.each do |post_and_message| %>
+            <div class="new-message clearfix">
+              <div class="message-icon">
+                <%= fa_icon (post_icon_of_category(post_and_message[0].category_name)) %>
+              </div>
+              <div class="message-main">
+                <h4 class="message-title"><%= post_and_message[0].title.truncate(15) %></h4>
+                <p class="message-content"><%= post_and_message[1].content.truncate(15) %></p>
+              </div>
             </div>
-            <div class="message-main">
-              <h4 class="message-title">タイトルタイトルタイト...</h4>
-              <p class="message-content">新しいメッセージ新しい...</p>
-            </div>
-          </div>
-          <div class="new-message clearfix">
-            <div class="message-icon">
-              <%= fa_icon 'gamepad' %>
-            </div>
-            <div class="message-main">
-              <h4 class="message-title">タイトル</h4>
-              <p class="message-content">新しいメッセージ</p>
-            </div>
-          </div>
-          <div class="new-message clearfix">
-            <div class="message-icon">
-              <%= fa_icon 'gamepad' %>
-            </div>
-            <div class="message-main">
-              <h4 class="message-title">タイトル</h4>
-              <p class="message-content">新しいメッセージ</p>
-            </div>
-          </div>
+          <% end %>
         </div>
         <div class="side-menu-list bottom-list">
           <ul>
