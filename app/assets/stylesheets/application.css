@@ -159,9 +159,9 @@ a.header-notices:hover{
 .side-menu {
   position: fixed;
   top: 0;
-  right: -240px;
+  right: -280px;
   bottom: 0;
-  width: 240px;
+  width: 280px;
   z-index: 200;
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -169,17 +169,17 @@ a.header-notices:hover{
 
 .side-menu-header {
   text-align: center;
-  background-color: #f7f7f7;
+  background-color: #fff;
   padding: 30px 0 20px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  /*box-shadow: 0 1px 2px rgba(0,0,0,0.1);*/
 }
 
 .side-menu-header img {
   display: inline-block;
   margin: 0 auto;
   object-fit: cover;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
@@ -189,20 +189,27 @@ a.header-notices:hover{
 }
 
 .side-menu-list {
-  padding: 10px 0;
+  /*padding: 10px 0;*/
 }
 
 .side-menu li {
-  text-align: center;
-  border-bottom: 1px solid #ddd;
   margin: 0 20px;
 }
 
 .side-menu li a {
   display: block;
-  padding: 15px 0;
+  padding: 10px 0;
+  line-height: 24px;
   color: #4A4A4A;
   text-decoration: none;
+}
+
+.side-menu li a i {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+  font-size: 24px;
 }
 
 .close-menu-btn {

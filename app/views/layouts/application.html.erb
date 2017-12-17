@@ -41,9 +41,9 @@
         </div>
         <div class="side-menu-list">
           <ul>
-            <li><%= link_to 'プロフィール', current_user %></li>
-            <li><%= link_to 'トークルーム', room_list_path %></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to current_user do %><%= fa_icon 'user' %>プロフィール<% end %></li>
+            <li><%= link_to room_list_path do %><%= fa_icon 'comments-o' %>トークルーム<% end %></li>
+            <li><%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon 'sign-out' %>ログアウト<% end %></li>
           </ul>
         </div>
       </div>
