@@ -167,7 +167,7 @@
                 <% if TeamMember.where(post_id: @post.id, job_type: 0, accepted: true).count >= @post.num_of_planner %>
                   <span class="post-join-btn join-btn-disabled">満員</span>
                 <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+                  <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
                 <% end %>
               <% end %>
             </div>
@@ -187,7 +187,7 @@
                 <% if TeamMember.where(post_id: @post.id, job_type: 1, accepted: true).count >= @post.num_of_engineer %>
                   <span class="post-join-btn join-btn-disabled">満員</span>
                 <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+                  <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
                 <% end %>
               <% end %>
             </div>
@@ -207,7 +207,7 @@
                 <% if TeamMember.where(post_id: @post.id, job_type: 2, accepted: true).count >= @post.num_of_designer %>
                   <span class="post-join-btn join-btn-disabled">満員</span>
                 <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn' %>
+                  <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
                 <% end %>
               <% end %>
             </div>

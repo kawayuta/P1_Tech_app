@@ -1226,16 +1226,6 @@ input.jobtype-num {
             box-shadow: 0 2px 2px rgba(0,0,0,.2);
             position: relative;
 
-            &:before {
-              display: inline-block;
-              content: '';
-              border: 9px solid transparent;
-              border-bottom: 9px solid #FE6B6B;
-              position: absolute;
-              top: -17px;
-              left: 31px;
-            }
-
             &:hover, &:focus, &:visited {
               text-decoration: none;
               color: #fff;
@@ -1246,15 +1236,10 @@ input.jobtype-num {
             line-height: 14px;
             background-color: #aaa;
             box-shadow: none;
-
-            &:before {
-              border-bottom: 9px solid #aaa;
-              position: absolute;
-            }
           }
 
           .post-join-btn-fake {
-            width: 90px;
+            width: 80px;
           }
         }
       }
