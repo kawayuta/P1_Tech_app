@@ -40,7 +40,7 @@
         <h3>現在進行中の企画</h3>
         <% @developing_posts.each do |post| %>
           <div class="profile-post-item clearfix">
-            <div class="profile-post-iconbox">
+            <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
               <%= fa_icon (post_icon_of_category(post.category_name)) %>
             </div>
             <div class="profile-post-title">
@@ -53,7 +53,7 @@
         <h3>現在募集中の企画</h3>
         <% @planning_posts.each do |post| %>
           <div class="profile-post-item clearfix">
-            <div class="profile-post-iconbox">
+            <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
               <%= fa_icon (post_icon_of_category(post.category_name)) %>
             </div>
             <div class="profile-post-title">
@@ -66,7 +66,7 @@
         <h3>過去に参加した企画</h3>
         <% @released_posts.each do |post| %>
           <div class="profile-post-item clearfix">
-            <div class="profile-post-iconbox">
+            <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
               <%= fa_icon (post_icon_of_category(post.category_name)) %>
             </div>
             <div class="profile-post-title">
