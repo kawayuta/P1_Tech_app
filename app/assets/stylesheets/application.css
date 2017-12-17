@@ -171,15 +171,14 @@ a.header-notices:hover{
   text-align: center;
   background-color: #fff;
   padding: 30px 0 20px;
-  /*box-shadow: 0 1px 2px rgba(0,0,0,0.1);*/
 }
 
 .side-menu-header img {
   display: inline-block;
   margin: 0 auto;
   object-fit: cover;
-  height: 50px;
-  width: 50px;
+  height: 56px;
+  width: 56px;
   border-radius: 50%;
 }
 
@@ -193,12 +192,12 @@ a.header-notices:hover{
 }
 
 .side-menu li {
-  margin: 0 20px;
+  margin: 0 15px;
 }
 
 .side-menu li a {
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
   line-height: 24px;
   color: #4A4A4A;
   text-decoration: none;
@@ -213,7 +212,7 @@ a.header-notices:hover{
 }
 
 .side-menu .new-message-box {
-  padding: 0 10px;
+  padding: 20px 10px 0;
 }
 
 .side-menu h3 {
@@ -258,31 +257,14 @@ a.header-notices:hover{
   color: #888;
 }
 
-.side-menu .logout-link {
+.side-menu .bottom-list {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
-
-.side-menu .logout-link a {
-  display: block;
-  padding: 10px 0;
-  line-height: 24px;
-  color: #4A4A4A;
-  text-decoration: none;
-}
-
-.side-menu .logout-link a i {
-  display: inline-block;
-  width: 20px;
-  text-align: center;
-  margin-right: 10px;
-  font-size: 24px;
+  bottom: 10px;
 }
 
 .close-menu-btn {
   font-size: 24px;
-  color: #FED430;
+  color: #ccc;
   position: absolute;
   top: 10px;
   left: 10px;
