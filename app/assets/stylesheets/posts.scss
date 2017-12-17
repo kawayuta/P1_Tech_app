@@ -523,20 +523,29 @@ div.new-post-btn-public {
     display: table-cell;
     vertical-align: middle;
     width:40px;
-
     i {
       color: #888;
-      font-size: 8px;
+      font-size: 20px;
+      &:before {
+        font-family: "FontAwesome";
+        content: "\f10c";
+        color: #FDD344;
+
+      }
     }
+
+
   }
 
   .commitment-item-active {
     i {
       font-size: 20px;
       color: #FDD344;
-      position: relative;
-      top: 3px;
+      &:before {
+        content: "\f111";
+      }
     }
+
   }
 
 }
@@ -1052,7 +1061,8 @@ input.jobtype-num {
   color: #666;
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #FFF;
 }
 .post-header {
   background-color: #FE6B6B;
@@ -1459,7 +1469,6 @@ input.jobtype-num {
       .commitment-icon {
         color: #9B9B9B;
         font-size: 16px;
-
         &:before {
           font-family: "FontAwesome";
           content: "\f10c";
