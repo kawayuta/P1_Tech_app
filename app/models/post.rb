@@ -8,6 +8,12 @@ class Post < ApplicationRecord
   validates :num_of_planner, presence: true
   validates :num_of_engineer, presence: true
   validates :num_of_designer, presence: true
+  validates :period, presence: true, length: { maximum: 24 }
+  validates :scale, presence: true, length: { maximum: 100 }
+  validates :scale, presence: true, length: { maximum: 100 }
+  validates :category_name, presence: true
+  validates :main_color, presence: true
+
 
   belongs_to :user
   has_many :team_members

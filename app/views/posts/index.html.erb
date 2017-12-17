@@ -187,45 +187,31 @@
               <div class="new-post-commitment">
                 <ul class="commitment-item-box">
                   <li><span>気軽に制作</span></li>
-                  <li class="commitment-item commitment-level-1"><i class="fa fa-circle"></i></li>
-                  <li class="commitment-item commitment-level-2"><i class="fa fa-circle"></i></li>
-                  <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle"></i>
+                  <li class="commitment-item commitment-level-1"><i class="fa fa-circle-o"></i></li>
+                  <li class="commitment-item commitment-level-2"><i class="fa fa-circle-o"></i></li>
+                  <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle-o"></i>
                   </li>
-                  <li class="commitment-item commitment-level-4"><i class="fa fa-circle"></i></li>
-                  <li class="commitment-item commitment-level-5"><i class="fa fa-circle"></i></li>
+                  <li class="commitment-item commitment-level-4"><i class="fa fa-circle-o"></i></li>
+                  <li class="commitment-item commitment-level-5"><i class="fa fa-circle-o"></i></li>
                   <li><span>ガチで制作</span></li>
                 </ul>
               </div>
             </div>
 
-            <h4>目標製作期間</h4>
+            <h4>目標製作期間 (半角数字)</h4>
             <div class="new-post-term">
-              <div class="post-term">
-                <div class="term-line"></div>
-                <div class="term-box">
-                  <div class="term-item 1week-tern">
-                    <i class="fa fa-circle"></i>
-                    <span>1week</span>
-                  </div>
-                  <div class="term-item 1month-tern">
-                    <i class="fa fa-circle"></i>
-                    <span>1month</span>
-                  </div>
-                  <div class="term-item 3month-tern term-item-active">
-                    <i class="fa fa-circle"></i>
-                    <span>3months</span>
-                  </div>
-                  <div class="term-item 6month-tern">
-                    <i class="fa fa-circle"></i>
-                    <span>6months</span>
-                  </div>
-                  <div class="term-item 1year-tern">
-                    <i class="fa fa-circle"></i>
-                    <span>1year</span>
-                  </div>
-                </div>
+              <div class="post_period_data_sub">
+                <%= form.number_field :period, id: :post_period, class: :post_period_data,placeholder: '' %>
               </div>
             </div>
+
+            <h4>開発規模 (半角数字)</h4>
+            <div class="new-post-scale">
+              <div class="post_scale_data_sub">
+                <%= form.number_field :scale, id: :post_scale, class: :post_scale_data,placeholder: '' %>
+              </div>
+            </div>
+
           </li>
 
           <li>
@@ -234,9 +220,8 @@
             <div class="post-show-container">
               <div class="post-header">
                 <div class="post-icon-data"></div>
-                <h1></h1>
               </div>
-
+              <h1 class="new-post-preview-title"></h1>
               <div class="post-content">
 
 
@@ -281,33 +266,6 @@
                   </div>
                 </div>
 
-                <h2><i class="fa fa-clock-o"></i>目標制作期間</h2>
-
-                <div class="preview-post-term post-term">
-                  <div class="term-line"></div>
-                  <div class="term-box">
-                    <div class="term-item term-item-1">
-                      <i class="term-icon"></i>
-                      <span class="term-label">1week</span>
-                    </div>
-                    <div class="term-item term-item-2">
-                      <i class="term-icon"></i>
-                      <span class="term-label">1month</span>
-                    </div>
-                    <div class="term-item term-item-3 term-active">
-                      <i class="term-icon"></i>
-                      <span class="term-label">3months</span>
-                    </div>
-                    <div class="term-item term-item-4">
-                      <i class="term-icon"></i>
-                      <span class="term-label">6months</span>
-                    </div>
-                    <div class="term-item term-item-5">
-                      <i class="term-icon"></i>
-                      <span class="term-label">1year</span>
-                    </div>
-                  </div>
-                </div>
 
                 <h2><i class="fa fa-fire"></i>ガチ度</h2>
 
@@ -322,6 +280,30 @@
                     <li class="commitment-item commitment-item-5"><i class="commitment-icon"></i></li>
                     <li><span>ガチで制作</span></li>
                   </ul>
+                </div>
+
+
+                <div class="post-term-scale-wrap clearfix">
+
+                  <div class="post-term-wrap">
+                    <h2><%= fa_icon 'clock-o' %>目標制作期間</h2>
+                    <div class="post-term">
+                      <div class="post_period_data_sub preview_post_period_data_sub">
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="post-scale-wrap">
+                    <h2><%= fa_icon 'users' %>開発規模</h2>
+                    <div class="post-scale">
+                      <div class="post_scale_data_sub preview_post_scale_data_sub">
+                        <span></span>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
 
 
@@ -349,7 +331,6 @@
               <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden', value: 0 %>
 
               <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
-              <%= form.hidden_field :period, id: :post_period, placeholder: '製作期間' %>
 
               <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー', value: "rgb(252,108,110)" %>
 

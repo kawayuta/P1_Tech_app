@@ -80,31 +80,27 @@
       </ul>
     </div>
 
-    <h2><%= fa_icon 'clock-o' %>目標制作期間</h2>
-    <div class="post-term">
-      <div class="term-line"></div>
-      <div class="term-box">
-        <div class="term-item">
-          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
-          <span class="term-label">1week</span>
-        </div>
-        <div class="term-item">
-          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
-          <span class="term-label">1month</span>
-        </div>
-        <div class="term-item term-active">
-          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
-          <span class="term-label">3months</span>
-        </div>
-        <div class="term-item">
-          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
-          <span class="term-label">6months</span>
-        </div>
-        <div class="term-item">
-          <i class="term-icon" style="color:<%= @post.main_color%>"></i>
-          <span class="term-label">1year</span>
+    <div class="post-term-scale-wrap clearfix">
+
+    <div class="post-term-wrap">
+      <h2><%= fa_icon 'clock-o' %>目標制作期間</h2>
+      <div class="post-term">
+        <div class="post_period_data_sub" style="color:<%= @post.main_color%>">
+          <%= @post.period %>
         </div>
       </div>
+    </div>
+
+
+    <div class="post-scale-wrap">
+      <h2><%= fa_icon 'users' %>開発規模</h2>
+      <div class="post-scale">
+        <div class="post_scale_data_sub" style="color:<%= @post.main_color%>">
+          <%= @post.scale %>
+        </div>
+      </div>
+    </div>
+
     </div>
 
     <h2><%= fa_icon 'pencil' %>募集役割</h2>

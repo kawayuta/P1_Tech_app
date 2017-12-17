@@ -2,6 +2,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment, :complete]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
+  before_action :set_new_post_category, only: [:index, :new, :update, :edit, :success]
+
 
   require 'yaml'
 
@@ -11,8 +13,7 @@ class PostsController < ApplicationController
     @posts = Post.where(published: true).order('created_at DESC')
     ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
     @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
-    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
-
+    @post = Post.new
   end
 
   # GET /posts/1
@@ -39,13 +40,12 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
-    @post = Post.new(num_of_planner: 0, num_of_engineer: 0, num_of_designer: 0)
+    @post = Post.new
+
   end
 
   # GET /posts/1/edit
   def edit
-    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
   end
 
   # POST /posts
@@ -146,6 +146,9 @@ class PostsController < ApplicationController
     @my_posts_id = current_user.posts.last
     ranked_post_ids = Vote.where(support: true).group(:post_id).order('count_post_id DESC').limit(5).count(:post_id).keys
     @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
+
+    @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
+    @post = Post.new
   end
 
   def create_comment
@@ -171,6 +174,10 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
+    def set_new_post_category
+      @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
+    end
+
     def set_comments
       @comments = Comment.where(post_id: params[:id]).includes(:user)
     end
@@ -192,6 +199,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :detail, :image, :image_2, :image_3, :category_name, :motivation, :period, :main_color,:user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :detail, :image, :image_2, :image_3, :category_name, :motivation, :period, :scale, :main_color,:user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer).merge(user_id: current_user.id)
     end
 end

@@ -24,8 +24,8 @@
     box-shadow: 0 2px 5px rgba(0,0,0,.26);
 
     &_highlight {
-      animation: inout 2.8s;
-      -webkit-animation: inout 2.8s;
+      animation: inout 2s;
+      -webkit-animation: inout 2s;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.26);
       z-index:5;
       position: relative;
@@ -550,9 +550,103 @@ div.new-post-btn-public {
 
 }
 
+
+.new-post-scale {
+  margin-top: 15px;
+
+}
+
+.new-post-scale .post_scale_data {
+  border-radius: 20px;
+  padding: 20px;
+  color:#666;
+  border:none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width:185px;
+  font-size:22px;
+  text-align: center;
+
+}
+.new-post-scale .post_scale_data_sub {
+  width:323px;
+  margin:0 auto;
+}
+.new-post-scale .post_scale_data_sub:before {
+  content: '約';
+  font-size:20px;
+  margin-right: 17px;
+  margin-left: 28px;
+}
+
+.new-post-scale .post_scale_data_sub:after {
+  content: '人';
+  font-size:20px;
+  margin-left: 15px;
+}
+
+
+
+.new-post-term .post_period_data {
+  border-radius: 20px;
+  padding: 20px;
+  color:#666;
+  border:none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width:180px;
+  font-size:22px;
+  text-align: center;
+
+}
+.new-post-term .post_period_data_sub {
+  width:323px;
+  margin:0 auto;
+
+}
+.new-post-term .post_period_data_sub:before {
+  content: '約';
+  font-size:20px;
+  margin-right: 17px;
+  margin-left: 28px;
+}
+
+.new-post-term .post_period_data_sub:after {
+  content: 'ヶ月';
+  font-size:20px;
+  margin-left: 10px;
+}
+
+
+.post-term .post_period_data_sub {
+  width:323px;
+  margin:0 auto;
+  font-size:25px;
+  margin-left: 45px;
+
+}
+
+.post-term .post_period_data_sub:after {
+  content: 'ヶ月';
+  font-size:25px;
+}
+
+
+
+
+.post-scale .post_scale_data_sub {
+  width:323px;
+  margin:0 auto;
+  font-size:25px;
+  margin-left: 65px;
+
+}
+
+.post-scale .post_scale_data_sub:after {
+  content: '人';
+  font-size:25px;
+}
+
 .new-post-term {
 
-  background-color: #FFF;
   border-radius: 5px;
   padding:15px;
   margin-left: 15px;
@@ -1375,6 +1469,31 @@ input.jobtype-num {
         }
       }
     }
+
+  }
+
+  .post-term-scale-wrap {
+    width:380px;
+    margin:0 auto;
+  }
+  .post-term-wrap {
+    width:180px;
+    overflow: hidden;
+    float: left;
+  }
+
+  .post-scale-wrap {
+    width:180px;
+    overflow: hidden;
+    float: left;
+    & h2 {
+      margin-left: 40px;
+    }
+  }
+
+  .post-scale {
+    padding: 30px 7% 50px;
+    background-color: #fff;
 
   }
 

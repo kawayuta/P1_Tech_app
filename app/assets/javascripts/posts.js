@@ -62,6 +62,19 @@ $(function () {
     });
 
 
+  $('.post_period_data').change(function () {
+    $('.preview_post_period_data_sub span').text('');
+    $('.preview_post_period_data_sub span').append($(this).val());
+  });
+
+
+  $('.post_scale_data').change(function () {
+    $('.preview_post_scale_data_sub span').text('');
+    $('.preview_post_scale_data_sub span').append($(this).val());
+  });
+
+
+
 
     $('.jobtype-minus-btn').click(function () {
       if (Number($(this).siblings('.jobtype-num').val()) > 0) {
@@ -197,52 +210,6 @@ $(function () {
       $('.preview-post-commitment .commitment-item-5').addClass('commitment-item-active');
     });
 
-
-    $('.new-post-term .1week-tern').click(function () {
-      $(this).parent().find('.term-item-active').removeClass('term-item-active');
-      $('.term-label').removeAttr('style');
-      $(this).addClass('term-item-active');
-      $('#post_period').val('0');
-      $('.preview-post-term').find('.term-item').removeClass('term-active');
-      $('.preview-post-term .term-item-1').addClass('term-active');
-    });
-
-    $('.new-post-term .1month-tern').click(function () {
-      $(this).parent().find('.term-item-active').removeClass('term-item-active');
-      $('.term-label').removeAttr('style');
-      $(this).addClass('term-item-active');
-      $('#post_period').val('1');
-      $('.preview-post-term').find('.term-item').removeClass('term-active');
-      $('.preview-post-term .term-item-2').addClass('term-active');
-    });
-
-    $('.new-post-term .3month-tern').click(function () {
-      $(this).parent().find('.term-item-active').removeClass('term-item-active');
-      $('.term-label').removeAttr('style');
-      $(this).addClass('term-item-active');
-      $('#post_period').val('2');
-      $('.preview-post-term').find('.term-item').removeClass('term-active');
-      $('.preview-post-term .term-item-3').addClass('term-active');
-    });
-
-    $('.new-post-term .6month-tern').click(function () {
-      $(this).parent().find('.term-item-active').removeClass('term-item-active');
-      $('.term-label').removeAttr('style');
-      $(this).addClass('term-item-active');
-      $('#post_period').val('3');
-      $('.preview-post-term').find('.term-item').removeClass('term-active');
-      $('.preview-post-term .term-item-4').addClass('term-active');
-    });
-
-    $('.new-post-term .1year-tern').click(function () {
-      $(this).parent().find('.term-item-active').removeClass('term-item-active');
-      $('.term-label').removeAttr('style');
-      $(this).addClass('term-item-active');
-      $('#post_period').val('4');
-      $('.preview-post-term').find('.term-item').removeClass('term-active');
-      $('.preview-post-term .term-item-5').addClass('term-active');
-    });
-
     $('.post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
       $(this).css('width', '60px');
@@ -261,7 +228,11 @@ $(function () {
       $('.status-label').css({
         "color" : $(this).css("background-color")
       });
-      $('.term-icon').css({
+      $('.preview_post_period_data_sub').css({
+        "color" : $(this).css("background-color")
+      });
+
+      $('.preview_post_scale_data_sub').css({
         "color" : $(this).css("background-color")
       });
       $('.commitment-icon').css({
@@ -380,6 +351,12 @@ $(function () {
     var ValidityCategory = ($('#post_category_name').val().replace(/^\s+|\s+$/g,'') != '') ? true : false;
 
     var ValidityMember = ($('#post_num_of_planner').val() > 0 && $('#post_num_of_planner').val() < 11 || $('#post_num_of_engineer').val() > 0 && $('#post_num_of_engineer').val() < 11 || $('#post_num_of_designer').val() > 0 && $('#post_num_of_designer').val() < 11) ? true : false;
+    var ValidityPeriod = ($('.post_period_data').val() > 0 && $('.post_period_data').val() < 25 ) ? true : false;
+
+    var MemberCount = (Number($('#post_num_of_planner').val()) + Number($('#post_num_of_engineer').val()) + Number($('#post_num_of_designer').val()));
+    console.log(ValidityPeriod);
+    var ValidityScale = ($('.post_scale_data').val() >= MemberCount && $('.post_scale_data').val() > 0 && $('.post_scale_data').val() < 101) ? true : false;
+    console.log(ValidityScale);
 
     $('.new-post-slider').find('.post-form-alerts').remove();
 
@@ -400,13 +377,21 @@ $(function () {
       }
     }
 
-    if (currentPage == 2 && ValidityMember) {
+    if (currentPage == 2 && ValidityMember && ValidityPeriod && ValidityScale) {
       $('.new-post-slider').slick('slickNext');
       slickCurrent();
-    } else if (currentPage == 2 && ValidityMember == false) {
+    } else if (currentPage == 2 && ValidityMember == false || ValidityPeriod == false || ValidityScale == false) {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
       if(ValidityMember  == false) {
         $('.post-form-alerts').append('<span class="post-form-alert">募集する役割の人数を追加してください。</span>');
+      }
+
+      if(ValidityPeriod  == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">目標製作期間を入力してください。</span>');
+      }
+
+      if(ValidityScale  == false) {
+        $('.post-form-alerts').append('<span class="post-form-alert">開発規模を入力してください。(募集役割の人数以上)</span>');
       }
     }
 
