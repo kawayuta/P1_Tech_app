@@ -51,7 +51,7 @@ $(function () {
 
     $('#title-data').change(function () {
       $('#post_title').val($('#title-data').val());
-      $('.post-show-container h1').text($('#title-data').val());
+      $('.new-post-preview-title').text($('#title-data').val());
 
     });
 
