@@ -49,6 +49,7 @@
           <h3>新着メッセージ</h3>
           <% @sorted_posts_and_messages.each do |post_and_message| %>
             <div class="new-message clearfix">
+              <%= link_to '', talk_room_path(post_and_message[0].id), class: 'message-link' %>
               <div class="message-icon">
                 <%= fa_icon (post_icon_of_category(post_and_message[0].category_name)) %>
               </div>
