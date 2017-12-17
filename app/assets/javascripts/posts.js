@@ -51,7 +51,7 @@ $(function () {
 
     $('#title-data').change(function () {
       $('#post_title').val($('#title-data').val());
-      $('.post-header h1').text($('#title-data').val());
+      $('.post-show-container h1').text($('#title-data').val());
 
     });
 
@@ -245,7 +245,9 @@ $(function () {
 
     $('.post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
-      $(this).css('box-shadow', '0px 0px 5px 3px rgba(0, 0, 0, .15)');
+      $(this).css('width', '60px');
+      $(this).css('height', '60px');
+      $(this).css('margin-top', '5px');
       $('#main_color').val($(this).css("background-color"));
       $('.post-header').css({
         "background-color" : $(this).css("background-color")
