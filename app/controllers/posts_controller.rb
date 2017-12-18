@@ -127,12 +127,13 @@ class PostsController < ApplicationController
   end
 
   def support
-  if @post.votes.vote_support(current_user,@post)
-    flash[:notice] = "このペライチを応援をしました！"
-  else
-    flash[:notice] = "このペライチの応援をキャンセルしました"
-  end
-    redirect_to post_path(params[:id])
+    if @post.votes.vote_support(current_user,@post)
+      flash[:notice] = "このペライチを応援をしました！"
+      current_user.notifications.support_notice_create(@post, @post.user, 'support')
+
+    else
+      flash[:notice] = "このペライチの応援をキャンセルしました"
+    end
   end
 
 
