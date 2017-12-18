@@ -39,14 +39,16 @@
           <span class="status-label">リリース</span>
         </div>
       </div>
-      <div class="status-next-btn-warpper">
-        <% if @post.user == current_user %>
-          <%= link_to '次のフローへ', complete_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}" %>
-        <% else %>
-          <span class="next-btn next-btn-disabled">次のフローへ</span>
-        <% end %>
-        <span class="status-message">※この操作は投稿者だけが行えます</span>
-      </div>
+      <% if @self_member_info && @self_member_info.accepted == true %>
+        <div class="status-next-btn-warpper">
+          <% if @post.user == current_user %>
+            <%= link_to '次のフローへ', complete_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}" %>
+          <% else %>
+            <span class="next-btn next-btn-disabled">次のフローへ</span>
+          <% end %>
+          <span class="status-message">※この操作は投稿者だけが行えます</span>
+        </div>
+      <% end %>
     </div>
 
     <p class="post-detail">

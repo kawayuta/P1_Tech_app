@@ -1243,7 +1243,7 @@ input.jobtype-num {
   .post-detail {
     font-size: 14px;
     line-height: 1.7;
-    padding: 30px 7% 0;
+    padding: 0 7% 40px;
   }
 
   .post-index-detail {
@@ -1392,7 +1392,7 @@ input.jobtype-num {
   }
 
   .post-status {
-    padding: 30px 7% 30px;
+    padding: 35px 7%;
 
     .status-line {
       height: 0;
@@ -1472,7 +1472,7 @@ input.jobtype-num {
 
     .status-next-btn-warpper {
       text-align: center;
-      padding-top: 20px;
+      padding-top: 25px;
 
       .next-btn {
         display: inline-block;
@@ -1494,7 +1494,7 @@ input.jobtype-num {
         display: block;
         font-size: 12px;
         color: #ccc;
-        padding-top: 12px;
+        padding-top: 15px;
       }
     }
 
