@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function () {
 
     function closeSideMenu() {
       $('#side-menu-wrapper').css('display', 'none');
-      $('#side-menu').animate({'right': '-280px'},
+      $('#side-menu').animate({'right': '-260px'},
         {
           'duration': 200,
           'complete': function () {
