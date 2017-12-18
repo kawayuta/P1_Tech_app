@@ -728,11 +728,15 @@ div.new-post-btn-public {
   margin-bottom: 20px;
 }
 
+.sns-label-wrap {
+  flex-wrap: wrap;
+  display: flex;
+}
 .sns-label-fb {
-  width:250px;
+  flex-grow: 1;
   height:50px;
   background-color: #315A98;
-  padding-top: 13px;
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 13px;
@@ -741,23 +745,23 @@ div.new-post-btn-public {
   letter-spacing: 2px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 20px;
-  margin-right: 5px;
   box-shadow: 0 1px 10px rgba(253,211,68,.3);
 }
 
 .sns-label-tw {
-  width:250px;
+  flex-grow: 1;
   height:50px;
   background-color: #31ADF0;
-  padding-top: 13px;
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 13px;
   border-radius:3px;
   color:#FFF;
   letter-spacing: 2px;
+  margin-top: 20px;
+
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-left: 5px;
   box-shadow: 0 1px 10px rgba(253,211,68,.3);
 }
 .template-format-wrap {
@@ -1476,9 +1480,10 @@ input.jobtype-num {
     overflow: hidden;
   }
   .post-term-wrap {
-    width:160px;
+    width:165px;
     overflow: hidden;
     flex-grow: 1;
+    margin-left: 10px;
   }
 
   .post-scale-wrap {
