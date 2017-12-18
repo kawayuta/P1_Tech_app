@@ -37,12 +37,16 @@
       </div>
       <% if @self_member_info && @self_member_info.accepted == true %>
         <div class="status-next-btn-warpper">
-          <% if @founder == current_user %>
-            <%= link_to '次のフローへ', next_status_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}" %>
+          <% if @post.status == 'release' %>
+            <span class="next-btn next-btn-disabled">リリース済み</span>
           <% else %>
-            <span class="next-btn next-btn-disabled">次のフローへ</span>
+            <% if @founder == current_user %>
+              <%= link_to '次のフローへ', next_status_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}", data: {confirm: '一度進むと前のフローには戻れません。よろしいですか？'} %>
+            <% else %>
+              <span class="next-btn next-btn-disabled">次のフローへ</span>
+            <% end %>
+            <span class="status-message">※この操作は投稿者だけが行えます</span>
           <% end %>
-          <span class="status-message">※この操作は投稿者だけが行えます</span>
         </div>
       <% end %>
     </div>
