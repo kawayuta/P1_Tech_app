@@ -15,10 +15,6 @@
 
   <!-- <% if @members.include?(@self_member_info) %>
     <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
-  <% end %>
-
-  <% if @founder == current_user %>
-    <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
   <% end %> -->
 
   <div class="post-content">
@@ -41,8 +37,8 @@
       </div>
       <% if @self_member_info && @self_member_info.accepted == true %>
         <div class="status-next-btn-warpper">
-          <% if @post.user == current_user %>
-            <%= link_to '次のフローへ', complete_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}" %>
+          <% if @founder == current_user %>
+            <%= link_to '次のフローへ', next_status_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}" %>
           <% else %>
             <span class="next-btn next-btn-disabled">次のフローへ</span>
           <% end %>

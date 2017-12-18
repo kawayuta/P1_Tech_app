@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment, :complete]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :support, :create_comment, :destroy_comment, :next_status]
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
   before_action :set_new_post_category, only: [:index, :new, :update, :edit, :success]
@@ -20,9 +20,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @self_member_info = @post.team_members.find_by(user_id: current_user.id)
-    if unevaluated_after_release?
-      return redirect_to new_evaluation_path(@post)
-    end
+    # if unevaluated_after_release?
+    #   return redirect_to new_evaluation_path(@post)
+    # end
 
     @founder = @post.user
     @requests = @post.team_members.where(accepted:false)
@@ -162,9 +162,18 @@ class PostsController < ApplicationController
     set_comments
   end
 
-  def complete
-    @post.update(status: 2)
-    redirect_to new_evaluation_path(post_id: @post.id)
+  def next_status
+    if @post.status == 'planning'
+      @post.update(status: 'development')
+    elsif @post.status == 'development'
+      @post.update(status: 'release')
+    end
+
+    if Rails.application.routes.recognize_path(request.referrer)[:action] == 'talk_room'
+      redirect_to talk_room_path(@post)
+    else
+      redirect_to post_path(@post)
+    end
   end
 
   private
