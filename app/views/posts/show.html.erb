@@ -15,17 +15,9 @@
 
   <!-- <% if @members.include?(@self_member_info) %>
     <%= link_to 'トークルームへ', talk_room_path(post_id: @post.id) %>
-  <% end %>
-
-  <% if @founder == current_user %>
-    <%= link_to 'プロジェクトを完了する', complete_post_path(@post), method: :post %>
   <% end %> -->
 
   <div class="post-content">
-
-    <p class="post-detail">
-      <%= @post.detail %>
-    </p>
 
     <div class="post-status">
       <div class="status-line"></div>
@@ -43,7 +35,25 @@
           <span class="status-label">リリース</span>
         </div>
       </div>
+      <% if @self_member_info && @self_member_info.accepted == true %>
+        <div class="status-next-btn-warpper">
+          <% if @post.status == 'release' %>
+            <span class="next-btn next-btn-disabled">リリース済み</span>
+          <% else %>
+            <% if @founder == current_user %>
+              <%= link_to '次のフローへ', next_status_post_path(@post), method: :post, class: 'next-btn', style: "background-color: #{@post.main_color}", data: {confirm: '一度進むと前のフローには戻れません。よろしいですか？'} %>
+            <% else %>
+              <span class="next-btn next-btn-disabled">次のフローへ</span>
+            <% end %>
+            <span class="status-message">※この操作は投稿者だけが行えます</span>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+
+    <p class="post-detail">
+      <%= @post.detail %>
+    </p>
 
     <div class="post-images">
       <div class="post-image-box">
@@ -147,69 +157,71 @@
         <% end %>
       </div>
 
-      <div class="jobtype-select">
-        <div class="jobtype-select-table">
-          <% if @post.num_of_planner != 0 %>
-            <div class="jobtype-select-cell">
-              <% if @self_member_info %>
-                <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
-                  <span class="post-join-btn join-btn-disabled">参加中</span>
-                <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
-                  <span class="post-join-btn join-btn-disabled">申請中</span>
+      <% if @post.status == 'planning' %>
+        <div class="jobtype-select">
+          <div class="jobtype-select-table">
+            <% if @post.num_of_planner != 0 %>
+              <div class="jobtype-select-cell">
+                <% if @self_member_info %>
+                  <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
+                    <span class="post-join-btn join-btn-disabled">参加中</span>
+                  <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
+                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                  <% else %>
+                    <span class="post-join-btn-fake"></span>
+                  <% end %>
                 <% else %>
-                  <span class="post-join-btn-fake"></span>
+                  <% if TeamMember.where(post_id: @post.id, job_type: 0, accepted: true).count >= @post.num_of_planner %>
+                    <span class="post-join-btn join-btn-disabled">満員</span>
+                  <% else %>
+                    <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <% if TeamMember.where(post_id: @post.id, job_type: 0, accepted: true).count >= @post.num_of_planner %>
-                  <span class="post-join-btn join-btn-disabled">満員</span>
-                <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 0), method: :post, data: { confirm: 'プランナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
 
-          <% if @post.num_of_engineer != 0 %>
-            <div class="jobtype-select-cell">
-              <% if @self_member_info %>
-                <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
-                  <span class="post-join-btn join-btn-disabled">参加中</span>
-                <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
-                  <span class="post-join-btn join-btn-disabled">申請中</span>
+            <% if @post.num_of_engineer != 0 %>
+              <div class="jobtype-select-cell">
+                <% if @self_member_info %>
+                  <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
+                    <span class="post-join-btn join-btn-disabled">参加中</span>
+                  <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
+                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                  <% else %>
+                    <span class="post-join-btn-fake"></span>
+                  <% end %>
                 <% else %>
-                  <span class="post-join-btn-fake"></span>
+                  <% if TeamMember.where(post_id: @post.id, job_type: 1, accepted: true).count >= @post.num_of_engineer %>
+                    <span class="post-join-btn join-btn-disabled">満員</span>
+                  <% else %>
+                    <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <% if TeamMember.where(post_id: @post.id, job_type: 1, accepted: true).count >= @post.num_of_engineer %>
-                  <span class="post-join-btn join-btn-disabled">満員</span>
-                <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 1), method: :post, data: { confirm: 'エンジニアとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
 
-          <% if @post.num_of_designer != 0 %>
-            <div class="jobtype-select-cell">
-              <% if @self_member_info %>
-                <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
-                  <span class="post-join-btn join-btn-disabled">参加中</span>
-                <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
-                  <span class="post-join-btn join-btn-disabled">申請中</span>
+            <% if @post.num_of_designer != 0 %>
+              <div class="jobtype-select-cell">
+                <% if @self_member_info %>
+                  <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
+                    <span class="post-join-btn join-btn-disabled">参加中</span>
+                  <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
+                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                  <% else %>
+                    <span class="post-join-btn-fake"></span>
+                  <% end %>
                 <% else %>
-                  <span class="post-join-btn-fake"></span>
+                  <% if TeamMember.where(post_id: @post.id, job_type: 2, accepted: true).count >= @post.num_of_designer %>
+                    <span class="post-join-btn join-btn-disabled">満員</span>
+                  <% else %>
+                    <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
+                  <% end %>
                 <% end %>
-              <% else %>
-                <% if TeamMember.where(post_id: @post.id, job_type: 2, accepted: true).count >= @post.num_of_designer %>
-                  <span class="post-join-btn join-btn-disabled">満員</span>
-                <% else %>
-                  <%= link_to '参加申請', join_post_path(job_type: 2), method: :post, data: { confirm: 'デザイナーとしての参加を申請しますか？' }, class: 'post-join-btn', style: "background-color: #{@post.main_color};" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
     <!-- <p>

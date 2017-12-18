@@ -1313,7 +1313,7 @@ input.jobtype-num {
   .post-detail {
     font-size: 14px;
     line-height: 1.7;
-    padding: 30px 7% 0;
+    padding: 0 7% 40px;
   }
 
   .post-index-detail {
@@ -1432,7 +1432,7 @@ input.jobtype-num {
             background-color: #FE6B6B;
             width: 80px;
             padding: 10px 0;
-            border-radius: 8px;
+            border-radius: 17px;
             text-align: center;
             text-decoration: none;
             color: #fff;
@@ -1448,7 +1448,7 @@ input.jobtype-num {
 
           .join-btn-disabled {
             line-height: 14px;
-            background-color: #aaa;
+            background-color: #bbb;
             box-shadow: none;
           }
 
@@ -1462,7 +1462,7 @@ input.jobtype-num {
   }
 
   .post-status {
-    padding: 30px 7% 30px;
+    padding: 35px 7%;
 
     .status-line {
       height: 0;
@@ -1537,6 +1537,34 @@ input.jobtype-num {
             content: "\f01d";
           }
         }
+      }
+    }
+
+    .status-next-btn-warpper {
+      text-align: center;
+      padding-top: 25px;
+
+      .next-btn {
+        display: inline-block;
+        font-size: 14px;
+        color: #fff;
+        font-weight: bold;
+        background-color: #FE6B6B;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 19px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+
+        &.next-btn-disabled {
+          background-color: #bbb;
+        }
+      }
+
+      .status-message {
+        display: block;
+        font-size: 12px;
+        color: #ccc;
+        padding-top: 15px;
       }
     }
 

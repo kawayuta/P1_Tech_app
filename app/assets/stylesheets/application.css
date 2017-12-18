@@ -299,6 +299,16 @@ body {
   top: 8px;
 }
 
+.side-menu .encourage-message {
+  padding: 50px 30px 0;
+}
+
+.side-menu .encourage-message p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #888;
+}
+
 .side-menu .bottom-list {
   position: absolute;
   bottom: 10px;
