@@ -1,7 +1,7 @@
 <div class="room-list-container">
   <h1>PROJECT ROOM</h1>
   <div class="room-list">
-    <% @sorted_posts_and_messages.each do |post_and_message| %>
+    <% @room_list_posts_and_messages.each do |post_and_message| %>
       <div class="room-item clearfix">
         <%= link_to '', talk_room_path(post_and_message[0].id), class: 'room-link' %>
         <div class="room-icon" style="background-color: <%= post_and_message[0].main_color %>">
@@ -9,7 +9,11 @@
         </div>
         <div class="room-main">
           <h4 class="room-title"><%= post_and_message[0].title.truncate(17) %></h4>
-          <p class="room-message"><%= post_and_message[1].content.truncate(17) %></p>
+          <% if post_and_message[1] %>
+            <p class="room-message"><%= post_and_message[1].content.truncate(17) %></p>
+          <% else %>
+            <p class="room-message">メッセージはまだありません</p>
+          <% end %>
         </div>
         <% if post_and_message[2] > 0 %>
           <div class="unread-count">
