@@ -2,6 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.room-list-container {
+  padding: 0 20px;
+
+  h1 {
+    font-size: 24px;
+    color: #666;
+    padding: 20px 0;
+  }
+}
+
+.room-list {
+  .room-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+
+  .room-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .room-icon {
+    float: left;
+    height: 40px;
+    width: 40px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background-color: #FE6B6B;
+    text-align: center;
+
+    i {
+      color: #fff;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  .room-main {
+    float: left;
+  }
+
+  .room-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px 0 5px;
+  }
+
+  .room-message {
+    font-size: 14px;
+    color: #888;
+  }
+}
+
+
 .talk-room-background {
   background-color: #fafafa;
   position: fixed;
