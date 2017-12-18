@@ -301,7 +301,7 @@
   }
 }
 
-.room-menu {
+.room-menu-wrapper {
   position: fixed;
   overflow-y: scroll;
   top: 100px;
@@ -312,26 +312,122 @@
   z-index: 30;
   display: none;
 
-  h3 {
+  .room-menu {
+    max-width: 500px;
+    margin: 0 auto;
 
-  }
+    h3 {
+      padding: 10px 20px;
+      font-weight: bold;
+      color: #9B9B9B;
+    }
 
-  .room-member-box {
+    .post-status {
+      padding: 10px 7% 20px;
 
-    .jobtype-box {
+      .status-line {
+        height: 0;
+        width: 70%;
+        margin: 0 auto;
+        border-bottom: 2px solid #9B9B9B;
+        position: relative;
+        top: 17px;
+      }
 
-      .jobtype-member {
+      .status-box {
+        width: 72%;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
 
-        .jobtype-member-item {
+        .status-label {
+          font-size: 12px;
+          color: #9B9B9B;
+          display: block;
+        }
 
-          img {
-            height: 36px;
-            width: 36px;
-            border-radius: 50%;
-            object-fit: cover;
+        .status-icon {
+          color: #FE6B6B;
+          font-size: 16px;
+          line-height: 32px;
+          background-color: #fafafa;
+          display: inline-block;
+          padding: 0 8px 2px;
+
+          &:before {
+            font-family: "FontAwesome";
+            content: "\f10c";
+          }
+        }
+
+        .status-planning {
+          width: 60px;
+          position: absolute;
+          left: -25px;
+        }
+
+        .status-development {
+          float: both;
+          width: 60px;
+          margin: 0 auto;
+        }
+
+        .status-release {
+          width: 60px;
+          position: absolute;
+          top: 0;
+          right: -25px;
+        }
+
+        .status-active {
+          .status-label {
+            color: #FE6B6B;
+            font-weight: bold;
+          }
+
+          .status-icon {
+            color: #FE6B6B;
+            font-size: 32px;
+            line-height: 32px;
+
+            &:before {
+              content: "\f01d";
+            }
+          }
+        }
+      }
+    }
+
+    .room-member-box {
+      padding-left: 30px;
+
+      .jobtype-box {
+        padding: 5px 0;
+
+        .jobtype-label {
+          float: left;
+          width: 90px;
+          line-height: 36px;
+          color: #888;
+        }
+
+        .jobtype-member {
+          float: left;
+
+          .jobtype-member-item {
+            float: left;
+            padding-left: 8px;
+
+            img {
+              height: 36px;
+              width: 36px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
           }
         }
       }
     }
   }
+
 }

@@ -1,6 +1,6 @@
 <div class="talk-room-background"></div>
 
-<div class="talk-room-header clearfix">
+<div class="talk-room-header clearfix" style="background-color: <%= @post.main_color %>">
   <%= link_to fa_icon('caret-left'), room_list_path, class: 'room-back-btn' %>
   <h1><%= @post.title %></h1>
   <div class="room-header-right-icon" id="room-menu-open-btn">
@@ -22,7 +22,7 @@
 
 <%= form_tag create_group_message_path(post_id: @post.id), remote: true, class: "group-message-form" do %>
   <div class="message-form-wrapper">
-    <div class="message-form-box">
+    <div class="message-form-box" style="background-color: <%= @post.main_color %>">
       <%= image_tag current_user.image %>
       <%= text_area_tag :content, '', id: 'group-message-textarea', placeholder: 'Type message...' %>
       <%= button_tag do %>
@@ -32,27 +32,78 @@
   </div>
 <% end %>
 
-<div class="room-menu" id="room-menu">
-  <h3>進捗状況</h3>
-  <div class="post-status">
+<div class="room-menu-wrapper" id="room-menu">
+  <div class="room-menu">
+    <h3>進捗状況</h3>
 
-  </div>
-
-  <h3>メンバー</h3>
-  <div class="room-member-box">
-    <div class="jobtype-box">
-      <div class="jobtype-label">
-        <span>プランナー</span>
+    <div class="post-status">
+      <div class="status-line"></div>
+      <div class="status-box">
+        <div class="status-planning<%= post_status_active_class(@post, 'planning') %>">
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
+          <span class="status-label" style="color:<%= @post.main_color%>">募集中</span>
+        </div>
+        <div class="status-development<%= post_status_active_class(@post, 'development') %>">
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
+          <span class="status-label">開発中</span>
+        </div>
+        <div class="status-release<%= post_status_active_class(@post, 'release') %>">
+          <i class="status-icon show-status-icon" style="color:<%= @post.main_color%>"></i>
+          <span class="status-label">リリース</span>
+        </div>
       </div>
-      <div class="jobtype-member">
-        <% @planners.each do |planner| %>
-          <div class="jobtype-member-item">
-            <%= link_to user_path(planner) do %>
-              <%= image_tag planner.try(:image) %>
+    </div>
+
+    <h3>メンバー</h3>
+    <div class="room-member-box">
+      <% if @planners.present? %>
+        <div class="jobtype-box clearfix">
+          <div class="jobtype-label">
+            <span>プランナー</span>
+          </div>
+          <div class="jobtype-member clearfix">
+            <% @planners.each do |planner| %>
+              <div class="jobtype-member-item">
+                <%= link_to user_path(planner) do %>
+                  <%= image_tag planner.try(:image) %>
+                <% end %>
+              </div>
             <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+      <% if @engineers.present? %>
+        <div class="jobtype-box clearfix">
+          <div class="jobtype-label">
+            <span>エンジニア</span>
+          </div>
+          <div class="jobtype-member clearfix">
+            <% @engineers.each do |engineer| %>
+              <div class="jobtype-member-item">
+                <%= link_to user_path(engineer) do %>
+                  <%= image_tag engineer.try(:image) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if @designers.present? %>
+        <div class="jobtype-box clearfix">
+          <div class="jobtype-label">
+            <span>デザイナー</span>
+          </div>
+          <div class="jobtype-member clearfix">
+            <% @designers.each do |designer| %>
+              <div class="jobtype-member-item">
+                <%= link_to user_path(planner) do %>
+                  <%= image_tag designer.try(:image) %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
