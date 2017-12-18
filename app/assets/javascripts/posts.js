@@ -4,6 +4,16 @@ $(document).on('turbolinks:load', function() {
 $(function () {
 
 
+  $('.header-notices').click(function () {
+    $('.notifications-list-wrap').slideDown('fast');
+  });
+
+
+  $('.notifications-list-wrap').click(function () {
+    $('.notifications-list-wrap').slideUp('fast');
+  });
+
+
     $('.template-item').click(function () {
       $('.template-name').removeClass('template-item-selected');
       $(this).find('.template-name').addClass('template-item-selected')

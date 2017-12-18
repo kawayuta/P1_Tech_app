@@ -153,16 +153,16 @@ body {
     margin-top: 50px;
 }
 
-a.header-notices {
+.header-notices {
     font-size:28px;
     text-decoration: none;
     color: #FED430;
     float: right;
-    margin-top: 11px;
+    margin-top: 6px;
     margin-right: 10px;
 }
 
-a.header-notices:hover{
+.header-notices:hover{
     color: #F3722C;
 }
 
