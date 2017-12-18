@@ -57,6 +57,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
+    background-color: #FAFAFA;
 }
 ol, ul {
     list-style: none;
@@ -92,28 +93,47 @@ header {
     height:50px;
     background-color: #fff;
     color: #FED430;
+    display: flex;
+    align-items: center;
     position: fixed;
     top:0;
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2)
 }
 
-header nav ul li {
-    float:left;
+.header-logo {
+    margin: 0;
+    margin-right: auto;
 }
 
-.header-top a {
-  display: block;
-  padding: 15px 10px;
-  height: 50px;
+.header-logo img {
+    height: 20px;
+    padding-left: 1em;
+
 }
 
-.header-top img {
-  height: 20px;
+.header-login {
+    padding: .35em .5em;
+    border: thin solid #FED430;
+    border-radius: .5em;
 }
 
-header nav ul li.header-logout {
-  float: right;
+.header-login a {
+    text-decoration: none;
+    font-size: small;
+    color: #FED430;
+}
+
+header ul {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    list-style: none;
+}
+
+header li {
+    margin-right: 1em;
 }
 
 header nav ul li.header-profile_image {
@@ -127,14 +147,6 @@ header nav ul li.header-profile_image img {
     height:40px;
     border-radius:50%;
     object-fit: cover;
-}
-
-header nav ul li.header-posts-new {
-    float:right;
-}
-
-header nav ul li.header-notices {
-    float:right;
 }
 
 body {

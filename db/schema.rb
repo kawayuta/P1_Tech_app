@@ -114,10 +114,13 @@ ActiveRecord::Schema.define(version: 20171218115438) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
-    t.string "education"
-    t.string "username"
+    t.string "college", null: false
+    t.string "username", null: false
     t.string "image"
     t.string "token"
+    t.string "major", null: false
+    t.integer "graduation_year", null: false
+    t.integer "role", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
