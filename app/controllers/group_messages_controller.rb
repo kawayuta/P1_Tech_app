@@ -2,7 +2,7 @@ class GroupMessagesController < ApplicationController
   before_action :set_post, except: :room_list
 
   def room_list
-    @posts = current_user.team_members.where(accepted: true).map { |m| Post.find(m.post_id) }
+    # @posts = current_user.team_members.where(accepted: true).map { |m| Post.find(m.post_id) }
   end
 
   def talk_room

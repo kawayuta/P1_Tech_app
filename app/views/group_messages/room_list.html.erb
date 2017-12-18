@@ -1,8 +1,10 @@
-<h1><%= current_user.username %>さんのトークルーム</h1>
-<div class="room-list">
-  <% @posts.each do |post| %>
-    <div class="room-item">
-      <%= link_to post.title, talk_room_path(post) %>
-    </div>
-  <% end %>
+<div class="room-list-container">
+  <h1>PROJECT ROOM</h1>
+  <div class="room-list">
+    <% @sorted_posts_and_messages.each do |post_and_message| %>
+      <div class="room-item">
+        <%= link_to post_and_message[0].title, talk_room_path(post_and_message[0]) %>
+      </div>
+    <% end %>
+  </div>
 </div>

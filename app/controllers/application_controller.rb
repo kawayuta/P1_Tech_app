@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       joining_post_ids = current_user.team_members.where(accepted: true).map{|m| m.post_id}
       message_existing_post_ids = joining_post_ids.select{|id| GroupMessage.find_by(post_id: id) != nil}
-      sorted_post_ids = message_existing_post_ids.sort_by{|id| GroupMessage.where(post_id: id).last.created_at}.reverse[0..2]
+      sorted_post_ids = message_existing_post_ids.sort_by{|id| GroupMessage.where(post_id: id).last.created_at}.reverse
       @sorted_posts_and_messages = sorted_post_ids.map{|id| [Post.find(id), GroupMessage.where(post_id: id).last]}
     end
   end
