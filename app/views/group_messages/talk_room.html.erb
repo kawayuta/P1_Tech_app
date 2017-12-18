@@ -109,8 +109,11 @@
 </div>
 
 <script>
-  $(document).on('turbolinks:load', function() {
+  $(function() {
     window.scrollTo(0, document.body.scrollHeight);
+  });
+
+  $(document).on('turbolinks:load', function() {
     $('#group-message-textarea').focus(function() {
       $(this).css('height', '60px');
       $('#talk-room-wrapper').css('margin-bottom', '110px');
