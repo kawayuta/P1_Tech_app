@@ -344,6 +344,7 @@ $(function () {
 
 
   $('.new-post-slick-next').on('click', function () {
+    $('#posts-post-new').scrollTop( 0 );
     var currentPage = $('.new-post-slider').slick('slickCurrentSlide') + 1;
 
     var ValidityTitle = ($('#post_title').val().replace(/^\s+|\s+$/g,'') != '') ? true : false;
@@ -397,7 +398,6 @@ $(function () {
       slickCurrent();
     }
 
-    scrollTo( 0, 0);
 
   });
 
