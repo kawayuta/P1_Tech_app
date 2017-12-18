@@ -51,7 +51,7 @@
             <% break if i >= 3 %>
             <div class="new-message clearfix">
               <%= link_to '', talk_room_path(post_and_message[0].id), class: 'message-link' %>
-              <div class="message-icon">
+              <div class="message-icon" style="background-color: <%= post_and_message[0].main_color %>">
                 <%= fa_icon (post_icon_of_category(post_and_message[0].category_name)) %>
               </div>
               <div class="message-main">
