@@ -58,6 +58,11 @@
                 <h4 class="message-title"><%= post_and_message[0].title.truncate(15) %></h4>
                 <p class="message-content"><%= post_and_message[1].content.truncate(15) %></p>
               </div>
+              <% if post_and_message[2] > 0 %>
+                <div class="unread-count">
+                  <span style="background-color: <%= post_and_message[0].main_color %>"><%= post_and_message[2] %></span>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
