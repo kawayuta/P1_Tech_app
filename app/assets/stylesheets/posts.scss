@@ -636,7 +636,7 @@ div.new-post-btn-public {
   width:323px;
   margin:0 auto;
   font-size:25px;
-  margin-left: 65px;
+  margin-left: 35px;
 
 }
 
@@ -1473,21 +1473,25 @@ input.jobtype-num {
   }
 
   .post-term-scale-wrap {
-    width:380px;
+    width:100%;
     margin:0 auto;
+    flex-wrap: wrap;
+    display: flex;
+    overflow: hidden;
   }
   .post-term-wrap {
-    width:180px;
+    width:160px;
     overflow: hidden;
-    float: left;
+    flex-grow: 1;
   }
 
   .post-scale-wrap {
-    width:180px;
+    width:130px;
+
     overflow: hidden;
-    float: left;
+    flex-grow: 1;
+
     & h2 {
-      margin-left: 40px;
     }
   }
 
