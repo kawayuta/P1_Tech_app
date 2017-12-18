@@ -10,4 +10,15 @@ $(document).on('turbolinks:load', function() {
     window.scrollBy(0, -24);
     $('#talk-room-wrapper').css('margin-bottom', '74px');
   });
+
+  $('#room-menu-open-btn').click(function() {
+    $(this).css('display', 'none');
+    $('#room-menu-close-btn').css('display', 'block');
+    $('#room-menu').slideDown('fast');
+  });
+  $('#room-menu-close-btn').click(function() {
+    $(this).css('display', 'none');
+    $('#room-menu-open-btn').css('display', 'block');
+    $('#room-menu').slideUp('fast');
+  });
 });

@@ -3,10 +3,13 @@
 <div class="talk-room-header clearfix">
   <%= link_to fa_icon('caret-left'), room_list_path, class: 'room-back-btn' %>
   <h1><%= @post.title %></h1>
-  <div class="room-header-right-icon">
+  <div class="room-header-right-icon" id="room-menu-open-btn">
     <span>●</span>
     <span>●</span>
     <span>●</span>
+  </div>
+  <div class="room-header-right-icon room-menu-close-btn" id="room-menu-close-btn">
+    <%= fa_icon 'times' %>
   </div>
 </div>
 <div class="talk-room-wrapper" id="talk-room-wrapper">
@@ -28,3 +31,28 @@
     </div>
   </div>
 <% end %>
+
+<div class="room-menu" id="room-menu">
+  <h3>進捗状況</h3>
+  <div class="post-status">
+
+  </div>
+
+  <h3>メンバー</h3>
+  <div class="room-member-box">
+    <div class="jobtype-box">
+      <div class="jobtype-label">
+        <span>プランナー</span>
+      </div>
+      <div class="jobtype-member">
+        <% @planners.each do |planner| %>
+          <div class="jobtype-member-item">
+            <%= link_to user_path(planner) do %>
+              <%= image_tag planner.try(:image) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

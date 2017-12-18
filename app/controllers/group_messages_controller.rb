@@ -7,6 +7,9 @@ class GroupMessagesController < ApplicationController
 
   def talk_room
     set_messages
+    @planners = @post.team_members.where(job_type: 0, accepted: true).map{|m| User.find(m.user_id)}
+    @engineers = @post.team_members.where(job_type: 1, accepted: true).map{|m| User.find(m.user_id)}
+    @designers = @post.team_members.where(job_type: 2, accepted: true).map{|m| User.find(m.user_id)}
   end
 
   def create
