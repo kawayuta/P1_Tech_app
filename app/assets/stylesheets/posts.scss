@@ -1489,13 +1489,20 @@ input.jobtype-num {
     width:130px;
     overflow: hidden;
     flex-grow: 1;
+    & h2 {
+    }
   }
-}
 
-.post-scale {
-  padding: 30px 7% 50px;
-  background-color: #fff;
-}
+  .post-scale {
+    padding: 30px 7% 50px;
+    background-color: #fff;
+
+  }
+
+  .post-index-status {
+    background-color: #fff;
+    padding: 15px 5%;
+  }
 
   .post-term {
     padding: 30px 7% 50px;
