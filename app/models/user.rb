@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :notifications
   has_many :evaluations
+  has_many :message_read_times
 
   mount_uploader :image, ImageUploader
 
