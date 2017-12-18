@@ -21,6 +21,7 @@ class Post < ApplicationRecord
   has_many :group_messages
   has_many :comments
   has_many :evaluations
+  has_many :message_read_times
 
   mount_uploader :image, ImageUploader
   mount_uploader :image_2, ImageUploader

@@ -96,7 +96,7 @@
           <div class="jobtype-member clearfix">
             <% @designers.each do |designer| %>
               <div class="jobtype-member-item">
-                <%= link_to user_path(planner) do %>
+                <%= link_to user_path(designer) do %>
                   <%= image_tag designer.try(:image) %>
                 <% end %>
               </div>

@@ -61,6 +61,25 @@
     font-size: 14px;
     color: #888;
   }
+
+  .unread-count {
+    float: right;
+    text-align: center;
+  }
+
+  .unread-count span {
+    display: inline-block;
+    height: 22px;
+    min-width: 22px;
+    padding: 0 4px;
+    border-radius: 11px;
+    background-color: #FE6B6B;
+    color: #fff;
+    font-size: 14px;
+    line-height: 22px;
+    position: relative;
+    top: 10px;
+  }
 }
 
 
