@@ -416,6 +416,34 @@
           }
         }
       }
+
+      .status-next-btn-warpper {
+        text-align: center;
+        padding-top: 25px;
+
+        .next-btn {
+          display: inline-block;
+          font-size: 14px;
+          color: #fff;
+          font-weight: bold;
+          background-color: #FE6B6B;
+          text-decoration: none;
+          padding: 12px 20px;
+          border-radius: 19px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+
+          &.next-btn-disabled {
+            background-color: #bbb;
+          }
+        }
+
+        .status-message {
+          display: block;
+          font-size: 12px;
+          color: #ccc;
+          padding-top: 15px;
+        }
+      }
     }
 
     .room-member-box {
