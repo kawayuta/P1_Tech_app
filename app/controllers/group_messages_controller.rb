@@ -11,18 +11,21 @@ class GroupMessagesController < ApplicationController
     @engineers = @post.team_members.where(job_type: 1, accepted: true).map{|m| User.find(m.user_id)}
     @designers = @post.team_members.where(job_type: 2, accepted: true).map{|m| User.find(m.user_id)}
     create_or_update_message_read_time
+    set_new_messages
   end
 
   def create
     GroupMessage.create(content: params[:content], post_id: params[:post_id], user_id: current_user.id)
     create_or_update_message_read_time
     set_messages
+    set_new_messages
   end
 
   def destroy
     GroupMessage.find(params[:id]).destroy
     create_or_update_message_read_time
     set_messages
+    set_new_messages
   end
 
   private
