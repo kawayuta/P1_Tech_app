@@ -46,6 +46,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'search_cop'
 gem 'koala'
+gem 'gon'
 
 group :development do
   gem 'capistrano',         require: false

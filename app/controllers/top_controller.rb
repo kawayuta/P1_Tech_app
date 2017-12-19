@@ -7,7 +7,9 @@ class TopController < ApplicationController
     @ranked_posts = ranked_post_ids.map { |id| Post.find_by(id: id) }
 
     @categories = ['Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game', 'Game']
-    @notifications = Notification.where(from_user_id: current_user.id)
+    if user_signed_in?
+      @notifications = Notification.where(from_user_id: current_user.id)
+    end
 
   end
 end
