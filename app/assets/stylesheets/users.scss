@@ -41,6 +41,8 @@
   }
 
   .profile-content {
+    padding-bottom: 30px;
+
     .profile-basic {
       padding-top: 30px;
       text-align: center;
@@ -93,6 +95,13 @@
 
       .profile-post-type {
         padding: 15px 10px;
+
+        h3 {
+          color: #666;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 0 0 2px 5px;
+        }
 
         .profile-post-item {
           box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
