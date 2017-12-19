@@ -1,77 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-  <section class="top-top5s">
-    <h2>TOP PROJECT</h2>
-    <div class="ranking-slider">
-      <% @ranked_posts.each_with_index do |post, i| %>
-          <div class="ranked-post" style="background-color: <%= post.main_color %>">
-            <div class="ranked-post-icon">
-              <%= fa_icon (post_icon_of_category(post.category_name)) %>
-            </div>
-            <div class="ranked-post-header">
-              <%= link_to '', post, class: 'link-to-show' %>
-              <% if i == 0 %>
-                  <div class="crown-large-circle">
-                    <%= image_tag 'ranking_images/crown1.png' %>
-                    <span class="no1-label"><%= i + 1 %>位</span>
-                  </div>
-              <% elsif i == 1 %>
-                  <div class="crown-large-circle">
-                    <%= image_tag 'ranking_images/crown2.png' %>
-                    <span class="no2-label"><%= i + 1 %>位</span>
-                  </div>
-              <% elsif i == 2 %>
-                  <div class="crown-large-circle">
-                    <%= image_tag 'ranking_images/crown3.png' %>
-                    <span class="no3-label"><%= i + 1 %>位</span>
-                  </div>
-              <% elsif i == 3 %>
-                  <div class="crown-small-circle">
-                    <%= image_tag 'ranking_images/crown4.png' %>
-                    <span><%= i + 1 %>位</span>
-                  </div>
-              <% else %>
-                  <div class="crown-small-circle">
-                    <%= image_tag 'ranking_images/crown4.png' %>
-                    <span><%= i + 1 %>位</span>
-                  </div>
-              <% end %>
-              <!-- <div class="ranked-post-header-icon"><%= fa_icon (post_icon_of_category(post.category_name)), class: 'ranked-post-icon' %></div> -->
-              <div class="ranked-post-header-title">
-                <h3><%= post.title %></h3>
-              </div>
-              <div class="ranked-post-header-detail">
-                <p><%= post.detail.truncate(50) %></p>
-              </div>
-            </div>
-            <div class="ranked-post-footer clearfix">
-              <div class="post-founder-wrapper clearfix">
-                <div class="post-founder-img">
-                  <%= link_to user_path(post.user) do %>
-                      <%= image_tag post.user.try(:image) %>
-                  <% end %>
-                </div>
-                <div class="post-founder-info">
-                  <span class="post-founder-name"><%= link_to post.user.try(:username), post.user %></span>
-                </div>
-              </div>
-
-              <div class="post-footer-vote">
-                <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
-                <% if user_signed_in? %>
-                    <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
-                        <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: {confirm: 'この企画の応援をやめますか？'}, class: 'post-vote-heart' %>
-                    <% else %>
-                        <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: {confirm: 'この企画を応援しますか？'}, class: 'post-vote-heart' %>
-                    <% end %>
-                    <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
-                <% end %>
-              </div>
-            </div>
-          </div>
-      <% end %>
-    </div>
-  </section>
 
   <div class="share-modal-overlay" id="share-modal-overlay">
     <div class="share-modal" id="share-modal">
@@ -101,23 +29,23 @@
                                       <%= @my_posts_id.detail.truncate(50) %>
                                     </p>
 
-                                    <div class="post-status post-index-status">
-                                      <div class="status-line"></div>
-                                      <div class="status-box">
-                                        <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
-                                          <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                          <span class="status-label" style="color: <%= @my_posts_id.main_color%> ">募集中</span>
-                                        </div>
-                                        <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
-                                          <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                          <span class="status-label">開発中</span>
-                                        </div>
-                                        <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
-                                          <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                          <span class="status-label">リリース</span>
-                                        </div>
-                                      </div>
-                                    </div>
+                                     <div class="post-status post-index-status">
+                                           <div class="status-line"></div>
+                                           <div class="status-box">
+                                             <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
+                                               <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'planning') %>"></i>
+                                               <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'planning') %>">募集中</span>
+                                             </div>
+                                             <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
+                                               <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'development') %>"></i>
+                                               <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'development') %>">開発中</span>
+                                             </div>
+                                             <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
+                                               <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'release') %>"></i>
+                                               <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'release') %>">リリース</span>
+                                             </div>
+                                           </div>
+                                     </div>
 
                                     <div class="post-index-images">
                                       <div class="post-image-box">
@@ -184,22 +112,22 @@
                                      </p>
 
                                      <div class="post-status post-index-status">
-                                       <div class="status-line"></div>
-                                       <div class="status-box">
-                                         <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
-                                           <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                           <span class="status-label" style="color: <%= @my_posts_id.main_color%> ">募集中</span>
-                                         </div>
-                                         <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
-                                           <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                           <span class="status-label">開発中</span>
-                                         </div>
-                                         <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
-                                           <i class="status-icon" style="color:<%= @my_posts_id.main_color%>"></i>
-                                           <span class="status-label">リリース</span>
-                                         </div>
-                                       </div>
-                                     </div>
+                                             <div class="status-line"></div>
+                                             <div class="status-box">
+                                               <div class="status-planning<%= post_status_active_class(@my_posts_id, 'planning') %>">
+                                                 <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'planning') %>"></i>
+                                                 <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'planning') %>">募集中</span>
+                                               </div>
+                                               <div class="status-development<%= post_status_active_class(@my_posts_id, 'development') %>">
+                                                 <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'development') %>"></i>
+                                                 <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'development') %>">開発中</span>
+                                               </div>
+                                               <div class="status-release<%= post_status_active_class(@my_posts_id, 'release') %>">
+                                                 <i class="status-icon show-status-icon" style="color: <%= post_status_color(@my_posts_id, 'release') %>"></i>
+                                                 <span class="status-label" style="color: <%= post_status_color(@my_posts_id, 'release') %>">リリース</span>
+                                               </div>
+                                             </div>
+                                           </div>
 
                                      <div class="post-index-images">
                                        <div class="post-image-box">
@@ -263,22 +191,22 @@
                              </p>
 
                              <div class="post-status post-index-status">
-                               <div class="status-line"></div>
-                               <div class="status-box">
-                                 <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                                   <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                                   <span class="status-label" style="color: <%= post.main_color%> ">募集中</span>
-                                 </div>
-                                 <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                                   <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                                   <span class="status-label">開発中</span>
-                                 </div>
-                                 <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                                   <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                                   <span class="status-label">リリース</span>
-                                 </div>
-                               </div>
-                             </div>
+                                     <div class="status-line"></div>
+                                     <div class="status-box">
+                                       <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+                                         <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'planning') %>"></i>
+                                         <span class="status-label" style="color: <%= post_status_color(post, 'planning') %>">募集中</span>
+                                       </div>
+                                       <div class="status-development<%= post_status_active_class(post, 'development') %>">
+                                         <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'development') %>"></i>
+                                         <span class="status-label" style="color: <%= post_status_color(post, 'development') %>">開発中</span>
+                                       </div>
+                                       <div class="status-release<%= post_status_active_class(post, 'release') %>">
+                                         <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'release') %>"></i>
+                                         <span class="status-label" style="color: <%= post_status_color(post, 'release') %>">リリース</span>
+                                       </div>
+                                     </div>
+                                   </div>
 
                              <div class="post-index-images">
                                <div class="post-image-box">
@@ -336,6 +264,7 @@
 
 
 <a class="new-post-btn"><span class="fa fa-pencil-square-o"></span></a>
+
 
 <div id="posts-post-new">
   <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
@@ -444,14 +373,14 @@
             <h4>目標製作期間 (半角数字)</h4>
             <div class="new-post-term">
               <div class="post_period_data_sub">
-              <%= form.number_field :period, id: :post_period, class: :post_period_data,placeholder: '' %>
+                <%= form.number_field :period, id: :post_period, class: :post_period_data, placeholder: '' %>
               </div>
             </div>
 
             <h4>開発規模 (半角数字)</h4>
             <div class="new-post-scale">
               <div class="post_scale_data_sub">
-                <%= form.number_field :scale, id: :post_scale, class: :post_scale_data,placeholder: '' %>
+                <%= form.number_field :scale, id: :post_scale, class: :post_scale_data, placeholder: '' %>
               </div>
             </div>
 
@@ -464,7 +393,7 @@
               <div class="post-header">
                 <div class="post-icon-data"></div>
               </div>
-                <h1 class="new-post-preview-title"></h1>
+              <h1 class="new-post-preview-title"></h1>
               <div class="post-content">
 
 
@@ -604,13 +533,10 @@
 
       <h3>ペライチが完成しました！<br/>
         みんなに応援してもらいましょう！</h3>
-
-      <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
-      <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+      <div class="sns-label-wrap clearfix">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+        <a href="http://twitter.com/share?url=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+      </div>
     </div>
   </div>
-
-
-
-
 </div>

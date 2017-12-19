@@ -71,6 +71,8 @@ class PostsController < ApplicationController
         @save_type = 'private'
       end
       session[:post_created] = true
+      session[:new_post_id] = @post.id
+
     else
       @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
       render :new
@@ -143,6 +145,7 @@ class PostsController < ApplicationController
   def success
     if session[:post_created]
       session[:post_created] = nil
+      session[:new_post_id] = nil
     else
       redirect_to root_path
     end

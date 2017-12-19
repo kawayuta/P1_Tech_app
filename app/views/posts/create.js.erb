@@ -20,6 +20,7 @@ $(function() {
     'background-size': 'cover',
     'border-radius': '5px',
   });
+
   $(document).on('closing', '.remodal', function (e) {
     location.href = "http://"+location.host + "/posts/" + <%= @post.id %> + "/success"
   });

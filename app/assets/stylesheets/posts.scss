@@ -3,8 +3,8 @@
   letter-spacing: 2px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height:1.4em;
-  font-size:25px;
-  margin-top: 40px;
+  font-size:23px;
+  margin-top: 80px;
   margin-bottom: 20px;
 }
 
@@ -823,23 +823,21 @@ div.new-post-btn-public {
 }
 
 .post-preview-modal h3 {
-
   letter-spacing: 2px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height:1.4em;
-  font-size:25px;
+  font-size:14px;
   margin-bottom: 20px;
 }
 
 .sns-label-wrap {
-  flex-wrap: wrap;
-  display: flex;
+  width:100%;
 }
 .sns-label-fb {
-  flex-grow: 1;
+  width:100%;
   height:50px;
   background-color: #315A98;
-  padding-top: 15px;
+  padding-top: 17px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 13px;
@@ -847,15 +845,19 @@ div.new-post-btn-public {
   color:#FFF;
   letter-spacing: 2px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-top: 20px;
-  box-shadow: 0 1px 10px rgba(253,211,68,.3);
+  margin-top: 0px;
+  float: left;
+  font-size:15px;
+  text-decoration: none;
+
 }
 
 .sns-label-tw {
-  flex-grow: 1;
+  width:100%;
+
   height:50px;
   background-color: #31ADF0;
-  padding-top: 15px;
+  padding-top: 17px;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 13px;
@@ -863,9 +865,11 @@ div.new-post-btn-public {
   color:#FFF;
   letter-spacing: 2px;
   margin-top: 20px;
-
+  float: left;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  box-shadow: 0 1px 10px rgba(253,211,68,.3);
+  font-size:15px;
+  text-decoration: none;
+
 }
 .template-format-wrap {
 

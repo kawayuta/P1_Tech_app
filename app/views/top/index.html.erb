@@ -388,10 +388,9 @@
 
       <h3>ペライチが完成しました！<br/>
         みんなに応援してもらいましょう！</h3>
-
-      <div class="sns-label-wrap">
-        <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
-        <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+      <div class="sns-label-wrap clearfix">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+        <a href="http://twitter.com/share?url=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
       </div>
     </div>
   </div>
