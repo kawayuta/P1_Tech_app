@@ -1342,6 +1342,28 @@ input.jobtype-num {
     margin: 10px auto 30px;
   }
 
+  .post-operation {
+    display: table;
+    width: 80%;
+    margin:  0 auto;
+    padding-top: 25px;
+    text-align: center;
+
+    .post-operation-cell {
+      display: table-cell;
+
+      a {
+        color: #888;
+        text-decoration: none;
+
+        i {
+          font-size: 22px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
   .post-detail {
     font-size: 14px;
     line-height: 1.7;

@@ -18,6 +18,21 @@
 
   <div class="post-content">
 
+    <% if @founder == current_user %>
+      <div class="post-operation">
+        <div class="post-operation-cell">
+          <%= link_to edit_post_path(@post) do %>
+            <%= fa_icon 'pencil' %>企画を編集
+          <% end %>
+        </div>
+        <div class="post-operation-cell">
+          <%= link_to @post, method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+            <%= fa_icon 'trash' %>企画を削除
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="post-status">
       <div class="status-line"></div>
       <div class="status-box">
@@ -239,10 +254,6 @@
       <% end %>
     </p> -->
 
-    <% if @founder == current_user %>
-      <%= link_to 'Edit', edit_post_path(@post) %> |
-      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
   </div>
 
   <div class="post-footer">
