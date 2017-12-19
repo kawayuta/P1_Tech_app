@@ -40,10 +40,12 @@
 .notifications-list li {
   margin-left: 25px;
   margin-right: 25px;
-  height:60px;
-  flex-wrap: nowrap;
-  display: flex;
+  height:70px;
   color:#666;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 10px;
+
 }
 .notifications-list li a {
 text-decoration: none;
@@ -51,13 +53,12 @@ text-decoration: none;
 
 }
 .notifications-list li .notice-category-title{
+  width:calc(100% - 80px);
+  height:70px;
   font-size:16px;
-  line-height:1.5em;
+  line-height:1.8em;
   border-bottom:2px solid #eee;
   float: left;
-  padding-bottom: 10px;
-
-  flex-grow: 3;
 }
 
 .notice-category-icon {

@@ -399,7 +399,6 @@
       <ul>
         <% @notifications.first(5).each do |notice|%>
         <li class="clearfix">
-          <% @notifications.reverse.each do |notice|%>
               <% if notice.content == '申請' %>
                   <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
                   <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
@@ -419,9 +418,6 @@
               <% end %>
 
             <% notice.update(is_read: true) %>
-
-          <% end %>
-
 
         </li>
         <% end %>
