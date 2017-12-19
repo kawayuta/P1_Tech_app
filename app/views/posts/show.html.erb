@@ -10,6 +10,9 @@
   <div class="post-header" style="background-color:<%= @post.main_color%>">
     <%= link_to fa_icon('times-circle-o'), root_path, class: 'post-show-back-btn' %>
     <%= fa_icon (post_icon_of_category(@post.category_name)), class: 'post-show-icon' %>
+    <% if @self_member_info && @self_member_info.accepted == true %>
+      <%= link_to 'ルームへ', talk_room_path(@post), class: 'post-room-link-btn' %>
+    <% end %>
     <h1><%= @post.title %></h1>
   </div>
 
