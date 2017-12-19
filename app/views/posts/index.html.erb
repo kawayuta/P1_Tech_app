@@ -25,16 +25,16 @@
               <div class="status-line"></div>
               <div class="status-box">
                 <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
-                  <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                  <span class="status-label" style="color: <%= post.main_color%> ">募集中</span>
+                  <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'planning') %>"></i>
+                  <span class="status-label" style="color: <%= post_status_color(post, 'planning') %>">募集中</span>
                 </div>
                 <div class="status-development<%= post_status_active_class(post, 'development') %>">
-                  <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                  <span class="status-label">開発中</span>
+                  <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'development') %>"></i>
+                  <span class="status-label" style="color: <%= post_status_color(post, 'development') %>">開発中</span>
                 </div>
                 <div class="status-release<%= post_status_active_class(post, 'release') %>">
-                  <i class="status-icon" style="color:<%= post.main_color%>"></i>
-                  <span class="status-label">リリース</span>
+                  <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'release') %>"></i>
+                  <span class="status-label" style="color: <%= post_status_color(post, 'release') %>">リリース</span>
                 </div>
               </div>
             </div>

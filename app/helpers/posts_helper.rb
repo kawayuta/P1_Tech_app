@@ -7,6 +7,13 @@ module PostsHelper
     return ''
   end
 
+  def post_status_color(post, status)
+    if post.status == status
+      return post.main_color
+    end
+    return '#9B9B9B'
+  end
+
   def comment_color_style(comment)
     if comment.user_id == current_user.id
       return "color: #fff; background-color: #{comment.post.main_color};"
