@@ -80,11 +80,11 @@
     <div class="post-commitment">
       <ul class="commitment-item-box">
         <li><span>気軽に制作</span></li>
-        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
-        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
-        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
-        <li class="commitment-item commitment-item-active"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
-        <li class="commitment-item"><i class="commitment-icon" style="color:<%= @post.main_color%>"></i></li>
+        <li class="commitment-item<%= post_motivation_active_class(@post, 0) %>"><i class="commitment-icon" style="color:<%= post_motivation_color(@post, 0) %>"></i></li>
+        <li class="commitment-item<%= post_motivation_active_class(@post, 1) %>"><i class="commitment-icon" style="color:<%= post_motivation_color(@post, 1) %>"></i></li>
+        <li class="commitment-item<%= post_motivation_active_class(@post, 2) %>"><i class="commitment-icon" style="color:<%= post_motivation_color(@post, 2) %>"></i></li>
+        <li class="commitment-item<%= post_motivation_active_class(@post, 3) %>"><i class="commitment-icon" style="color:<%= post_motivation_color(@post, 3) %>"></i></li>
+        <li class="commitment-item<%= post_motivation_active_class(@post, 4) %>"><i class="commitment-icon" style="color:<%= post_motivation_color(@post, 4) %>"></i></li>
         <li><span>ガチで制作</span></li>
       </ul>
     </div>
