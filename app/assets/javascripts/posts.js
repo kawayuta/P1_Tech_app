@@ -376,13 +376,13 @@ $(function () {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
 
       if(currentPage == 1 && ValidityCategory == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">アイコンを選択してください。</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> アイコンを選択してください</p>');
       }
       if(currentPage == 1 && ValidityTitle == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">タイトルを入力してください。</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> タイトルを入力してください</p>');
       }
       if(currentPage == 1 && ValidityDetail == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">詳細を入力してください。</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 詳細を入力してください</p>');
       }
     }
 
@@ -392,15 +392,15 @@ $(function () {
     } else if (currentPage == 2 && ValidityMember == false || ValidityPeriod == false || ValidityScale == false) {
       $('.new-post-slider').prepend('<div class="post-form-alerts"></div>');
       if(currentPage == 2 && ValidityMember  == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">募集する役割の人数を追加してください。</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 募集する役割の人数を追加してください</p>');
       }
 
       if(currentPage == 2 && ValidityPeriod  == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">目標製作期間を入力してください。</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 目標製作期間を入力してください (1-24ヶ月以内)</p>');
       }
 
       if(currentPage == 2 && ValidityScale  == false) {
-        $('.post-form-alerts').append('<span class="post-form-alert">開発規模を入力してください。(募集役割の人数以上)</span>');
+        $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 開発規模を入力してください (募集役割の人数以上)</p>');
       }
     }
 
