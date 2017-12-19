@@ -13,7 +13,15 @@ $(function () {
 
     $('.sign-up-slick-next').on('click', function () {
         $('#username').val($('#first-name-data').val() + "" + $('#last-name-data').val());
+        if (!gon.user) {
+            $('.back-icon').show()
+        }
         $('.sign-up-slider').slick('slickNext');
+    });
+
+    $('.back-icon').on('click', function () {
+        $('.back-icon').hide();
+        $('.sign-up-slider').slick('slickPrev');
     });
 
     $('.sign-up').on('click', function () {

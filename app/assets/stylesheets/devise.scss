@@ -1,3 +1,21 @@
+.login-header-logo {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-header-logo img {
+  height: 20px;
+  padding-left: 1em;
+
+}
+
+.back-icon {
+  padding-left: 1em;
+  display: none;
+}
+
 .login-page-wrapper {
   margin: auto;
   width: 85%;
