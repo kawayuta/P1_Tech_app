@@ -1,16 +1,17 @@
-<div class="page-wrapper">
 <div class="login-page-wrapper">
   <div class="warning-message">
     <p>＊学校に在籍している方以外の登録はできません。それ以外の方はアカウント削除の対象となりますので、ご注意ください。</p>
   </div>
-  <%= link_to user_facebook_omniauth_authorize_path, class: "fb-button" do %>
-    <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-    <h4>facebookで登録/ログイン</h4>
-  <% end %>
-  <%= link_to sign_up_path, class: "email-sign-up-button" do %>
-      <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-      <h4>メールアドレスで新規登録</h4>
-  <% end %>
+  <div class="login-btn-wrapper">
+    <%= link_to user_facebook_omniauth_authorize_path, class: "fb-button" do %>
+        <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+        <h4>facebookで登録/ログイン</h4>
+    <% end %>
+    <%= link_to sign_up_path, class: "email-sign-up-button" do %>
+        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+        <h4>メールアドレスで新規登録</h4>
+    <% end %>
+  </div>
   <p class="description">またはメールアドレスでログイン</p>
   <div class="login-form">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -30,5 +31,4 @@
     <% end %>
     <p class="forget-password">パスワードを忘れた方はこちら</p>
   </div>
-</div>
 </div>

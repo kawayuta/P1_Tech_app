@@ -391,41 +391,42 @@
 </div>
 
 
+<% if user_signed_in? %>
+  <div class="notifications-list-wrap">
+    <div class="notifications-list">
+      <h3>新着通知</h3>
 
-<div class="notifications-list-wrap">
-  <div class="notifications-list">
-    <h3>新着通知</h3>
-
-    <ul>
-      <% @notifications.first(5).each do |notice|%>
-      <li class="clearfix">
-        <% @notifications.reverse.each do |notice|%>
-            <% if notice.content == '申請' %>
-                <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
-            <% elsif notice.content == '取消' %>
-                <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
-            <% elsif notice.content == '許可' %>
-                <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
-            <% elsif notice.content == '応援' %>
-                <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
-                <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                </div>
-                <div class="notice-category-title">
-                <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> が <%= link_to notice.user.username, notice.user %> に応援されました。
-                </div>
-            <% end %>
+      <ul>
+        <% @notifications.first(5).each do |notice|%>
+        <li class="clearfix">
+          <% @notifications.reverse.each do |notice|%>
+              <% if notice.content == '申請' %>
+                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
+              <% elsif notice.content == '取消' %>
+                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
+              <% elsif notice.content == '許可' %>
+                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
+              <% elsif notice.content == '応援' %>
+                  <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                  </div>
+                  <div class="notice-category-title">
+                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> が <%= link_to notice.user.username, notice.user %> に応援されました。
+                  </div>
+              <% end %>
 
             <% notice.update(is_read: true) %>
 
+          <% end %>
+
+
+        </li>
         <% end %>
+      </ul>
 
-
-      </li>
-      <% end %>
-    </ul>
-
+    </div>
   </div>
-</div>
+<% end %>

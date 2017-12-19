@@ -15,6 +15,17 @@ $(function () {
         $('#username').val($('#first-name-data').val() + "" + $('#last-name-data').val());
         $('.sign-up-slider').slick('slickNext');
     });
+
+    $('.sign-up').on('click', function () {
+       if (gon.user) {
+           $('#user-profile-image').val(gon.user.image);
+           $('#username').val(gon.user.username);
+           $('#user-email').val(gon.user.email);
+           $('#user-password').val(gon.user.encrypted_password);
+           $('#provider').val(gon.user.provider);
+           $('#fb-uid').val(gon.user.uid);
+       }
+    });
 });
 
 $(function () {
