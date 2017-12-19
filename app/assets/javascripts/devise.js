@@ -17,9 +17,11 @@ $(function () {
             $('.back-icon').show()
         }
         $('.sign-up-slider').slick('slickNext');
+        $('#sign-up').scrollTop( 0 );
     });
 
     $('.back-icon').on('click', function () {
+        $('#sign-up').scrollTop( 0 );
         $('.back-icon').hide();
         $('.sign-up-slider').slick('slickPrev');
     });
