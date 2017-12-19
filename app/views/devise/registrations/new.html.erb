@@ -1,89 +1,91 @@
-<%= form_for @user, url: sign_up_path do |f| %>
-    <ul class="sign-up-slider">
-      <% if @user.uid.nil? %>
-      <li class="first-sign-up-page">
-        <div class="profile-image-field-wrapper">
-          <p>プロフィール画像を追加 (任意)</p>
-          <div class="profile-image-field">
-            <span class="fa fa-plus"></span>
-            <%= f.file_field :image, id: :profile_image %>
+<div id="sign-up">
+  <%= form_for @user, url: sign_up_path do |f| %>
+      <ul class="sign-up-slider">
+        <% if @user.uid.nil? %>
+            <li class="first-sign-up-page">
+              <div class="profile-image-field-wrapper">
+                <p>プロフィール画像を追加 (任意)</p>
+                <div class="profile-image-field">
+                  <span class="fa fa-plus"></span>
+                  <%= f.file_field :image, id: :profile_image %>
+                </div>
+              </div>
+              <div class="user-name-field-wrapper">
+                <p>性</p>
+                <div class="input-wrapper">
+                  <input type="text" id="first-name-data"/>
+                </div>
+              </div>
+              <div class="user-name-field-wrapper">
+                <p>名</p>
+                <div class="input-wrapper">
+                  <input type="text" id="last-name-data"/>
+                </div>
+              </div>
+              <div class="email-field-wrapper">
+                <p>メールアドレス</p>
+                <div class="input-wrapper">
+                  <%= f.email_field :email, autofocus: true, value: @user.email %>
+                </div>
+              </div>
+              <div class="password-field-wrapper">
+                <p>パスワード</p>
+                <div class="input-wrapper">
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+              </div>
+              <div class="password-field-wrapper">
+                <p>パスワード(確認)</p>
+                <div class="input-wrapper">
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+              </div>
+              <div class="btn-wrapper">
+                <a class="sign-up-slick-next">次へ</a>
+              </div>
+            </li>
+        <% end %>
+
+        <li class="second-sign-up-page">
+          <p>担当役割</p>
+          <div class="radio-box-wrapper">
+            <label class="radio-box">
+              <%= f.radio_button :role, 1, {:checked => true} %><span>プランナー</span>
+            </label>
+            <label class="radio-box">
+              <%= f.radio_button :role, 2 %><span>エンジニア</span>
+            </label>
+            <label class="radio-box">
+              <%= f.radio_button :role, 3 %><span>デザイナー</span>
+            </label>
           </div>
-        </div>
-        <div class="user-name-field-wrapper">
-          <p>性</p>
+          <p>学校名</p>
           <div class="input-wrapper">
-            <input type="text" id="first-name-data"/>
+            <%= f.text_field :college %>
           </div>
-        </div>
-        <div class="user-name-field-wrapper">
-          <p>名</p>
+          <p>学科/専攻</p>
           <div class="input-wrapper">
-            <input type="text" id="last-name-data"/>
+            <%= f.text_field :major %>
           </div>
-        </div>
-        <div class="email-field-wrapper">
-          <p>メールアドレス</p>
+          <p>卒業年度（半角数字4桁）</p>
           <div class="input-wrapper">
-            <%= f.email_field :email, autofocus: true, value: @user.email %>
+            <%= f.number_field :graduation_year %>
           </div>
-        </div>
-        <div class="password-field-wrapper">
-          <p>パスワード</p>
-          <div class="input-wrapper">
-            <%= f.password_field :password, autocomplete: "off" %>
+          <div class="btn-wrapper">
+            <%= f.submit '登録完了', class: 'sign-up' %>
           </div>
-        </div>
-        <div class="password-field-wrapper">
-          <p>パスワード(確認)</p>
-          <div class="input-wrapper">
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </div>
-        </div>
-        <div class="btn-wrapper">
-          <a class="sign-up-slick-next">次へ</a>
-        </div>
-      </li>
+        </li>
+      </ul>
+
+      <%= f.hidden_field :username, id: 'username' %>
+
+      <% if @user.uid != nil %>
+          <%= f.hidden_field :image, id: 'user-profile-image' %>
+          <%= f.hidden_field :email, id: 'user-email' %>
+          <%= f.hidden_field :password, id: 'user-password' %>
+          <%= f.hidden_field :provider, id: 'provider' %>
+          <%= f.hidden_field :uid, id: 'fb-uid' %>
       <% end %>
 
-      <li class="second-sign-up-page">
-        <p>担当役割</p>
-        <div class="radio-box-wrapper">
-          <label class="radio-box">
-            <%= f.radio_button :role, 1, {:checked => true} %><span>プランナー</span>
-          </label>
-          <label class="radio-box">
-            <%= f.radio_button :role, 2 %><span>エンジニア</span>
-          </label>
-          <label class="radio-box">
-            <%= f.radio_button :role, 3 %><span>デザイナー</span>
-          </label>
-        </div>
-        <p>学校名</p>
-        <div class="input-wrapper">
-          <%= f.text_field :college %>
-        </div>
-        <p>学科/専攻</p>
-        <div class="input-wrapper">
-          <%= f.text_field :major %>
-        </div>
-        <p>卒業年度（半角数字4桁）</p>
-        <div class="input-wrapper">
-          <%= f.number_field :graduation_year %>
-        </div>
-        <div class="btn-wrapper">
-          <%= f.submit '登録完了', class: 'sign-up' %>
-        </div>
-      </li>
-    </ul>
-
-    <%= f.hidden_field :username, id: 'username' %>
-
-    <% if @user.uid != nil %>
-      <%= f.hidden_field :image, id: 'user-profile-image' %>
-      <%= f.hidden_field :email, id: 'user-email' %>
-      <%= f.hidden_field :password, id: 'user-password' %>
-      <%= f.hidden_field :provider, id: 'provider' %>
-      <%= f.hidden_field :uid, id: 'fb-uid' %>
-    <% end %>
-
-<% end %>
+  <% end %>
+</div>

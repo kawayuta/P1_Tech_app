@@ -19,10 +19,9 @@ section.top-top5s {
   position: fixed;
   right: 20px;
   bottom: 24px;
-  height: 56px;
-  width: 56px;
+  height: 60px;
+  width: 60px;
   border-radius: 50%;
-  background-color: #FED430;
   color: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,.2);
   line-height: 56px;
@@ -32,8 +31,9 @@ section.top-top5s {
 
   span {
     position: relative;
-    top: 1px;
+    top: 3px;
     left: 2px;
+    color: #2E2F30;
   }
 }
 

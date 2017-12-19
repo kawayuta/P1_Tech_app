@@ -1,3 +1,12 @@
+#sign-up {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height:100%;
+  position: fixed;
+  padding-bottom: 2em;
+}
+
 .login-header-logo {
   position: fixed;
   top: 25px;
@@ -8,12 +17,15 @@
 .login-header-logo img {
   height: 20px;
   padding-left: 1em;
-
 }
 
 .back-icon {
   padding-left: 1em;
   display: none;
+}
+
+.back-icon i {
+  color: #9B9B9B;
 }
 
 .login-page-wrapper {
@@ -32,6 +44,7 @@
 .warning-message p {
   font-size: 15px;
   color: #919EC4;
+  line-height: 1.2;
 }
 
 .login-btn-wrapper {
@@ -50,7 +63,7 @@
 }
 
 .fb-button h4 {
-  padding: .75em 1em .75em .75em;
+  padding: 1em 1em 1em .75em;
   color: white;
 }
 
@@ -71,7 +84,7 @@
 }
 
 .email-sign-up-button h4 {
-  padding: .75em 1em;
+  padding: 1em;
   color: white;
 }
 
@@ -234,7 +247,7 @@ input:-webkit-autofill {
   outline: none;
   text-align: center;
   color: #6FC4FF;
-  padding-bottom: 2em;
+  margin-bottom: 4em;
 }
 
 .radio-box-wrapper {
