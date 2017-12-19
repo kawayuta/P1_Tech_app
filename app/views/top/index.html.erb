@@ -75,8 +75,10 @@
 
   <div class="share-modal-overlay" id="share-modal-overlay">
     <div class="share-modal" id="share-modal">
-      <a href="" class="modal-support-btn-fb" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>Facebookで応援する</a>
-      <a href="" class="modal-support-btn-tw" id="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>Twitterで応援する</a>
+      <a href="" class="modal-support-btn-fb" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>
+        Facebookで応援する</a>
+      <a href="" class="modal-support-btn-tw" id="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>
+        Twitterで応援する</a>
     </div>
   </div>
 
@@ -89,7 +91,7 @@
     <div class="page">
       <div class="posts clearfix">
         <% @posts.each do |post| %>
-          <%= render 'post', post: post %>
+            <%= render 'post', post: post %>
         <% end %>
         <%= paginate @posts, class: 'post-pagenation' %>
       </div>
@@ -226,14 +228,14 @@
             <h4>目標製作期間 (半角数字)</h4>
             <div class="new-post-term">
               <div class="post_period_data_sub">
-              <%= form.number_field :period, id: :post_period, class: :post_period_data,placeholder: '' %>
+                <%= form.number_field :period, id: :post_period, class: :post_period_data, placeholder: '' %>
               </div>
             </div>
 
             <h4>開発規模 (半角数字)</h4>
             <div class="new-post-scale">
               <div class="post_scale_data_sub">
-                <%= form.number_field :scale, id: :post_scale, class: :post_scale_data,placeholder: '' %>
+                <%= form.number_field :scale, id: :post_scale, class: :post_scale_data, placeholder: '' %>
               </div>
             </div>
 
@@ -246,7 +248,7 @@
               <div class="post-header">
                 <div class="post-icon-data"></div>
               </div>
-                <h1 class="new-post-preview-title"></h1>
+              <h1 class="new-post-preview-title"></h1>
               <div class="post-content">
 
 
@@ -388,8 +390,8 @@
         みんなに応援してもらいましょう！</h3>
 
       <div class="sns-label-wrap">
-      <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
-      <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
+        <a class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookでペライチを共有</a>
+        <a class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterでペライチを共有</a>
       </div>
     </div>
   </div>
@@ -397,37 +399,54 @@
 
 
 <% if user_signed_in? %>
-  <div class="notifications-list-wrap">
-    <div class="notifications-list">
-      <h3>新着通知</h3>
+    <div class="notifications-list-wrap">
+      <div class="notifications-list">
+        <h3>新着通知</h3>
 
-      <ul>
-        <% @notifications.first(5).each do |notice|%>
-        <li class="clearfix">
-              <% if notice.content == '申請' %>
-                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
-              <% elsif notice.content == '取消' %>
-                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
-              <% elsif notice.content == '許可' %>
-                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
-              <% elsif notice.content == '応援' %>
-                  <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
-                  <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
-                  </div>
-                  <div class="notice-category-title">
-                  <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> が <%= link_to notice.user.username, notice.user %> に応援されました。
-                  </div>
-              <% end %>
+        <ul>
+          <% @notifications.first(5).each do |notice| %>
+              <li class="clearfix">
+                <% if notice.content == '申請' %>
 
-            <% notice.update(is_read: true) %>
+                    <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                      <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                    </div>
+                    <div class="notice-category-title">
+                      <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %>
+                      に <%= link_to notice.user.username, notice.user %> から参加申請が来ました。
+                    </div>
+                <% elsif notice.content == '取消' %>
+                    <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                      <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                    </div>
+                    <div class="notice-category-title">
+                      <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %>
+                      への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
+                    </div>
+                <% elsif notice.content == '許可' %>
+                    <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                      <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                    </div>
+                    <div class="notice-category-title">
+                      <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %>
+                      への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
+                    </div>
+                <% elsif notice.content == '応援' %>
+                    <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                      <%= fa_icon (post_icon_of_category(Post.find(notice.target_content_id).category_name)) %>
+                    </div>
+                    <div class="notice-category-title">
+                      <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %>
+                      が <%= link_to notice.user.username, notice.user %> に応援されました。
+                    </div>
+                <% end %>
 
-        </li>
-        <% end %>
-      </ul>
+                <% notice.update(is_read: true) %>
 
+              </li>
+          <% end %>
+        </ul>
+
+      </div>
     </div>
-  </div>
 <% end %>
