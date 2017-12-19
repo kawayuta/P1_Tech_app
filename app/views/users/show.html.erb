@@ -1,14 +1,17 @@
 <div class="profile-container">
-  <div class="profile-header">
-    <span>JOB TYPE</span>
+  <div class="profile-header" style="background-color: <%= user_role_color(@user) %>">
+    <span><%= user_role(@user) %></span>
     <%= image_tag @user.try(:image) %>
+    <% if @user == current_user %>
+      <%= link_to 'プロフィール編集', edit_user_registration_path %>
+    <% end %>
   </div>
   <div class="profile-content">
     <div class="profile-basic">
       <span class="profile-username"><%= @user.try(:username) %></span>
       <div class="profile-university">
-        <span>ほげほげ大学</span>
-        <span>ふがふが学部</span>
+        <span><%= @user.try(:college) %></span>
+        <span><%= @user.try(:major) %></span>
       </div>
     </div>
 

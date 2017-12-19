@@ -6,22 +6,37 @@
   .profile-header {
     background-color: #FE6B6B;
     color: #fff;
+    height: 72px;
     position: relative;
     text-align: center;
 
     span {
       position: absolute;
-      top: 30px;
+      font-size: 20px;
+      top: 26px;
       left: 20px;
     }
 
     img {
-      height: 70px;
-      width: 70px;
+      height: 60px;
+      width: 60px;
       border-radius: 50%;
       object-fit: cover;
       position: relative;
-      top: 20px;
+      top: 30px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 8px 6px;
+      font-size: 11px;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      position: absolute;
+      top: 22px;
+      right: 10px;
     }
   }
 
