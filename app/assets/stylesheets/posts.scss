@@ -1941,6 +1941,23 @@ input.jobtype-num {
 
   .comment-list-wrapper {
     padding: 0 10px;
+
+    .comment-additional-view {
+      display: none;
+    }
+
+    .additional-btn-wrapper {
+      text-align: center;
+      color: #666;
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    .additional-close-btn-wrapper {
+      display: none;
+    }
   }
 
   .comment-form {

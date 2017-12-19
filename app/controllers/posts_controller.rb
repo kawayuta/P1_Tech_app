@@ -189,7 +189,7 @@ class PostsController < ApplicationController
     end
 
     def set_comments
-      @comments = Comment.where(post_id: params[:id]).includes(:user)
+      @comments = Comment.where(post_id: params[:id]).includes(:user).order('created_at DESC')
     end
 
     def set_templates

@@ -2,23 +2,76 @@
   <span>コメント(<%= @comments.count %>)</span>
 </div>
 
-<div class="comment-list-wrapper" >
-  <% @comments.each do |comment| %>
-    <div class="post-comment clearfix">
-      <div class="comment-userimage-box">
-        <%= link_to user_path(comment.user) do %>
-          <%= image_tag comment.user.image %>
-        <% end %>
-      </div>
-      <div class="comment-box">
-        <div class="comment-info">
-          <span class="comment-username"><%= comment.user.username %></span>
+<div class="comment-list-wrapper">
+  <div class="comment-first-view">
+    <% @comments.each_with_index do |comment, i| %>
+      <% break if i >= 3 %>
+      <div class="post-comment clearfix">
+        <div class="comment-userimage-box">
+          <%= link_to user_path(comment.user) do %>
+            <%= image_tag comment.user.image %>
+          <% end %>
         </div>
-        <div class="comment-content" style="<%= comment_color_style(comment) %>">
-          <p><%= comment.content %></p>
-          <span style="<%= comment_time_color_style(comment) %>"><%= created_time_distance(comment) %></span>
+        <div class="comment-box">
+          <div class="comment-info">
+            <span class="comment-username"><%= comment.user.username %></span>
+          </div>
+          <div class="comment-content" style="<%= comment_color_style(comment) %>">
+            <p><%= comment.content %></p>
+            <span style="<%= comment_time_color_style(comment) %>"><%= created_time_distance(comment) %></span>
+          </div>
         </div>
       </div>
+    <% end %>
+  </div>
+
+  <% if @comments.count > 3 %>
+    <div class="additional-btn-wrapper" id="additional-open-btn-wrapper">
+      <span id="additional-open-btn">もっと見る</span>
+    </div>
+  <% end %>
+
+  <div class="comment-additional-view" id="additional-view">
+    <% @comments.each_with_index do |comment, i| %>
+      <% next if i < 3 %>
+      <div class="post-comment clearfix">
+        <div class="comment-userimage-box">
+          <%= link_to user_path(comment.user) do %>
+            <%= image_tag comment.user.image %>
+          <% end %>
+        </div>
+        <div class="comment-box">
+          <div class="comment-info">
+            <span class="comment-username"><%= comment.user.username %></span>
+          </div>
+          <div class="comment-content" style="<%= comment_color_style(comment) %>">
+            <p><%= comment.content %></p>
+            <span style="<%= comment_time_color_style(comment) %>"><%= created_time_distance(comment) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @comments.count > 3 %>
+    <div class="additional-btn-wrapper additional-close-btn-wrapper" id="additional-close-btn-wrapper">
+      <span id="additional-close-btn">閉じる</span>
     </div>
   <% end %>
 </div>
+
+<script>
+  $(function() {
+    $('#additional-open-btn').click(function() {
+      $('#additional-view').css('display', 'block');
+      $('#additional-close-btn-wrapper').css('display', 'block');
+      $('#additional-open-btn-wrapper').css('display', 'none');
+    });
+
+    $('#additional-close-btn').click(function() {
+      $('#additional-open-btn-wrapper').css('display', 'block');
+      $('#additional-close-btn-wrapper').css('display', 'none');
+      $('#additional-view').css('display', 'none');
+    });
+  });
+</script>
