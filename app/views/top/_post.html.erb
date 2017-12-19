@@ -1,0 +1,78 @@
+<div class="posts-post">
+  <div class="post-header" style="background-color: <%= post.main_color%>">
+    <%= fa_icon (post_icon_of_category(post.category_name)), class: "post-icon" %>
+    <h3><%= post.title %></h3>
+  </div>
+  <div class="posts-post-text">
+    <div class="post-content">
+      <%= link_to '', post, class: 'link_to_show' %>
+      <p class="post-index-detail">
+        <%= post.detail.truncate(50) %>
+      </p>
+
+      <div class="post-status post-index-status">
+        <div class="status-line"></div>
+        <div class="status-box">
+          <div class="status-planning<%= post_status_active_class(post, 'planning') %>">
+            <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'planning') %>"></i>
+            <span class="status-label" style="color: <%= post_status_color(post, 'planning') %>">募集中</span>
+          </div>
+          <div class="status-development<%= post_status_active_class(post, 'development') %>">
+            <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'development') %>"></i>
+            <span class="status-label" style="color: <%= post_status_color(post, 'development') %>">開発中</span>
+          </div>
+          <div class="status-release<%= post_status_active_class(post, 'release') %>">
+            <i class="status-icon show-status-icon" style="color: <%= post_status_color(post, 'release') %>"></i>
+            <span class="status-label" style="color: <%= post_status_color(post, 'release') %>">リリース</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-index-images">
+        <div class="post-image-box">
+          <% if post.image.present? %>
+            <div class="post-image-cell">
+              <%= image_tag post.image, class: 'post-image-item' %>
+            </div>
+          <% end %>
+          <% if post.image_2.present? %>
+            <div class="post-image-cell">
+              <%= image_tag post.image_2, class: 'post-image-item' %>
+            </div>
+          <% end %>
+          <% if post.image_3.present? %>
+            <div class="post-image-cell">
+              <%= image_tag post.image_3, class: 'post-image-item' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-index-footer clearfix">
+      <div class="post-founder-wrapper clearfix">
+        <div class="post-founder-img">
+          <%= link_to user_path(post.user) do %>
+              <%= image_tag post.user.try(:image) %>
+          <% end %>
+        </div>
+        <div class="post-founder-info">
+          <span class="post-founder-name"><%= link_to post.user.try(:username), post.user %></span>
+        </div>
+      </div>
+
+      <div class="post-footer-vote" style="color:<%= post.main_color%>">
+        <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
+
+        <% if user_signed_in? %>
+            <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
+                <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active', style: "color: #{post.main_color}" %>
+            <% else %>
+                <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart', style: "color: #{post.main_color}" %>
+            <% end %>
+            <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

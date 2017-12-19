@@ -80,17 +80,22 @@
     </div>
   </div>
 
-  <section class="top-posts clearfix" id="top-posts">
+  <section class="top-posts" id="top-posts">
     <h2>NEW</h2>
     <!--<%= link_to 'planner', search_posts_path(sort: 'planner') %>-->
     <!--<%= link_to 'engineer', search_posts_path(sort: 'engineer') %>-->
     <!--<%= link_to 'designer', search_posts_path(sort: 'designer') %>-->
 
     <div class="page">
-      <%= render 'post_list' %>
+      <div class="posts clearfix">
+        <% @posts.each do |post| %>
+          <%= render 'post', post: post %>
+        <% end %>
+        <%= paginate @posts, class: 'post-pagenation' %>
+      </div>
     </div>
 
-    <%= paginate @posts, class: 'post-pagenation' %>
+
   </section>
 
   <script>
