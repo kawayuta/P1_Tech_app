@@ -71,5 +71,71 @@
     <% end %>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+
+
+
+
+    <% if user_signed_in? %>
+      <div class="notifications-list-wrap">
+        <div class="notifications-list">
+          <h3>新着通知</h3>
+
+          <ul>
+            <% if @notifications.count == 0 %>
+                <p class="not-notification-sub-notice">お知らせする通知はありません</p>
+            <% end %>
+            <% @notifications.first(5).reverse.each do |notice| %>
+                <li class="clearfix">
+                  <% if notice.content == '申請' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            に <%= notice.user.username %> から参加申請が来ました。
+                        <% end %>
+                      </div>
+                  <% elsif notice.content == '取消' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            への参加申請を <%= notice.user.username %> が取り消しました。
+                        <% end %>
+                      </div>
+                  <% elsif notice.content == '許可' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            への参加が <%= notice.user.username %> に許可されました。
+                        <% end %>
+                      </div>
+                  <% elsif notice.content == '応援' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            が <%= notice.user.username %> に応援されました。
+                        <% end %>
+                      </div>
+                  <% end %>
+
+                </li>
+            <% end %>
+          </ul>
+
+        </div>
+      </div>
+  <% end %>
+
+
   </body>
 </html>

@@ -46,5 +46,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :role, :college, :major, :graduation_year)
     end
 
-
+    def set_notice
+      if user_signed_in?
+        @notifications = Notification.where(from_user_id: current_user.id, is_read:false)
+      end
+    end
 end
