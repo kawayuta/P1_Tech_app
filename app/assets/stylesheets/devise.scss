@@ -127,6 +127,12 @@
   width: 80%;
 }
 
+.alert-message {
+  font-size: small;
+  color: red;
+  padding-left: 1.5em;
+}
+
 .input-wrapper {
   margin-bottom: 3em;
   border-radius: 3em;
@@ -188,14 +194,15 @@ input:-webkit-autofill {
   font-size: small;
   color: #919EC4;
   padding: 0 0 1em .5em;
+  display: inline-block;
 }
 
 .profile-image-field-wrapper {
   padding-bottom: 3em;
+  text-align: center;
 }
 
 .profile-image-field-wrapper p {
-   text-align: center;
    margin-bottom: 1.5em;
  }
 

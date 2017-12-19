@@ -25,19 +25,19 @@
               <div class="email-field-wrapper">
                 <p>メールアドレス</p>
                 <div class="input-wrapper">
-                  <%= f.email_field :email, autofocus: true, value: @user.email %>
+                  <%= f.email_field :email, autofocus: true, value: @user.email, id: 'user-email' %>
                 </div>
               </div>
               <div class="password-field-wrapper">
                 <p>パスワード</p>
                 <div class="input-wrapper">
-                  <%= f.password_field :password, autocomplete: "off" %>
+                  <%= f.password_field :password, autocomplete: "off", id: 'user-password' %>
                 </div>
               </div>
               <div class="password-field-wrapper">
                 <p>パスワード(確認)</p>
                 <div class="input-wrapper">
-                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "off", id: 'user-password-confirmation' %>
                 </div>
               </div>
               <div class="btn-wrapper">
@@ -59,17 +59,23 @@
               <%= f.radio_button :role, 3 %><span>デザイナー</span>
             </label>
           </div>
-          <p>学校名</p>
-          <div class="input-wrapper">
-            <%= f.text_field :college %>
+          <div class="college-field-wrapper">
+            <p>学校名</p>
+            <div class="input-wrapper">
+              <%= f.text_field :college, id: 'college-field' %>
+            </div>
           </div>
-          <p>学科/専攻</p>
-          <div class="input-wrapper">
-            <%= f.text_field :major %>
+          <div class="major-field-wrapper">
+            <p>学科/専攻</p>
+            <div class="input-wrapper">
+              <%= f.text_field :major, id: 'major-field' %>
+            </div>
           </div>
-          <p>卒業年度（半角数字4桁）</p>
-          <div class="input-wrapper">
-            <%= f.number_field :graduation_year %>
+          <div class="graduation_year-field-wrapper">
+            <p>卒業年度（半角数字4桁）</p>
+            <div class="input-wrapper">
+              <%= f.number_field :graduation_year, id: 'graduation_year-field' %>
+            </div>
           </div>
           <div class="btn-wrapper">
             <%= f.submit '登録完了', class: 'sign-up' %>
