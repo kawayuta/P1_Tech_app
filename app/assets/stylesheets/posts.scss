@@ -32,9 +32,9 @@
 
 .notifications-list h3{
   text-align: center;
-  font-size:22px;
+  font-size:20px;
   padding-top: 30px;
-  padding-bottom: 35px;
+  padding-bottom: 25px;
 }
 
 .notifications-list li {
@@ -55,9 +55,9 @@ text-decoration: none;
 .notifications-list li .notice-category-title{
   width:calc(100% - 80px);
   height:70px;
-  font-size:16px;
-  line-height:1.8em;
-  border-bottom:2px solid #eee;
+  font-size:15px;
+  line-height:1.5em;
+  border-bottom:1px solid #eee;
   float: left;
 }
 
@@ -74,7 +74,23 @@ text-decoration: none;
   color:#FFF;
   float: left;
   margin-right: 15px;
+}
 
+
+.notice-category-icon a i{
+
+  color:#FFF;
+
+}
+.not-notification-sub-notice {
+  font-size:13px;
+  color:#DDD;
+  text-align: center;
+}
+.notice-category-title a {
+  padding-top: 8px;
+  width:100%;
+  display: block;
 }
 
 

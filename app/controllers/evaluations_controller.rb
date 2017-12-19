@@ -1,4 +1,5 @@
 class EvaluationsController < ApplicationController
+  before_action :set_notice
 
   def new
     @post = Post.find(params[:post_id])
@@ -23,4 +24,10 @@ class EvaluationsController < ApplicationController
       params.permit(:post_id, :first_evaluated_user, :second_evaluated_user, :third_evaluated_user, :fourth_evaluated_user, :fifth_evaluated_user).merge(user_id: current_user.id)
     end
 
+
+  def set_notice
+    if user_signed_in?
+      @notifications = Notification.where(from_user_id: current_user.id, is_read:false)
+    end
+  end
 end

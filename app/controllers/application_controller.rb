@@ -43,4 +43,5 @@ class ApplicationController < ActionController::Base
     return GroupMessage.where(post_id: post_id).where('created_at > ?', last_read_at).count
   end
 
+
 end

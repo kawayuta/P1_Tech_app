@@ -226,32 +226,32 @@ $(function () {
       $(this).css('height', '60px');
       $(this).css('margin-top', '5px');
       $('#main_color').val($(this).css("background-color"));
-      $('.post-header').css({
+      $('#posts-post-new .post-header').css({
         "background-color" : $(this).css("background-color")
       });
-      $('.term-active span').css({
+      $('#posts-post-new .term-active span').css({
         'color': $(this).css("background-color")
       });
-      $('.status-icon').css({
+      $('#posts-post-new .status-icon').css({
         "color" : $(this).css("background-color")
       });
-      $('.status-label').css({
+      $('#posts-post-new .status-label').css({
         "color" : $(this).css("background-color")
       });
-      $('.preview_post_period_data_sub').css({
+      $('#posts-post-new .preview_post_period_data_sub').css({
         "color" : $(this).css("background-color")
       });
 
-      $('.preview_post_scale_data_sub').css({
+      $('#posts-post-new .preview_post_scale_data_sub').css({
         "color" : $(this).css("background-color")
       });
-      $('.commitment-icon').css({
+      $('#posts-post-new .commitment-icon').css({
         "color" : $(this).css("background-color")
       });
-      $('.jobtype-icon').css({
+      $('#posts-post-new .jobtype-icon').css({
         "color" : $(this).css("background-color")
       });
-      $('h2 i').css({
+      $('#posts-post-new h2 i').css({
         "color" : $(this).css("background-color")
       });
     });

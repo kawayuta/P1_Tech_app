@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_templates, only: [:new, :create, :edit, :update]
   before_action :authenticate_user!
   before_action :set_new_post_category, only: [:index, :new, :update, :edit, :success]
-
+  before_action :set_notice
 
   require 'yaml'
 
@@ -36,6 +36,9 @@ class PostsController < ApplicationController
     #       "description" => "リンクの説明",
     #       "picture" => "http://www.campaign-site_url.xxx/image.jpg"
     # })
+
+    @notice = Notification.find_by(from_user_id:current_user.id, target_content_id:@post.id, target_content_type:'Post', is_read:false)
+    @notice.update(is_read:true) if @notice.present?
   end
 
   # GET /posts/new
@@ -211,4 +214,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :detail, :image, :image_2, :image_3, :category_name, :motivation, :period, :scale, :main_color,:user_id, :published, :status, :num_of_planner, :num_of_engineer, :num_of_designer).merge(user_id: current_user.id)
     end
+
+
+  def set_notice
+    if user_signed_in?
+      @notifications = Notification.where(from_user_id: current_user.id, is_read:false)
+    end
+  end
 end

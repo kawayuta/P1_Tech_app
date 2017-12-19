@@ -154,17 +154,14 @@ body {
 }
 
 .header-notices {
-    font-size:28px;
+    font-size:25px;
     text-decoration: none;
-    color: #FED430;
+    color: #AAA;
     float: right;
-    margin-top: 6px;
-    margin-right: 10px;
+    margin-top: 7px;
+    margin-right: 8px;
 }
 
-.header-notices:hover{
-    color: #F3722C;
-}
 
 .side-menu {
   position: fixed;

@@ -1,5 +1,7 @@
 class GroupMessagesController < ApplicationController
   before_action :set_post, except: :room_list
+  before_action :set_notice
+
 
   def room_list
     joining_post_ids = current_user.team_members.where(accepted: true).map{|m| m.post_id}
@@ -53,5 +55,12 @@ class GroupMessagesController < ApplicationController
         MessageReadTime.create(user_id: current_user.id, post_id: @post.id, last_read_at: Time.now)
       end
     end
+
+
+  def set_notice
+    if user_signed_in?
+      @notifications = Notification.where(from_user_id: current_user.id, is_read:false)
+    end
+  end
 
 end
