@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: 'rounded-mplus-1c-medium';
-    src: url(font-path('rounded-mplus-1c-medium.ttf')) format('truetype');
+    src: url('/assets/stylesheets/fonts/rounded-mplus-1c-medium.ttf') format('truetype');
 }
 
 
