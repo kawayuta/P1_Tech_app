@@ -3,13 +3,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :posts
-  has_many :team_members
-  has_many :group_messages
-  has_many :comments
-  has_many :notifications
-  has_many :evaluations
-  has_many :message_read_times
+  has_many :posts, dependent: :delete_all
+  has_many :team_members, dependent: :delete_all
+  has_many :group_messages, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
+  has_many :notifications, dependent: :delete_all
+  has_many :evaluations, dependent: :delete_all
+  has_many :message_read_times, dependent: :delete_all
 
   mount_uploader :image, ImageUploader
 
