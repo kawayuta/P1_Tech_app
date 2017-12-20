@@ -47,7 +47,6 @@ gem 'rmagick'
 gem 'search_cop'
 gem 'koala'
 gem 'gon'
-gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development do
   gem 'capistrano',         require: false
