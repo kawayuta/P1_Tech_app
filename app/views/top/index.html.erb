@@ -111,7 +111,7 @@
         navSelector: "nav.pagination",
         nextSelector: "nav.pagination a[rel=next]",
         itemSelector: "#top-posts div.posts",
-        maxPage: <%= Post.count / 10 + 1 %>
+        maxPage: <%= (Post.count - 1) / 12 + 1 %>
       });
     });
   </script>
