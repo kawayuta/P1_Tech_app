@@ -1,7 +1,7 @@
 <div class="room-list-container">
   <h1>PROJECT ROOM</h1>
   <div class="room-list">
-    <% @room_list_posts_and_messages.each do |post_and_message| %>
+    <% @sorted_posts_and_messages.each do |post_and_message| %>
       <div class="room-item clearfix">
         <%= link_to '', talk_room_path(post_and_message[0].id), class: 'room-link' %>
         <div class="room-icon" style="background-color: <%= post_and_message[0].main_color %>">

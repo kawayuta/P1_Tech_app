@@ -4,15 +4,6 @@ class GroupMessagesController < ApplicationController
 
 
   def room_list
-    joining_post_ids = current_user.team_members.where(accepted: true).map{|m| m.post_id}
-    sorted_post_ids = joining_post_ids.sort_by do |id|
-      if GroupMessage.find_by(post_id: id).present?
-        GroupMessage.where(post_id: id).last.created_at
-      else
-        Post.find(id).created_at
-      end
-    end.reverse
-    @room_list_posts_and_messages = sorted_post_ids.map{|id| [Post.find(id), GroupMessage.where(post_id: id).last, unread_messages_count(id)]}
   end
 
   def talk_room

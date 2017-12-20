@@ -28,7 +28,6 @@
         <div class="side-menu-list">
           <ul>
             <li><%= link_to current_user do %><%= fa_icon 'user' %>プロフィール<% end %></li>
-            <li><%= link_to room_list_path do %><%= fa_icon 'comments-o' %>プロジェクトルーム<% end %></li>
           </ul>
         </div>
         <% if @sorted_posts_and_messages.present? %>
@@ -43,7 +42,11 @@
                 </div>
                 <div class="message-main">
                   <h4 class="message-title"><%= post_and_message[0].title.truncate(15) %></h4>
-                  <p class="message-content"><%= post_and_message[1].content.truncate(15) %></p>
+                  <% if post_and_message[1] %>
+                    <p class="message-content"><%= post_and_message[1].content.truncate(15) %></p>
+                  <% else %>
+                    <p class="message-content">メッセージはまだありません</p>
+                  <% end %>
                 </div>
                 <% if post_and_message[2] > 0 %>
                   <div class="unread-count">
@@ -51,6 +54,10 @@
                   </div>
                 <% end %>
               </div>
+            <% end %>
+
+            <% if @sorted_posts_and_messages.count >= 3 %>
+              <span class="link-to-room-list"><%= link_to room_list_path do %>もっとみる<% end %></span>
             <% end %>
           </div>
         <% else %>

@@ -296,6 +296,18 @@ body {
   top: 8px;
 }
 
+.side-menu .link-to-room-list {
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.side-menu .link-to-room-list a {
+  color: #888;
+  font-size: 14px;
+  text-decoration: none;
+}
+
 .side-menu .encourage-message {
   padding: 50px 30px 0;
 }
