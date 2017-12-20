@@ -184,13 +184,13 @@ input:-webkit-autofill {
   background-color: #FAFAFA;
 }
 
-.sign-up-slider li {
-  margin: 0 3em;
-  outline: none;
-  padding-top: 3em;
+.sign-up-wrapper {
+  width: 85%;
+  margin: auto;
+  padding: 3em 0;
 }
 
-.sign-up-slider p {
+.sign-up-wrapper p {
   font-size: small;
   color: #919EC4;
   padding: 0 0 1em .5em;
@@ -203,7 +203,7 @@ input:-webkit-autofill {
 }
 
 .profile-image-field-wrapper p {
-   margin-bottom: 1.5em;
+   margin-top: 3em;
  }
 
 .profile-image-field {
@@ -255,6 +255,10 @@ input:-webkit-autofill {
   text-align: center;
   color: #6FC4FF;
   margin-bottom: 4em;
+}
+
+.role-field-wrapper {
+  margin-bottom: 2em;
 }
 
 .radio-box-wrapper {
