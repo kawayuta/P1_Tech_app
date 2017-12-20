@@ -1,11 +1,11 @@
 <div class="posts-post">
+  <%= link_to '', post, class: 'link_to_show' %>
   <div class="post-header" style="background-color: <%= post.main_color%>">
     <%= fa_icon (post_icon_of_category(post.category_name)), class: "post-icon" %>
     <h3><%= post.title %></h3>
   </div>
   <div class="posts-post-text">
     <div class="post-content">
-      <%= link_to '', post, class: 'link_to_show' %>
       <p class="post-index-detail">
         <%= post.detail.truncate(50) %>
       </p>

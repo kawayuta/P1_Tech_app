@@ -119,6 +119,11 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
   }
 
   .room-back-btn {

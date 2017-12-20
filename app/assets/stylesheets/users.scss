@@ -117,6 +117,17 @@
           box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
           border-radius: 6px;
           margin: 10px 0;
+          position: relative;
+
+          a {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+          }
 
           .profile-post-iconbox {
             float: left;
