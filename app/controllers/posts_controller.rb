@@ -63,7 +63,7 @@ class PostsController < ApplicationController
       @post.published = false
     end
 
-    if @post.valid? && num_of_members_valid? && verify_recaptcha(model: @post)
+    if @post.valid? && num_of_members_valid?
         @post.save
       if @post.published
         @save_type = 'public'
