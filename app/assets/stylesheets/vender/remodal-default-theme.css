@@ -55,15 +55,17 @@
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 10px;
-  padding: 35px;
-  border-radius: 8px;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    border-radius: 8px;
   box-shadow: 0 1px 10px rgba(0,0,0,.35);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   color: #2b2e38;
   background: #fff;
   position: relative;
-  top:-150px;
 }
 
 .remodal.remodal-is-opening,

@@ -42,6 +42,15 @@
 }
 
  @media screen and (max-width: 375px) {
+
+   .post-preview-modal h3 {
+     letter-spacing: 2px;
+     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     line-height:1.4em;
+     font-size:17px;
+     margin-bottom: 20px;
+   }
+
    .posts {
 
      &-post {
@@ -56,6 +65,15 @@
 
 
  @media screen and (max-width: 320px) {
+
+
+   .post-preview-modal h3 {
+     letter-spacing: 2px;
+     font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     line-height:1.4em;
+     font-size:14px;
+     margin-bottom: 20px;
+   }
    .posts {
 
      &-post {

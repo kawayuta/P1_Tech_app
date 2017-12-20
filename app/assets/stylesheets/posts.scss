@@ -656,8 +656,15 @@ div.new-post-btn-public {
 
 .new-post-scale {
   margin-top: 15px;
-
+  margin-bottom: 15px;
 }
+
+
+.new-post-recaptcha {
+  width:304px;
+  margin: 0 auto;
+}
+
 
 .new-post-scale .post_scale_data {
   border-radius: 20px;
@@ -826,7 +833,7 @@ div.new-post-btn-public {
   letter-spacing: 2px;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height:1.4em;
-  font-size:14px;
+  font-size:20px;
   margin-bottom: 20px;
 }
 
