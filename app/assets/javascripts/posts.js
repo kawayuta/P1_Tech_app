@@ -289,7 +289,7 @@ $(function () {
   //   clearTimeout($(this).data('timeout'));
   // });
 
-  $('.modal-support-btn').click(function(){
+  $(document).on('click', '.modal-support-btn', function() {
     var postId = $(this).attr('data-post-id');
     var url = $(this).attr('data-url');
     $('#modal-support-btn-fb').attr('href', 'http://www.facebook.com/sharer.php?u=' + url);
