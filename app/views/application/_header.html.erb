@@ -7,7 +7,7 @@
       <% if user_signed_in? %>
           <li class="header-profile_image" id="open-menu-btn"><%= image_tag current_user.try(:image) %></li>
           <li class="header-notices">
-            <div class="header-notices fa fa-bell"></div>
+            <div class="header-notices fa fa-bell-o"></div>
             <%= (Notification.where(from_user_id: current_user, is_read:false).count > 0) ? Notification.where(from_user_id: current_user, is_read:false).count : ""%>
           </li>
       <% else %>
