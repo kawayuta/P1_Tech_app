@@ -18,10 +18,6 @@
  *= require vender/remodal
  */
 
-@font-face {
-    font-family: 'rounded-mplus-1c-medium';
-    src: url('/assets/stylesheets/fonts/rounded-mplus-1c-medium.ttf') format('truetype');
-}
 
 
 /* http://meyerweb.com/eric/tools/css/reset/
