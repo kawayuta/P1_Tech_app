@@ -30,6 +30,10 @@ $(document).on('turbolinks:load', function () {
       });
     });
 
+    $('#side-menu a').click(function() {
+      closeSideMenu();
+    })
+
     $('#close-menu-btn').click(function () {
       closeSideMenu();
     });
