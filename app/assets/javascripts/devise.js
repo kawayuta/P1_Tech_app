@@ -1,17 +1,16 @@
 $(document).on('turbolinks:load', function () {
 
     $(function () {
-        $('.sign-up-slider').slick({
-            dots: false,
-            dotsClass: 'slick-dots sign-up-slide-dots',
-            slidesToShow: 1,
-            arrows: false,
-            autoplay: false,
-            swipe: false,
-            infinite: false
-        });
 
-        $('.sign-up-slick-next').on('click', function () {
+        if($('.field_with_errors').length){
+            $('.field_with_errors').css({'background-color': 'transparent'});
+            $('.field_with_errors').css({'width': '100%'});
+            $('.field_with_errors').parent().css({'border': '1px solid red'});
+            $('.field_with_errors').parent().parent().find('p').after('<span class="alert-message">*すでに登録されています</span>');
+        }
+
+        $('.sign-up').on('click', function () {
+
             // validate input value
             var isValidate = true;
 
@@ -45,10 +44,11 @@ $(document).on('turbolinks:load', function () {
                 $('#user-email').parent().parent().find('.alert-message').remove();
             }
 
-            if ($('#user-password').val() === '') {
+            if ($('#user-password').val().length < 6) {
                 $('#user-password').parent().css({'border': '1px solid red'});
                 $('#user-password').parent().parent().find('.alert-message').remove();
-                $('#user-password').parent().parent().find('p').after('<span class="alert-message">*必須項目です</span>');
+                var msg = ($('#user-password').val().length === 0) ? '*必須項目です' : '6文字以内で入力してください';
+                $('#user-password').parent().parent().find('p').after('<span class="alert-message">' + msg + '</span>');
                 isValidate = false;
             }else{
                 $('#user-password').parent().css({'border': 'none'});
@@ -64,29 +64,6 @@ $(document).on('turbolinks:load', function () {
                 $('#user-password-confirmation').parent().css({'border': 'none'});
                 $('#user-password-confirmation').parent().parent().find('.alert-message').remove();
             }
-
-            if (!isValidate) {
-                return true;
-            }
-
-            $('#username').val($('#first-name-data').val() + "" + $('#last-name-data').val());
-            if (!gon.user) {
-                $('.back-icon').show()
-            }
-            $('.sign-up-slider').slick('slickNext');
-            $('#sign-up').scrollTop(0);
-        });
-
-        $('.back-icon').on('click', function () {
-            $('#sign-up').scrollTop(0);
-            $('.back-icon').hide();
-            $('.sign-up-slider').slick('slickPrev');
-        });
-
-        $('.sign-up').on('click', function () {
-
-            // validate input value
-            var isValidate = true;
 
             if ($('#college-field').val() === '') {
                 $('#college-field').parent().css({'border': '1px solid red'});
@@ -108,10 +85,11 @@ $(document).on('turbolinks:load', function () {
                 $('#major-field').parent().parent().find('.alert-message').remove();
             }
 
-            if ($('#graduation_year-field').val() === '') {
+            if ($('#graduation_year-field').val().length < 4) {
                 $('#graduation_year-field').parent().css({'border': '1px solid red'});
                 $('#graduation_year-field').parent().parent().find('.alert-message').remove();
-                $('#graduation_year-field').parent().parent().find('p').after('<span class="alert-message">*必須項目です</span>');
+                var msg = ($('#graduation_year-field').val().length === 0) ? '*必須項目です' : '4桁で入力してください';
+                $('#graduation_year-field').parent().parent().find('p').after('<span class="alert-message">' + msg + '</span>');
                 isValidate = false;
             }else{
                 $('#graduation_year-field').parent().css({'border': 'none'});
@@ -121,6 +99,8 @@ $(document).on('turbolinks:load', function () {
             if (!isValidate) {
                 return false;
             }
+
+            $('#username').val($('#first-name-data').val() + "" + $('#last-name-data').val());
 
             if (gon.user) {
                 $('#user-profile-image').val(gon.user.image);
