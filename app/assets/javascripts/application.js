@@ -24,6 +24,10 @@ $(document).on('turbolinks:load', function () {
     $('#open-menu-btn').click(function () {
       $('#side-menu-wrapper').css('display', 'block');
       $('#side-menu').css('display', 'block').animate({'right': '0'}, 200);
+      $('html, body').css('overflow', 'hidden');
+      $(window).on('touchmove.noScroll', function(e) {
+          e.preventDefault();
+      });
     });
 
     $('#close-menu-btn').click(function () {
@@ -36,6 +40,8 @@ $(document).on('turbolinks:load', function () {
 
     function closeSideMenu() {
       $('#side-menu-wrapper').css('display', 'none');
+      $('html, body').css('overflow', 'auto');
+      $(window).off('.noScroll');
       $('#side-menu').animate({'right': '-260px'},
         {
           'duration': 200,

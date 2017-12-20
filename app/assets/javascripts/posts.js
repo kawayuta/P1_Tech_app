@@ -295,11 +295,17 @@ $(function () {
     $('#modal-support-btn-fb').attr('href', 'http://www.facebook.com/sharer.php?u=' + url);
     $('#modal-support-btn-tw').attr('href', 'http://twitter.com/share?url=' + url);
     $('#share-modal-overlay').css('display', 'block');
+    $('html, body').css('overflow', 'hidden');
+    $(window).on('touchmove.noScroll', function(e) {
+        e.preventDefault();
+    });
     // $('[data-post-id=' + postId + '][data-remodal-id=modal]' ).remodal().open();
   });
 
   $('#share-modal-overlay').click(function() {
     $(this).css('display', 'none');
+    $('html, body').css('overflow', 'auto');
+    $(window).off('.noScroll');
   });
 
   $('#modal-support-btn-tw').click(function() {
