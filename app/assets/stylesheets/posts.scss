@@ -125,6 +125,20 @@ text-decoration: none;
     // background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1178', endColorstr='#f0443c',GradientType=1 );
     box-shadow: 0 2px 5px rgba(0,0,0,.26);
+    position: relative;
+
+    .link_to_show {
+      position: absolute;
+      top: 0;
+      bottom: 49px;
+      right: 0;
+      left: 0;
+      z-index: 10;
+
+      &:focus {
+        outline: none;
+      }
+    }
 
     &_highlight {
       animation: inout 2s;
@@ -1334,19 +1348,6 @@ input.jobtype-num {
 .post-content {
   background-color: #fff;
   position: relative;
-
-  .link_to_show {
-    position: absolute;
-    top: -50px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 10;
-
-    &:focus {
-      outline: none;
-    }
-  }
 
   h2 {
     padding: 0 7%;
