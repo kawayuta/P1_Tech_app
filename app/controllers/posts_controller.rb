@@ -63,8 +63,8 @@ class PostsController < ApplicationController
       @post.published = false
     end
 
-    if @post.valid? && num_of_members_valid?
-      @post.save
+    if @post.valid? && num_of_members_valid? && verify_recaptcha(model: @post)
+        @post.save
       if @post.published
         @save_type = 'public'
       else
@@ -72,8 +72,8 @@ class PostsController < ApplicationController
       end
       session[:post_created] = true
       session[:new_post_id] = @post.id
-
     else
+
       @post.errors.messages[:members] = ['must be added in at least one job type'] if !num_of_members_valid?
       render :new
     end
