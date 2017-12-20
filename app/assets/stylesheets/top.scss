@@ -1,3 +1,8 @@
+
+@font-face {
+  font-family: 'rounded-mplus-1c-medium';
+  src: font-url('rounded-mplus-1c-medium.ttf') format('truetype');
+}
 .top-page-wrapper {
   background: #fff;
   padding-bottom: 80px;
@@ -7,7 +12,7 @@ section h2 {
   text-align: left;
   font-size: 24px;
   letter-spacing: 2px;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "rounded-mplus-1c-medium";
   padding: 20px 0;
   margin-left: 30px;
 }

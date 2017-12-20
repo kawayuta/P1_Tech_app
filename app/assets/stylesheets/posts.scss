@@ -1,7 +1,12 @@
+@font-face {
+  font-family: 'rounded-mplus-1c-medium';
+  src: font-url('rounded-mplus-1c-medium.ttf') format('truetype');
+}
+
 .success-wrap h2 {
   text-align: center;
   letter-spacing: 2px;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "rounded-mplus-1c-medium";
   line-height:1.4em;
   font-size:23px;
   margin-top: 80px;
@@ -845,7 +850,7 @@ div.new-post-btn-public {
 
 .post-preview-modal h3 {
   letter-spacing: 2px;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "rounded-mplus-1c-medium";
   line-height:1.4em;
   font-size:20px;
   margin-bottom: 20px;
@@ -2121,7 +2126,7 @@ input.jobtype-num {
     //   color: #fff;
     //   padding: 4px 8px;
     //   border-radius: 8px;
-    //   font-size: 14px;
+    //   fonts-size: 14px;
     //   text-decoration: none;
     // }
   }
