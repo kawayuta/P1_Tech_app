@@ -16,12 +16,12 @@ class Post < ApplicationRecord
 
 
   belongs_to :user
-  has_many :team_members
-  has_many :votes
-  has_many :group_messages
-  has_many :comments
+  has_many :team_members, dependent: :delete_all
+  has_many :votes, dependent: :delete_all
+  has_many :group_messages, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   has_many :evaluations
-  has_many :message_read_times
+  has_many :message_read_times, dependent: :delete_all
 
   mount_uploader :image, ImageUploader
   mount_uploader :image_2, ImageUploader
