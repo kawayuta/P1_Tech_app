@@ -44,7 +44,7 @@
           </div>
 
           <div class="post-footer-vote">
-            <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+            <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id, url: post_url(@post)} %></span>
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
@@ -105,7 +105,8 @@
           </div>
 
           <div class="post-footer-vote">
-            <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+            <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id, url: post_url(@post)} %></span>
+
 
             <% if user_signed_in? %>
                 <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>

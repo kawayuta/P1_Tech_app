@@ -135,5 +135,18 @@
     <% end %>
 
 
+
+    <div class="remodal" data-post-modal="modal">
+      <div class="post-preview-modal" id="post-preview-modal">
+        <h3>この投稿を応援しますか？</h3>
+        <div class="sns-label-wrap clearfix">
+          <a href="" class="modal-support-btn-fb sns-label-fb" id="modal-support-btn-fb" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'facebook-square' %>
+            Facebookで応援する</a>
+          <a href="" class="modal-support-btn-tw sns-label-tw" id="modal-support-btn-tw" onclick="window.open(this.href, 'snswindow', 'width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;"><%= fa_icon 'twitter' %>
+            Twitterで応援する</a>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

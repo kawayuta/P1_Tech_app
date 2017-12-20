@@ -73,7 +73,7 @@
             </div>
 
             <div class="post-footer-vote" style="color:<%= post.main_color%>">
-              <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
+              <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
 
               <% if user_signed_in? %>
                   <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
@@ -84,6 +84,11 @@
                   <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
               <% end %>
             </div>
+
+
+
+
+
           </div>
         </div>
       </li>
@@ -362,8 +367,8 @@
           <h3>ペライチが完成しました！<br/>
             みんなに応援してもらいましょう！</h3>
           <div class="sns-label-wrap clearfix">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookで共有する</a>
-            <a href="http://twitter.com/share?url=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterで共有する</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookで応援する</a>
+            <a href="http://twitter.com/share?url=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterで応援する</a>
           </div>
         </div>
       </div>
