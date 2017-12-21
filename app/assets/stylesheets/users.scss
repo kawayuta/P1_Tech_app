@@ -43,6 +43,11 @@
   .profile-content {
     padding-bottom: 30px;
 
+    .profile-content-box {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
     .profile-basic {
       padding-top: 30px;
       text-align: center;

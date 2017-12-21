@@ -7,90 +7,92 @@
     <% end %>
   </div>
   <div class="profile-content">
-    <div class="profile-basic">
-      <span class="profile-username"><%= @user.try(:username) %></span>
-      <div class="profile-university">
-        <span><%= @user.try(:college) %></span>
-        <span><%= @user.try(:major) %></span>
+    <div class="profile-content-box">
+      <div class="profile-basic">
+        <span class="profile-username"><%= @user.try(:username) %></span>
+        <div class="profile-university">
+          <span><%= @user.try(:college) %></span>
+          <span><%= @user.try(:major) %></span>
+        </div>
       </div>
-    </div>
 
-    <div class="profile-introduction">
-      <p>ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
-        ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
-        ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。</p>
-    </div>
+      <div class="profile-introduction">
+        <p>ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
+          ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
+          ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。</p>
+      </div>
 
-    <div class="profile-link">
-      <ul>
-        <li>
-          <span class="link-label">URL1</span>
-          <span class="link-url"><%= link_to 'http://samplesamplesamplesamplesample'.truncate(25), 'http://133.130.113.77' %></span>
-        </li>
-        <li>
-          <span class="link-label">URL2</span>
-          <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
-        </li>
-        <li>
-          <span class="link-label">URL3</span>
-          <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
-        </li>
-      </ul>
-    </div>
+      <div class="profile-link">
+        <ul>
+          <li>
+            <span class="link-label">URL1</span>
+            <span class="link-url"><%= link_to 'http://samplesamplesamplesamplesample'.truncate(25), 'http://133.130.113.77' %></span>
+          </li>
+          <li>
+            <span class="link-label">URL2</span>
+            <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
+          </li>
+          <li>
+            <span class="link-label">URL3</span>
+            <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
+          </li>
+        </ul>
+      </div>
 
-    <div class="profile-posts">
-      <% if @developing_posts.present? %>
-        <div class="profile-post-type">
-          <h3>現在進行中の企画</h3>
-          <% @developing_posts.each do |post| %>
-            <div class="profile-post-item clearfix">
-              <%= link_to '', post %>
-              <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
-                <%= fa_icon (post_icon_of_category(post.category_name)) %>
+      <div class="profile-posts">
+        <% if @developing_posts.present? %>
+          <div class="profile-post-type">
+            <h3>現在進行中の企画</h3>
+            <% @developing_posts.each do |post| %>
+              <div class="profile-post-item clearfix">
+                <%= link_to '', post %>
+                <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
+                  <%= fa_icon (post_icon_of_category(post.category_name)) %>
+                </div>
+                <div class="profile-post-title">
+                  <span><%= post.title %><span>
+                </div>
               </div>
-              <div class="profile-post-title">
-                <span><%= post.title %><span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+            <% end %>
+          </div>
+        <% end %>
 
-      <% if @planning_posts.present? %>
-        <div class="profile-post-type">
-          <h3>現在募集中の企画</h3>
-          <% @planning_posts.each do |post| %>
-            <div class="profile-post-item clearfix">
-              <%= link_to '', post %>
-              <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
-                <%= fa_icon (post_icon_of_category(post.category_name)) %>
+        <% if @planning_posts.present? %>
+          <div class="profile-post-type">
+            <h3>現在募集中の企画</h3>
+            <% @planning_posts.each do |post| %>
+              <div class="profile-post-item clearfix">
+                <%= link_to '', post %>
+                <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
+                  <%= fa_icon (post_icon_of_category(post.category_name)) %>
+                </div>
+                <div class="profile-post-title">
+                  <span><%= post.title %><span>
+                </div>
               </div>
-              <div class="profile-post-title">
-                <span><%= post.title %><span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+            <% end %>
+          </div>
+        <% end %>
 
-      <% if @released_posts.present? %>
-        <div class="profile-post-type">
-          <h3>過去に参加した企画</h3>
-          <% @released_posts.each do |post| %>
-            <div class="profile-post-item clearfix">
-              <%= link_to '', post %>
-              <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
-                <%= fa_icon (post_icon_of_category(post.category_name)) %>
+        <% if @released_posts.present? %>
+          <div class="profile-post-type">
+            <h3>過去に参加した企画</h3>
+            <% @released_posts.each do |post| %>
+              <div class="profile-post-item clearfix">
+                <%= link_to '', post %>
+                <div class="profile-post-iconbox" style="background-color: <%= post.main_color %>">
+                  <%= fa_icon (post_icon_of_category(post.category_name)) %>
+                </div>
+                <div class="profile-post-title">
+                  <span><%= post.title %><span>
+                </div>
               </div>
-              <div class="profile-post-title">
-                <span><%= post.title %><span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
 
+  </div>
   </div>
 </div>
 
