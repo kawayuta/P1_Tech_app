@@ -1,25 +1,3 @@
-<!-- <%= form_with(model: @user, multipart: true, remote: true) do |form| %>
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <%= form.text_field :email, placeholder: 'email' %>
-
-    <div class="actions">
-      <%= form.submit '編集する'%>
-    </div>
-
-
-<% end %> -->
-
 <%= form_for @user do |f| %>
     <div class="sign-up-wrapper">
       <% if @user.uid.nil? %>
@@ -28,7 +6,7 @@
             <span class="fa fa-plus"></span>
             <%= f.file_field :image, id: :profile_image %>
           </div>
-          <p>プロフィール画像を追加 (任意)</p>
+          <p>プロフィール画像</p>
         </div>
         <div class="user-introduction-field-wrapper">
           <p>自己紹介</p>
@@ -94,7 +72,7 @@
         </div>
       </div>
       <div class="btn-wrapper">
-        <%= f.submit 'プロフィールを更新', class: 'sign-up' %>
+        <%= f.submit '設定を保存', class: 'sign-up' %>
       </div>
     </div>
 
