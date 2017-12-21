@@ -135,8 +135,14 @@ $(document).on('turbolinks:load', function () {
 
 
     $('.category').click(function () {
+      $('.category-checked').css({
+        'color': '#888'
+      });
       $(this).parent().find('.category-checked').removeClass('category-checked');
       $(this).addClass('category-checked');
+      $('.category-checked').css({
+        'color': color
+      });
       $('#post_category_name').val($(this).text().replace(/^\s+|\s+$/g, ''));
       if ($('#post_category_name').val() == 'Game') {
         $('.post-header .post-icon-data').find('.post-show-icon').remove();
@@ -262,6 +268,9 @@ $(document).on('turbolinks:load', function () {
       for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
         $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
       }
+      $('#posts-post-new .jobtype-icon').css({
+        'color': color,
+      });
 
     });
 
@@ -309,6 +318,9 @@ $(document).on('turbolinks:load', function () {
       for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
         $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
       }
+      $('#posts-post-new .jobtype-icon').css({
+        'color': color,
+      });
     });
 
     $('.new-post-commitment .commitment-level-1').click(function () {
@@ -352,11 +364,14 @@ $(document).on('turbolinks:load', function () {
       $('.preview-post-commitment .commitment-item-5').addClass('commitment-item-active');
     });
 
+    var color;
     $('.post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
       $(this).css('width', '60px');
       $(this).css('height', '60px');
       $(this).css('margin-top', '5px');
+
+      color = $(this).css("background-color");
       $('#main_color').val($(this).css("background-color"));
       $('#posts-post-new .post-header').css({
         "background-color": $(this).css("background-color")
@@ -386,6 +401,27 @@ $(document).on('turbolinks:load', function () {
       $('#posts-post-new h2 i').css({
         "color": $(this).css("background-color")
       });
+
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(1)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(2)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(3)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.category-checked').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-plus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-minus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+
+      $('.commitment-item i').css({
+        "color": $(this).css("background-color")
+      });
+
     });
 
 
@@ -563,14 +599,16 @@ $(document).on('turbolinks:load', function () {
         $('.new-post-slick-next').css({'display': 'block'});
         $('.new-post-btn-private').css({'display': 'none'});
         $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
       } else if (currentPage == 2) {
         $('.new-post-btn-close').css({'display': 'none'});
         $('.new-post-btn-prev').css({'display': 'block'});
         $('.new-post-slick-next').css({'display': 'block'});
         $('.new-post-btn-private').css({'display': 'none'});
         $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
 
       } else if (currentPage == 3) {
         $('.new-post-btn-close').css({'display': 'none'});

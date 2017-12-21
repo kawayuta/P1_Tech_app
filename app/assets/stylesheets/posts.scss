@@ -448,19 +448,19 @@ text-decoration: none;
   font-family: "FontAwesome";
   content: "\f10c";
   opacity: 1;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .slick-dots.new-post-slide-dots li:nth-child(1)  button:before {
-  color: #FC6C6E;
+  color: #FE6B6B;
 }
 
 .slick-dots.new-post-slide-dots li:nth-child(2)  button:before {
-  color: #FED430;
+  color: #FE6B6B;
 }
 
 .slick-dots.new-post-slide-dots li:nth-child(3)  button:before {
-  color: #4CD383;
+  color: #FE6B6B;
 }
 
 
@@ -469,18 +469,9 @@ text-decoration: none;
   font-family: "FontAwesome";
   content: "\f111";
   opacity: 1;
-  font-size: 20px;
+  font-size: 17px;
 }
 
-
-.slick-dots.new-post-slide-dots li:nth-child(1).slick-active button:before {
-  color: #FC6C6E;
-}
-
-
-.slick-dots.new-post-slide-dots li:nth-child(3).slick-active button:before {
-  color: #4CD383;
-}
 
 
 a.new-post-btn-close {
@@ -605,7 +596,6 @@ div.new-post-btn-public {
 .detail-field textarea {
   width:93%;
   min-height:270px;
-  resize: vertical;
   border:1px solid #FFF;
   border-radius: 20px;
   margin:0 auto;
@@ -647,12 +637,11 @@ div.new-post-btn-public {
     vertical-align: middle;
     width:40px;
     i {
-      color: #888;
+      color: #FE6B6B;
       font-size: 20px;
       &:before {
         font-family: "FontAwesome";
         content: "\f10c";
-        color: #FDD344;
 
       }
     }
@@ -663,7 +652,7 @@ div.new-post-btn-public {
   .commitment-item-active {
     i {
       font-size: 20px;
-      color: #FDD344;
+      color: #FE6B6B;
       &:before {
         content: "\f111";
       }
@@ -1034,10 +1023,9 @@ div.new-post-btn-public {
   margin-top:15px;
   position: fixed;
   bottom:0px;
-  height:90px;
+  height:110px;
   width: 100%;
   background-color: #FFF;
-  display: none;
   box-shadow:0px 0px 21px -7px rgba(0,0,0,0.76);
 }
 
@@ -1045,10 +1033,16 @@ div.new-post-btn-public {
   display: inline-block;
   white-space: nowrap;
   width:100%;
-  height:90px;
+  height:110px;
 
 }
 
+.post-color-field-list-title {
+  text-align: center;
+  font-size:13px;
+  margin-top:10px;
+  color:#aaa;
+}
 .post-color-field {
   display: inline-block;
   width: 55px;
@@ -1056,7 +1050,7 @@ div.new-post-btn-public {
   border-radius: 50%;
   overflow: hidden;
   margin-top:18px;
-  margin-left: 15px;
+  margin-left: 12px;
   margin-right:15px;
   & + .post-color-field {
     margin-left: 8px;
@@ -1115,7 +1109,7 @@ input.jobtype-num {
       }
 
       .jobtype-minus-btn {
-        color: #FDD344;
+        color: #FE6B6B;
         font-size: 28px;
         cursor: pointer;
         user-select: none;
@@ -1129,7 +1123,7 @@ input.jobtype-num {
       }
 
       .jobtype-plus-btn i {
-        color: #FDD344;
+        color: #FE6B6B;
         font-size: 28px;
         cursor: pointer;
         user-select: none;
