@@ -21,6 +21,7 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').addClass('fa-heart');
         $(this).parent().find('.post-vote-count').text(count + 1);
       }
+      return false;
     });
 
     // 通知
@@ -35,7 +36,6 @@ $(document).on('turbolinks:load', function () {
     });
 
     // 投稿・編集
-
 
     $('.template-item').click(function () {
       $('.template-name').removeClass('template-item-selected');
