@@ -56,10 +56,5 @@ $(document).on('turbolinks:load', function () {
         });
     }
 
-    $('#flash-message').fadeIn(800);
-
-    $('#flash-close-btn').click(function() {
-      $('#flash-message').css('display', 'none');
-    });
   });
 });

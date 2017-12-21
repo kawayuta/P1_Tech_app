@@ -12,12 +12,6 @@
   </head>
   <body>
     <%= render 'header' %>
-    <% if flash[:notice] %>
-      <p class= "flash-message" id='flash-message'>
-        <%= fa_icon 'times', id: 'flash-close-btn' %>
-        <span><%= flash[:notice] %></span>
-      </p>
-    <% end %>
 
     <%= yield %>
 

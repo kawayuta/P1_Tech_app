@@ -9,7 +9,6 @@ $(document).on('turbolinks:load', function () {
       var classname = $(this).attr('class');
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
-
       $.ajax({
         url: "/posts/" + $(this).attr('data-id') + "/support",
         type:'POST',
@@ -24,7 +23,15 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').addClass('fa-heart-o');
         $(this).parent().find('.post-vote-count').text(count - 1);
 
+        $('.flash-message').remove();
+        $('body').prepend('<p class= "flash-message" id="flash-message"></p>');
+        $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
+        $('.flash-message').prepend('ペライチをキャンセルしました');
+        $('#flash-message').fadeIn(800);
 
+        $('#flash-close-btn').click(function() {
+          $('#flash-message').css('display', 'none');
+        });
 
       } else {
         $(this).addClass('heart-active');
@@ -66,6 +73,18 @@ $(document).on('turbolinks:load', function () {
           count: 2,
           direction: 'alternate'
         });
+
+
+        $('.flash-message').remove();
+        $('body').prepend('<p class= "flash-message" id="flash-message"></p>');
+        $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
+        $('.flash-message').prepend('ペライチを応援しました');
+        $('#flash-message').fadeIn(800);
+
+        $('#flash-close-btn').click(function() {
+          $('#flash-message').css('display', 'none');
+        });
+
       }
     });
 
