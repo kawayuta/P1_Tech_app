@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function () {
 
   $(function () {
 
+    // いいね
 
     $('.post-vote-heart').click(function () {
       var classname = $(this).attr('class');
@@ -22,6 +23,8 @@ $(document).on('turbolinks:load', function () {
       }
     });
 
+    // 通知
+
     $('.header-notices').click(function () {
       $('.notifications-list-wrap').slideDown('fast');
     });
@@ -30,6 +33,8 @@ $(document).on('turbolinks:load', function () {
     $('.notifications-list-wrap').click(function () {
       $('.notifications-list-wrap').slideUp('fast');
     });
+
+    // 投稿・編集
 
 
     $('.template-item').click(function () {
@@ -75,11 +80,17 @@ $(document).on('turbolinks:load', function () {
       }
     });
 
+    // initialize edit
+    $('#title-data').val($('#post_title').val());
+    $('#detail-data').val($('#post_detail').val());
+    $('#jobtype-planner').val($('#post_num_of_planner').val());
+    $('#jobtype-engineer').val($('#post_num_of_engineer').val());
+    $('#jobtype-designer').val($('#post_num_of_designer').val());
+
 
     $('#title-data').change(function () {
       $('#post_title').val($('#title-data').val());
       $('.new-post-preview-title').text($('#title-data').val());
-
     });
 
     $('#detail-data').change(function () {
@@ -181,7 +192,6 @@ $(document).on('turbolinks:load', function () {
         $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
         $('.jobtype-label-box').append('<span>デザイナー</span>');
       }
-
 
       for (var i = 0; i < $('#post_num_of_planner').val(); i++) {
         $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
