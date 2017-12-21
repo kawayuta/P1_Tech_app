@@ -16,30 +16,37 @@
         </div>
       </div>
 
-      <div class="profile-introduction">
-        <p>
-          ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
-          ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
-          ここに自己紹介が入る。ここに自己紹介が入る。ここに自己紹介が入る。
-        </p>
-      </div>
+      <% if @user.try(:introduction).present? %>
+        <div class="profile-introduction">
+          <p>
+            <%= @user.try(:introduction) %>
+          </p>
+        </div>
+      <% elsif @user == current_user %>
+        <div class="introduction-edit-link">
+          <%= link_to edit_user_path(current_user) do %>自己紹介を入力する<% end %>
+        </div>
+      <% end %>
 
-      <div class="profile-link">
-        <ul>
-          <li>
-            <span class="link-label">URL1</span>
-            <span class="link-url"><%= link_to 'http://samplesamplesamplesamplesample'.truncate(25), 'http://133.130.113.77' %></span>
-          </li>
-          <li>
-            <span class="link-label">URL2</span>
-            <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
-          </li>
-          <li>
-            <span class="link-label">URL3</span>
-            <span class="link-url"><%= link_to 'http://133.130.113.77', 'http://133.130.113.77' %></span>
-          </li>
-        </ul>
-      </div>
+      <% if @user.try(:url_1).present? || @user.try(:url_1).present? || @user.try(:url_1).present? %>
+        <div class="profile-url">
+            <h3>参考URL</h3>
+            <ul>
+              <% [@user.try(:url_1), @user.try(:url_2), @user.try(:url_3)].each do |url| %>
+                <% if url.present? %>
+                  <li>
+                    <span class="url-link"><%= link_to url.truncate(36), url %></span>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+        </div>
+      <% elsif @user == current_user %>
+        <div class="url-edit-link">
+          <%= link_to edit_user_path(current_user) do %>自分をアピールできる<br>URLを掲載する<% end %>
+        </div>
+      <% end %>
+
 
       <div class="profile-posts">
         <% if @developing_posts.present? %>

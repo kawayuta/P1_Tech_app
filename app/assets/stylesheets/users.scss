@@ -74,19 +74,41 @@
       line-height: 1.5;
     }
 
-    .profile-link {
+    .introduction-edit-link {
       text-align: center;
+      padding: 20px;
+
+      a {
+        display: inline-block;
+        border: 1px solid #aaa;
+        padding: 10px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #888;
+      }
+    }
+
+    .profile-url {
+      text-align: center;
+      padding-top: 20px;
+
+      h3 {
+        color: #707070;
+        font-size: 14px;
+        font-weight: bold;
+      }
 
       ul {
         width: 280px;
         margin: 0 auto;
-        text-align: left;
+        text-align: center;
       }
 
       li {
         padding: 10px 0;
 
-        .link-label {
+        .url-label {
           display: inline-block;
           font-weight: bold;
           color: #666;
@@ -95,12 +117,26 @@
           text-align: center;
         }
 
-        .link-url a {
+        .url-link a {
           font-size: 14px;
           letter-spacing: 1px;
           color: #6FC4FF;
-
         }
+      }
+
+    }
+
+    .url-edit-link  {
+      text-align: center;
+
+      a {
+        display: inline-block;
+        border: 1px solid #aaa;
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #888;
       }
 
     }
