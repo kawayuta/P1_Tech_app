@@ -604,7 +604,8 @@ div.new-post-btn-public {
 
 .detail-field textarea {
   width:93%;
-  height:270px;
+  min-height:270px;
+  resize: vertical;
   border:1px solid #FFF;
   border-radius: 20px;
   margin:0 auto;
