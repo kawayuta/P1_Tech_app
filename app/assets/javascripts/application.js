@@ -15,6 +15,7 @@
 //= require vender/masonry.pkgd.min.js
 //= require vender/remodal.min
 //= require vender/jquery.infinitescroll.js
+//= require vender/jquery.keyframes.min.js
 //= require turbolinks
 //= require_tree .
 

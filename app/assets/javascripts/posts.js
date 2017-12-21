@@ -23,11 +23,49 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').removeClass('fa-heart');
         $(this).find('i').addClass('fa-heart-o');
         $(this).parent().find('.post-vote-count').text(count - 1);
+
+
+
       } else {
         $(this).addClass('heart-active');
         $(this).find('i').removeClass('fa-heart-o');
         $(this).find('i').addClass('fa-heart');
         $(this).parent().find('.post-vote-count').text(count + 1);
+        $(this).find('i').keyframes({
+          '0%': {
+            rotate: 0,
+          },
+          '50%': {
+            scale:  2,
+          },
+          '65%': {
+            rotate: 20,
+            scale:  2,
+            color:"#FE6B6B",
+
+          },
+          '68%': {
+            rotate: 0,
+            scale:  2,
+          },
+          '71%': {
+            rotate: -20,
+            scale:  2,
+          },
+          '75%': {
+          rotate: 0,
+            scale:  2,
+          },
+          '100%': {
+            rotate: 0,
+            scale:  2,
+            color:"#FE6B6B",
+          }
+        }, {
+          easing: 'ease',
+          count: 2,
+          direction: 'alternate'
+        });
       }
     });
 
