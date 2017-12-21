@@ -350,7 +350,7 @@ body {
   max-width: 500px;
   padding: 22px 30px;
   border-radius: 10px;
-  background-color: #fed;
+  background-color: #fcded4;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
   position: fixed;
   top: 30px;
@@ -366,7 +366,7 @@ body {
   position: absolute;
   top: 4px;
   right: 8px;
-  color: #888;
+  color: #999;
   font-size: 20px;
   cursor: pointer;
 }
