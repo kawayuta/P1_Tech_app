@@ -155,16 +155,16 @@
               <div class="post-image-field-list">
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <%= form.file_field :image, id: :post_image_data %>
+                  <%= form.file_field :image, id: :post_image_data, data:{id: 1} %>
                 </div>
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <%= form.file_field :image_2, id: :post_image_data_2 %>
+                  <%= form.file_field :image_2, id: :post_image_data_2, data:{id: 2} %>
 
                 </div>
                 <div class="post-image-field">
                   <span class="fa fa-plus"></span>
-                  <%= form.file_field :image_3, id: :post_image_data_3 %>
+                  <%= form.file_field :image_3, id: :post_image_data_3, data:{id: 3} %>
                 </div>
               </div>
             </div>
@@ -288,6 +288,20 @@
                 </div>
 
 
+                <div class="post-images">
+                  <div class="post-image-box">
+                    <div class="post-image-item post-image-item-1">
+                    </div>
+                    <div class="post-image-item post-image-item-2">
+                    </div>
+                    <div class="post-image-item post-image-item-3">
+                    </div>
+                  </div>
+                </div>
+
+                <hr>
+
+
                 <h2><i class="fa fa-fire"></i>ガチ度</h2>
 
                 <div class="preview-post-commitment post-commitment">
@@ -340,8 +354,6 @@
 
 
 
-
-
               <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
 
               <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
@@ -357,6 +369,8 @@
           </li>
         </ul>
         <div class="post-color-field-list-wrapper">
+          <p class="post-color-field-list-title">企画のテーマカラーを選択</p>
+
           <div class="post-color-field-list">
             <div class="post-color-field post-color-field-red">
             </div>

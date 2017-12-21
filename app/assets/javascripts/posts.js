@@ -9,7 +9,6 @@ $(document).on('turbolinks:load', function () {
       var classname = $(this).attr('class');
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
-
       $.ajax({
         url: "/posts/" + $(this).attr('data-id') + "/support",
         type:'POST',
@@ -23,11 +22,74 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').removeClass('fa-heart');
         $(this).find('i').addClass('fa-heart-o');
         $(this).parent().find('.post-vote-count').text(count - 1);
+
+        $('.flash-message').remove();
+        $('body').prepend('<p class= "flash-message" id="flash-message"></p>');
+        $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
+        $('.flash-message').prepend('ペライチをキャンセルしました');
+        $('#flash-message').fadeIn(800);
+        setTimeout(function() {
+          $('#flash-message').fadeOut(800);
+        }, 1500);
+        $('#flash-close-btn').click(function() {
+          $('#flash-message').css('display', 'none');
+        });
+
       } else {
         $(this).addClass('heart-active');
         $(this).find('i').removeClass('fa-heart-o');
         $(this).find('i').addClass('fa-heart');
         $(this).parent().find('.post-vote-count').text(count + 1);
+        $(this).find('i').keyframes({
+          '0%': {
+            rotate: 0,
+          },
+          '50%': {
+            scale:  2,
+          },
+          '65%': {
+            rotate: 20,
+            scale:  2,
+            color:"#FE6B6B",
+
+          },
+          '68%': {
+            rotate: 0,
+            scale:  2,
+          },
+          '71%': {
+            rotate: -20,
+            scale:  2,
+          },
+          '75%': {
+          rotate: 0,
+            scale:  2,
+          },
+          '100%': {
+            rotate: 0,
+            scale:  2,
+            color:"#FE6B6B",
+          }
+        }, {
+          easing: 'ease',
+          count: 2,
+          direction: 'alternate'
+        });
+
+
+        $('.flash-message').remove();
+        $('body').prepend('<p class= "flash-message" id="flash-message"></p>');
+        $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
+        $('.flash-message').prepend('ペライチを応援しました');
+        $('#flash-message').fadeIn(800);
+        setTimeout(function() {
+          $('#flash-message').fadeOut(800);
+        }, 1500);
+
+        $('#flash-close-btn').click(function() {
+          $('#flash-message').css('display', 'none');
+        });
+
       }
     });
 
@@ -78,8 +140,14 @@ $(document).on('turbolinks:load', function () {
 
 
     $('.category').click(function () {
+      $('.category-checked').css({
+        'color': '#888'
+      });
       $(this).parent().find('.category-checked').removeClass('category-checked');
       $(this).addClass('category-checked');
+      $('.category-checked').css({
+        'color': color
+      });
       $('#post_category_name').val($(this).text().replace(/^\s+|\s+$/g, ''));
       if ($('#post_category_name').val() == 'Game') {
         $('.post-header .post-icon-data').find('.post-show-icon').remove();
@@ -93,6 +161,49 @@ $(document).on('turbolinks:load', function () {
     $('#jobtype-planner').val($('#post_num_of_planner').val());
     $('#jobtype-engineer').val($('#post_num_of_engineer').val());
     $('#jobtype-designer').val($('#post_num_of_designer').val());
+
+    $('.planner-icon').remove();
+    $('.engineer-icon').remove();
+    $('.designer-icon').remove();
+    $('.jobtype-icon-list').remove();
+    $('.jobtype-label-box span').remove();
+
+    if ($('#post_num_of_planner').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+      $('.jobtype-label-box').append('<span>プランナー</span>');
+    }
+    if ($('#post_num_of_engineer').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_engineer"></div></div>');
+      $('.jobtype-label-box').append('<span>エンジニア</span>');
+
+    }
+    if ($('#post_num_of_designer').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
+      $('.jobtype-label-box').append('<span>デザイナー</span>');
+    }
+
+
+    for (var i = 0; i < $('#post_num_of_planner').val(); i++) {
+      $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
+    }
+    for (var i = 0; i < $('#post_num_of_engineer').val(); i++) {
+      $('.jobtype-icon-box_engineer').append('<i class="fa fa-male jobtype-icon engineer-icon"></i>');
+    }
+    for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
+      $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
+    }
+
+    $('.new-post-preview-title').text($('#title-data').val());
+
+    $('.post-detail').append($('#detail-data').val());
+
+
+
+    $('.preview_post_period_data_sub span').append($('.post_period_data').val());
+    $('.preview_post_scale_data_sub span').append($('.post_scale_data').val());
+
+
+
 
 
     $('#title-data').change(function () {
@@ -148,7 +259,7 @@ $(document).on('turbolinks:load', function () {
 
       }
       if ($('#post_num_of_designer').val() > 0) {
-        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
         $('.jobtype-label-box').append('<span>デザイナー</span>');
       }
 
@@ -162,6 +273,9 @@ $(document).on('turbolinks:load', function () {
       for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
         $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
       }
+      $('#posts-post-new .jobtype-icon').css({
+        'color': color,
+      });
 
     });
 
@@ -196,7 +310,7 @@ $(document).on('turbolinks:load', function () {
 
       }
       if ($('#post_num_of_designer').val() > 0) {
-        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
         $('.jobtype-label-box').append('<span>デザイナー</span>');
       }
 
@@ -209,6 +323,9 @@ $(document).on('turbolinks:load', function () {
       for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
         $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
       }
+      $('#posts-post-new .jobtype-icon').css({
+        'color': color,
+      });
     });
 
     $('.new-post-commitment .commitment-level-1').click(function () {
@@ -252,11 +369,14 @@ $(document).on('turbolinks:load', function () {
       $('.preview-post-commitment .commitment-item-5').addClass('commitment-item-active');
     });
 
+    var color;
     $('.post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
       $(this).css('width', '60px');
       $(this).css('height', '60px');
       $(this).css('margin-top', '5px');
+
+      color = $(this).css("background-color");
       $('#main_color').val($(this).css("background-color"));
       $('#posts-post-new .post-header').css({
         "background-color": $(this).css("background-color")
@@ -286,6 +406,27 @@ $(document).on('turbolinks:load', function () {
       $('#posts-post-new h2 i').css({
         "color": $(this).css("background-color")
       });
+
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(1)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(2)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(3)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.category-checked').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-plus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-minus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+
+      $('.commitment-item i').css({
+        "color": $(this).css("background-color")
+      });
+
     });
 
 
@@ -300,6 +441,16 @@ $(document).on('turbolinks:load', function () {
         fileReader.onloadend = function () {
           $(input).parent().find('img').remove();
           $(input).parent().append('<img src="' + fileReader.result + '"/>');
+          if ($(input).attr('data-id') == 1) {
+            $('.post-image-item-1').find('img').remove();
+            $('.post-image-item-1').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          } else if ($(input).attr('data-id') == 2) {
+            $('.post-image-item-2').find('img').remove();
+            $('.post-image-item-2').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          } else if ($(input).attr('data-id') == 3) {
+            $('.post-image-item-3').find('img').remove();
+            $('.post-image-item-3').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          }
         }
         fileReader.readAsDataURL(file);
       });
@@ -453,14 +604,16 @@ $(document).on('turbolinks:load', function () {
         $('.new-post-slick-next').css({'display': 'block'});
         $('.new-post-btn-private').css({'display': 'none'});
         $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
       } else if (currentPage == 2) {
         $('.new-post-btn-close').css({'display': 'none'});
         $('.new-post-btn-prev').css({'display': 'block'});
         $('.new-post-slick-next').css({'display': 'block'});
         $('.new-post-btn-private').css({'display': 'none'});
         $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
 
       } else if (currentPage == 3) {
         $('.new-post-btn-close').css({'display': 'none'});
