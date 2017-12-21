@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :email, :role, :college, :major, :graduation_year)
+      params.require(:user).permit(:username, :email, :role, :college, :major, :graduation_year, :introduction, :url_1, :url_2, :url_3)
     end
 
     def set_notice

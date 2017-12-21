@@ -1,4 +1,4 @@
-<%= form_with(model: @user, multipart: true, remote: true) do |form| %>
+<!-- <%= form_with(model: @user, multipart: true, remote: true) do |form| %>
     <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -17,5 +17,85 @@
       <%= form.submit '編集する'%>
     </div>
 
+
+<% end %> -->
+
+<%= form_for @user do |f| %>
+    <div class="sign-up-wrapper">
+      <% if @user.uid.nil? %>
+        <div class="profile-image-field-wrapper">
+          <div class="profile-image-field">
+            <span class="fa fa-plus"></span>
+            <%= f.file_field :image, id: :profile_image %>
+          </div>
+          <p>プロフィール画像を追加 (任意)</p>
+        </div>
+        <div class="user-introduction-field-wrapper">
+          <p>自己紹介</p>
+          <div class="input-wrapper">
+            <%= f.text_area :introduction, value: @user.introduction, id: 'user-introduction' %>
+          </div>
+        </div>
+        <div class="user-url-field-wrapper">
+          <p>参考URL（GitHub, ViViViT, ポートフォリオなど最大3つまで）</p>
+          <div class="input-wrapper url-input-warpper">
+            <%= f.text_field :url_1, value: @user.url_1, id: 'user-url-1' %>
+          </div>
+          <div class="input-wrapper url-input-warpper">
+            <%= f.text_field :url_2, value: @user.url_2, id: 'user-url-2' %>
+          </div>
+          <div class="input-wrapper url-input-warpper">
+            <%= f.text_field :url_3, value: @user.url_3, id: 'user-url-3' %>
+          </div>
+        </div>
+        <div class="user-name-field-wrapper">
+          <p>氏名</p>
+          <div class="input-wrapper">
+            <%= f.text_field :username, value: @user.username, id: 'user-name' %>
+          </div>
+        </div>
+        <div class="email-field-wrapper">
+          <p>メールアドレス</p>
+          <div class="input-wrapper">
+            <%= f.email_field :email, value: @user.email, id: 'user-email' %>
+          </div>
+        </div>
+      <% end %>
+      <div class="role-field-wrapper">
+        <p>担当役割</p>
+        <div class="radio-box-wrapper">
+          <label class="radio-box">
+            <%= f.radio_button :role, 1, {:checked => true} %><span>プランナー</span>
+          </label>
+          <label class="radio-box">
+            <%= f.radio_button :role, 2 %><span>エンジニア</span>
+          </label>
+          <label class="radio-box">
+            <%= f.radio_button :role, 3 %><span>デザイナー</span>
+          </label>
+        </div>
+      </div>
+      <div class="college-field-wrapper">
+        <p>学校名</p>
+        <div class="input-wrapper">
+          <%= f.text_field :college, id: 'college-field' %>
+        </div>
+      </div>
+      <div class="major-field-wrapper">
+        <p>学科/専攻</p>
+        <div class="input-wrapper">
+          <%= f.text_field :major, id: 'major-field' %>
+        </div>
+      </div>
+      <div class="graduation_year-field-wrapper">
+        <p>卒業年度（半角数字4桁）</p>
+        <div class="input-wrapper">
+          <%= f.number_field :graduation_year, id: 'graduation_year-field' %>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <%= f.submit 'プロフィールを更新', class: 'sign-up' %>
+      </div>
+    </div>
 
 <% end %>

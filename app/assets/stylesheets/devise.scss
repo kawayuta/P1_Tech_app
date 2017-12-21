@@ -142,6 +142,14 @@
   background-color: white;
 }
 
+.url-input-warpper {
+  margin-bottom: 2em;
+}
+
+.url-input-warpper:last-child {
+  margin-bottom: 3em;
+}
+
 .input-wrapper input {
   border: none;
   padding: .75em 1em;
@@ -151,6 +159,14 @@
 
 .input-wrapper input:focus {
   outline: none;
+}
+
+.input-wrapper textarea {
+  border: none;
+  padding: .75em 1em;
+  border-radius: 2em;
+  height: 100px;
+  width: 100%;
 }
 
 .input-wrapper i {
