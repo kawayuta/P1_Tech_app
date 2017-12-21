@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    return redirect_to user_path(current_user) unless current_user == User.find(params[:id])
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to @user
