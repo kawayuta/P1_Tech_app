@@ -138,10 +138,11 @@ class PostsController < ApplicationController
     if @post.votes.vote_support(current_user,@post)
       flash[:notice] = "このペライチを応援をしました！"
       current_user.notifications.support_notice_create(@post, @post.user, 'support')
-
     else
       flash[:notice] = "このペライチの応援をキャンセルしました"
     end
+
+
   end
 
 
