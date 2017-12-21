@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').addClass('fa-heart');
         $(this).parent().find('.post-vote-count').text(count + 1);
       }
-      return false;
+      return true;
     });
 
     // 通知
