@@ -62,7 +62,7 @@
                     <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
                         <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                     <% else %>
-                        <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                        <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart-o') %></a>
                     <% end %>
                     <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
                 <% end %>
@@ -153,7 +153,7 @@
                   <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
                       <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                   <% else %>
-                      <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                      <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart-o') %></a>
                   <% end %>
                   <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
               <% end %>
