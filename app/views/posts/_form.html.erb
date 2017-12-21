@@ -1,8 +1,7 @@
-
 <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
 
     <div class="new-posts-header">
-      <%= link_to '', root_path, class:"new-post-btn-close fa fa-times" %>
+      <%= link_to '', root_path, class: "new-post-btn-close fa fa-times" %>
       <a class="new-post-btn-prev"><span>Back</span></a>
       <a class="new-post-slick-next">Next</a>
       <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
@@ -33,21 +32,26 @@
             <textarea type="text" id="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
           </div>
 
+
           <h4>画像を挿入 (任意)</h4>
           <div class="post-image-field-list-wrapper">
             <div class="post-image-field-list">
+
               <div class="post-image-field">
                 <span class="fa fa-plus"></span>
-                <%= form.file_field :image, id: :post_image_data %>
+                <%= image_tag @post.image %>
+                <%= form.file_field :image, id: :post_image_data, data: {id: 1} %>
               </div>
               <div class="post-image-field">
                 <span class="fa fa-plus"></span>
-                <%= form.file_field :image_2, id: :post_image_data_2 %>
+                <%= image_tag @post.image_2 %>
+                <%= form.file_field :image_2, id: :post_image_data_2, data: {id: 2} %>
 
               </div>
               <div class="post-image-field">
                 <span class="fa fa-plus"></span>
-                <%= form.file_field :image_3, id: :post_image_data_3 %>
+                <%= image_tag @post.image_3 %>
+                <%= form.file_field :image_3, id: :post_image_data_3, data: {id: 3} %>
               </div>
             </div>
           </div>
@@ -120,7 +124,6 @@
 
         <li>
 
-
           <div class="post-show-container">
             <div class="post-header">
               <div class="post-icon-data"></div>
@@ -167,6 +170,20 @@
                 <div class="jobtype-icon-list-box">
                 </div>
                 <div class="jobtype-label-box">
+                </div>
+              </div>
+
+              <div class="post-images">
+                <div class="post-image-box">
+                  <div class="post-image-item post-image-item-1">
+                    <%= image_tag @post.image, style: "margin:0 auto;" %>
+                  </div>
+                  <div class="post-image-item post-image-item-2">
+                    <%= image_tag @post.image_2, style: "margin:0 auto;" %>
+                  </div>
+                  <div class="post-image-item post-image-item-3">
+                    <%= image_tag @post.image_3, style: "margin:0 auto;" %>
+                  </div>
                 </div>
               </div>
 

@@ -151,6 +151,49 @@ $(document).on('turbolinks:load', function () {
     $('#jobtype-engineer').val($('#post_num_of_engineer').val());
     $('#jobtype-designer').val($('#post_num_of_designer').val());
 
+    $('.planner-icon').remove();
+    $('.engineer-icon').remove();
+    $('.designer-icon').remove();
+    $('.jobtype-icon-list').remove();
+    $('.jobtype-label-box span').remove();
+
+    if ($('#post_num_of_planner').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+      $('.jobtype-label-box').append('<span>プランナー</span>');
+    }
+    if ($('#post_num_of_engineer').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_engineer"></div></div>');
+      $('.jobtype-label-box').append('<span>エンジニア</span>');
+
+    }
+    if ($('#post_num_of_designer').val() > 0) {
+      $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
+      $('.jobtype-label-box').append('<span>デザイナー</span>');
+    }
+
+
+    for (var i = 0; i < $('#post_num_of_planner').val(); i++) {
+      $('.jobtype-icon-box_planner').append('<i class="fa fa-male jobtype-icon planner-icon"></i>');
+    }
+    for (var i = 0; i < $('#post_num_of_engineer').val(); i++) {
+      $('.jobtype-icon-box_engineer').append('<i class="fa fa-male jobtype-icon engineer-icon"></i>');
+    }
+    for (var i = 0; i < $('#post_num_of_designer').val(); i++) {
+      $('.jobtype-icon-box_designer').append('<i class="fa fa-male jobtype-icon designer-icon"></i>');
+    }
+
+    $('.new-post-preview-title').text($('#title-data').val());
+
+    $('.post-detail').append($('#detail-data').val());
+
+
+
+    $('.preview_post_period_data_sub span').append($('.post_period_data').val());
+    $('.preview_post_scale_data_sub span').append($('.post_scale_data').val());
+
+
+
+
 
     $('#title-data').change(function () {
       $('#post_title').val($('#title-data').val());
@@ -357,6 +400,16 @@ $(document).on('turbolinks:load', function () {
         fileReader.onloadend = function () {
           $(input).parent().find('img').remove();
           $(input).parent().append('<img src="' + fileReader.result + '"/>');
+          if ($(input).attr('data-id') == 1) {
+            $('.post-image-item-1').find('img').remove();
+            $('.post-image-item-1').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          } else if ($(input).attr('data-id') == 2) {
+            $('.post-image-item-2').find('img').remove();
+            $('.post-image-item-2').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          } else if ($(input).attr('data-id') == 3) {
+            $('.post-image-item-3').find('img').remove();
+            $('.post-image-item-3').append('<img src="' + fileReader.result + '" style="margin:0 auto;"/>');
+          }
         }
         fileReader.readAsDataURL(file);
       });
