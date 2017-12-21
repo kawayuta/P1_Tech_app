@@ -205,7 +205,7 @@ $(document).on('turbolinks:load', function () {
 
       }
       if ($('#post_num_of_designer').val() > 0) {
-        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
         $('.jobtype-label-box').append('<span>デザイナー</span>');
       }
 
@@ -253,7 +253,7 @@ $(document).on('turbolinks:load', function () {
 
       }
       if ($('#post_num_of_designer').val() > 0) {
-        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_planner"></div></div>');
+        $('.jobtype-icon-list-box').append('<div class="jobtype-icon-list"><div class="jobtype-icon-box jobtype-icon-box_designer"></div></div>');
         $('.jobtype-label-box').append('<span>デザイナー</span>');
       }
 
