@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', function () {
         url: "/posts/" + $(this).attr('data-id') + "/support",
         type:'POST',
         dataType: 'json',
-        data : {},
         timeout:10000,
       }).done(function(data) {
       });

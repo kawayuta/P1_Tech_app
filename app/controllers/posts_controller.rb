@@ -141,6 +141,7 @@ class PostsController < ApplicationController
     else
       flash[:notice] = "このペライチの応援をキャンセルしました"
     end
+    head :no_content
   end
 
 
