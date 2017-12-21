@@ -107,12 +107,14 @@ class PostsController < ApplicationController
     return redirect_to post_path(params[:id]) if TeamMember.find_by(post_id: params[:id], user_id: current_user.id)
     @join = TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
     current_user.notifications.join_notice_create(@join, @join.post.user, 'join')
+    flash[:notice] = "この企画への参加を申請しました！"
     redirect_to post_path(params[:id])
   end
 
   def leave
     @leave = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
     current_user.notifications.join_notice_create(@leave, @leave.post.user, 'leave')
+    flash[:notice] = "この企画のチームから抜けました"
     redirect_to post_path(params[:id])
   end
 
@@ -120,6 +122,7 @@ class PostsController < ApplicationController
     @approve = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
     @approve.update(accepted: true)
     current_user.notifications.join_notice_create(@approve, @approve.user, 'approve')
+    flash[:notice] = "参加申請を承認しました！"
     redirect_to post_path(params[:id])
   end
 
@@ -174,6 +177,8 @@ class PostsController < ApplicationController
     elsif @post.status == 'development'
       @post.update(status: 'release')
     end
+
+    flash[:notice] = "次のフローへ進みました！"
 
     if Rails.application.routes.recognize_path(request.referrer)[:action] == 'talk_room'
       redirect_to talk_room_path(@post)

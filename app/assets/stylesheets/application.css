@@ -368,6 +368,7 @@ body {
   right: 8px;
   color: #888;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .flash-message span {
