@@ -28,7 +28,9 @@ $(document).on('turbolinks:load', function () {
         $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
         $('.flash-message').prepend('ペライチをキャンセルしました');
         $('#flash-message').fadeIn(800);
-
+        setTimeout(function() {
+          $('#flash-message').fadeOut(800);
+        }, 1500);
         $('#flash-close-btn').click(function() {
           $('#flash-message').css('display', 'none');
         });
@@ -80,6 +82,9 @@ $(document).on('turbolinks:load', function () {
         $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
         $('.flash-message').prepend('ペライチを応援しました');
         $('#flash-message').fadeIn(800);
+        setTimeout(function() {
+          $('#flash-message').fadeOut(800);
+        }, 1500);
 
         $('#flash-close-btn').click(function() {
           $('#flash-message').css('display', 'none');
