@@ -47,10 +47,10 @@
             <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id, url: post_url(@post)} %></span>
 
             <% if user_signed_in? %>
-                <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart heart-active' %>
+                <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                    <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                 <% else %>
-                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart' %>
+                    <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                 <% end %>
                 <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
             <% end %>
@@ -109,10 +109,10 @@
 
 
             <% if user_signed_in? %>
-                <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                    <%= link_to fa_icon('heart'), support_post_path(post), method: :post, data: { confirm: 'この企画の応援をやめますか？' }, class: 'post-vote-heart heart-active' %>
+                <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                    <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                 <% else %>
-                    <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, data: { confirm: 'この企画を応援しますか？' }, class: 'post-vote-heart' %>
+                    <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
                 <% end %>
                 <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
             <% end %>

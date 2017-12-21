@@ -10,6 +10,15 @@ $(document).on('turbolinks:load', function () {
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
 
+      $.ajax({
+        url: "/posts/" + $(this).attr('data-id') + "/support",
+        type:'POST',
+        dataType: 'json',
+        data : {},
+        timeout:10000,
+      }).done(function(data) {
+      });
+
       if (classname.match('heart-active')) {
         $(this).removeClass('heart-active');
         $(this).find('i').removeClass('fa-heart');
@@ -21,7 +30,6 @@ $(document).on('turbolinks:load', function () {
         $(this).find('i').addClass('fa-heart');
         $(this).parent().find('.post-vote-count').text(count + 1);
       }
-      return true;
     });
 
     // 通知

@@ -77,11 +77,11 @@
                                       <span class="post-share-btn"><%= fa_icon 'share-alt' %></span>
 
                                       <% if user_signed_in? %>
-                                          <% if Vote.find_by(user_id: current_user,post_id:@my_posts_id,support:true).present? %>
-                                              <%= link_to fa_icon('heart'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart heart-active' %>
-                                          <% else %>
-                                              <%= link_to fa_icon('heart-o'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart', style: "color: #{@my_posts_id.main_color}" %>
-                                          <% end %>
+                                          <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                                                                 <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                             <% else %>
+                                                                 <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                             <% end %>
                                           <span class="post-vote-count"><%= Vote.where(post_id: @my_posts_id, support: true).count %></span>
                                       <% end %>
                                     </div>
@@ -159,11 +159,11 @@
                                <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', data: {post_id: post.id, url: post_url(post)} %></span>
 
                                        <% if user_signed_in? %>
-                                           <% if Vote.find_by(user_id: current_user,post_id:@my_posts_id,support:true).present? %>
-                                               <%= link_to fa_icon('heart'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart heart-active' %>
-                                           <% else %>
-                                               <%= link_to fa_icon('heart-o'), support_post_path(@my_posts_id), method: :post, class: 'post-vote-heart', style: "color: #{@my_posts_id.main_color}" %>
-                                           <% end %>
+                                            <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                                                                   <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                               <% else %>
+                                                                   <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                               <% end %>
                                            <span class="post-vote-count"><%= Vote.where(post_id: @my_posts_id, support: true).count %></span>
                                        <% end %>
                                      </div>
@@ -239,11 +239,11 @@
 
 
                                <% if user_signed_in? %>
-                                   <% if Vote.find_by(user_id: current_user,post_id:post,support:true).present? %>
-                                       <%= link_to fa_icon('heart'), support_post_path(post), method: :post, class: 'post-vote-heart heart-active' %>
-                                   <% else %>
-                                       <%= link_to fa_icon('heart-o'), support_post_path(post), method: :post, class: 'post-vote-heart', style: "color: #{post.main_color}" %>
-                                   <% end %>
+                                   <% if Vote.find_by(user_id: current_user, post_id: post, support: true).present? %>
+                                                          <a class="post-vote-heart heart-active" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                      <% else %>
+                                                          <a class="post-vote-heart" data-id="<%= post.id %>"><%= fa_icon('heart') %></a>
+                                                      <% end %>
                                    <span class="post-vote-count"><%= Vote.where(post_id: post, support: true).count %></span>
                                <% end %>
                              </div>
