@@ -343,3 +343,33 @@ body {
   background-color: rgba(255, 255, 255, 0.6);
   display: none;
 }
+
+.flash-message {
+  text-align: center;
+  width: 80%;
+  max-width: 500px;
+  padding: 22px 30px;
+  border-radius: 10px;
+  background-color: #fed;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: none;
+  z-index: 5000;
+}
+
+.flash-message i {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: #888;
+  font-size: 20px;
+}
+
+.flash-message span {
+  font-size: 14px;
+}
