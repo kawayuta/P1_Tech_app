@@ -198,10 +198,15 @@ $(document).on('turbolinks:load', function () {
 
     if($('.post_period_data').val() == '') {
       $('.post_period_data').val(0);
+    } else {
+      $('.post_period_data').val($('.post_period_data').val());
     }
 
     if($('.post_scale_data').val() == '') {
       $('.post_scale_data').val(0);
+    } else {
+      $('.post_scale_data').val($('.post_scale_data').val());
+
     }
 
 
