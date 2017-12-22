@@ -1,5 +1,49 @@
 
+
+@media screen and (max-width: 9999px) {
+
+  .posts-post-new-pc {
+    display: block !important;
+
+  }
+  .posts-post-new-sp {
+    display: none !important;
+  }
+  .new-post-btn {
+    display: none !important;
+
+  }
+  .new-posts-header {
+    display: none !important;
+
+  }
+}
+
 @media screen and (max-width: 1023px) {
+
+  .posts-post-new-pc {
+    display: none !important;
+
+  }
+  .posts-post-new-sp {
+    display: block !important;
+  }
+  .new-post-btn {
+    display: block !important;
+
+  }
+  .new-posts-header {
+    display: block !important;
+
+  }
+
+  .posts-post-new-pc {
+    display: block;
+
+  }
+  .posts-post-new-sp {
+    display: none;
+  }
 
   .posts {
 

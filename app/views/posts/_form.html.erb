@@ -1,4 +1,269 @@
-<div id="posts-post-new" style="display: block">
+<div class="posts-post-new-pc">
+  <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
+<div class="post-form-container">
+    <ul class="new-post-slider">
+      <li>
+        <h4>アイコンを選択</h4>
+        <ul class="categories clearfix">
+          <% @categories.each.with_index(1) do |category, index| %>
+              <li class="category <%= (index == 1 || index == 4) ? 'category-border-left-hide' : '' %> <%= ([4, 5, 6].include?(index)) ? 'category-border-bottom-hide' : '' %>">
+                <div class="category-icon <%= icon_of_category(category) %>"></div>
+                <div class="category-name"><%= category %></div>
+              </li>
+          <% end %>
+        </ul>
+
+        <h4>タイトルを記入</h4>
+        <div class="title-field">
+          <input type="text" id="title-data" placeholder="学生クリエイターのためのマッチングサイト"/>
+        </div>
+
+        <h4>詳細を記入</h4>
+        <div class="detail-field">
+          <textarea type="text" id="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
+        </div>
+
+
+        <h4>画像を挿入 (任意)</h4>
+        <div class="post-image-field-list-wrapper">
+          <div class="post-image-field-list">
+
+            <div class="post-image-field">
+              <span class="fa fa-plus"></span>
+              <%= image_tag @post.image %>
+              <%= form.file_field :image, id: :post_image_data, data: {id: 1} %>
+            </div>
+            <div class="post-image-field">
+              <span class="fa fa-plus"></span>
+              <%= image_tag @post.image_2 %>
+              <%= form.file_field :image_2, id: :post_image_data_2, data: {id: 2} %>
+
+            </div>
+            <div class="post-image-field">
+              <span class="fa fa-plus"></span>
+              <%= image_tag @post.image_3 %>
+              <%= form.file_field :image_3, id: :post_image_data_3, data: {id: 3} %>
+            </div>
+          </div>
+        </div>
+
+        <h4>募集役割</h4>
+        <div class="post-jobtype-form">
+          <div class="post-jobtype-field">
+            <span class="jobtype-name">プランナー</span>
+            <div class="jobtype-num-box">
+              <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+              <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled"/>
+              <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+            </div>
+          </div>
+
+          <div class="post-jobtype-field">
+            <span class="jobtype-name">エンジニア</span>
+            <div class="jobtype-num-box">
+              <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+              <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled"/>
+
+              <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+            </div>
+          </div>
+
+          <div class="post-jobtype-field">
+            <span class="jobtype-name">デザイナー</span>
+            <div class="jobtype-num-box">
+              <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
+              <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled"/>
+              <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="new-post-commitment-wrap">
+          <h4>ガチ度</h4>
+          <div class="new-post-commitment">
+            <ul class="commitment-item-box">
+              <li><span>気軽に制作</span></li>
+              <li class="commitment-item commitment-level-1"><i class="fa fa-circle-o"></i></li>
+              <li class="commitment-item commitment-level-2"><i class="fa fa-circle-o"></i></li>
+              <li class="commitment-item commitment-level-3 commitment-item-active"><i class="fa fa-circle-o"></i>
+              </li>
+              <li class="commitment-item commitment-level-4"><i class="fa fa-circle-o"></i></li>
+              <li class="commitment-item commitment-level-5"><i class="fa fa-circle-o"></i></li>
+              <li><span>ガチで制作</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>目標製作期間 (半角数字)</h4>
+        <div class="new-post-term">
+          <div class="post_period_data_sub">
+            <%= form.number_field :period, id: :post_period, class: :post_period_data, placeholder: '' %>
+          </div>
+        </div>
+
+        <h4>開発規模 (半角数字)</h4>
+        <div class="new-post-scale">
+          <div class="post_scale_data_sub">
+            <%= form.number_field :scale, id: :post_scale, class: :post_scale_data, placeholder: '' %>
+          </div>
+        </div>
+
+      </li>
+
+      <li>
+
+        <div class="post-show-container">
+          <div class="post-header">
+            <div class="post-icon-data"></div>
+          </div>
+          <h1 class="new-post-preview-title"></h1>
+          <div class="post-content">
+
+
+            <p class="post-detail">
+            </p>
+
+            <!--<div class="post-images">-->
+            <!--<div class="post-image-box">-->
+            <!--<div class="post-image-item post-image-item-1">-->
+            <!--</div>-->
+            <!--<div class="post-image-item post-image-item-2">-->
+            <!--</div>-->
+            <!--<div class="post-image-item post-image-item-3">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <div class="post-status">
+              <div class="status-line"></div>
+              <div class="status-box">
+                <div class="status-planning status-active">
+                  <i class="status-icon show-status-icon"></i>
+                  <span class="status-label">募集中</span>
+                </div>
+                <div class="status-development ">
+                  <i class="status-icon show-status-icon"></i>
+                  <span class="status-label">開発中</span>
+                </div>
+                <div class="status-release ">
+                  <i class="status-icon show-status-icon"></i>
+                  <span class="status-label">リリース</span>
+                </div>
+              </div>
+            </div>
+
+            <h2><i class="fa fa-pencil"></i>募集役割</h2>
+
+            <div class="post-jobtype post-jobtype-count">
+              <div class="jobtype-icon-list-box">
+              </div>
+              <div class="jobtype-label-box">
+              </div>
+            </div>
+
+            <div class="post-images">
+              <div class="post-image-box">
+                <div class="post-image-item post-image-item-1">
+                  <%= image_tag @post.image, style: "margin:0 auto;" %>
+                </div>
+                <div class="post-image-item post-image-item-2">
+                  <%= image_tag @post.image_2, style: "margin:0 auto;" %>
+                </div>
+                <div class="post-image-item post-image-item-3">
+                  <%= image_tag @post.image_3, style: "margin:0 auto;" %>
+                </div>
+              </div>
+            </div>
+
+
+            <h2><i class="fa fa-fire"></i>ガチ度</h2>
+
+            <div class="preview-post-commitment post-commitment">
+              <ul class="commitment-item-box">
+                <li><span>気軽に制作</span></li>
+                <li class="commitment-item commitment-item-1"><i class="commitment-icon"></i></li>
+                <li class="commitment-item commitment-item-2"><i class="commitment-icon"></i></li>
+                <li class="commitment-item commitment-item-3 commitment-item-active"><i class="commitment-icon"></i>
+                </li>
+                <li class="commitment-item commitment-item-4"><i class="commitment-icon"></i></li>
+                <li class="commitment-item commitment-item-5"><i class="commitment-icon"></i></li>
+                <li><span>ガチで制作</span></li>
+              </ul>
+            </div>
+
+
+            <div class="post-term-scale-wrap clearfix">
+
+              <div class="post-term-wrap">
+                <h2><%= fa_icon 'clock-o' %>目標制作期間</h2>
+                <div class="post-term">
+                  <div class="post_period_data_sub preview_post_period_data_sub">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="post-scale-wrap">
+                <h2><%= fa_icon 'users' %>開発規模</h2>
+                <div class="post-scale">
+                  <div class="post_scale_data_sub preview_post_scale_data_sub">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="post-footer">
+              <div class="post-footer-box clearfix">
+                <div class="post-founder-wrapper clearfix">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
+
+          <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
+          <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
+
+          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden' %>
+          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden' %>
+          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden' %>
+
+          <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
+
+          <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー', value: "rgb(252,108,110)" %>
+      </li>
+    </ul>
+    <div class="post-color-field-list-wrapper">
+      <p class="post-color-field-list-title">企画のテーマカラーを選択</p>
+
+      <div class="post-color-field-list">
+        <div class="post-color-field post-color-field-red">
+        </div>
+        <div class="post-color-field post-color-field-yellow">
+        </div>
+        <div class="post-color-field post-color-field-green">
+        </div>
+        <div class="post-color-field post-color-field-blue">
+        </div>
+        <div class="post-color-field post-color-field-purple">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <% end %>
+</div>
+
+<div id="posts-post-new" class="posts-post-new-sp" style="display: block">
 
 <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
 
@@ -238,9 +503,6 @@
                 </div>
               </div>
             </div>
-
-
-
 
 
 
