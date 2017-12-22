@@ -11,13 +11,13 @@ $(document).on('turbolinks:load', function() {
     autoplaySpeed: 10000,
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1
         }

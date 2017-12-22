@@ -115,19 +115,16 @@ text-decoration: none;
 }
 
 .posts {
+  width: 90%;
+  margin: 0 auto;
 
   &-post {
-    width:100%;
-    max-width: 400px;
+    width:31%;
     overflow: hidden;
     border-radius: 8px;
     list-style: none;
-    margin: 20px;
+    margin: 20px 1%;
     float: left;
-    // background: #FE6B6B;
-    // background: -moz-linear-gradient(left, #ed1178 0%, #f0443c 100%);
-    // background: -webkit-linear-gradient(left, #ed1178 0%,#f0443c 100%);
-    // background: linear-gradient(to right, #ed1178 0%,#f0443c 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed1178', endColorstr='#f0443c',GradientType=1 );
     box-shadow: 0 2px 5px rgba(0,0,0,.26);
     position: relative;
