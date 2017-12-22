@@ -205,7 +205,7 @@
                   <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
-                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
@@ -225,7 +225,7 @@
                   <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
-                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
@@ -245,7 +245,7 @@
                   <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
-                    <span class="post-join-btn join-btn-disabled">申請中</span>
+                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
