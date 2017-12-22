@@ -167,26 +167,33 @@ $(document).on('turbolinks:load', function () {
     });
 
     // initialize edit
-    $('#title-data').val($('#post_title').val());
-    $('#detail-data').val($('#post_detail').val());
+    $('.title-data').val($('#post_title').val());
+    $('.detail-data').val($('#post_detail').val());
 
     if($('#post_num_of_planner').val() == '') {
-      $('#jobtype-planner').val('0');
+      $('.jobtype-planner').val('0');
     } else {
-      $('#jobtype-planner').val($('#post_num_of_planner').val());
+      $('.jobtype-planner').val($('#post_num_of_planner').val());
     }
 
     if($('#post_num_of_engineer').val() == '') {
-      $('#jobtype-engineer').val('0');
+      $('.jobtype-engineer').val('0');
     } else {
-      $('#jobtype-engineer').val($('#post_num_of_engineer').val());
+      $('.jobtype-engineer').val($('#post_num_of_engineer').val());
     }
 
-
     if($('#post_num_of_planner').val() == '') {
-      $('#jobtype-planner').val('0');
+      $('.jobtype-planner').val('0');
     } else {
-      $('#jobtype-planner').val($('#post_num_of_planner').val());
+      $('.jobtype-planner').val($('#post_num_of_planner').val());
+    }
+
+    if($('.post_period_data').val() == '') {
+      $('.post_period_data').val(0);
+    }
+
+    if($('.post_scale_data').val() == '') {
+      $('.post_scale_data').val(0);
     }
 
 
@@ -232,6 +239,17 @@ $(document).on('turbolinks:load', function () {
 
 
 
+    $('.title-data').change(function () {
+      $('#post_title').val($('.title-data').val());
+      $('#post_title').val($('.title-data2').val());
+      $('.new-post-preview-title').text($('.title-data').val());
+    });
+
+    $('.detail-data').change(function () {
+      $('#post_detail').val($('.detail-data').val());
+      $('#post_detail').val($('.title-data2').val());
+      $('.post-detail').append($('.detail-data').val());
+    });
 
 
     $('#title-data').change(function () {
@@ -398,11 +416,89 @@ $(document).on('turbolinks:load', function () {
     });
 
     var color;
-    $('.post-color-field').click(function () {
+    $('.post-color-field-list .post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
       $(this).css('width', '40px');
       $(this).css('height', '40px');
       $(this).css('top', '5px');
+      $('.post-color-field-list').css('top', '-10px');
+      $('.post-color-field-list').css('width', '310px');
+      color = $(this).css("background-color");
+      $('#main_color').val($(this).css("background-color"));
+      $('#posts-post-new .post-header').css({
+        "background-color": $(this).css("background-color")
+      });
+      $('#posts-post-new .term-active span').css({
+        'color': $(this).css("background-color")
+      });
+      $('#posts-post-new .status-icon').css({
+        "color": $(this).css("background-color")
+      });
+      $('#posts-post-new .status-label').css({
+        "color": $(this).css("background-color")
+      });
+      $('#posts-post-new .preview_post_period_data_sub').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('#posts-post-new .preview_post_scale_data_sub').css({
+        "color": $(this).css("background-color")
+      });
+      $('#posts-post-new .commitment-icon').css({
+        "color": $(this).css("background-color")
+      });
+      $('#posts-post-new .jobtype-icon').css({
+        "color": $(this).css("background-color")
+      });
+      $('#posts-post-new h2 i').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(1)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(2)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.new-post-slide-dots li').find('button').append('<style>.slick-dots.new-post-slide-dots li:nth-child(3)  button:before {color:' + $(this).css("background-color") + '!important;}</style>');
+      $('.category-checked').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-plus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.jobtype-minus-btn i').css({
+        "color": $(this).css("background-color")
+      });
+
+
+      $('.commitment-item i').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.new-post-slick-next').css({
+        "color": $(this).css("background-color")
+      });
+
+
+      $('.new-post-btn-prev').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.new-post-btn-close').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.show-public-btn').css({
+        "background-color": $(this).css("background-color")
+      });
+
+    });
+
+
+    $('.post-color-field-list-pc .post-color-field').click(function () {
+      $(this).parent().find('.post-color-field').removeAttr('style');
+      $(this).css('width', '40px');
+      $(this).css('height', '40px');
+      $(this).css('left', '-5px');
       $('.post-color-field-list').css('top', '-10px');
       $('.post-color-field-list').css('width', '310px');
       color = $(this).css("background-color");
@@ -553,6 +649,17 @@ $(document).on('turbolinks:load', function () {
       // });
     });
 
+
+    $('.new-post-slider-pc').slick({
+      dots: true,
+      dotsClass: 'slick-dots new-post-slide-dots',
+      slidesToShow: 1,
+      arrows: false,
+      autoplay: false,
+      swipe: false,
+      infinite: false,
+    });
+
     $('.new-post-slider').slick({
       dots: true,
       dotsClass: 'slick-dots new-post-slide-dots',
@@ -641,8 +748,38 @@ $(document).on('turbolinks:load', function () {
 
     });
 
-
     function slickCurrent() {
+      var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
+      if (currentPage == 1) {
+        $('.new-post-btn-close').css({'display': 'block'});
+        $('.new-post-btn-prev').css({'display': 'none'});
+        $('.new-post-slick-next').css({'display': 'block'});
+        $('.new-post-btn-private').css({'display': 'none'});
+        $('.new-post-btn-public').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
+      } else if (currentPage == 2) {
+        $('.new-post-btn-close').css({'display': 'none'});
+        $('.new-post-btn-prev').css({'display': 'block'});
+        $('.new-post-slick-next').css({'display': 'block'});
+        $('.new-post-btn-private').css({'display': 'none'});
+        $('.new-post-btn-public').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
+      } else if (currentPage == 3) {
+        $('.new-post-btn-close').css({'display': 'none'});
+        $('.new-post-btn-prev').css({'display': 'block'});
+        $('.new-post-slick-next').css({'display': 'none'});
+        $('.new-post-btn-private').css({'display': 'block'});
+        $('.new-post-btn-public').css({'display': 'block'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+      }
+    }
+
+
+
+
+  function slickCurrent() {
       var currentPage = $('.new-post-slider').slick('slickCurrentSlide') + 1;
       if (currentPage == 1) {
         $('.new-post-btn-close').css({'display': 'block'});
@@ -660,7 +797,6 @@ $(document).on('turbolinks:load', function () {
         $('.new-post-btn-public').css({'display': 'none'});
         $('.post-color-field-list-wrapper').css({'display': 'block'});
 
-
       } else if (currentPage == 3) {
         $('.new-post-btn-close').css({'display': 'none'});
         $('.new-post-btn-prev').css({'display': 'block'});
@@ -670,7 +806,6 @@ $(document).on('turbolinks:load', function () {
         $('.post-color-field-list-wrapper').css({'display': 'block'});
       }
     }
-
 
   });
 

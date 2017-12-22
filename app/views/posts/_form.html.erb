@@ -1,7 +1,8 @@
-<div class="posts-post-new-pc">
-  <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
+<%= form_with(model: @post, multipart: true, remote: true) do |form| %>
+
+    <div class="posts-post-new-pc">
 <div class="post-form-container clearfix">
-    <ul class="new-post-slider new-post-wrap-pc">
+    <ul class="new-post-slider-pc new-post-wrap-pc">
       <li>
         <h4>アイコンを選択</h4>
         <ul class="categories clearfix">
@@ -15,12 +16,12 @@
 
         <h4>タイトルを記入</h4>
         <div class="title-field">
-          <input type="text" id="title-data" placeholder="学生クリエイターのためのマッチングサイト"/>
+          <input type="text" id="title-data" class="title-data" placeholder="学生クリエイターのためのマッチングサイト"/>
         </div>
 
         <h4>詳細を記入</h4>
         <div class="detail-field">
-          <textarea type="text" id="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
+          <textarea type="text" id="detail-data" class="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
         </div>
 
 
@@ -53,7 +54,7 @@
             <span class="jobtype-name">プランナー</span>
             <div class="jobtype-num-box">
               <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-              <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled"/>
+              <input type="text" class="jobtype-num jobtype-planner" id="jobtype-planner" value="0" disabled="disabled"/>
               <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
             </div>
           </div>
@@ -62,7 +63,7 @@
             <span class="jobtype-name">エンジニア</span>
             <div class="jobtype-num-box">
               <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-              <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled"/>
+              <input type="text" class="jobtype-num jobtype-engineer" id="jobtype-engineer" value="0" disabled="disabled"/>
 
               <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
             </div>
@@ -72,7 +73,7 @@
             <span class="jobtype-name">デザイナー</span>
             <div class="jobtype-num-box">
               <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-              <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled"/>
+              <input type="text" class="jobtype-num jobtype-designer" id="jobtype-designer" value="0" disabled="disabled"/>
               <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
             </div>
           </div>
@@ -227,18 +228,6 @@
 
 
 
-          <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
-
-          <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
-          <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
-
-          <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden' %>
-          <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden' %>
-          <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden' %>
-
-          <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
-
-          <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー', value: "rgb(252,108,110)" %>
       </li>
     </ul>
 
@@ -263,7 +252,6 @@
 
   </div>
 
-  <% end %>
 
 
   <a class="new-post-btn-prev"><span>Back</span></a>
@@ -275,13 +263,12 @@
 
 <div id="posts-post-new" class="posts-post-new-sp" style="display: block">
 
-<%= form_with(model: @post, multipart: true, remote: true) do |form| %>
 
     <div class="new-posts-header">
       <%= link_to '', root_path, class: "new-post-btn-close fa fa-times" %>
       <a class="new-post-btn-prev"><span>Back</span></a>
       <a class="new-post-slick-next">Next</a>
-      <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
+      <div class="new-post-btn-public"><%= form.submit '投稿する', class: 'show-public-btn' %></div>
       <!--<div class="new-post-btn-private"><%= form.submit '下書きに保存', name: '', class: 'show-private-btn' %></div>-->
 
     </div>
@@ -301,12 +288,12 @@
 
           <h4>タイトルを記入</h4>
           <div class="title-field">
-            <input type="text" id="title-data" placeholder="学生クリエイターのためのマッチングサイト"/>
+            <input type="text" id="title-data" class="title-data title-data2" placeholder="学生クリエイターのためのマッチングサイト"/>
           </div>
 
           <h4>詳細を記入</h4>
           <div class="detail-field">
-            <textarea type="text" id="detail-data" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
+            <textarea type="text" id="detail-data" class="detail-data detail-data2" placeholder="このサービスはものづくりを専門とする学生同士が繋がって一つのプロジェクトをきっかけにコミュニティを築くことができます。"></textarea>
           </div>
 
 
@@ -342,7 +329,7 @@
               <span class="jobtype-name">プランナー</span>
               <div class="jobtype-num-box">
                 <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-                <input type="text" class="jobtype-num" id="jobtype-planner" value="0" disabled="disabled"/>
+                <input type="text" class="jobtype-num jobtype-planner" id="jobtype-planner" value="0" disabled="disabled"/>
                 <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
               </div>
             </div>
@@ -351,7 +338,7 @@
               <span class="jobtype-name">エンジニア</span>
               <div class="jobtype-num-box">
                 <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-                <input type="text" class="jobtype-num" id="jobtype-engineer" value="0" disabled="disabled"/>
+                <input type="text" class="jobtype-num jobtype-engineer" id="jobtype-engineer" value="0" disabled="disabled"/>
 
                 <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
               </div>
@@ -361,7 +348,7 @@
               <span class="jobtype-name">デザイナー</span>
               <div class="jobtype-num-box">
                 <span class="jobtype-minus-btn disabled"><%= fa_icon 'minus-circle' %></span>
-                <input type="text" class="jobtype-num" id="jobtype-designer" value="0" disabled="disabled"/>
+                <input type="text" class="jobtype-num jobtype-designer" id="jobtype-designer" value="0" disabled="disabled"/>
                 <span class="jobtype-plus-btn"><%= fa_icon 'plus-circle' %></span>
               </div>
             </div>
@@ -518,12 +505,12 @@
 
             <%= form.hidden_field :category_name, id: :post_category_name, placeholder: 'カテゴリーアイコン' %>
 
-            <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル' %>
-            <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細' %>
+            <%= form.hidden_field :title, id: :post_title, placeholder: 'タイトル', class:'post_title'%> %>
+            <%= form.hidden_field :detail, id: :post_detail, placeholder: '詳細', class:'post_detail'%>
 
-            <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden' %>
-            <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden' %>
-            <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden' %>
+            <%= form.hidden_field :num_of_planner, id: :post_num_of_planner, class: 'jobtype-hidden post_num_of_planner' %>
+            <%= form.hidden_field :num_of_engineer, id: :post_num_of_engineer, class: 'jobtype-hidden post_num_of_engineer' %>
+            <%= form.hidden_field :num_of_designer, id: :post_num_of_designer, class: 'jobtype-hidden post_num_of_designer' %>
 
             <%= form.hidden_field :motivation, id: :post_motivation, placeholder: 'ガチ度' %>
 
@@ -549,9 +536,9 @@
 
     </div>
 
-<% end %>
 </div>
 
+  <% end %>
 
 <div class="remodal" data-remodal-id="modal">
   <div class="post-preview-modal" id="post-preview-modal">
