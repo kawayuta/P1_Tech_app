@@ -1,0 +1,70 @@
+@media screen and (min-width: 769px) {
+
+
+
+// =====posts/show=====
+
+  .post-show-container {
+    width: 65%;
+    min-width: 600px;
+    max-width: 900px;
+
+    .post-header {
+      .post-show-icon {
+        font-size: 60px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+    }
+
+    .post-content {
+      padding: 0 30px;
+
+      h2 {
+        padding: 0 0 0 60px;
+      }
+
+      .post-operation {
+        padding-top: 30px;
+        padding-bottom: 10px;
+      }
+
+      .post-detail {
+        padding: 0 10% 40px;
+      }
+
+      .post-status  {
+        padding: 35px 12%;
+
+        .status-box {
+
+        }
+      }
+
+      .post-commitment {
+        width: 80%;
+        max-width: 550px;
+        padding: 40px 5% 60px;
+      }
+
+      .post-term, .post-scale {
+        padding: 30px 15% 50px;
+      }
+
+    }
+  }
+
+  .comment-list-container {
+    width: 65%;
+    min-width: 600px;
+    max-width: 900px;
+
+   .comment-list-wrapper {
+     padding: 0 30px;
+   }
+  }
+
+}
