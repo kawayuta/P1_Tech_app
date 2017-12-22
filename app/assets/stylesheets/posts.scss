@@ -1366,6 +1366,19 @@ input.jobtype-num {
     margin: 10px auto 30px;
   }
 
+  .request-open-btn-wrapper {
+    padding: 20px 0;
+    text-align: center;
+
+    .request-open-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+
   .post-operation {
     display: table;
     width: 80%;
@@ -2125,4 +2138,107 @@ input.jobtype-num {
     // }
   }
 
+}
+
+.request-remodal[data-request-modal="request-modal"] {
+  min-height: 150px;
+  max-height: 300px;
+  width: 80%;
+  min-width: 280px;
+  max-width: 400px;
+  overflow-y: scroll;
+  position: relative;
+
+  .request-list {
+
+    .request-item {
+      padding: 20px 0;
+      border-top: 1px solid #ccc;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      .request-user-wrapper {
+        display: inline-block;
+        height: 40px;
+      }
+
+      .request-user-img {
+        float: left;
+
+        img {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .request-user-info {
+        float: left;
+        height: 40px;
+        margin-left: 10px;
+        position: relative;
+
+        .request-user-jobtype {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          font-size: 11px;
+          padding: 2px 5px;
+          border-radius: 4px;
+          color: #fff;
+        }
+
+        .request-user-name {
+          margin: 10px 0;
+
+          a {
+            text-decoration: none;
+            color: #666;
+            line-height: 55px;
+            font-size: 14px;
+
+          }
+        }
+      }
+
+      .request-operation-btn-wrapper {
+        padding: 10px 0;
+
+        .request-approve-btn {
+          display: inline-block;
+          padding: 10px 16px;
+          background-color: #2cc4bd;
+          color: #fff;
+          font-size: 14px;
+          text-decoration: none;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+          margin-right: 10px;
+        }
+
+        .request-reject-btn {
+          display: inline-block;
+          padding: 10px 16px;
+          background-color: #f45a60;
+          color: #fff;
+          font-size: 14px;
+          text-decoration: none;
+          border-radius: 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+        }
+      }
+    }
+  }
+
+  .request-remodal-close-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #888;
+    font-size: 14px;
+    cursor: pointer;
+  }
 }

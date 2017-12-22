@@ -42,6 +42,28 @@ module PostsHelper
     return "color: #{comment.post.main_color};"
   end
 
+  def request_user_jobtype(request)
+    case request.try(:job_type)
+    when 0
+      return 'プランナー'
+    when 1
+      return 'エンジニア'
+    when 2
+      return 'デザイナー'
+    end
+  end
+
+  def request_user_jobtype_color(request)
+    case request.try(:job_type)
+    when 0
+      return '#45D480'
+    when 1
+      return '#F8BF4A'
+    when 2
+      return '#FE6B6B'
+    end
+  end
+
   def icon_of_category(name)
     if name.downcase == 'game'
       icon = 'fa fa-gamepad'
