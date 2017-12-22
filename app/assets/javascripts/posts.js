@@ -4,8 +4,7 @@ $(document).on('turbolinks:load', function () {
   $(function () {
 
     // いいね
-
-    $('.post-vote-heart').click(function () {
+    $(document).on('click', '.post-vote-heart', function () {
       var classname = $(this).attr('class');
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
