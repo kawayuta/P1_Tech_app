@@ -1,7 +1,7 @@
 <div class="top-page-wrapper">
 
   <section class="top-top5s">
-    <h2>TOP PROJECT</h2>
+    <h2 class="ranking-title">TOP PROJECT</h2>
     <div class="ranking-slider">
       <% @ranked_posts.each_with_index do |post, i| %>
           <div class="ranked-post" style="background-color: <%= post.main_color %>">
@@ -77,7 +77,7 @@
 
 
   <section class="top-posts" id="top-posts">
-    <h2>NEW</h2>
+    <h2 class="index-new-title">NEW</h2>
     <!--<%= link_to 'planner', search_posts_path(sort: 'planner') %>-->
     <!--<%= link_to 'engineer', search_posts_path(sort: 'engineer') %>-->
     <!--<%= link_to 'designer', search_posts_path(sort: 'designer') %>-->

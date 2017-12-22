@@ -3,12 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .profile-container {
+
   .profile-header {
     background-color: #FE6B6B;
     color: #fff;
     height: 72px;
     position: relative;
     text-align: center;
+    width: 100%;
+
+    .profile-header-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
 
     span {
       position: absolute;
