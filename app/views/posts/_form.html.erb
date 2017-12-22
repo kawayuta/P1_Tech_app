@@ -48,7 +48,7 @@
         </div>
 
         <h4>募集役割</h4>
-        <div class="post-jobtype-form">
+        <div class="post-jobtype-form post-jobtype-form-pc">
           <div class="post-jobtype-field">
             <span class="jobtype-name">プランナー</span>
             <div class="jobtype-num-box">
@@ -241,11 +241,11 @@
           <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー', value: "rgb(252,108,110)" %>
       </li>
     </ul>
-    <div class="post-color-field-list-wrapper-sp">
-      <p class="post-color-field-list-title-sp">企画のテーマカラーを選択</p>
 
-      <div class="post-color-field-list-sp">
-        <div class="post-color-field-sp post-color-field-red">
+    <div class="post-color-field-list-wrapper-pc">
+      <p class="post-color-field-list-title-pc">企画のテーマカラーを選択</p>
+      <div class="post-color-field-list-pc">
+        <div class="post-color-field post-color-field-pc post-color-field-red">
         </div>
         <div class="post-color-field post-color-field-yellow">
         </div>
@@ -256,11 +256,21 @@
         <div class="post-color-field post-color-field-purple">
         </div>
       </div>
+
+      <div class="new-post-btn-public new-post-btn-public-pc"><%= form.submit '投稿する', class: 'show-public-btn ' %></div>
+
     </div>
 
   </div>
 
   <% end %>
+
+
+  <a class="new-post-btn-prev"><span>Back</span></a>
+  <a class="new-post-slick-next">Next</a>
+
+
+
 </div>
 
 <div id="posts-post-new" class="posts-post-new-sp" style="display: block">
@@ -540,4 +550,17 @@
     </div>
 
 <% end %>
+</div>
+
+
+<div class="remodal" data-remodal-id="modal">
+  <div class="post-preview-modal" id="post-preview-modal">
+
+    <h3>ペライチが完成しました！<br/>
+      みんなに応援してもらいましょう！</h3>
+    <div class="sns-label-wrap clearfix">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-fb"><%= fa_icon 'facebook-official' %> Facebookで共有する</a>
+      <a href="http://twitter.com/share?url=<%= post_url(session[:new_post_id]) if session[:new_post_id] %>" onclick="window.open(this.href,'FBwindow','width=650,height=450,menubar=no,toolbar=no,scrollbars=yes');return false;" class="sns-label-tw"><%= fa_icon 'twitter' %> Twitterで共有する</a>
+    </div>
+  </div>
 </div>

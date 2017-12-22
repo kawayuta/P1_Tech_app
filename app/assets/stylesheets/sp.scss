@@ -17,13 +17,19 @@
     display: none !important;
 
   }
+  .header-new-post {
+    display: block !important;
+  }
+
+  .new-post-btn-public-pc {
+    display: block !important;
+  }
 }
 
 @media screen and (max-width: 1023px) {
 
   .posts-post-new-pc {
     display: none !important;
-
   }
   .posts-post-new-sp {
     display: block !important;
@@ -34,15 +40,15 @@
   }
   .new-posts-header {
     display: block !important;
-
   }
 
-  .posts-post-new-pc {
-    display: block;
-
+  .header-new-post {
+    display: none !important;
   }
-  .posts-post-new-sp {
-    display: none;
+
+  .new-post-btn-public-pc {
+    display: none !important;
+
   }
 
   .posts {
@@ -71,6 +77,7 @@
 }
 
 @media screen and (max-width: 414px) {
+
 
   .posts {
     width: 100%;

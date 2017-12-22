@@ -4,15 +4,48 @@
 }
 
 .posts-post-new-pc {
-  width:1500px;
+  width:1200px;
   margin: 0 auto;
 }
 .new-post-wrap-pc {
-  width:70%;
+  width:80%;
   float: left;
 }
 .post-color-field-list-wrapper-sp {
   float: right;
+  position: relative;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+
+}
+
+.post-color-field-list-title-pc {
+  width:130px;
+  background-color: #FFF;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px;
+  border-bottom: 2px solid #DDD;
+  line-height: 1.5em;
+  margin:0 auto;
+}
+.post-jobtype-form-pc {
+  width:93%;
+}
+
+.new-post-btn-public-pc {
+  position: absolute;
+  top:320px;
+  width:110px;
+  left:70px;
+}
+.new-post-btn-public-pc input {
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 15px;
 }
 .success-wrap h2 {
   text-align: center;
@@ -1030,17 +1063,22 @@ div.new-post-btn-public {
 
 
 
-.post-color-field-list-wrapper-sp {
+.post-color-field-list-wrapper-pc {
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   margin-top:15px;
   position: fixed;
   top:80px;
   left:70%;
-  height:270px;
-  width: 10%;
-  background-color: #FFF;
-  box-shadow:0px 0px 21px -7px rgba(0,0,0,0.76);
+  height:400px;
+  width: 250px;
+  .post-color-field-list-pc {
+    width:50px;
+    margin:0 auto;
+  }
+  .post-color-field-red {
+    margin-left:8px;
+  }
 }
 
 .post-color-field-list-wrapper {

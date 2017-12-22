@@ -169,9 +169,26 @@ $(document).on('turbolinks:load', function () {
     // initialize edit
     $('#title-data').val($('#post_title').val());
     $('#detail-data').val($('#post_detail').val());
-    $('#jobtype-planner').val($('#post_num_of_planner').val());
-    $('#jobtype-engineer').val($('#post_num_of_engineer').val());
-    $('#jobtype-designer').val($('#post_num_of_designer').val());
+
+    if($('#post_num_of_planner').val() == '') {
+      $('#jobtype-planner').val('0');
+    } else {
+      $('#jobtype-planner').val($('#post_num_of_planner').val());
+    }
+
+    if($('#post_num_of_engineer').val() == '') {
+      $('#jobtype-engineer').val('0');
+    } else {
+      $('#jobtype-engineer').val($('#post_num_of_engineer').val());
+    }
+
+
+    if($('#post_num_of_planner').val() == '') {
+      $('#jobtype-planner').val('0');
+    } else {
+      $('#jobtype-planner').val($('#post_num_of_planner').val());
+    }
+
 
     $('.planner-icon').remove();
     $('.engineer-icon').remove();
@@ -450,6 +467,10 @@ $(document).on('turbolinks:load', function () {
 
       $('.new-post-btn-close').css({
         "color": $(this).css("background-color")
+      });
+
+      $('.show-public-btn').css({
+        "background-color": $(this).css("background-color")
       });
 
     });
