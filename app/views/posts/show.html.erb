@@ -280,9 +280,9 @@
       <div class="post-footer-vote">
         <span class="post-share-btn"><%= fa_icon 'share-alt', class: 'modal-support-btn', style: "color: #{@post.main_color}", data: {post_id: @post.id, url: post_url(@post)} %></span>
         <% if Vote.find_by(user_id: current_user, post_id: @post, support: true).present? %>
-            <a href="#" class="post-vote-heart heart-active" data-id="<%= @post.id %>"><%= fa_icon('heart') %></a>
+            <a href="javascript:void(0);" class="post-vote-heart heart-active" data-id="<%= @post.id %>"><%= fa_icon('heart') %></a>
         <% else %>
-            <a href="#" class="post-vote-heart" data-id="<%= @post.id %>"><%= fa_icon('heart-o') %></a>
+            <a href="javascript:void(0);" class="post-vote-heart" data-id="<%= @post.id %>"><%= fa_icon('heart-o') %></a>
         <% end %>
         <span class="post-vote-count" style="color:<%= @post.main_color%>"><%= Vote.where(post_id: @post, support: true).count %></span>
       </div>
