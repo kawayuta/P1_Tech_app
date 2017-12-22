@@ -16,13 +16,7 @@ $(document).on('turbolinks:load', function () {
       var classname = $(this).attr('class');
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
-      $.ajax({
-        url: "/posts/" + $(this).attr('data-id') + "/support",
-        type:'POST',
-        dataType: 'json',
-        timeout:10000,
-      }).done(function(data) {
-      });
+
 
       if (classname.match('heart-active')) {
         $(this).removeClass('heart-active');
@@ -96,8 +90,14 @@ $(document).on('turbolinks:load', function () {
         $('#flash-close-btn').click(function() {
           $('#flash-message').css('display', 'none');
         });
-
       }
+      $.ajax({
+        url: "/posts/" + $(this).attr('data-id') + "/support",
+        type:'POST',
+        dataType: 'json',
+        timeout:10000,
+      }).done(function(data) {
+      });
     });
 
     // 通知
