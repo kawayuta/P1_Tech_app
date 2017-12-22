@@ -148,9 +148,21 @@ $(document).on('turbolinks:load', function () {
         'color': color
       });
       $('#post_category_name').val($(this).text().replace(/^\s+|\s+$/g, ''));
-      if ($('#post_category_name').val() == 'Game') {
-        $('.post-header .post-icon-data').find('.post-show-icon').remove();
+      $('.post-header .post-icon-data').find('.post-show-icon').remove();
+      if ($('#post_category_name').val() == 'Social') {
+        $('.post-header .post-icon-data').append('<i class="fa fa-globe post-show-icon"></i>');
+      } else if ($('#post_category_name').val() == 'Business') {
+        $('.post-header .post-icon-data').append('<i class="fa fa-briefcase post-show-icon"></i>');
+      } else if ($('#post_category_name').val() == 'Tool') {
+        $('.post-header .post-icon-data').append('<i class="fa fa-wrench post-show-icon"></i>');
+      } else if ($('#post_category_name').val() == 'Game') {
         $('.post-header .post-icon-data').append('<i class="fa fa-gamepad post-show-icon"></i>');
+      } else if ($('#post_category_name').val() == 'Media') {
+        $('.post-header .post-icon-data').append('<i class="fa fa-television post-show-icon"></i>');
+      } else if ($('#post_category_name').val() == 'Other') {
+        $('.post-header .post-icon-data').append('<i class="fa fa-other post-show-icon"></i>');
+      } else {
+        $('.post-header .post-icon-data').append('<i class="fa fa-other post-show-icon"></i>');
       }
     });
 
@@ -375,6 +387,7 @@ $(document).on('turbolinks:load', function () {
       $(this).css('height', '40px');
       $(this).css('top', '5px');
       $('.post-color-field-list').css('top', '-10px');
+      $('.post-color-field-list').css('width', '310px');
       color = $(this).css("background-color");
       $('#main_color').val($(this).css("background-color"));
       $('#posts-post-new .post-header').css({
