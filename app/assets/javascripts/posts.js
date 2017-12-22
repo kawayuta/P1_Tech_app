@@ -256,12 +256,14 @@ $(document).on('turbolinks:load', function () {
       $('#post_title').val($('.title-data').val());
       $('#post_title').val($('.title-data2').val());
       $('.new-post-preview-title').text($('.title-data').val());
+      $('.new-post-preview-title').text($('.title-data2').val());
     });
 
     $('.detail-data').change(function () {
       $('#post_detail').val($('.detail-data').val());
       $('#post_detail').val($('.title-data2').val());
       $('.post-detail').append($('.detail-data').val());
+
     });
 
 
@@ -272,7 +274,6 @@ $(document).on('turbolinks:load', function () {
 
     $('#detail-data').change(function () {
       $('#post_detail').val($('#detail-data').val());
-      $('.post-detail').append($('#detail-data').val());
 
     });
 
@@ -280,12 +281,15 @@ $(document).on('turbolinks:load', function () {
     $('.post_period_data').change(function () {
       $('.preview_post_period_data_sub span').text('');
       $('.preview_post_period_data_sub span').append($(this).val());
+      $('.post_period_data').val($(this).val());
     });
 
 
     $('.post_scale_data').change(function () {
       $('.preview_post_scale_data_sub span').text('');
       $('.preview_post_scale_data_sub span').append($(this).val());
+      $('.post_scale_data').val($(this).val());
+
     });
 
 
