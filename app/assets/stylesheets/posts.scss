@@ -3,6 +3,17 @@
   src: font-url('rounded-mplus-1c-medium.ttf') format('truetype');
 }
 
+.posts-post-new-pc {
+  width:1500px;
+  margin: 0 auto;
+}
+.new-post-wrap-pc {
+  width:70%;
+  float: left;
+}
+.post-color-field-list-wrapper-sp {
+  float: right;
+}
 .success-wrap h2 {
   text-align: center;
   letter-spacing: 2px;
@@ -1018,6 +1029,19 @@ div.new-post-btn-public {
 }
 
 
+
+.post-color-field-list-wrapper-sp {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top:15px;
+  position: fixed;
+  top:80px;
+  left:70%;
+  height:270px;
+  width: 10%;
+  background-color: #FFF;
+  box-shadow:0px 0px 21px -7px rgba(0,0,0,0.76);
+}
 
 .post-color-field-list-wrapper {
   overflow-x: scroll;

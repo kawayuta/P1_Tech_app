@@ -1,7 +1,7 @@
 <div class="posts-post-new-pc">
   <%= form_with(model: @post, multipart: true, remote: true) do |form| %>
-<div class="post-form-container">
-    <ul class="new-post-slider">
+<div class="post-form-container clearfix">
+    <ul class="new-post-slider new-post-wrap-pc">
       <li>
         <h4>アイコンを選択</h4>
         <ul class="categories clearfix">
@@ -241,11 +241,11 @@
           <%= form.hidden_field :main_color, id: :main_color, placeholder: 'メインカラー', value: "rgb(252,108,110)" %>
       </li>
     </ul>
-    <div class="post-color-field-list-wrapper">
-      <p class="post-color-field-list-title">企画のテーマカラーを選択</p>
+    <div class="post-color-field-list-wrapper-sp">
+      <p class="post-color-field-list-title-sp">企画のテーマカラーを選択</p>
 
-      <div class="post-color-field-list">
-        <div class="post-color-field post-color-field-red">
+      <div class="post-color-field-list-sp">
+        <div class="post-color-field-sp post-color-field-red">
         </div>
         <div class="post-color-field post-color-field-yellow">
         </div>
