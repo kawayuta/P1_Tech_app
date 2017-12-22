@@ -43,16 +43,40 @@ module PostsHelper
   end
 
   def icon_of_category(name)
-    if name.downcase == 'game'
+    if name.downcase == 'social'
+      icon = 'fa fa-globe'
+    elsif  name.downcase == 'business'
+      icon = 'fa fa-briefcase'
+    elsif  name.downcase == 'tool'
+      icon = 'fa fa-wrench'
+    elsif  name.downcase == 'game'
       icon = 'fa fa-gamepad'
+    elsif  name.downcase == 'media'
+      icon = 'fa fa-television'
+    elsif  name.downcase == 'other'
+      icon = 'fa fa-file-o'
+    else  name.downcase == 'other'
+    icon = 'fa fa-file-o'
     end
 
     return icon
   end
 
   def post_icon_of_category(name)
-    if name.downcase == 'game'
+    if name.downcase == 'social'
+      icon = 'globe'
+    elsif  name.downcase == 'business'
+      icon = 'briefcase'
+    elsif  name.downcase == 'tool'
+      icon = 'wrench'
+    elsif  name.downcase == 'game'
       icon = 'gamepad'
+    elsif  name.downcase == 'media'
+      icon = 'television'
+    elsif  name.downcase == 'other'
+      icon = 'file-o'
+    else  name.downcase == 'other'
+    icon = 'file-o'
     end
 
     return icon
