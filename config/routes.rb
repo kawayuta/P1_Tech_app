@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post 'support' => 'posts#support'
       post 'join' => 'posts#join'
       get 'approve' => 'posts#approve'
+      post 'refuse' => 'posts#refuse'
       delete 'leave' => 'posts#leave'
       get 'success' => 'posts#success'
       post 'next_status' => 'posts#next_status'

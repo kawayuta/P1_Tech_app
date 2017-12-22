@@ -322,7 +322,7 @@
           </div>
           <div class="request-operation-btn-wrapper">
             <%= link_to '承認する', approve_post_path(from_user: request.user.id), class: 'request-approve-btn request-remodal-close-action' %>
-            <%= link_to '拒否する', approve_post_path(from_user: request.user.id), class: 'request-reject-btn request-remodal-close-action' %>
+            <%= link_to '拒否する', refuse_post_path(from_user: request.user.id), method: :post, class: 'request-reject-btn request-remodal-close-action' %>
           </div>
         </div>
       <% end %>
