@@ -119,13 +119,19 @@ class PostsController < ApplicationController
   end
 
   def approve
-    @approve = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
-    @approve.update(accepted: true)
-    current_user.notifications.join_notice_create(@approve, @approve.user, 'approve')
+    @member = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
+    @member.update(accepted: true)
+    current_user.notifications.join_notice_create(@member, @member.user, 'approve')
     flash[:notice] = "参加申請を承認しました！"
     redirect_to post_path(params[:id])
   end
 
+  def refuse
+    @member = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
+    @member.destroy
+    flash[:notice] = "参加申請を拒否しました"
+    redirect_to post_path(params[:id])
+  end
 
   def search
     @posts = Post.num_of_search(params[:sort]).where(published: true).order('created_at DESC')

@@ -3,6 +3,14 @@ $(document).on('turbolinks:load', function () {
 
   $(function () {
 
+    $('#request-open-btn').click(function() {
+      $('[data-request-modal=request-modal]').remodal().open();
+    });
+
+    $('.request-remodal-close-action').click(function() {
+      $('[data-request-modal=request-modal]').remodal().close();
+    });
+
     // いいね
     $(document).on('click', '.post-vote-heart', function () {
       var classname = $(this).attr('class');
