@@ -5,6 +5,7 @@
   <nav>
     <ul>
       <% if user_signed_in? %>
+          <li class="header-new-post"><%= link_to '企画を投稿', new_post_path %></li>
           <li class="header-profile_image" id="open-menu-btn"><%= image_tag current_user.try(:image) %></li>
           <li class="header-notices">
             <div class="header-notices fa fa-bell-o"></div>
