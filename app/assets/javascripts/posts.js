@@ -426,6 +426,19 @@ $(document).on('turbolinks:load', function () {
         "color": $(this).css("background-color")
       });
 
+      $('.new-post-slick-next').css({
+        "color": $(this).css("background-color")
+      });
+
+
+      $('.new-post-btn-prev').css({
+        "color": $(this).css("background-color")
+      });
+
+      $('.new-post-btn-close').css({
+        "color": $(this).css("background-color")
+      });
+
     });
 
 
