@@ -371,10 +371,10 @@ $(document).on('turbolinks:load', function () {
     var color;
     $('.post-color-field').click(function () {
       $(this).parent().find('.post-color-field').removeAttr('style');
-      $(this).css('width', '60px');
-      $(this).css('height', '60px');
-      $(this).css('margin-top', '5px');
-
+      $(this).css('width', '40px');
+      $(this).css('height', '40px');
+      $(this).css('top', '5px');
+      $('.post-color-field-list').css('top', '-10px');
       color = $(this).css("background-color");
       $('#main_color').val($(this).css("background-color"));
       $('#posts-post-new .post-header').css({
