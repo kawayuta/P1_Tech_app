@@ -156,28 +156,28 @@
     <div class="post-jobtype">
       <div class="jobtype-icon-list-box">
         <% if @post.num_of_planner != 0 %>
-            <div class="jobtype-icon-list">
+            <div class="show-jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_planner.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon planner-icon', style:"color:#{@post.main_color}" %>
+                  <%= fa_icon 'male', class: 'jobtype-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
         <% end %>
         <% if @post.num_of_engineer != 0 %>
-            <div class="jobtype-icon-list">
+            <div class="show-jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_engineer.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon engineer-icon', style:"color:#{@post.main_color}" %>
+                  <%= fa_icon 'male', class: 'jobtype-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
         <% end %>
         <% if @post.num_of_designer != 0 %>
-            <div class="jobtype-icon-list">
+            <div class="show-jobtype-icon-list">
               <div class="jobtype-icon-box">
                 <% @post.num_of_designer.times do %>
-                  <%= fa_icon 'male', class: 'jobtype-icon designer-icon', style:"color:#{@post.main_color}" %>
+                  <%= fa_icon 'male', class: 'jobtype-icon', style:"color:#{@post.main_color}" %>
                 <% end %>
               </div>
             </div>
@@ -186,13 +186,13 @@
 
       <div class="jobtype-label-box">
         <% if @post.num_of_planner != 0 %>
-          <span>プランナー</span>
+          <i>プランナー</i>
         <% end %>
         <% if @post.num_of_engineer != 0 %>
-          <span>エンジニア</span>
+          <i>エンジニア</i>
         <% end %>
         <% if @post.num_of_designer != 0 %>
-          <span>デザイナー</span>
+          <i>デザイナー</i>
         <% end %>
       </div>
 
@@ -205,7 +205,7 @@
                   <% if @self_member_info.job_type == 0 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 0 && @self_member_info.accepted == false %>
-                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
+                    <%= link_to '申請取消', cancel_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
@@ -225,7 +225,7 @@
                   <% if @self_member_info.job_type == 1 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 1 && @self_member_info.accepted == false %>
-                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
+                    <%= link_to '申請取消', cancel_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
@@ -245,7 +245,7 @@
                   <% if @self_member_info.job_type == 2 && @self_member_info.accepted == true %>
                     <span class="post-join-btn join-btn-disabled">参加中</span>
                   <% elsif @self_member_info.job_type == 2 && @self_member_info.accepted == false %>
-                    <%= link_to '申請解除', leave_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
+                    <%= link_to '申請取消', cancel_post_path(@post), method: :delete, data: { confirm: '参加申請を解除しますか？' }, class: 'post-join-btn join-btn-disabled' %>
                   <% else %>
                     <span class="post-join-btn-fake"></span>
                   <% end %>
@@ -321,8 +321,8 @@
             </div>
           </div>
           <div class="request-operation-btn-wrapper">
-            <%= link_to '承認する', approve_post_path(from_user: request.user.id), class: 'request-approve-btn request-remodal-close-action' %>
-            <%= link_to '拒否する', refuse_post_path(from_user: request.user.id), method: :post, class: 'request-reject-btn request-remodal-close-action' %>
+            <%= link_to '承認する', approve_post_path(from_user: request.user.id), method: :post, class: 'request-approve-btn request-remodal-close-action' %>
+            <%= link_to '拒否する', refuse_post_path(from_user: request.user.id), method: :delete, class: 'request-reject-btn request-remodal-close-action' %>
           </div>
         </div>
       <% end %>

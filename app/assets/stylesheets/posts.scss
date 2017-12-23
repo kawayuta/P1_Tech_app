@@ -1535,7 +1535,7 @@ input.jobtype-num {
       width: 94%;
       margin: 0 auto 8px;
 
-      .jobtype-icon-list {
+      .jobtype-icon-list, .show-jobtype-icon-list {
         display: table-cell;
         vertical-align: middle;
 
@@ -1565,7 +1565,7 @@ input.jobtype-num {
       width: 94%;
       margin: 0 auto;
 
-      span {
+      span, i {
         display: table-cell;
         vertical-align: middle;
         font-size: 13px;

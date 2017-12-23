@@ -111,6 +111,13 @@ class PostsController < ApplicationController
     redirect_to post_path(params[:id])
   end
 
+  def cancel
+    @cancel = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
+    # current_user.notifications.join_notice_create(@cancel, @cancel.post.user, 'calcel')
+    flash[:notice] = "参加申請を取り消しました"
+    redirect_to post_path(params[:id])
+  end
+
   def leave
     @leave = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
     current_user.notifications.join_notice_create(@leave, @leave.post.user, 'leave')
