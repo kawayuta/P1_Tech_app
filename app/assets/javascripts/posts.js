@@ -32,7 +32,7 @@ $(function () {
         $('.flash-message').remove();
         $('body').prepend('<p class= "flash-message" id="flash-message"></p>');
         $('.flash-message').prepend('<i id="flash-close-btn" class="fa fa-times"></i>');
-        $('.flash-message').prepend('ペライチをキャンセルしました');
+        $('.flash-message').prepend('ペライチの応援をキャンセルしました');
         $('#flash-message').fadeIn(800);
         setTimeout(function() {
           $('#flash-message').fadeOut(800);
