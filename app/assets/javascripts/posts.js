@@ -243,7 +243,7 @@ $(document).on('turbolinks:load', function () {
 
     $('.new-post-preview-title').text($('#title-data').val());
 
-    $('.post-detail').append($('#detail-data').val());
+    $('.post-detail').append('<span class="detail-about">' + $('.detail-data2').val() + '</span>');
 
 
 
@@ -261,8 +261,11 @@ $(document).on('turbolinks:load', function () {
 
     $('.detail-data').change(function () {
       $('#post_detail').val($('.detail-data').val());
-      $('#post_detail').val($('.title-data2').val());
-      $('.post-detail').append($('.detail-data').val());
+      $('#post_detail').val($('.detail-data2').val());
+      $('.post-detail').find('.detail-about').remove();
+      $('.post-detail').append('<span class="detail-about">' + $('.detail-data2').val() + '</span>');
+
+      console.log("sss");
 
     });
 
@@ -274,6 +277,7 @@ $(document).on('turbolinks:load', function () {
 
     $('#detail-data').change(function () {
       $('#post_detail').val($('#detail-data').val());
+      $('.post-detail').append('<span class="detail-about">' + $('.detail-data').val() + '</span>');
 
     });
 
@@ -340,6 +344,7 @@ $(document).on('turbolinks:load', function () {
         'color': color,
       });
 
+
     });
 
     $('.jobtype-plus-btn').click(function () {
@@ -389,15 +394,6 @@ $(document).on('turbolinks:load', function () {
       $('#posts-post-new .jobtype-icon').css({
         'color': color,
       });
-    });
-
-    $('.new-post-commitment .commitment-level-1').click(function () {
-      $(this).parent().find('.commitment-item-active').removeClass('commitment-item-active');
-      $(this).addClass('commitment-item-active');
-      $('#post_motivation').val('0');
-      $('.preview-post-commitment').find('.commitment-item').removeClass('commitment-item-active');
-      $('.preview-post-commitment .commitment-item-1').addClass('commitment-item-active');
-
     });
 
     $('.new-post-commitment .commitment-level-2').click(function () {

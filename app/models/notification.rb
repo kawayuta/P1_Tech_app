@@ -26,15 +26,15 @@ class Notification < ApplicationRecord
       )
     end
   end
-
-
-  def self.support_notice_create(target, from_user, action)
-    Notification.create(
-        from_user_id:from_user.id,
-        target_content_id: target.id,
-        target_content_type: target.model_name,
-        content:"応援"
-    )
-  end
+  #
+  #
+  # def self.support_notice_create(target, from_user, action)
+  #   Notification.create(
+  #       from_user_id:from_user.id,
+  #       target_content_id: target.id,
+  #       target_content_type: target.model_name,
+  #       content:"応援"
+  #   )
+  # end
 
 end
