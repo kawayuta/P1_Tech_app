@@ -25,7 +25,6 @@
 }
 
 
-
 .header-new-post a {
   text-decoration: none;
   color:#000;
@@ -575,6 +574,27 @@ a.new-post-slick-next {
 
 }
 
+.new-post-slick-next-pc {
+  width:100px;
+  height:100px;
+  margin: 0 auto;
+  border: 2px solid #666;
+  border-radius: 50%;
+  margin-bottom: 50px;
+  font-size:30px;
+  text-align: center;
+  line-height: 3em;
+  display: block;
+
+}
+
+.new-post-btn-prev-pc {
+  position: fixed;
+  top:17px;
+  left:100px;
+  z-index: 2210;
+  display: none;
+}
 div.new-post-btn-private {
   display: none;
 }

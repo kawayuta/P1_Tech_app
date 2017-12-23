@@ -263,6 +263,7 @@ $(document).on('turbolinks:load', function () {
       $('#post_detail').val($('.detail-data').val());
       $('#post_detail').val($('.detail-data2').val());
       $('.post-detail').find('.detail-about').remove();
+      $('.post-detail').append('<span class="detail-about">' + $('.detail-data').val() + '</span>');
       $('.post-detail').append('<span class="detail-about">' + $('.detail-data2').val() + '</span>');
 
       console.log("sss");
@@ -277,7 +278,8 @@ $(document).on('turbolinks:load', function () {
 
     $('#detail-data').change(function () {
       $('#post_detail').val($('#detail-data').val());
-      $('.post-detail').append('<span class="detail-about">' + $('.detail-data').val() + '</span>');
+      $('.post-detail').find('.detail-about').remove();
+      $('.post-detail').append('<span class="detail-about">' + $('#detail-data').val() + '</span>');
 
     });
 
@@ -516,32 +518,32 @@ $(document).on('turbolinks:load', function () {
       $('.post-color-field-list').css('width', '310px');
       color = $(this).css("background-color");
       $('#main_color').val($(this).css("background-color"));
-      $('#posts-post-new .post-header').css({
+      $('.post-header').css({
         "background-color": $(this).css("background-color")
       });
-      $('#posts-post-new .term-active span').css({
+      $('.term-active span').css({
         'color': $(this).css("background-color")
       });
-      $('#posts-post-new .status-icon').css({
+      $('.status-icon').css({
         "color": $(this).css("background-color")
       });
-      $('#posts-post-new .status-label').css({
+      $('.status-label').css({
         "color": $(this).css("background-color")
       });
-      $('#posts-post-new .preview_post_period_data_sub').css({
+      $('.preview_post_period_data_sub').css({
         "color": $(this).css("background-color")
       });
 
-      $('#posts-post-new .preview_post_scale_data_sub').css({
+      $('.preview_post_scale_data_sub').css({
         "color": $(this).css("background-color")
       });
-      $('#posts-post-new .commitment-icon').css({
+      $('.commitment-icon').css({
         "color": $(this).css("background-color")
       });
-      $('#posts-post-new .jobtype-icon').css({
+      $('.jobtype-icon').css({
         "color": $(this).css("background-color")
       });
-      $('#posts-post-new h2 i').css({
+      $('#posts-post-new-pc h2 i').css({
         "color": $(this).css("background-color")
       });
 
@@ -580,6 +582,10 @@ $(document).on('turbolinks:load', function () {
 
       $('.show-public-btn').css({
         "background-color": $(this).css("background-color")
+      });
+
+      $('.new-post-btn-prev-pc').css({
+        "color": $(this).css("background-color")
       });
 
     });
@@ -702,6 +708,14 @@ $(document).on('turbolinks:load', function () {
 
     });
 
+    $('.new-post-btn-prev-pc').click(function () {
+      $('.new-post-slider-pc').slick('slickPrev');
+      slickCurrentPc();
+      scrollTo(0, 0);
+
+
+    });
+
 
     $('.new-post-slick-next').on('click', function () {
       $('#posts-post-new').scrollTop(0);
@@ -761,38 +775,71 @@ $(document).on('turbolinks:load', function () {
 
     });
 
-    function slickCurrent() {
+
+    $('.new-post-slick-next-pc').on('click', function () {
+      $('#posts-post-new-pc').scrollTop(0);
+      var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
+
+      var ValidityTitle = ($('#post_title').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+      var ValidityDetail = ($('#post_detail').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+      var ValidityCategory = ($('#post_category_name').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+
+      var ValidityMember = ($('#post_num_of_planner').val() > 0 && $('#post_num_of_planner').val() < 11 || $('#post_num_of_engineer').val() > 0 && $('#post_num_of_engineer').val() < 11 || $('#post_num_of_designer').val() > 0 && $('#post_num_of_designer').val() < 11) ? true : false;
+      var ValidityPeriod = ($('.post_period_data').val() > 0 && $('.post_period_data').val() < 25 ) ? true : false;
+
+      var MemberCount = (Number($('#post_num_of_planner').val()) + Number($('#post_num_of_engineer').val()) + Number($('#post_num_of_designer').val()));
+      var ValidityScale = ($('.post_scale_data').val() >= MemberCount && $('.post_scale_data').val() > 0 && $('.post_scale_data').val() < 101) ? true : false;
+
+      $('.new-post-slider-pc').find('.post-form-alerts').remove();
+
+      if (currentPage == 1 && ValidityTitle && ValidityDetail && ValidityCategory && ValidityMember && ValidityPeriod && ValidityScale) {
+        $('.new-post-slider-pc').slick('slickNext');
+        slickCurrentPc();
+      } else if (currentPage == 1 && ValidityTitle == false || ValidityDetail == false || ValidityCategory == false || ValidityMember == false || ValidityPeriod == false || ValidityScale == false) {
+        $('.new-post-slider-pc').prepend('<div class="post-form-alerts"></div>');
+
+        if (currentPage == 1 && ValidityCategory == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> アイコンを選択してください</p>');
+        }
+        if (currentPage == 1 && ValidityTitle == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> タイトルを入力してください</p>');
+        }
+        if (currentPage == 1 && ValidityDetail == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 詳細を入力してください</p>');
+        }
+        if (currentPage == 1 && ValidityMember == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 募集する役割の人数を追加してください</p>');
+        }
+        if (currentPage == 1 && ValidityPeriod == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 目標製作期間を入力してください (1-24ヶ月以内)</p>');
+        }
+        if (currentPage == 1 && ValidityScale == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 開発規模を入力してください (募集役割の人数以上)</p>');
+        }
+      }
+
+      if (currentPage == 2) {
+        $('.new-post-slider-pc').slick('slickNext');
+
+        slickCurrentPc();
+      }
+
+    });
+
+    function slickCurrentPc() {
+      $('#posts-post-new-pc').scrollTop(0);
+
       var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
       if (currentPage == 1) {
-        $('.new-post-btn-close').css({'display': 'block'});
-        $('.new-post-btn-prev').css({'display': 'none'});
-        $('.new-post-slick-next').css({'display': 'block'});
-        $('.new-post-btn-private').css({'display': 'none'});
-        $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'block'});
-
+        $('.new-post-btn-prev-pc').css({'display': 'none'});
+        $('.new-post-slick-next-pc').css({'display': 'block'});
       } else if (currentPage == 2) {
-        $('.new-post-btn-close').css({'display': 'none'});
-        $('.new-post-btn-prev').css({'display': 'block'});
-        $('.new-post-slick-next').css({'display': 'block'});
-        $('.new-post-btn-private').css({'display': 'none'});
-        $('.new-post-btn-public').css({'display': 'none'});
-        $('.post-color-field-list-wrapper').css({'display': 'block'});
-
-      } else if (currentPage == 3) {
-        $('.new-post-btn-close').css({'display': 'none'});
-        $('.new-post-btn-prev').css({'display': 'block'});
-        $('.new-post-slick-next').css({'display': 'none'});
-        $('.new-post-btn-private').css({'display': 'block'});
-        $('.new-post-btn-public').css({'display': 'block'});
-        $('.post-color-field-list-wrapper').css({'display': 'block'});
+        $('.new-post-btn-prev-pc').css({'display': 'block'});
+        $('.new-post-slick-next-pc').css({'display': 'none'});
       }
     }
 
-
-
-
-  function slickCurrent() {
+    function slickCurrent() {
       var currentPage = $('.new-post-slider').slick('slickCurrentSlide') + 1;
       if (currentPage == 1) {
         $('.new-post-btn-close').css({'display': 'block'});
