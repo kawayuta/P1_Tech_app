@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user.password = Devise.friendly_token[0, 20]
         @user.remote_image_url = "http://graph.facebook.com/#{@user.uid}/picture?type=large"
         @user.save!
+
       end
     end
   end

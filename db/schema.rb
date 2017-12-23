@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20171221161851) do
     t.string "provider"
     t.string "college", null: false
     t.string "username", null: false
-    t.string "image"
+    t.string "image", default: "default_icon.png"
     t.string "token"
     t.string "major", null: false
     t.integer "graduation_year", null: false
