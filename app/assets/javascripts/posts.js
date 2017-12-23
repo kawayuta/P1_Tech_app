@@ -831,9 +831,11 @@ $(function () {
       if (currentPage == 1) {
         $('.new-post-btn-prev-pc').css({'display': 'none'});
         $('.new-post-slick-next-pc').css({'display': 'block'});
+        $('.new-post-slick-next').css({'display': 'none'});
       } else if (currentPage == 2) {
         $('.new-post-btn-prev-pc').css({'display': 'block'});
         $('.new-post-slick-next-pc').css({'display': 'none'});
+        $('.new-post-slick-next').css({'display': 'none'});
       }
     }
 

@@ -23,10 +23,15 @@
   .new-post-btn-public-pc {
     display: block !important;
   }
+  .new-post-slick-next {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1023px) {
-
+  .new-post-slick-next {
+      display: block;
+  }
   .posts-post-new-pc {
     display: none !important;
   }
