@@ -117,6 +117,9 @@
         </div>
       <% end %>
     </div>
+    <div class="leave-btn-wrapper">
+      <%= link_to 'このプロジェクトを脱退する', leave_post_path(@post), method: :delete, data: { confirm: '本当にこのプロジェクトを脱退しますか？' } %>
+    </div>
   </div>
 </div>
 

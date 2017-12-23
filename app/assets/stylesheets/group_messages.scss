@@ -277,14 +277,14 @@
         width: 30px;
         border-radius: 50%;
         position: relative;
-        top: 3px;
+        top: 0;
       }
 
       textarea {
         border: none;
         border-radius: 8px;
         margin: 0 2px;
-        height: 24px;
+        height: 36px;
         width: -webkit-calc(100% - 70px);
         width: calc(100% - 70px);
         outline: none;
@@ -318,7 +318,7 @@
         color: #fff;
         padding: 0;
         position: relative;
-        bottom: 5px;
+        bottom: 8px;
         outline: none;
       }
     }
@@ -480,6 +480,17 @@
             }
           }
         }
+      }
+    }
+
+    .leave-btn-wrapper {
+      padding: 30px;
+      text-align: center;
+
+      a {
+        font-size: 14px;
+        color: #f44;
+        text-decoration: none;
       }
     }
   }
