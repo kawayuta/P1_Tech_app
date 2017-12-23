@@ -109,6 +109,16 @@
                             への参加申請を <%= notice.user.username %> が取り消しました。
                         <% end %>
                       </div>
+                  <% elsif notice.content == '脱退' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            の企画を <%= notice.user.username %> が脱退しました。
+                        <% end %>
+                      </div>
                   <% elsif notice.content == '許可' %>
                       <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
                         <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
@@ -116,7 +126,17 @@
                       <div class="notice-category-title">
                         <%= link_to Post.find(notice.target_content_id) do %>
                             <%= Post.find(notice.target_content_id).title %>
-                            への参加が <%= notice.user.username %> に許可されました。
+                            への参加申請が <%= notice.user.username %> に許可されました。
+                        <% end %>
+                      </div>
+                  <% elsif notice.content == '拒否' %>
+                      <div class="notice-category-icon" style="background-color: <%= Post.find(notice.target_content_id).main_color %>">
+                        <%= link_to fa_icon(post_icon_of_category(Post.find(notice.target_content_id).category_name)),Post.find(notice.target_content_id) %>
+                      </div>
+                      <div class="notice-category-title">
+                        <%= link_to Post.find(notice.target_content_id) do %>
+                            <%= Post.find(notice.target_content_id).title %>
+                            への参加申請が <%= notice.user.username %> に拒否されました。
                         <% end %>
                       </div>
                   <% elsif notice.content == '応援' %>

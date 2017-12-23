@@ -10,12 +10,19 @@ class Notification < ApplicationRecord
             target_content_type: target.post.model_name,
             content:"申請"
         )
-    elsif target.model_name == 'TeamMember' && action == 'leave'
+    elsif target.model_name == 'TeamMember' && action == 'cancel'
       Notification.create(
           from_user_id:from_user.id,
           target_content_id: target.post.id,
           target_content_type: target.post.model_name,
           content:"取消"
+      )
+    elsif target.model_name == 'TeamMember' && action == 'leave'
+      Notification.create(
+          from_user_id:from_user.id,
+          target_content_id: target.post.id,
+          target_content_type: target.post.model_name,
+          content:"脱退"
       )
     elsif target.model_name == 'TeamMember' && action == 'approve'
       Notification.create(
@@ -23,6 +30,13 @@ class Notification < ApplicationRecord
           target_content_id: target.post.id,
           target_content_type: target.post.model_name,
           content:"許可"
+      )
+    elsif target.model_name == 'TeamMember' && action == 'refuse'
+      Notification.create(
+          from_user_id:from_user.id,
+          target_content_id: target.post.id,
+          target_content_type: target.post.model_name,
+          content:"拒否"
       )
     end
   end

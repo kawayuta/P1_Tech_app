@@ -6,9 +6,15 @@
     <% elsif notice.content == '取消' %>
         <%= link_to (image_tag notice.user.image), notice.user %>
         <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請を <%= link_to notice.user.username, notice.user %> が取り消しました。
+    <% elsif notice.content == '脱退' %>
+        <%= link_to (image_tag notice.user.image), notice.user %>
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> の企画を <%= link_to notice.user.username, notice.user %> が脱退しました。
     <% elsif notice.content == '許可' %>
         <%= link_to (image_tag notice.user.image), notice.user %>
-        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加が <%= link_to notice.user.username, notice.user %> に許可されました。
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請が <%= link_to notice.user.username, notice.user %> に許可されました。
+    <% elsif notice.content == '拒否' %>
+        <%= link_to (image_tag notice.user.image), notice.user %>
+        <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> への参加申請が <%= link_to notice.user.username, notice.user %> に拒否されました。
     <% elsif notice.content == '応援' %>
         <%= link_to (image_tag notice.user.image), notice.user %>
         <%= link_to Post.find(notice.target_content_id).title, Post.find(notice.target_content_id) %> が <%= link_to notice.user.username, notice.user %> に応援されました。
