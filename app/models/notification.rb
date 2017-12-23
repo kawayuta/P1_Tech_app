@@ -26,7 +26,7 @@ class Notification < ApplicationRecord
       )
     end
   end
-  # 
+  #
   #
   # def self.support_notice_create(target, from_user, action)
   #   Notification.create(

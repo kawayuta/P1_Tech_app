@@ -3,11 +3,42 @@
   src: font-url('rounded-mplus-1c-medium.ttf') format('truetype');
 }
 
+.header-new-post {
+  width: 175px;
+  margin-left: 30px;
+  border: 1px solid #DDD;
+  border-radius:20px;
+  height:40px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  &:before {
+    font-family: "FontAwesome";
+    content: "\f044";
+    font-size:20px;
+    float: left;
+    color:#000;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 2.1em;
+  }
+}
+
+
+
+.header-new-post a {
+  text-decoration: none;
+  color:#000;
+  line-height: 2.5em;
+  width:100%;
+  display: block;
+}
 .posts-post-new-pc {
   width:1200px;
   margin: 0 auto;
 }
 .new-post-wrap-pc {
+  margin-top: 30px;
   width:80%;
   float: left;
 }
