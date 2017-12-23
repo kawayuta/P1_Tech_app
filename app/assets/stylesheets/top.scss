@@ -24,6 +24,25 @@ section h2 {
 section.top-top5s {
 }
 
+.peract-introduction {
+  text-align: center;
+  padding-top: 20px;
+  color: #666;
+  width: 80%;
+  margin: 0 auto;
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-family: 'rounded-mplus-1c-medium';
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
 .new-post-btn {
   display: inline-block;
   position: fixed;

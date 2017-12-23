@@ -8,24 +8,26 @@
           </div>
           <p>プロフィール画像</p>
         </div>
-        <div class="user-introduction-field-wrapper">
-          <p>自己紹介</p>
-          <div class="input-wrapper">
-            <%= f.text_area :introduction, value: @user.introduction, id: 'user-introduction' %>
-          </div>
+      <% end %>
+      <div class="user-introduction-field-wrapper">
+        <p>自己紹介</p>
+        <div class="input-wrapper">
+          <%= f.text_area :introduction, value: @user.introduction, id: 'user-introduction' %>
         </div>
-        <div class="user-url-field-wrapper">
-          <p>参考URL（GitHub, ViViViT, ポートフォリオなど最大3つまで）</p>
-          <div class="input-wrapper url-input-warpper">
-            <%= f.text_field :url_1, value: @user.url_1, id: 'user-url-1' %>
-          </div>
-          <div class="input-wrapper url-input-warpper">
-            <%= f.text_field :url_2, value: @user.url_2, id: 'user-url-2' %>
-          </div>
-          <div class="input-wrapper url-input-warpper">
-            <%= f.text_field :url_3, value: @user.url_3, id: 'user-url-3' %>
-          </div>
+      </div>
+      <div class="user-url-field-wrapper">
+        <p>参考URL（GitHub, ViViViT, ポートフォリオなど最大3つまで）</p>
+        <div class="input-wrapper url-input-warpper">
+          <%= f.text_field :url_1, value: @user.url_1, id: 'user-url-1' %>
         </div>
+        <div class="input-wrapper url-input-warpper">
+          <%= f.text_field :url_2, value: @user.url_2, id: 'user-url-2' %>
+        </div>
+        <div class="input-wrapper url-input-warpper">
+          <%= f.text_field :url_3, value: @user.url_3, id: 'user-url-3' %>
+        </div>
+      </div>
+      <% if @user.uid.nil? %>
         <div class="user-name-field-wrapper">
           <p>氏名</p>
           <div class="input-wrapper">
