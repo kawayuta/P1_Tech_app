@@ -362,6 +362,16 @@ body {
   z-index: 5000;
 }
 
+.flash-success {
+  background-color: #fff;
+  color: #00b960;
+}
+
+.flash-alert {
+  background-color: #fff;
+  color: #f07569;
+}
+
 .flash-message i {
   position: absolute;
   top: 4px;
