@@ -17,6 +17,11 @@ $(function () {
       var style = $(this).attr('style');
       var count = Number($(this).parent().find('.post-vote-count').text());
 
+      $.ajax({
+        url: "/posts/" + $(this).attr('data-id') + "/support",
+        type:'POST',
+      }).done(function(data) {
+      });
 
       if (classname.match('heart-active')) {
         $(this).removeClass('heart-active');
@@ -91,13 +96,6 @@ $(function () {
           $('#flash-message').css('display', 'none');
         });
       }
-      $.ajax({
-        url: "/posts/" + $(this).attr('data-id') + "/support",
-        type:'POST',
-        dataType: 'json',
-        timeout:10000,
-      }).done(function(data) {
-      });
     });
 
     // 通知
@@ -168,9 +166,9 @@ $(function () {
       } else if ($('#post_category_name').val() == 'Media') {
         $('.post-header .post-icon-data').append('<i class="fa fa-television post-show-icon"></i>');
       } else if ($('#post_category_name').val() == 'Other') {
-        $('.post-header .post-icon-data').append('<i class="fa fa-other post-show-icon"></i>');
+        $('.post-header .post-icon-data').append('<i class="fa fa-file-o post-show-icon"></i>');
       } else {
-        $('.post-header .post-icon-data').append('<i class="fa fa-other post-show-icon"></i>');
+        $('.post-header .post-icon-data').append('<i class="fa fa-file-o post-show-icon"></i>');
       }
     });
 

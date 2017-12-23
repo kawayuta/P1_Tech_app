@@ -78,7 +78,7 @@ module PostsHelper
     elsif  name.downcase == 'other'
       icon = 'fa fa-file-o'
     else  name.downcase == 'other'
-    icon = 'fa fa-file-o'
+     icon = 'fa fa-file-o'
     end
 
     return icon
@@ -98,7 +98,7 @@ module PostsHelper
     elsif  name.downcase == 'other'
       icon = 'file-o'
     else  name.downcase == 'other'
-    icon = 'file-o'
+      icon = 'file-o'
     end
 
     return icon
