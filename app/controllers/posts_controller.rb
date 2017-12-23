@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     @post.status = 0
     if params[:commit] == '投稿する'
       @post.published = true
-      @post.team_members.build(user_id: current_user.id, job_type: 0, accepted: true)
+      @post.team_members.build(user_id: current_user.id, job_type: 3, accepted: true)
     else
       @post.published = false
     end
