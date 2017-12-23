@@ -16,10 +16,9 @@
 //= require vender/remodal.min
 //= require vender/jquery.infinitescroll.js
 //= require vender/jquery.keyframes.min.js
-//= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function () {
+$(function () {
 
   $('#flash').fadeIn(800);
 
