@@ -1,0 +1,13 @@
+<% if flash[:success].present? %>
+  <p class= "flash-message flash-success" id='flash'>
+    <%= fa_icon 'times', id: 'flash-close' %>
+    <span><%= flash[:success] %></span>
+  </p>
+<% end %>
+
+<% if flash[:alert].present? %>
+  <p class= "flash-message flash-alert" id='flash'>
+    <%= fa_icon 'times', id: 'flash-close' %>
+    <span><%= flash[:alert] %></span>
+  </p>
+<% end %>

@@ -21,6 +21,12 @@
 
 $(document).on('turbolinks:load', function () {
 
+  $('#flash').fadeIn(800);
+
+  $('#flash-close').click(function() {
+    $('#flash').css('display', 'none');
+  });
+
   $(function () {
     $('#open-menu-btn').click(function () {
       $('#side-menu-wrapper').css('display', 'block');

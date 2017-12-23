@@ -107,21 +107,21 @@ class PostsController < ApplicationController
     return redirect_to post_path(params[:id]) if TeamMember.find_by(post_id: params[:id], user_id: current_user.id)
     @join = TeamMember.create(post_id: params[:id], user_id: current_user.id, job_type: params[:job_type], accepted: false)
     current_user.notifications.join_notice_create(@join, @join.post.user, 'join')
-    flash[:notice] = "この企画への参加を申請しました！"
+    flash[:success] = "この企画への参加を申請しました！"
     redirect_to post_path(params[:id])
   end
 
   def cancel
     @cancel = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
     # current_user.notifications.join_notice_create(@cancel, @cancel.post.user, 'calcel')
-    flash[:notice] = "参加申請を取り消しました"
+    flash[:success] = "参加申請を取り消しました"
     redirect_to post_path(params[:id])
   end
 
   def leave
     @leave = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
     current_user.notifications.join_notice_create(@leave, @leave.post.user, 'leave')
-    flash[:notice] = "この企画のチームから抜けました"
+    flash[:success] = "この企画のチームから抜けました"
     redirect_to post_path(params[:id])
   end
 
@@ -129,14 +129,14 @@ class PostsController < ApplicationController
     @member = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
     @member.update(accepted: true)
     current_user.notifications.join_notice_create(@member, @member.user, 'approve')
-    flash[:notice] = "参加申請を承認しました！"
+    flash[:success] = "参加申請を承認しました！"
     redirect_to post_path(params[:id])
   end
 
   def refuse
     @member = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
     @member.destroy
-    flash[:notice] = "参加申請を拒否しました"
+    flash[:success] = "参加申請を拒否しました"
     redirect_to post_path(params[:id])
   end
 
@@ -192,7 +192,7 @@ class PostsController < ApplicationController
       @post.update(status: 'release')
     end
 
-    flash[:notice] = "次のフローへ進みました！"
+    flash[:success] = "次のフローへ進みました！"
 
     if Rails.application.routes.recognize_path(request.referrer)[:action] == 'talk_room'
       redirect_to talk_room_path(@post)
@@ -204,7 +204,7 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      return redirect_to root_path flash[:notice] = "お探しのペライチは見つかりませんでした。" unless Post.find_by(id: params[:id])
+      return redirect_to root_path flash[:alert] = "お探しのペライチは見つかりませんでした。" unless Post.find_by(id: params[:id])
 
       @post = Post.find(params[:id])
     end
