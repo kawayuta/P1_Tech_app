@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
   // $('#group-message-textarea').focus(function() {
   //   $(this).css('height', '60px');

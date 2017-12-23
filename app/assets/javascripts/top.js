@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
   $('.ranking-slider').slick({
     dots: true,
