@@ -761,6 +761,56 @@ $(document).on('turbolinks:load', function () {
 
     });
 
+
+    $('.new-post-slick-next-pc').on('click', function () {
+      $('#posts-post-new').scrollTop(0);
+      var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
+
+      var ValidityTitle = ($('#post_title').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+      var ValidityDetail = ($('#post_detail').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+      var ValidityCategory = ($('#post_category_name').val().replace(/^\s+|\s+$/g, '') != '') ? true : false;
+
+      var ValidityMember = ($('#post_num_of_planner').val() > 0 && $('#post_num_of_planner').val() < 11 || $('#post_num_of_engineer').val() > 0 && $('#post_num_of_engineer').val() < 11 || $('#post_num_of_designer').val() > 0 && $('#post_num_of_designer').val() < 11) ? true : false;
+      var ValidityPeriod = ($('.post_period_data').val() > 0 && $('.post_period_data').val() < 25 ) ? true : false;
+
+      var MemberCount = (Number($('#post_num_of_planner').val()) + Number($('#post_num_of_engineer').val()) + Number($('#post_num_of_designer').val()));
+      var ValidityScale = ($('.post_scale_data').val() >= MemberCount && $('.post_scale_data').val() > 0 && $('.post_scale_data').val() < 101) ? true : false;
+
+      $('.new-post-slider-pc').find('.post-form-alerts').remove();
+
+      if (currentPage == 1 && ValidityTitle && ValidityDetail && ValidityCategory && ValidityMember && ValidityPeriod && ValidityScale) {
+        $('.new-post-slider-pc').slick('slickNext');
+        slickCurrent();
+      } else if (currentPage == 1 && ValidityTitle == false || ValidityDetail == false || ValidityCategory == false || ValidityMember == false || ValidityPeriod == false || ValidityScale == false) {
+        $('.new-post-slider-pc').prepend('<div class="post-form-alerts"></div>');
+
+        if (currentPage == 1 && ValidityCategory == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> アイコンを選択してください</p>');
+        }
+        if (currentPage == 1 && ValidityTitle == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> タイトルを入力してください</p>');
+        }
+        if (currentPage == 1 && ValidityDetail == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 詳細を入力してください</p>');
+        }
+        if (currentPage == 1 && ValidityMember == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 募集する役割の人数を追加してください</p>');
+        }
+        if (currentPage == 1 && ValidityPeriod == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 目標製作期間を入力してください (1-24ヶ月以内)</p>');
+        }
+        if (currentPage == 1 && ValidityScale == false) {
+          $('.post-form-alerts').append('<p class="post-form-alert"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> 開発規模を入力してください (募集役割の人数以上)</p>');
+        }
+      }
+
+      if (currentPage == 2) {
+        $('.new-post-slider-pc').slick('slickNext');
+        slickCurrent();
+      }
+
+    });
+
     function slickCurrent() {
       var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
       if (currentPage == 1) {
@@ -791,6 +841,30 @@ $(document).on('turbolinks:load', function () {
 
 
 
+    function slickCurrent() {
+      var currentPage = $('.new-post-slider-pc').slick('slickCurrentSlide') + 1;
+      if (currentPage == 1) {
+        $('.new-post-btn-close').css({'display': 'block'});
+        $('.new-post-btn-prev').css({'display': 'none'});
+        $('.new-post-slick-next').css({'display': 'block'});
+        $('.new-post-btn-private').css({'display': 'none'});
+        $('.new-post-btn-public').css({'display': 'none'});
+        $('.post-color-field-list-wrapper').css({'display': 'block'});
+
+      } else if (currentPage == 2) {
+        $('.new-post-btn-close').css({'display': 'none'});
+        $('.new-post-btn-prev').css({'display': 'block'});
+        $('.new-post-slick-next').css({'display': 'block'});
+        $('.new-post-btn-private').css({'display': 'none'});
+        $('.new-post-btn-public').css({'display': 'none'});
+
+
+        $('.new-post-btn-prev-next').css({'display': 'none'});
+
+
+
+      }
+    }
 
   function slickCurrent() {
       var currentPage = $('.new-post-slider').slick('slickCurrentSlide') + 1;
