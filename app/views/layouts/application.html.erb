@@ -68,7 +68,7 @@
         <div class="side-menu-list bottom-list">
           <ul>
             <li><%= link_to edit_user_path(current_user), method: :get do %><%= fa_icon 'cog' %>アカウント設定<% end %></li>
-            <li><%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon 'sign-out' %>ログアウト<% end %></li>
+            <li class="logout-link"><%= link_to destroy_user_session_path, method: :delete do %><%= fa_icon 'sign-out' %>ログアウト<% end %></li>
           </ul>
         </div>
       </div>
