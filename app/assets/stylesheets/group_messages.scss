@@ -482,6 +482,17 @@
         }
       }
     }
+
+    .leave-btn-wrapper {
+      padding: 30px;
+      text-align: center;
+
+      a {
+        font-size: 14px;
+        color: #f44;
+        text-decoration: none;
+      }
+    }
   }
 
 }
