@@ -718,7 +718,20 @@ div.new-post-btn-public {
   margin-right: 15px;
   margin-top: 15px;
   position: relative;
+  li:nth-child(1) {
+    width: 100px !important;
+    position: relative;
+    left:-45px;
+    top:-2px;
 
+  }
+  li:nth-child(7) {
+    width: 100px !important;
+    position: relative;
+    left:-25px;
+    top:-2px;
+
+  }
   span {
     font-size: 12px;
 
@@ -736,7 +749,7 @@ div.new-post-btn-public {
     width:40px;
     i {
       color: #FE6B6B;
-      font-size: 20px;
+      font-size: 16px;
       &:before {
         font-family: "FontAwesome";
         content: "\f10c";
@@ -749,7 +762,7 @@ div.new-post-btn-public {
 
   .commitment-item-active {
     i {
-      font-size: 20px;
+      font-size: 16px;
       color: #FE6B6B;
       &:before {
         content: "\f111";
