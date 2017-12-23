@@ -113,7 +113,7 @@ class PostsController < ApplicationController
 
   def cancel
     @cancel = TeamMember.find_by(post_id: params[:id], user_id: current_user.id).destroy
-    # current_user.notifications.join_notice_create(@cancel, @cancel.post.user, 'calcel')
+    current_user.notifications.join_notice_create(@cancel, @cancel.post.user, 'cancel')
     flash[:success] = "参加申請を取り消しました"
     redirect_to post_path(params[:id])
   end
@@ -135,7 +135,7 @@ class PostsController < ApplicationController
 
   def refuse
     @member = TeamMember.find_by(post_id: params[:id], user_id: params[:from_user])
-    @member.destroy
+    current_user.notifications.join_notice_create(@member, @member.user, 'refuse')
     flash[:success] = "参加申請を拒否しました"
     redirect_to post_path(params[:id])
   end
