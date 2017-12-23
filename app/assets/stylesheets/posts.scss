@@ -706,6 +706,7 @@ div.new-post-btn-public {
 
 }
 .new-post-commitment-wrap {
+
   padding-top: 15px;
   padding-bottom: 20px;
   background-color: #FAFAFA;
@@ -717,6 +718,7 @@ div.new-post-btn-public {
   margin-right: 15px;
   margin-top: 15px;
   position: relative;
+
   span {
     font-size: 12px;
 
@@ -1879,10 +1881,25 @@ input.jobtype-num {
     max-width: 360px;
     margin: 0 auto;
     padding: 30px 5% 50px;
+    li:nth-child(1) {
+      width: 100px !important;
+      position: relative;
+      left:-40px;
+      top:-2px;
+
+    }
+    li:nth-child(7) {
+      width: 100px !important;
+      position: relative;
+      left:-20px;
+      top:-2px;
+
+    }
 
     span {
       font-size: 12px;
       color: #888;
+
     }
 
     .commitment-item-box {
